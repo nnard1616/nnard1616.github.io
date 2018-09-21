@@ -1,0 +1,860 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Coursera Algoirthms with Roughgarden Pt 4, Week 2 </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/08/25/Coursera-Roughgarden-Algorithms-Pt-4-Wk-2">Coursera Algoirthms with Roughgarden Pt 4, Week 2</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>25 Aug 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/coursera">coursera</a></li>
+                      
+                        <li><a href="/tag/roughgarden">roughgarden</a></li>
+                      
+                        <li><a href="/tag/algorithms">algorithms</a></li>
+                      
+                        <li><a href="/tag/c++">c++</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/08/22/Coursera-Roughgarden-Algorithms-Pt-4-Wk-1" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 4, Week 1" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/08/28/Coursera-Roughgarden-Algorithms-Pt-4-Wk-3" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 4, Week 3" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <p><em class="highlighted">Note: those marked with an asterisk I am not 100% confident in my answer/reasoning.</em></p>
+
+<p><em class="highlighted">Please feel free to discuss the problems and my proposed solutions below!</em></p>
+
+<h2 id="quiz">Quiz</h2>
+
+<h3 id="p1">P1</h3>
+<p><img src="/assets/images/20180825/Algorithms-pt4-wk2-ex1.png" alt="img" class="center-image" /></p>
+
+<p>NP-Complete problems are either all not solvable in polynomial time, or all solvable in polynomial time.  There is no way for there to be some NP-Complete problems to be polynomial-time solvable.</p>
+
+<h3 id="p2">P2</h3>
+<p><img src="/assets/images/20180825/Algorithms-pt4-wk2-ex2.png" alt="img" class="center-image" /></p>
+
+<p>TSP1 reduces to TSP2 and HAM1 reduces to HAM2.  As such, if either TSP2 or HAM2 are polynomial-time solvable, then so are TSP1 and HAM1 respectively.</p>
+
+<h3 id="p3">P3</h3>
+<p><img src="/assets/images/20180825/Algorithms-pt4-wk2-ex3.png" alt="img" class="center-image" /></p>
+
+<p>If cycles are allowed when finding the shortest path between s and t with exactly n-1 edges, then a polynomial-time solvable algorithm, such as a Bellman-Ford recurrence, can be used.</p>
+
+<h3 id="p4">P4</h3>
+<p><img src="/assets/images/20180825/Algorithms-pt4-wk2-ex4.png" alt="img" class="center-image" /></p>
+
+<p>Vertex covers and independent sets are complements of each other.  If you can solve one in <strong class="highlighted">O(T(n))</strong>, then so can the other.  So all three statements are true.</p>
+
+<h3 id="p5">P5</h3>
+<p><img src="/assets/images/20180825/Algorithms-pt4-wk2-ex5.png" alt="img" class="center-image" /></p>
+
+<p>Deleting a vertex of a TSP represented by nodes whose edges are the euclidean distances between the nodes cannot increase the cost of the optimal tour.  Since the edges are euclidean distances, they’ll all be nonnegative. Removing a vertex will result in one less vertex to visit and so the total distance of the optimal tour can only get smaller.</p>
+
+<hr />
+<h2 id="programming-assignment">Programming Assignment</h2>
+
+<p>For this assignment we need to solve the “Traveling Sales-man Problem”, more specifically for a graph of 25 points:</p>
+
+<iframe src="https://www.desmos.com/calculator/xln7dfm7no?embed" class="center-image" width="500px" height="500px" style="border: 1px solid #ccc" frameborder="0"></iframe>
+<p><br /></p>
+
+<p>An exponential, though better than pure brute force, algorithm using dynammic programming was presented in lecture:<br />
+<img src="/assets/images/20180825/TSPAlgo.png" alt="img" class="center-image" /></p>
+
+<p>To see how good/bad the algorithm was, I implemented it exactly as presented in c++.  Here it is below:</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-tspalgo">
+           TSP Algorithm 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-tspalgo" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+</pre></td><td class="code"><pre><span class="kt">void</span> <span class="n">solvePart4Week2Q1</span><span class="p">(){</span>
+    <span class="c1">//Open up file of data point data</span>
+    <span class="n">string</span> <span class="n">filename</span> <span class="o">=</span> <span class="s">"/home/nathan/Programming/OSSU/Core_Theory/"</span>
+            <span class="s">"Algorithms-Roughgarden/Part4/Week2/tsp.txt"</span><span class="p">;</span>
+    <span class="n">ifstream</span> <span class="n">infile</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+    <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    
+    <span class="c1">//read in number of nodes</span>
+    <span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">numberOfNodes</span> <span class="o">=</span> <span class="n">stoi</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+    
+    <span class="c1">//Array of data points</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">dataPoint</span><span class="o">*&gt;</span> <span class="n">V</span><span class="p">;</span>
+    
+    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="c1">//Read in data point values and store in V.</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">)){</span>
+        
+        <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">coors</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="sc">' '</span><span class="p">);</span>
+        
+        <span class="n">x</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">coors</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">coors</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+        
+        <span class="n">V</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="k">new</span> <span class="n">dataPoint</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">));</span>
+        
+        <span class="n">id</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">fixed</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Size of V: "</span> <span class="o">&lt;&lt;</span> <span class="n">V</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" Expected: "</span> <span class="o">&lt;&lt;</span> <span class="n">numberOfNodes</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">getX</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">getY</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+    <span class="c1">//Create Subsets of V that contain 1, mapped by length of subset.</span>
+    
+    <span class="n">map</span><span class="o">&lt;</span> <span class="kt">int</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">dataPoint</span><span class="o">*&gt;&gt;&gt;</span> <span class="n">subsets</span> <span class="o">=</span> <span class="n">generateChoicesOfS</span><span class="p">(</span><span class="n">V</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"finished making sets"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+    <span class="c1">//Create mappings from subsets to corresponding index values of Subset by </span>
+    <span class="c1">//Destination 2D array, A, which is initialized soon hereafter.</span>
+    
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="c1">//for quickest lookup of subset index, via subset pointer.</span>
+    <span class="n">map</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">dataPoint</span><span class="o">*&gt;*</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">subsetIndexing</span><span class="p">;</span>
+    
+    <span class="c1">//for finding index of a difference of two subsets, much slower lookup</span>
+    <span class="c1">//differences are not easily mapped to a subset pointer (though a mapping </span>
+    <span class="c1">//could probably be made...)</span>
+    <span class="n">map</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">dataPoint</span><span class="o">*&gt;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">diffIndexing</span><span class="p">;</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">m</span> <span class="o">&lt;=</span> <span class="n">numberOfNodes</span><span class="p">;</span> <span class="n">m</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">s</span> <span class="o">:</span> <span class="n">subsets</span><span class="p">[</span><span class="n">m</span><span class="p">]){</span>
+            <span class="n">subsetIndexing</span><span class="p">[</span><span class="o">&amp;</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+            <span class="n">diffIndexing</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>   <span class="o">=</span> <span class="n">c</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"finished making subset to array index map, "</span>
+            <span class="s">"now initializing 2D array...."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&gt;</span> <span class="n">A</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">t</span><span class="p">;</span>
+    
+    <span class="c1">//Initialize A[{1},1] to 0, all other A[S, 1] to +infinity, </span>
+    <span class="c1">//where S is in subsets.</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">t</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">numberOfNodes</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">t</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+            <span class="k">else</span>
+                <span class="n">t</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">INT32_MAX</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">A</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">//Initialize A[{1,x}, x] to C_1x as well.</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">subsetOfSize2</span> <span class="o">:</span> <span class="n">subsets</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">A</span><span class="p">[</span> <span class="n">subsetIndexing</span><span class="p">[</span> <span class="o">&amp;</span><span class="n">subsetOfSize2</span> <span class="p">]</span> <span class="p">][</span> <span class="n">subsetOfSize2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">getID</span><span class="p">()</span> <span class="p">]</span> 
+                <span class="o">=</span> <span class="n">subsetOfSize2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">distance</span><span class="p">(</span><span class="o">*</span><span class="n">subsetOfSize2</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Finished initializing A, now running the dynamic programming "</span>
+            <span class="s">"algorithm..."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">dataPoint</span><span class="o">*&gt;</span> <span class="n">diff</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">subsetIndex</span><span class="p">,</span> <span class="n">diffIndex</span><span class="p">;</span>
+    
+    <span class="c1">//cycle through m = 2,3,4,...., n</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">m</span> <span class="o">&lt;=</span> <span class="n">numberOfNodes</span><span class="p">;</span> <span class="n">m</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="s">"..."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        
+        <span class="c1">//cycle through each subset S ⊆ {1,2,3,...,n} of size m and containing 1</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">S</span> <span class="o">:</span> <span class="n">subsets</span><span class="p">[</span><span class="n">m</span><span class="p">]){</span>
+    
+            <span class="c1">//cycle through j in S, skipping j = 1:</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">S</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+                
+                <span class="c1">//cycle through k in S...</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">S</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">k</span><span class="o">++</span><span class="p">){</span>
+                    
+                    <span class="c1">//... skipping k = j (since j = 1 was skipped above, </span>
+                    <span class="c1">//k = 1 will be implicitly skipped as well):</span>
+                    <span class="k">if</span> <span class="p">(</span> <span class="n">j</span> <span class="o">!=</span> <span class="n">k</span><span class="p">){</span>
+                        
+                        <span class="n">diff</span> <span class="o">=</span> <span class="n">S</span><span class="p">;</span>
+                        <span class="n">diff</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">diff</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">j</span><span class="p">);</span>
+                        <span class="n">subsetIndex</span> <span class="o">=</span> <span class="n">subsetIndexing</span> <span class="p">[</span> <span class="o">&amp;</span><span class="n">S</span> <span class="p">];</span>
+                        <span class="n">diffIndex</span>   <span class="o">=</span> <span class="n">diffIndexing</span> <span class="p">[</span> <span class="n">diff</span> <span class="p">];</span>
+                        
+                        <span class="c1">//A[S, j] = min(A[S, j], A[S-{j}, k] + C_kj)  </span>
+                        <span class="c1">//note: C_kj is distance from k to j.</span>
+                        <span class="n">A</span><span class="p">[</span> <span class="n">subsetIndex</span> <span class="p">][</span> <span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">getID</span><span class="p">()</span> <span class="p">]</span> 
+                        <span class="o">=</span> <span class="n">min</span><span class="p">(</span> <span class="n">A</span><span class="p">[</span> <span class="n">subsetIndex</span> <span class="p">][</span> <span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">getID</span><span class="p">()</span> <span class="p">],</span> 
+                               <span class="n">A</span><span class="p">[</span> <span class="n">diffIndex</span> <span class="p">][</span> <span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">getID</span><span class="p">()</span> <span class="p">]</span>
+                               <span class="o">+</span> <span class="n">S</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">distance</span><span class="p">(</span><span class="o">*</span><span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">]));</span>
+                        
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Finished the dynamic programming algorithm,"</span>
+            <span class="s">" now searching for min value..."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+    <span class="c1">//initialize result to max value</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">INT32_MAX</span><span class="p">;</span>
+    
+    <span class="c1">//cycle through j = 2,3,...,n</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">numberOfNodes</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+        
+        <span class="c1">//result = min(result, A[V, j] + C_j1])</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">A</span><span class="p">[</span><span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">V</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">distance</span><span class="p">(</span><span class="o">*</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">])));</span>
+    <span class="p">}</span>
+    
+    <span class="c1">//print result</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Answer: "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of TSP Algorithm</div>
+    </div>
+  </div>
+</div>
+
+<p>I created a quick dataPoint data structure for handling the data and computing euclidean distances between points:</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-datapoint">
+           dataPoint 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-datapoint" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+</pre></td><td class="code"><pre><span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  dataPoint Header                                                          */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="cp">#include &lt;math.h&gt;
+</span>
+<span class="k">class</span> <span class="nc">dataPoint</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    
+    <span class="n">dataPoint</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">);</span>
+    <span class="n">dataPoint</span><span class="p">(</span><span class="k">const</span> <span class="n">dataPoint</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span><span class="o">:</span><span class="n">dataPoint</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">getID</span><span class="p">(),</span> <span class="n">d</span><span class="p">.</span><span class="n">getX</span><span class="p">(),</span> <span class="n">d</span><span class="p">.</span><span class="n">getY</span><span class="p">()){}</span>
+    
+    <span class="kt">double</span> <span class="n">distance</span><span class="p">(</span><span class="n">dataPoint</span> <span class="n">other</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">getID</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">getX</span><span class="p">()</span>  <span class="k">const</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">getY</span><span class="p">()</span>  <span class="k">const</span><span class="p">;</span>
+    
+    <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">dataPoint</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">);</span>
+    
+<span class="k">private</span><span class="o">:</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">ID</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">double</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">;</span>
+    
+<span class="p">};</span>
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  dataPoint Implementation                                                  */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="n">dataPoint</span><span class="o">::</span><span class="n">dataPoint</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">)</span> <span class="o">:</span> <span class="n">ID</span><span class="p">(</span><span class="n">id</span><span class="p">),</span> <span class="n">X</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">Y</span><span class="p">(</span><span class="n">y</span><span class="p">){</span>
+<span class="p">}</span>
+
+<span class="kt">double</span> <span class="n">dataPoint</span><span class="o">::</span><span class="n">distance</span><span class="p">(</span><span class="n">dataPoint</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">pow</span><span class="p">(</span> <span class="n">pow</span><span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">X</span> <span class="o">-</span> <span class="n">other</span><span class="p">.</span><span class="n">getX</span><span class="p">()),</span> <span class="mi">2</span><span class="p">)</span> 
+              <span class="o">+</span> <span class="n">pow</span><span class="p">((</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">Y</span> <span class="o">-</span> <span class="n">other</span><span class="p">.</span><span class="n">getY</span><span class="p">()),</span> <span class="mi">2</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">dataPoint</span><span class="o">::</span><span class="n">getID</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">ID</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">double</span> <span class="n">dataPoint</span><span class="o">::</span><span class="n">getX</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">X</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">double</span> <span class="n">dataPoint</span><span class="o">::</span><span class="n">getY</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">dataPoint</span><span class="o">::</span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">dataPoint</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">getID</span><span class="p">()</span> <span class="o">==</span> <span class="n">other</span><span class="p">.</span><span class="n">getID</span><span class="p">();</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of dataPoint</div>
+    </div>
+  </div>
+</div>
+
+<p>I also needed a way to generate subsets of a given set.  Doing some research online I found a clever way to do so using bit shifting.  The function that generates my subsets is below:</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-subsetgenerator">
+           Subsets Generator 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-subsetgenerator" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="code"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">map</span><span class="o">&lt;</span> <span class="kt">int</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;</span>  <span class="n">generateChoicesOfS</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">set</span><span class="p">){</span>
+    <span class="n">map</span><span class="o">&lt;</span> <span class="kt">int</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+    
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">set</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">n</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">s</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+        
+        <span class="c1">//cycle through possible number of elements</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            
+            <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">j</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="n">s</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">set</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        
+        <span class="c1">//skip empty set</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">continue</span><span class="p">;</span>
+        
+        <span class="c1">//only take those that contain first element.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">set</span><span class="p">[</span><span class="mi">0</span><span class="p">]){</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()].</span><span class="n">push_back</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of Subsets Generator</div>
+    </div>
+  </div>
+</div>
+
+<p>The map it returns organizes the subsets by size.  So if I want all of the subsets with size of 3, just call the map with 3.</p>
+
+<p>As the algorithm is <strong class="highlighted">O(n<sup>2</sup>2<sup>n</sup>)</strong> the implementation takes an awful long time, around 2 hours of run time. Reading the forums on coursera some students discussed an excellent idea using “Divide and Conquer”.  If you split the points into two halves, the algorithm is instant for each case.  Then, using the results of both half-problems, it’s only a few checks away from constructing the optimal solution.  I would like to make a more general implementation of this method, I may return to this another day however as I have other things I need to work on.</p>
+
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/08/22/Coursera-Roughgarden-Algorithms-Pt-4-Wk-1" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 4, Week 1" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/08/28/Coursera-Roughgarden-Algorithms-Pt-4-Wk-3" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 4, Week 3" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/08/25/Coursera-Roughgarden-Algorithms-Pt-4-Wk-2";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

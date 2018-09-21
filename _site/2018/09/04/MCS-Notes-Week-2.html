@@ -1,0 +1,595 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | MCS 1st Semester Week 2 Notes </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/09/04/MCS-Notes-Week-2">MCS 1st Semester Week 2 Notes</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>04 Sep 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/UIUC-MCS">UIUC-MCS</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/09/03/MCS-Notes-Week-1" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 1 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/09/05/Scala-Spec-Pt-1-Wk-1" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Scala Specialization Part 1 Week 1" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <h1 id="cs-410--text-information-systems">CS 410 : Text Information Systems</h1>
+<hr />
+<h2 id="guiding-questions">Guiding Questions</h2>
+
+<ul>
+  <li>What are some different ways to place a document as a vector in the vector space?</li>
+  <li>What is term frequency (TF)?</li>
+  <li>What is TF transformation?</li>
+  <li>What is document frequency (DF)?</li>
+  <li>What is inverse document frequency (IDF)?</li>
+  <li>What is TF-IDF weighting?</li>
+  <li>Why do we need to penalize long documents in text retrieval?</li>
+  <li>What is pivoted document length normalization?</li>
+  <li>What are the main ideas behind the retrieval function BM25?</li>
+  <li>What is the typical architecture of a text retrieval system?</li>
+  <li>What is an inverted index?</li>
+  <li>Why is it desirable to compress an inverted index?</li>
+  <li>How can we create an inverted index when the collection of documents does not fit into the memory?</li>
+  <li>How can we leverage an inverted index to score documents quickly?</li>
+</ul>
+
+<h2 id="key-phrases-and-concepts">Key Phrases and Concepts</h2>
+
+<ul>
+  <li>Term frequency (TF)</li>
+  <li>Document frequency (DF) and inverse document frequency (IDF)</li>
+  <li>TF transformation</li>
+  <li>Pivoted length normalization</li>
+  <li>sBM25</li>
+  <li>Inverted index and postings</li>
+  <li>sBinary coding, unary coding, gamma-coding, and d-gap</li>
+  <li>Zipf’s law</li>
+</ul>
+
+<h2 id="video-lecture-notes">Video Lecture Notes</h2>
+
+<h3 id="21-vector-space-model---improved-instantiation">2.1 Vector Space Model - Improved Instantiation</h3>
+
+<p>Slide 2 : Two problems with Simplest VSM</p>
+<ul>
+  <li>Matching a keyword more times deserves more credit towards a document</li>
+  <li>Matching some keywords may be more important than other keywords (not all keywords are created equal).</li>
+</ul>
+
+<p>Slide 3 : Improved Vector Placement: Term Frequency (how many times it occurs in document) Vector</p>
+<ul>
+  <li>Use counts of each word in query/document instead of 1’s and 0’s</li>
+  <li>Will solve term frequency problem, but will not fix hierarchy of keywords</li>
+</ul>
+
+<p>Slide 6 : Keyword Hierarchy</p>
+<ul>
+  <li>use Inverse Document Frequency of word to help differentiate between low and high priority words</li>
+  <li>IDF(W) = log((M+1)/k), M = Total number of docs in collection, k = total number of docs containing W (words that appear in many documents have lower priority than words that occur in only a relatively small number.</li>
+</ul>
+
+<p>Slide 12 : VSM with TF-IDF effective?</p>
+<ul>
+  <li>works well for some cases, but introduces new problems in other situations</li>
+  <li>Still have problems with words that have high frequency in a document but missing other important keywords.</li>
+</ul>
+
+<h3 id="22--tf-transformation">2.2 : TF Transformation</h3>
+
+<p>Slide 5 : TF Transformation: c(w, d) -&gt; TF(w,d)</p>
+<ul>
+  <li>A way to lessen impact of c(w,d) of unimportant word when using TF-IDF weighting.</li>
+  <li>Best developed so far is BM25: y = (k+1)x/(x+k)  (upper bound of k+1)</li>
+</ul>
+
+<p><img src="/assets/images/20180908/CS410-wk2-img-1.png" alt="img" class="center-image" /></p>
+
+<h3 id="23--doc-length-normalization">2.3 : Doc Length Normalization</h3>
+
+<ul>
+  <li>Length Normalization can be a double edged sword, need to be careful to heavily penalize those with more words and lightly penalize those with more relevant content.</li>
+  <li>Have length normalizer depend on document length and average document length</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>normalizer = 1 - b + b(</td>
+          <td>d</td>
+          <td>)/avdl where b is between 0 and 1.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>State of the Art VSM Ranking Functions:<br />
+<img src="/assets/images/20180908/CS410-wk2-img-2.png" alt="img" class="center-image" /></li>
+</ul>
+
+<p>Slide 7 : Further improvement of VSM?</p>
+<ul>
+  <li>
+    <p>Improved instantiation of dimension?</p>
+  </li>
+  <li>
+    <p>Improved instantiation of similarity function?</p>
+  </li>
+</ul>
+
+<p>Slide 8 : Further improvements of BM25</p>
+<ul>
+  <li>BM25F (combine frequency counts of terms in all fields and then apply BM25 (instead of the other way)</li>
+  <li>BM25+ (add small constant to TF)</li>
+</ul>
+
+<h3 id="24--implementation-of-tr-text-retrieval-systems">2.4 : Implementation of TR (Text Retrieval) Systems</h3>
+
+<p><img src="/assets/images/20180908/CS410-wk2-img-3.png" alt="img" class="center-image" /></p>
+
+<p>rationale behind why inverted index is so fast compared to just sequential search through a document:<br />
+<img src="/assets/images/20180908/CS410-wk2-img-4.png" alt="img" class="center-image" /></p>
+<ul>
+  <li>Two datastructures that can be used:  Dictionary or Posting (<a href="https://en.wikipedia.org/wiki/Inverted_index">inverted index</a>)</li>
+</ul>
+
+<h3 id="25--system-implementation---inverted-index-construction">2.5 : System Implementation - Inverted Index Construction</h3>
+<ul>
+  <li>Most of this lecture spoke about different compression procedures:
+    <ul>
+      <li>unary</li>
+      <li><a href="https://en.wikipedia.org/wiki/Elias_gamma_coding">γ-encoding</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Delta_encoding">δ-encoding</a></li>
+    </ul>
+  </li>
+  <li>The methods in the links above appear different to what Cheng describes in his slides:<br />
+<img src="/assets/images/20180908/CS410-wk2-img-5.png" alt="img" class="center-image" />
+    <h3 id="26--system-implementation---fast-search">2.6 : System Implementation - Fast Search</h3>
+  </li>
+</ul>
+
+<h1 id="cs-425--distributed-systems">CS 425 : Distributed Systems</h1>
+<hr />
+<h2 id="goals">Goals</h2>
+<ul>
+  <li>Know the key differences between cloud computing and previous generations of distributed systems.</li>
+  <li>Design MapReduce programs for a variety of problems.</li>
+  <li>Know how Hadoop schedules jobs.</li>
+</ul>
+
+<h2 id="key-concepts">Key Concepts</h2>
+<ul>
+  <li>Clouds</li>
+  <li>MapReduce</li>
+  <li>Hadoop YARN</li>
+  <li>Sumeet Singh Interview</li>
+</ul>
+
+<h2 id="guiding-questions-1">Guiding Questions</h2>
+<ul>
+  <li>Why is cloud computing popular today?</li>
+  <li>What is different in cloud computing compared to previous generations of distributed systems?</li>
+  <li>How does one program in MapReduce?</li>
+  <li>How does the MapReduce system schedule jobs?</li>
+</ul>
+
+<h2 id="video-lecture-notes-1">Video Lecture Notes</h2>
+
+<h3 id="11--why-clouds">1.1 : Why Clouds?</h3>
+<ul>
+  <li>Many different Cloud services (AWS, Google App Engine, etc)</li>
+</ul>
+
+<p>Slide 5 : Two categories of clouds</p>
+<ul>
+  <li>Private Clouds (within company only)</li>
+  <li>Public Clouds for customers
+    <ul>
+      <li>Amazon S3 (Simple Storage Service): store data</li>
+      <li>Amazon EC2 (Elastic Compute Cloud): upload and run OS images, pay per hour</li>
+      <li>Google App Engine/ Compute Engine</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Slide 6 : Customers Save Time and Money</p>
+
+<h3 id="12--what-is-a-cloud">1.2 : What is a Cloud?</h3>
+<p>Slide 1 : What is it?</p>
+<ul>
+  <li>cluster!</li>
+  <li>supercomputer!</li>
+  <li>datastore!</li>
+  <li>superman!</li>
+  <li>none or all of the above!</li>
+  <li>Course Definition: <strong class="highlighted">Cloud = Lots of Storage + compute cycles nearby</strong></li>
+</ul>
+
+<p>Slide 2 : What is it continued</p>
+<ul>
+  <li>Single or multiple geographical data centers</li>
+</ul>
+
+<p>Slide 3 : Sample Cloud topology<br />
+<img src="/assets/images/20180904/CS425-wk2-img-1.png" alt="img" class="center-image" /></p>
+
+<h3 id="13--intro-to-clouds-history">1.3 : Intro to Clouds: History</h3>
+<p><img src="/assets/images/20180904/CS425-wk2-img-2.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180904/CS425-wk2-img-3.png" alt="img" class="center-image" /></p>
+
+<h3 id="14--intro-to-clouds-whats-new-in-todays-clouds">1.4 : Intro to Clouds: What’s New in Today’s Clouds</h3>
+<ul>
+  <li>Massive Scale</li>
+  <li>On-demand access (pay as you go, anybody!)</li>
+  <li>Data-intensive Nature</li>
+  <li>New Cloud Programming Paradigms (MapReduce/Hadoop, NoSQL/Cassandra/MongoDB, etc)</li>
+  <li>WUE = Annual water usage / IT equipment energy (L/kWh)</li>
+  <li>PUE = Total Facility Power /IT Equipment Power</li>
+  <li>A datacenter consumes 2 MW of power, and out of this only 1.5 MW is used for the computing equipment. What is the PUE of this datacenter?
+    <ul>
+      <li>1.33</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="22--what-is-a-distributed-system">2.2 : What is a Distributed System?</h3>
+<ul>
+  <li>Cloud is one form of a distributed system</li>
+  <li>Course Definition: <strong class="highlighted">A distributed system is a collection of entities(processes), each of which is autonomous, programmable, asynchronous (not working at same time, ie not parallel systems) and failure-prone, and which communicate through an unreliable communication medium.</strong></li>
+</ul>
+
+<h3 id="31--mapreduce-paradigm">3.1 : MapReduce Paradigm</h3>
+<ul>
+  <li>comes from functional programming’s map and reduce</li>
+  <li>Use hashing to evenly distribute reduce tasks among workers</li>
+  <li>The primary difference between Map and Reduce is that Reduces process batches of values associated with the same key while Maps process keys independently.</li>
+  <li>A given Mapreduce program has the Map phase generate 100 key-value pairs with 10 unique keys. How many Reduce tasks can this program have when at least one Reduce task will certainly be assigned no keys when a hash partitioner is used (select all answers that are correct)?”
+    <ul>
+      <li>Between 11 and 101.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="32--mapreduce-examples">3.2 : MapReduce Examples</h3>
+<ul>
+  <li>There are three advantages of Maps and Reduces sorting their outputs:
+    <ul>
+      <li>A Map can know which contiguous sets of its key-value pairs (sharing the same key) need to be sent to one Reduce</li>
+      <li>A Reduce task can call the Reduce function on a contiguous set of key-value pairs (sharing the same key)</li>
+      <li>Sorting as an application becomes very simple to write</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="33--mapreduce-scheduling">3.3 : MapReduce Scheduling</h3>
+<ul>
+  <li>Ensure no reduce tasks start before the map tasks all finish</li>
+  <li>Someone writes a variant of Mapreduce without a barrier, i.e., where Reduces can start before all Maps are done computing. Which of the following are TRUE statements?
+    <ul>
+      <li>A Mapreduce run may be incorrect since some of the key-value pairs generated by Maps may never be processed by a Reduce if the reduce function is called exactly once per key</li>
+      <li>All Mapreduce runs could be correct if Reduces maintain partial results for keys, and update these as new key-value pairs come in</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180904/CS425-wk2-img-4.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180904/CS425-wk2-img-5.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180904/CS425-wk2-img-6.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180904/CS425-wk2-img-7.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>FIFO task management.</li>
+  <li>In YARN, which of the following is dedicated to one job?
+    <ul>
+      <li>Application Master</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="34--mapreduce-fault-tolerance">3.4 : MapReduce Fault-Tolerance</h3>
+<p><img src="/assets/images/20180904/CS425-wk2-img-8.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Speculative execution refers to (Replicative Execution is a better term, the point is to observe tasks, and if one is going super slow, replicate the task on other threads and whichever replica finishes first completes the task):
+    <ul>
+      <li>Replicating slow tasks so that the first copy that finishes, completes the task</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="cs-427--software-engineering">CS 427 : Software Engineering</h1>
+<hr />
+
+<h2 id="goals-and-objectives">Goals and Objectives</h2>
+
+<ul>
+  <li>Explain differences between programming and software engineering.</li>
+  <li>Explain main goals of software engineering.</li>
+  <li>Explain main subareas of software engineering.</li>
+</ul>
+
+<h2 id="video-lecture-notes-2">Video Lecture Notes</h2>
+
+<h3 id="11--origins-of-software-engineering">1.1 : Origins of Software Engineering</h3>
+<ul>
+  <li>programming (single worker) vs software engineering (team of workers)</li>
+</ul>
+
+<h3 id="12--software">1.2 : Software</h3>
+<ul>
+  <li>Malleable</li>
+  <li>Complex</li>
+  <li>Useful</li>
+  <li>Varies</li>
+</ul>
+
+<h3 id="13--software-project">1.3 : Software Project</h3>
+<ul>
+  <li>Development Process (Productivity)</li>
+  <li>Software System (quality)</li>
+  <li>Software Users (Experience)</li>
+</ul>
+
+<h3 id="14--software-engineer">1.4 : Software Engineer</h3>
+<ul>
+  <li>In real world, customer/user requirements for a software are ambiguous, constantly changing</li>
+</ul>
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/09/03/MCS-Notes-Week-1" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 1 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/09/05/Scala-Spec-Pt-1-Wk-1" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Scala Specialization Part 1 Week 1" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/09/04/MCS-Notes-Week-2";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

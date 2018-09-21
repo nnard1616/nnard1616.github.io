@@ -1,0 +1,285 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Karatsuba Multiplication </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/06/10/Karatsuba-Multiplication">Karatsuba Multiplication</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>10 Jun 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/helloworld">helloworld</a></li>
+                      
+                        <li><a href="/tag/algorithmsilluminated">algorithmsilluminated</a></li>
+                      
+                        <li><a href="/tag/adcssra">adcssra</a></li>
+                      
+                        <li><a href="/tag/roughgarden">roughgarden</a></li>
+                      
+                        <li><a href="/tag/coursera">coursera</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/06/09/firstpost" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="First Post" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/06/11/Algorithms-Illuminated-Chapter-1-Exercises" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Algorithms Illuminated Pt 1, Ch 1 Exercises" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <h2 id="algorithms-divide-and-conquer-sorting-and-searching-and-randomized-algorithms">Algorithms: Divide and Conquer, Sorting and Searching, and Randomized Algorithms</h2>
+<hr />
+
+<p>I am starting the 4 course sequence on Algorithms provided by Stanford University via Coursera, taught and organized by Tim Roughgarden.  The first course has a book that accompanies it, Algorithms Illuminated Part 1, which I will be reading through as I complete the course.  In this post I will comment on <span style="color: #C38FD6">Karatsuba Multiplication</span>, an alternative approach to elementary/manual multiplication of two numbers of n digits.<br />
+<br /></p>
+
+<h2 id="karatsuba-multiplication">Karatsuba Multiplication</h2>
+<hr />
+
+<p>In Algorithms Illuminated, page 7, the method is presented as follows:</p>
+
+<p><img src="/assets/images/20180610/karatsuba.jpg" alt="img" class="center-image" /></p>
+
+<p><span style="color: #C38FD6"><em>Note: the answer listed has a typo, it should be 7006652 instead.</em></span><br />
+<br /></p>
+
+<p>Originally I thought it was silly, why would you subtract <code class="highlighter-rouge">ac</code> &amp; <code class="highlighter-rouge">bd</code> from <code class="highlighter-rouge">(a+b)*(c+d)</code> ?  I had done some algebraic analysis:</p>
+
+<p><img src="/assets/images/20180610/proof1.svg" alt="img" class="latexequation" /></p>
+
+<p>which seemed to suggest to me that subtracting <code class="highlighter-rouge">ac</code> &amp; <code class="highlighter-rouge">bd</code> was trivial as they would come back in the end.  I misunderstood though, as the discussion in the book was on recursive calls.  The intent of the book is to use recursion for each multiplication.  If one uses the 5 step process above you could reduce the number of recursive calls to 3: <code class="highlighter-rouge">ac</code>, <code class="highlighter-rouge">bd</code>, <code class="highlighter-rouge">(a+b)*(c+d)</code>; as opposed to 4 recursive calls: <code class="highlighter-rouge">ac</code>, <code class="highlighter-rouge">ad</code>, <code class="highlighter-rouge">bc</code>, <code class="highlighter-rouge">bd</code> if one were to use formula <code class="highlighter-rouge">(1)</code>.  Reducing the number of recursive calls seems like it would improve performance, but I will likely better understand as I read more through this book.</p>
+
+<p>As it turns out, exercise 1.6 asks for an implementation of the Karatsuba Multiplication method, you can find my Java implementation <a href="/2018/06/11/Algorithms-Illuminated-Chapter-1-Exercises">here</a>.</p>
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/06/09/firstpost" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="First Post" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/06/11/Algorithms-Illuminated-Chapter-1-Exercises" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Algorithms Illuminated Pt 1, Ch 1 Exercises" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

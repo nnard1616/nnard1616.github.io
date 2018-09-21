@@ -1,0 +1,638 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | MCS 1st Semester Week 1 Notes </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/09/03/MCS-Notes-Week-1">MCS 1st Semester Week 1 Notes</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>03 Sep 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/UIUC-MCS">UIUC-MCS</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/08/30/Coursera-Roughgarden-Algorithms-Pt-4-Wk-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 4, Week 4" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/09/04/MCS-Notes-Week-2" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 2 Notes" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <h1 id="cs-410--text-information-systems">CS 410 : Text Information Systems</h1>
+<hr />
+<p><img src="/assets/images/20180903/CS410-wk1-img-1.png" alt="img" class="center-image" /></p>
+
+<h2 id="goals-and-objectives">Goals and Objectives</h2>
+<p>After you actively engage in the learning experiences in this module, you should be able to:</p>
+
+<ul>
+  <li>Explain some basic concepts in natural language processing, text information access.</li>
+  <li>Explain why text retrieval is often defined as a ranking problem.</li>
+  <li>Explain the basic idea of the vector space retrieval model and how to instantiate it with the simplest bit-vector representation.</li>
+</ul>
+
+<h2 id="guiding-questions">Guiding Questions</h2>
+<p>Develop your answers to the following guiding questions while watching the video lectures throughout the week.</p>
+
+<ul>
+  <li>What does a computer have to do in order to understand a natural language sentence?</li>
+  <li>What is ambiguity?</li>
+  <li>What is bag-of-words representation? Why do modern search engines use this simple representation of text?</li>
+  <li>What are the two modes of text information access? Which mode does a web search engine such as Google support?</li>
+  <li>When is browsing more useful than querying to help a user find relevant information?</li>
+  <li>Why is a text retrieval task defined as a ranking task?</li>
+  <li>What is a retrieval model?</li>
+  <li>What are the two assumptions made by the Probability Ranking Principle?</li>
+  <li>What is the Vector Space Retrieval Model? How does it work?</li>
+  <li>How do we define the dimensions of the Vector Space Model? What does “bag of words” representation mean?</li>
+  <li>What does the retrieval function intuitively capture when we instantiate a vector space model with bag of words representation and bit representation for documents and queries?</li>
+</ul>
+
+<h2 id="key-phrases-and-concepts">Key Phrases and Concepts</h2>
+<p>Keep your eyes open for the following key terms or phrases as you complete the readings and interact with the lectures. These topics will help you better understand the content in this module.</p>
+
+<ul>
+  <li>Part of speech tagging, syntactic analysis, semantic analysis, and ambiguity</li>
+  <li>“Bag of words” representation</li>
+  <li>Push, pull, querying, browsing</li>
+  <li>Probability ranking principle</li>
+  <li>Relevance</li>
+  <li>Vector space model</li>
+  <li>Dot product</li>
+  <li>Bag of words representation</li>
+  <li>Bit vector representation</li>
+</ul>
+
+<h2 id="video-lecture-notes">Video Lecture Notes</h2>
+
+<h3 id="11-natural-language-content-analysis">1.1 Natural Language Content Analysis</h3>
+
+<ul>
+  <li>NLP: Natural Language Processing</li>
+  <li>Semantic Analysis</li>
+  <li>In general, what we find as easy to read and understand is hard and complex for computers.</li>
+  <li>What we can’t do:
+    <ul>
+      <li>100% Part-Of-Speech (POS) tagging
+        <ul>
+          <li>“He turned <u>off</u> the highway.” vs “He turned <u>off</u> his fan.”</li>
+        </ul>
+      </li>
+      <li>General complete parsing
+        <ul>
+          <li>“A man saw a boy with telescope.”</li>
+        </ul>
+      </li>
+      <li>Precise deep semantic analysis
+        <ul>
+          <li>Will we ever be able to precisely define the meaning of “own’ in “John owns a restaurant.” ?<br />
+<br /></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Robust and general NLP tends to be “shallow” while “deep” understanding doesn’t scale up. (ie, program will only work in conditions they are designed for, will not work in general unrestricted situations).</li>
+  <li>This implies NLP for text retrieval must be generally robust and efficient, shallow NLP at best.</li>
+  <li>“Bag of words” representation (google search) tends to be sufficient for most search tasks (but not all!)
+    <ul>
+      <li>words given together often aligns with their intended meanings, obviating the need for more sophisticated algorithms.</li>
+    </ul>
+  </li>
+  <li>Some text retrieval techniques can naturally address NLP problems</li>
+  <li>However, deeper NLP is needed for complex search tasks.</li>
+</ul>
+
+<h3 id="12-text-access-high-level">1.2 Text Access (high level)</h3>
+
+<p>Slide 1</p>
+<ul>
+  <li>How can a text information system help useres get access to the relevant text data?
+    <ul>
+      <li>push vs pull</li>
+      <li>querying vs browing</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Slide 2</p>
+<ul>
+  <li>Pull mode (search engines)
+    <ul>
+      <li>users take initiative</li>
+      <li>Ad hoc (temporary) information need</li>
+    </ul>
+  </li>
+  <li>Push Mode (recommender systems, newsfeeds)
+    <ul>
+      <li>systems take initiative</li>
+      <li>stable information need (ie, consistent) or system has good knowledge about a user’s need.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Slide 3:  Pull Mode - Querying vs Browsing.</p>
+<ul>
+  <li>Querying
+    <ul>
+      <li>User enters a (keyword) query</li>
+      <li>System returns relevant documents</li>
+      <li>Works well when the user knows what keywords to use</li>
+    </ul>
+  </li>
+  <li>Browsing
+    <ul>
+      <li>User navigates into relevant information by following a path enabled by the structures on the documents</li>
+      <li>works well when the user wants to explore information, doesn’t know what keywords to use, or can’t conveniently enter a query.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Slide 4: Information seeking as sightseeing (An analogy)</p>
+<ul>
+  <li>Sightseeing: Know address of an attraction?
+    <ul>
+      <li>Yes: take a taxi and go directly to the site.</li>
+      <li>No: walk around or take a taxi to a nearby place then walk.</li>
+    </ul>
+  </li>
+  <li>Information seeking: Know exactly what you want to find?
+    <ul>
+      <li>Yes: use the right keywords as a query and find the information directly.</li>
+      <li>No: browse the information space or start with a rough query and then browse.</li>
+    </ul>
+  </li>
+  <li>Need topic map to effectively browse when information seeking, many interesting applications regarding this…</li>
+</ul>
+
+<p>Slide 5: <br />
+<img src="/assets/images/20180903/CS410-wk1-img-2.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Generally combine both push (sometimes referred to as “filtering”) and pull  as well as Browsing and Querying to better serve users</li>
+</ul>
+
+<h3 id="13-text-retrieval-problem-supporting-pull-method">1.3: Text Retrieval Problem (supporting pull method)</h3>
+
+<p>Slide 3: What is Text Retrieval (TR) ?</p>
+<ul>
+  <li>Collection of text documents exists</li>
+  <li>User gives a query to express the information need</li>
+  <li>Search engine system returns relevant documents to users</li>
+  <li>Often called “information retrieval” (IR), but IR is actually much broader (there are others aside from “text”, such as images and audio)</li>
+  <li>known as “search technology’ in industry.</li>
+</ul>
+
+<p>Slide 4: TR vs Database Retrieval</p>
+<ul>
+  <li>Information
+    <ul>
+      <li>Unstructured/free text vs structured data</li>
+      <li>ambiguous vs well-defined semantics</li>
+    </ul>
+  </li>
+  <li>Query
+    <ul>
+      <li>Ambiguous vs well-defined semantics</li>
+      <li>incomplete vs complete specification</li>
+    </ul>
+  </li>
+  <li>Answers
+    <ul>
+      <li>relevant documents vs matched records</li>
+    </ul>
+  </li>
+  <li>TR is an empirically defined problem
+    <ul>
+      <li>can’t mathematically prove one method is better than another</li>
+      <li>must rely on empirical evaluation involving users!</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Slide 5: Formal Formulation of TR</p>
+<ul>
+  <li>Vocabulary (set of words in a language): V</li>
+  <li>query (sequence of words provided by user): q</li>
+  <li>document (sequence of words provided by document) d<sub>i</sub></li>
+  <li>collection (of documents): C</li>
+  <li>Set of relevant documents: R(q) is a subset of C
+    <ul>
+      <li>generally unknown and user-dependent</li>
+      <li>query is a “hint” on which doc is in R(q)</li>
+    </ul>
+  </li>
+  <li>Task = compute R’(q), an approximation of R(q)</li>
+</ul>
+
+<p>Slide 6: How to compute R’(q)</p>
+<ul>
+  <li>Strat 1: Document selection
+    <ul>
+      <li>R’(q) = set of documents in C for which f(d, q) = 1 where f(d, q) is either 0 (fail) or 1 (success).</li>
+      <li>System must decide if a doc is relevant or not (<strong class="highlighted">absolute relevance</strong>)</li>
+    </ul>
+  </li>
+  <li>Strat 2: Document Ranking
+    <ul>
+      <li>R’(q) = set of documents in C for which f(d, q) &gt; Θ where f(d, q) is a relevance measure function, Θ is a cutoff determined by the user</li>
+      <li>System only needs to decide if one doc is more likely relevant than another (<strong class="highlighted">relative relevance</strong>)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Slide 8: Problems of Document Selection (ranking is usually preferred)</p>
+<ul>
+  <li>The classifier is unlikely accurate
+    <ul>
+      <li>“Over-constrained” query results in no relevant documents to return</li>
+      <li>“under-constrained” query results in over delivery.</li>
+      <li>Hard to find the right position between these two extremes.</li>
+    </ul>
+  </li>
+  <li>Even if it is accurate, all relevant documents are not equally relevant (relevance is a matter of degree!)
+    <ul>
+      <li>Prioritization is needed.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Slide 9: Theoretical Justification for Ranking</p>
+<ul>
+  <li>Probability Ranking Principle [Robertson 77]: Returning a ranked list of documents in descending order of probability that a document is relevant to the query is the optimal strategy under the following two assumptions:
+    <ul>
+      <li>The utility of a document (to a user) is independent of the utility of any other document.</li>
+      <li>A user would browse the results sequentially</li>
+    </ul>
+  </li>
+  <li>Do these two assumptions hold?
+    <ul>
+      <li>Neither are necessarily true, but forms a solid foundation for ranking as the primary method.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="14-overview-of-text-retrieval-methods">1.4: Overview of Text Retrieval Methods</h3>
+
+<p>Slide 3 : How to design a Ranking Function</p>
+<ul>
+  <li>Query: q</li>
+  <li>Document: d</li>
+  <li>Ranking function: f(d, q) in <strong>R</strong></li>
+  <li>A good ranking function should rank relevant documents on top of non-relevant ones.</li>
+  <li><strong>Key challenge: how to measure the likelihood that document d is <u>relevant</u> to query q</strong></li>
+  <li>Retrieval model = formalization of relevance (give a computational definition of relevance).</li>
+</ul>
+
+<p>Slide 4 : Many different Retrieval Models</p>
+<ul>
+  <li><strong class="highlighted">Similarity-based models</strong>: f(q, d) = similarity(q,d)
+    <ul>
+      <li>vector space model</li>
+    </ul>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong class="highlighted">Probabilistic models</strong>: f(d, q) = p(R=1</td>
+          <td>d,q), where R is 0 or 1.</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>Classic probabilistic model</li>
+      <li>Language model</li>
+      <li>Divergence-from-randomness model</li>
+    </ul>
+  </li>
+  <li><strong class="highlighted">Probabilistic inference model</strong>:f(q, d) = p(d implies q)</li>
+  <li><strong class="highlighted">Axiomatic Model</strong>: f(q, d) must satisfy a set of constraints.</li>
+  <li>These different models tend to result in similar ranking functions involving similar variables.</li>
+</ul>
+
+<p>Slide 5 : Common Ideas in State of the Art Retrieval Models<br />
+<img src="/assets/images/20180903/CS410-wk1-img-3.png" alt="img" class="center-image" /></p>
+
+<p>Slide 6 : Which Model Works the Best?</p>
+<ul>
+  <li>When optimized, the following models tend to perform equally well [Fang eg al 11]:
+    <ul>
+      <li>Pivoted length normalization</li>
+      <li>BM25</li>
+      <li>Query Likelihood</li>
+      <li>PL2</li>
+    </ul>
+  </li>
+  <li>BM25 is most popular</li>
+</ul>
+
+<h3 id="15--vector-space-model---basic-idea">1.5 : Vector Space Model - Basic Idea</h3>
+
+<p>Slide 3 : Many different Retrieval Models</p>
+<ul>
+  <li>Similarity-based models: f(q,d) = similarity(q,d)
+    <ul>
+      <li>Vector space model</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Slide 5: VSM is a framework</p>
+<ul>
+  <li>Represent a doc/query by a term vector
+    <ul>
+      <li><strong class="highlighted">Term</strong>: basic concept, eg word or phrase</li>
+      <li>Each term defines one dimension</li>
+      <li>N terms define an <strong class="highlighted">N-dimensional space</strong></li>
+      <li><strong class="highlighted">Query</strong> vector: q=(x,…) is query term weight</li>
+      <li><strong class="highlighted">Doc</strong> vector: d=(y,…) is doc term weight</li>
+    </ul>
+  </li>
+  <li>relevance(q,d) is proportional to similarity(<strong class="highlighted">q</strong>,<strong class="highlighted">d</strong>) = f(q,d)</li>
+</ul>
+
+<p>Slide 6: What VSM doesn’t say</p>
+<ul>
+  <li>How to define/select the “basic concept”
+    <ul>
+      <li>concepts are assumed to be orthogonal</li>
+    </ul>
+  </li>
+  <li>How to place docs and query in the space (= how to assign term weights)
+    <ul>
+      <li>Term weight in query indicates importance of term</li>
+      <li>Term weight in doc indicates how well the term characterizes the doc</li>
+    </ul>
+  </li>
+  <li>How to define the similarity measure? (topic of next lecture)</li>
+</ul>
+
+<h3 id="16--vector-space-retrieval-model---simplest-instantiation">1.6 : Vector Space Retrieval Model - Simplest Instantiation</h3>
+
+<p>Slide 7: <br />
+<img src="/assets/images/20180903/CS410-wk1-img-4.png" alt="img" class="center-image" /><br />
+This only measures how many query words are in the document words, it provides nothing on semantic relevance nor repeated words.</p>
+
+<h1 id="cs-425--distributed-systems">CS 425 : Distributed Systems</h1>
+<hr />
+<p>No new content was presented this week.</p>
+
+<h1 id="cs-427--software-engineering">CS 427 : Software Engineering</h1>
+<hr />
+<p>No new (relevant) content was presented this week.</p>
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/08/30/Coursera-Roughgarden-Algorithms-Pt-4-Wk-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 4, Week 4" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/09/04/MCS-Notes-Week-2" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 2 Notes" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/09/03/MCS-Notes-Week-1";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

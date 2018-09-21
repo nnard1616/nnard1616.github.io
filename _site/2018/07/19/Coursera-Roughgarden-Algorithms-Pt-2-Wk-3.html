@@ -1,0 +1,413 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Coursera Algoirthms with Roughgarden Pt 2, Week 3 </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/07/19/Coursera-Roughgarden-Algorithms-Pt-2-Wk-3">Coursera Algoirthms with Roughgarden Pt 2, Week 3</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>19 Jul 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/coursera">coursera</a></li>
+                      
+                        <li><a href="/tag/roughgarden">roughgarden</a></li>
+                      
+                        <li><a href="/tag/algorithms">algorithms</a></li>
+                      
+                        <li><a href="/tag/c++">c++</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/07/17/Coursera-Roughgarden-Algorithms-Pt-2-Wk-2" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 2" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/07/23/Coursera-Roughgarden-Algorithms-Pt-2-Wk-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 4" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <p><em class="highlighted">Note: those marked with an asterisk I am not 100% confident in my answer/reasoning.</em></p>
+
+<p><em class="highlighted">Please feel free to discuss the problems and my proposed solutions below!</em></p>
+
+<h2 id="quiz">Quiz</h2>
+
+<h3 id="p1">P1</h3>
+<blockquote>
+  <p>Suppose you implement the functionality of a priority queue using a sorted array (e.g., from biggest to smallest). What is the worst-case running time of Insert and Extract-Min, respectively? (Assume that you have a large enough array to accommodate the Insertions that you face.)</p>
+</blockquote>
+
+<p>Assuming the priority queue’s push operation uses a linear search to find where to put new items, then it will be <strong class="highlighted">Θ(n)</strong> time for insertion.  However, this can be improved to <strong class="highlighted">Θ(logn)</strong> by using binary search.  Since the array is sorted, it takes constant time to retrieve the min (or max) of the array.</p>
+
+<h3 id="p2">P2</h3>
+<blockquote>
+  <p>Suppose you implement the functionality of a priority queue using an unsorted array. What is the worst-case running time of Insert and Extract-Min, respectively? (Assume that you have a large enough array to accommodate the Insertions that you face.)</p>
+</blockquote>
+
+<p>Assuming the priority queue’s array is not a representation of a min tree (as presented in video 4 on heaps), then it will be <strong class="highlighted">Θ(n)</strong> to extract the min value and constant time to insert (pushed to back of array) new items to the array.</p>
+
+<h3 id="p3">P3</h3>
+<blockquote>
+  <p>You are given a heap with <em>n</em> elements that supports Insert and Extract-Min. Which of the following tasks can you achieve in <strong class="highlighted">O(logn)</strong> time?</p>
+</blockquote>
+
+<p>Assuming the heap is as described in lecture (backed by a min tree represented as an array), then Extract-Min runs at <strong class="highlighted">O(logn)</strong> (due to “bubble down” to update the tree after min extraction).  Finding the 5th smallest element will take a constant number of Extract-Min calls, so finding the 5th smallest element will take <strong class="highlighted">O(logn)</strong> time.</p>
+
+<h3 id="p4">P4</h3>
+<blockquote>
+  <p>You are given a binary tree (via a pointer to its root) with <em>n</em> nodes. As in lecture, let size(x) denote the number of nodes in the subtree rooted at the node x. How much time is necessary and sufficient to compute size(x) for every node x of the tree?</p>
+</blockquote>
+
+<p>Size(x) will need to be applied to each node, so it will be <strong class="highlighted">Θ(n)</strong> time.</p>
+
+<h3 id="p5">P5</h3>
+<blockquote>
+  <p>Suppose we relax the third invariant of red-black trees to the property that there are no three reds in a row. That is, if a node and its parent are both red, then both of its children must be black. Call these relaxed red-black trees. Which of the following statements is not true?</p>
+</blockquote>
+
+<p>For a generic binary search tree (which does not imply a balanced property), simply recoloring the nodes will not be sufficient to convert it to a relaxed red-black tree.  If it were a balanced binary search tree, then it would be sufficient.</p>
+
+<hr />
+<h2 id="programming-assignment">Programming Assignment</h2>
+
+<p>This programming assignment was trivial with the custom priority queue I implemented from last week’s programming assignment.  I needed to add some code to get direct access to elements in the sorted private vector of elements, but otherwise there was no additional code needed to complete this week’s programming assignment.</p>
+
+<p>This week’s assignment gave a stream of integers from 1 to 10000 in random order and asked us to find all of the medians of the 1st, 2nd, 3rd, … n-1, and n integers as they are read from the stream.  After adding the element access functionality to my priority queue, it was trivial to retrieve the successive medians as elements were added.</p>
+
+<p>Below is my short solution:</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-Pt2Wk4Solution">
+           Pt 2 Wk 4 Solution 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-Pt2Wk4Solution" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="code"><pre><span class="kt">void</span> <span class="n">solvePart2Week3PA</span><span class="p">(){</span>
+    <span class="n">pqueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">Q</span><span class="p">;</span>
+    
+    <span class="n">ifstream</span> <span class="n">infile</span><span class="p">(</span><span class="s">"/home/nathan/Programming/OSSU/Core_Theory/Algorithms-Roughgarden/Part2/Week3/Median.txt"</span><span class="p">);</span>
+    
+    <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">number</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="c1">//read in the values into Q, the pqueue</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">)){</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="n">stoi</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+        <span class="n">Q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">number</span><span class="p">);</span> <span class="c1">//O(nlogn)</span>
+        
+        <span class="c1">//add median of current Q, median is found at index half of Q's size.</span>
+        <span class="c1">//(Round to the floor for even number of values)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Q</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">//Even number of values</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">Q</span><span class="p">[</span><span class="n">Q</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+        <span class="k">else</span> <span class="c1">//Odd number of values</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">Q</span><span class="p">[(</span><span class="n">Q</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+        
+        <span class="c1">//instructions only want the last 4 digits of the sum of medians.</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">%</span> <span class="mi">10000</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+    <span class="n">infile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of Solution</div>
+    </div>
+  </div>
+</div>
+
+<p>Performance could be improved if I used a heap as described in lecture (an array backed binary tree), rather than my binary search backed pqueue.</p>
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/07/17/Coursera-Roughgarden-Algorithms-Pt-2-Wk-2" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 2" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/07/23/Coursera-Roughgarden-Algorithms-Pt-2-Wk-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 4" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/07/19/Coursera-Roughgarden-Algorithms-Pt-2-Wk-3";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

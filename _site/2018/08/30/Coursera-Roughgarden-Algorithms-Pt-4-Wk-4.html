@@ -1,0 +1,334 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Coursera Algoirthms with Roughgarden Pt 4, Week 4 </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/08/30/Coursera-Roughgarden-Algorithms-Pt-4-Wk-4">Coursera Algoirthms with Roughgarden Pt 4, Week 4</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>30 Aug 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/coursera">coursera</a></li>
+                      
+                        <li><a href="/tag/roughgarden">roughgarden</a></li>
+                      
+                        <li><a href="/tag/algorithms">algorithms</a></li>
+                      
+                        <li><a href="/tag/c++">c++</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/08/28/Coursera-Roughgarden-Algorithms-Pt-4-Wk-3" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 4, Week 3" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/09/03/MCS-Notes-Week-1" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 1 Notes" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <p><em class="highlighted">Note: those marked with an asterisk I am not 100% confident in my answer/reasoning.</em></p>
+
+<p><em class="highlighted">Please feel free to discuss the problems and my proposed solutions below!</em></p>
+
+<h2 id="quiz">Quiz</h2>
+
+<h3 id="p1">P1</h3>
+<p><img src="/assets/images/20180830/Algorithms-pt4-wk4-ex1.png" alt="img" class="center-image" /></p>
+
+<p>The first one is most definitely false as the generic local search algorithm is only guaranteed to provide a local optimal solution, not a general optimal solution.</p>
+
+<h3 id="p2">P2</h3>
+<p><img src="/assets/images/20180830/Algorithms-pt4-wk4-ex2.png" alt="img" class="center-image" /></p>
+
+<p>It will certainly finish in polynomial number of iterations, that’s the point of the approximate heuristic algorithm.</p>
+
+<h3 id="p3">P3</h3>
+<p><img src="/assets/images/20180830/Algorithms-pt4-wk4-ex3.png" alt="img" class="center-image" /><br />
+This problem is taken directly from Kleinberg/Tardos’ Algorithm Design, Theorem 12.5.  Please feel free to refer to that text for more in depth analysis.</p>
+
+<p>The proof for that theorem is fairly involved for a binary partition, and even more complicated for k partitions.  Refer to my simplified proof below:</p>
+
+<p><img src="/assets/images/20180830/Algorithms-pt4-wk4-ex3-1.svg" alt="img" class="latexequation" /></p>
+
+<p>Note that C is the sum of the weights of the set of edges that cross the clusters, C’ is that of the optimal solution’s.  W is the sum of all of the weights of the edges and A<sub>i</sub> is the sum of the weights of edges exclusively in that corresponding cluster.</p>
+
+<p>See the text for background on why the first line is true.</p>
+
+<h3 id="p4">P4</h3>
+<p><img src="/assets/images/20180830/Algorithms-pt4-wk4-ex4.png" alt="img" class="center-image" /></p>
+
+<p>The probability approaches 100%. (say a sample space of 2 with probability of 99% and -100 with probability of 1%)</p>
+
+<h3 id="p5">P5</h3>
+<p><img src="/assets/images/20180830/Algorithms-pt4-wk4-ex5.png" alt="img" class="center-image" /></p>
+
+<p>In the smallest case, which represents the case with the maximum probability, consider a sample space of 0 and 2 with equal probability.  This will be as large as the probability can go, due to there not being any negative numbers. So 50% is the largest it can be.</p>
+
+<hr />
+<h2 id="programming-assignment">Programming Assignment</h2>
+
+<p>This assignment we are tasked with determining which of six different 2SAT problems are satisfiable.  Since all of the clauses depend on just two variables, it was easy to make a graph representation (via the corresponding equivalent implications implied by the clauses).  With this representation, I was able to re-use my <a href="/2018/07/09/Coursera-Roughgarden-Algorithms-Pt-2-Wk-1">SCC solution</a> to look for SCC’s.  Those that are not satisfiable will have a paradox, ie ~t -&gt; t, within a SCC.  One could search through the SCCs individually to look for paradoxes, but I found an interesting property that permitted me to quickly determine if a paradox exists based on the number and sizes of the SCCs.  If there’s an even number of SCCs with sizes larger than 1, then no paradox exists.  If there’s an odd number of SCCs with size larger than 1, then a paradox exists.  So as a couple of examples:</p>
+
+<ul>
+  <li>5 3 3 1 1 1 1…. would correspond to paradox present as there’s an odd number of SCCs with size 5.</li>
+  <li>8 8 5 5 1 1 1…. would correspond to no paradox present as there’s even numbers of SCCs with size 8 &amp; 5.</li>
+</ul>
+
+<p>So I just calculated and printed the SCCs sorted by decreasing size for each 2SAT problem and determined satisfiability based on the number of SCC sizes.</p>
+
+<p>Since I didn’t change much in my SCC code nor did I write any new interesting code, I refrain from posting any code.</p>
+
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/08/28/Coursera-Roughgarden-Algorithms-Pt-4-Wk-3" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 4, Week 3" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/09/03/MCS-Notes-Week-1" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 1 Notes" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/08/30/Coursera-Roughgarden-Algorithms-Pt-4-Wk-4";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

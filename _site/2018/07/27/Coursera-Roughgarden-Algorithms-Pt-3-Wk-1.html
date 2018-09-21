@@ -1,0 +1,600 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Coursera Algoirthms with Roughgarden Pt 3, Week 1 </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/07/27/Coursera-Roughgarden-Algorithms-Pt-3-Wk-1">Coursera Algoirthms with Roughgarden Pt 3, Week 1</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>27 Jul 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/coursera">coursera</a></li>
+                      
+                        <li><a href="/tag/roughgarden">roughgarden</a></li>
+                      
+                        <li><a href="/tag/algorithms">algorithms</a></li>
+                      
+                        <li><a href="/tag/c++">c++</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/07/23/Coursera-Roughgarden-Algorithms-Pt-2-Wk-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 4" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/07/27/Linking-Static-Libraries-In-Netbeans" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Linking Static Libraries in Netbeans 8.2" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <p><em class="highlighted">Note: those marked with an asterisk I am not 100% confident in my answer/reasoning.</em></p>
+
+<p><em class="highlighted">Please feel free to discuss the problems and my proposed solutions below!</em></p>
+
+<h2 id="quiz">Quiz</h2>
+
+<h3 id="p1">P1</h3>
+<blockquote>
+  <p>We are given as input a set of nn requests (e.g., for the use of an auditorium), with a known start time <em>s<sub>i</sub></em> and finish time <em>t<sub>i</sub></em> for each request <em>i</em>. Assume that all start and finish times are distinct. Two requests conflict if they overlap in time — if one of them starts between the start and finish times of the other. Our goal is to select a maximum-cardinality subset of the given requests that contains no conflicts. (For example, given three requests consuming the intervals [0,3], [2,5], and [4,7], we want to return the first and third requests.) We aim to design a greedy algorithm for this problem with the following form: At each iteration we select a new request <em>i</em>, including it in the solution-so-far and deleting from future consideration all requests that conflict with <em>i</em>.</p>
+
+  <p>Which of the following greedy rules is guaranteed to always compute an optimal solution?</p>
+</blockquote>
+
+<p>By selecting the interval with earliest finish time, we are guaranteed the fewest conflicts with the other intervals resulting in a minimal elimination of intervals at each iteration.  Since a minimal number of intervals are eliminated at each iteration we are guaranteed a maximum-cardinality.</p>
+
+<h3 id="p2">P2</h3>
+<blockquote>
+  <p>We are given as input a set of <em>n</em> jobs, where job <em>j</em> has a processing time <em>p<sub>j</sub></em> and a deadline <em>d<sub>j</sub></em>. Recall the definition of completion times <em>C<sub>j</sub></em> from the video lectures. Given a schedule (i.e., an ordering of the jobs), we define the lateness <em>l<sub>j</sub></em> of job <em>j</em> as the amount of time <em>C<sub>j</sub> - d<sub>j</sub></em> after its deadline that the job completes, or as 0 if <em>C<sub>j</sub></em> ≤ <em>d<sub>j</sub></em>. Our goal is to minimize the maximum lateness, <em>max<sub>j</sub></em> <em>l<sub>j</sub></em>.</p>
+
+  <p>Which of the following greedy rules produces an ordering that minimizes the maximum lateness? You can assume that all processing times and deadlines are distinct.</p>
+</blockquote>
+
+<p>We can get a minimal lateness by ordering the jobs by increasing order of deadline. Here is a proof by exchange for why:</p>
+
+<p>Suppose the jobs are ordered in decreasing order of deadline.  Pick three in order arbitrary jobs: <em>i</em>, <em>j</em>, and <em>k</em>. We see that <em>l<sub>j</sub></em> = <em>C<sub>j</sub></em> - <em>d<sub>j</sub></em> = <em>C<sub>i</sub></em> + <em>p<sub>j</sub></em> - <em>d<sub>j</sub></em> and <em>l<sub>k</sub></em> = <em>C<sub>k</sub></em> - <em>d<sub>k</sub></em> = <em>C<sub>i</sub></em> + <em>p<sub>j</sub></em> + <em>p<sub>k</sub></em> - <em>d<sub>k</sub></em>.  Since <em>j</em> and <em>k</em> are in order, <em>d<sub>j</sub></em> &gt; <em>d<sub>k</sub></em>.  This means that :</p>
+
+<p><img src="/assets/images/20180729/Algorithms-pt3-wk1-ex2-1.svg" alt="img" class="latexequation" /></p>
+
+<p>Now we switch jobs <em>j</em> and <em>k</em>, and let’s denote their lateness symbols as <em>l<sub>j</sub></em>` and <em>l<sub>k</sub></em>`.  Doing the same analysis as above yields an uncertain comparison, ie there’s no way to determine which is bigger between <em>l<sub>j</sub></em>` and <em>l<sub>k</sub></em>`.  However, comparing <em>l<sub>j</sub></em>` and <em>l<sub>k</sub></em>` to  <em>l<sub>k</sub></em> reveals they are both smaller than <em>l<sub>k</sub></em> :</p>
+
+<p><img src="/assets/images/20180729/Algorithms-pt3-wk1-ex2-2.svg" alt="img" class="latexequation" /></p>
+
+<p><img src="/assets/images/20180729/Algorithms-pt3-wk1-ex2-3.svg" alt="img" class="latexequation" /> <br />
+Thus reversing jobs <em>j</em> and <em>k</em> resulted in lateness values smaller than the larger lateness value prior to their reversal.  Since <em>j</em> and <em>k</em> are arbitrary, this will be true for any pair of jobs listed in decreasing order of deadline and we can therefore conclude that <em>max<sub>j</sub></em> <em>l<sub>j</sub></em> is minimized when jobs are listed in increasing order of deadline.<strong class="highlighted">∎</strong></p>
+
+<h3 id="p3">P3</h3>
+<p><img src="/assets/images/20180729/Algorithms-pt3-wk1-ex3.png" alt="img" class="center-image" /></p>
+
+<blockquote class="filename">
+  <p>Algorithm A</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-pseudocode" data-lang="pseudocode"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre>While T has at least one vertex:
+  If T has no edges: 
+    halt and output "T has no perfect matching."
+  Else:
+    Let v be a vertex of T with maximum degree.  &lt;--
+    Choose an arbitrary edge e incident to v.
+    Delete e and its two endpoints from T.
+[end of while loop]
+Halt and output "T has a perfect matching."</pre></td></tr></tbody></table></code></pre></figure>
+
+<blockquote class="filename">
+  <p>Algorithm B</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-pseudocode" data-lang="pseudocode"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre>While T has at least one vertex:
+  If T has no edges: 
+    halt and output "T has no perfect matching."
+  Else:
+    Let v be a vertex of T with minimum non-zero degree.  &lt;--
+    Choose an arbitrary edge e incident to v.
+    Delete e and its two endpoints from T.
+[end of while loop]
+Halt and output "T has a perfect matching."</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>A counter example exists for Algorithm A, a three hop path.  Algorithm B will work every time.  A mini proof by induction (sort of):</p>
+
+<p>Assume that a tree-graph, <strong class="highlighted">T</strong>, has a perfect matching.  The smallest possible tree-graph with a perfect matching is that of a n = 2 and m = 1 graph with both vertices attached. <strong class="highlighted">T</strong>, by the definition of trees, must have at least one vertex with degree 1.  With each iteration of the algorithm, a vertex of degree 1 will always be selected as each resulting graph will be composed of one or more trees.  This will continue until two vertices joined by a vertex remain and the algorithm will complete with an affirmative answer.</p>
+
+<p>Suppose another tree-graph, <strong class="highlighted">T’</strong>, does not have a perfect matching.  The smallest possible tree-graph with no perfect matching is that of n = 1 and m = 0, ie a single vertex with no edges.  As the algorithm iterates, it will eventually generate at least one zero degree vertex.  At this point the algorithm can stop or go until no more edges are left as stated above, and return a negative answer.<strong class="highlighted">∎</strong></p>
+
+<h3 id="p4">P4</h3>
+<p><img src="/assets/images/20180729/Algorithms-pt3-wk1-ex4.png" alt="img" class="center-image" /></p>
+
+<p>A minimum spanning tree will always have n - 1 edges.  So if there exists any other spanning tree then increasing edge costs by 1 will be the same increase as for any other spanning tree.  Thus the minimum spanning tree will be unchanged as there’s no chance for another spanning tree to gain a smaller total edge cost.</p>
+
+<p>For the shortest path, however, the number of edges is not guaranteed.  If there’s another path with fewer edges than the current shortest path, then it will receive a smaller increase to its total edge cost and could end up becoming the new shortest path.</p>
+
+<p>Therefore, the minimum spanning tree will be unchanged and the shortest path could change depending on the tree.</p>
+
+<h3 id="p5">P5</h3>
+<p><img src="/assets/images/20180729/Algorithms-pt3-wk1-ex5.png" alt="img" class="center-image" /></p>
+
+<p>Since H is connected and contains all edges from G that are incident on H’s vertices, then the minimum spanning tree of G is contained within any H.</p>
+
+<p>Additionally, the cut property implies that cuts in G correspond to cuts in H with only fewer crossing edges.</p>
+
+<hr />
+<h2 id="programming-assignment">Programming Assignment</h2>
+
+<h3 id="parts-12">Parts 1&amp;2</h3>
+
+<p>Given a list of jobs containing a weight and a length, implement algorithm to order the jobs in decreasing order of the difference (weight - length).  Then implement the algorithm to sort the jobs in decreasing order of the ratio (weight/length).</p>
+
+<p>Once again, using my personal <a href="/2018/07/17/Coursera-Roughgarden-Algorithms-Pt-2-Wk-2">pqueue data structure from a previous a post</a>, it was trivial to sort the jobs in either of these two methods.  I just needed to define new comparator structs to feed my pqueue, which are defined below:</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-jobsComparators">
+           Jobs Comparators 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-jobsComparators" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">BadJobsComparator</span> <span class="p">{</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="p">()</span> <span class="p">(</span><span class="k">const</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">,</span> 
+                     <span class="k">const</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">y</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">firstDifference</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">first</span> <span class="o">-</span> <span class="n">x</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">secondDifference</span> <span class="o">=</span> <span class="n">y</span><span class="p">.</span><span class="n">first</span> <span class="o">-</span> <span class="n">y</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">firstDifference</span> <span class="o">!=</span> <span class="n">secondDifference</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">firstDifference</span> <span class="o">&gt;</span> <span class="n">secondDifference</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">first</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">typedef</span> <span class="kt">bool</span> <span class="n">result_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">GoodJobsComparator</span> <span class="p">{</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="p">()</span> <span class="p">(</span><span class="k">const</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">,</span> 
+                     <span class="k">const</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">y</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">first</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">second</span> <span class="o">+</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">.</span><span class="n">first</span><span class="o">/</span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">second</span> <span class="o">+</span> <span class="mf">0.0</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">typedef</span> <span class="kt">bool</span> <span class="n">result_type</span><span class="p">;</span>
+<span class="p">};</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of jobsComparators</div>
+    </div>
+  </div>
+</div>
+
+<p>Both implementations run in a few milliseconds.</p>
+
+<h3 id="part-3">Part 3</h3>
+
+<p>Here we implement Prim’s Algorithm for computing the minimum spanning tree.  Using previous graph structures and my pqueue data structure I was able to make quick work of it again.</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-prim">
+           Prim's Algorithm 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-prim" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre></td><td class="code"><pre><span class="kt">int</span> <span class="n">UndirectedWeightedGraph</span><span class="o">::</span><span class="n">prim</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="n">PrimEdge</span><span class="o">*</span> <span class="n">nextPath</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+    <span class="n">PrimNode</span><span class="o">*</span> <span class="n">currentNode</span> <span class="o">=</span> <span class="n">unvisitdedNodeList</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span>
+    
+    <span class="k">while</span> <span class="p">(</span> <span class="o">!</span> <span class="n">unvisitdedNodeList</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+        
+        <span class="c1">//erase current node from unvisitedNodeList map structure.</span>
+        <span class="n">unvisitdedNodeList</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">getValue</span><span class="p">());</span>
+        
+        <span class="c1">//add current node to visitedNodeList map structure.</span>
+        <span class="n">visitedNodeList</span><span class="p">[</span><span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">getValue</span><span class="p">()]</span> <span class="o">=</span> <span class="n">currentNode</span><span class="p">;</span>
+        
+        <span class="c1">//mark current node as visited</span>
+        <span class="n">currentNode</span><span class="o">-&gt;</span><span class="n">setVisited</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+        
+        <span class="c1">//have pqueue structures re-order edges.</span>
+        <span class="n">edgeList</span><span class="p">.</span><span class="n">update</span><span class="p">();</span>
+        <span class="n">minCostEdgeList</span><span class="p">.</span><span class="n">update</span><span class="p">();</span>
+        
+        <span class="c1">//get next path to add to our minCostEdgeList, a pqueue</span>
+        <span class="n">nextPath</span> <span class="o">=</span> <span class="n">edgeList</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+        
+        <span class="c1">//prevent duplicate of least cost edge</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">nextPath</span><span class="o">-&gt;</span><span class="n">oneVisited</span><span class="p">())</span>
+            
+            <span class="c1">//add nextPath to MST</span>
+            <span class="n">minCostEdgeList</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">nextPath</span><span class="p">);</span>
+        
+        <span class="c1">//assign currentNode to the other unvisited node of this edge</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">nextPath</span><span class="o">-&gt;</span><span class="n">getFirst</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">isVisited</span><span class="p">())</span>
+            <span class="n">currentNode</span> <span class="o">=</span> <span class="n">nextPath</span><span class="o">-&gt;</span><span class="n">getFirst</span><span class="p">();</span>
+        <span class="k">else</span>
+            <span class="n">currentNode</span> <span class="o">=</span> <span class="n">nextPath</span><span class="o">-&gt;</span><span class="n">getSecond</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">sumMin</span><span class="p">();</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of Prim's Algorithm</div>
+    </div>
+  </div>
+</div>
+
+<p>It runs in milliseconds.  Ideally I should have defined a new comparator for my pqueue structures that hold the edges, but for whatever reason I was having weird compile errors.  So instead I overloaded the &lt; operator of my Edge class:</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-edgelessthan">
+           Edge Less Than 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-edgelessthan" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="kt">bool</span> <span class="n">PrimEdge</span><span class="o">::</span><span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span> <span class="n">PrimEdge</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">oneVisited</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span> <span class="n">e</span><span class="p">.</span><span class="n">oneVisited</span><span class="p">())</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">oneVisited</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">e</span><span class="p">.</span><span class="n">oneVisited</span><span class="p">())</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">getWeight</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">getWeight</span><span class="p">();</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of Edge Less Than</div>
+    </div>
+  </div>
+</div>
+
+<p>This allows the pqueue to sort the edges with those with strictly one visited node up front and in order of increasing weight in the list.  This will ensure that only those that are available for picking (ie, edges with only one visited node) are at the front.</p>
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/07/23/Coursera-Roughgarden-Algorithms-Pt-2-Wk-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 4" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/07/27/Linking-Static-Libraries-In-Netbeans" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Linking Static Libraries in Netbeans 8.2" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/07/27/Coursera-Roughgarden-Algorithms-Pt-3-Wk-1";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

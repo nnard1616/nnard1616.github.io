@@ -1,0 +1,15 @@
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#{{include.toggle-name}}" >
+          {% if include.button-text %} {{include.button-text}} {% else %} Open {% endif %}
+        </button>
+      </h4>
+    </div>
+    <div id="{{include.toggle-name}}" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body" >{{include.toggle-text | markdownify }}</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">{{include.footer}}</div>
+    </div>
+  </div>
+</div>

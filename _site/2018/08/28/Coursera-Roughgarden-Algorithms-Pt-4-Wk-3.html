@@ -1,0 +1,558 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Coursera Algoirthms with Roughgarden Pt 4, Week 3 </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/08/28/Coursera-Roughgarden-Algorithms-Pt-4-Wk-3">Coursera Algoirthms with Roughgarden Pt 4, Week 3</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>28 Aug 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/coursera">coursera</a></li>
+                      
+                        <li><a href="/tag/roughgarden">roughgarden</a></li>
+                      
+                        <li><a href="/tag/algorithms">algorithms</a></li>
+                      
+                        <li><a href="/tag/c++">c++</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/08/25/Coursera-Roughgarden-Algorithms-Pt-4-Wk-2" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 4, Week 2" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/08/30/Coursera-Roughgarden-Algorithms-Pt-4-Wk-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 4, Week 4" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <p><em class="highlighted">Note: those marked with an asterisk I am not 100% confident in my answer/reasoning.</em></p>
+
+<p><em class="highlighted">Please feel free to discuss the problems and my proposed solutions below!</em></p>
+
+<h2 id="quiz">Quiz</h2>
+
+<h3 id="p1">P1</h3>
+<p><img src="/assets/images/20180828/Algorithms-pt4-wk3-ex1.png" alt="img" class="center-image" /></p>
+
+<p>Let S’ be the optimal min-size subset of vertices and S be the subset returned by the greedy algorithm.  Since edges were selected with no common vertices prior to addition to S, none of the edges in S contain common endpoints.  As such, in order for S to be a vertex cover of G one only need one endpoint of each edge that was added to S and this ends up halving the total number of endpoints in S.  Therefore, |S| ≤ 2 * |S’|.∎</p>
+
+<h3 id="p2">P2</h3>
+<p><img src="/assets/images/20180828/Algorithms-pt4-wk3-ex2.png" alt="img" class="center-image" /></p>
+
+<p>This problem is taken directly from Cormen et al’s Introduction to Algorithms 3rd edition, Theorem 35.4 and Corollary 35.5.  The proof for Theorem 35.4 is rather lengthy and involved so I direct anyone reading this to refer to that text for a full explanation to this problem.  I understand and believe the proofs presented in the text, but I am unable to explain in layman’s what it means nor do I want to make the incredible effort of re-proving it.</p>
+
+<h3 id="p3">P3</h3>
+<p><img src="/assets/images/20180828/Algorithms-pt4-wk3-ex3.png" alt="img" class="center-image" /></p>
+
+<p>Let C* be an optimal solution pair of sets from the collection of S<sub>1</sub>, S<sub>2</sub>,…, S<sub>m</sub>.  Denote the solution pair as S<sub>i</sub> and S<sub>j</sub>, chosen in that order.  Note then that |S<sub>i</sub>| ≥ |C*|/2 because otherwise S<sub>j</sub> would have been picked first instead.  Denote the elements in C* that are not already in S<sub>i</sub> as x.  The second subset S<sub>j</sub> must then contain half of the elements in x, otherwise either some other subset in the collection, say S<sub>k</sub>, would have been the second selection or x is not actually as large as originally assumed.  If we assume |S<sub>i</sub>| equals its lower boundary limit of |C*|/2, then x is also |C*|/2.  And since S<sub>j</sub> must contain half of x’s elements, |S<sub>j</sub>|’s lower boundary limit will have to be half of |C*|/2, or |C*|/4.  This means the overall lower limit of any sub-optimal solution from the algorithm will have to be |C*|/2 + |C*|/4 = 3|C*|/4.∎</p>
+
+<h3 id="p4">P4</h3>
+<p><img src="/assets/images/20180828/Algorithms-pt4-wk3-ex4.png" alt="img" class="center-image" /></p>
+
+<p>This problem is taken directly from Kleinberg/Tardos’ Algorithm Design, Theorem 11.3.  Please feel free to refer to that text for more in depth analysis.</p>
+
+<p>Let A = average load across the m machines,  (Sum job times)/m, and B = maximum job time.  Denote T’ as the optimal makespan, and note that T’ ≥ A and T’ ≥ B.  Since the jobs are added as they are read, the last job determines the makespan so we will analyze the last job to be added with t<sub>j</sub> process time.  Denote the last machine to receive the last job as M<sub>i</sub> and its total load after receiving the last job as T<sub>i</sub>.  This means its load prior to receiving job t<sub>j</sub> was T<sub>i</sub> - t<sub>j</sub>.  Additionally, since it was the last machine to receive a job, this means its load was the smallest of all the other machines.  As such, each machine had a load at least T<sub>i</sub> - t<sub>j</sub>.  Summing these all up, we get Sum(T’s) ≥ m(T<sub>i</sub> - t<sub>j</sub>), or equivalently: T<sub>i</sub> - t<sub>j</sub> ≤ A. Recall that T’ ≥ A, so this means that T<sub>i</sub> - t<sub>j</sub> ≤ T’.  And since T’ ≥ B, we know that T’ ≥ t<sub>j</sub> which then implies: T<sub>i</sub> = (T<sub>i</sub> - t<sub>j</sub>) +  t<sub>j</sub> ≤ 2T’.  Or just T ≤ 2T’. ∎</p>
+
+<h3 id="p5">P5</h3>
+<p><img src="/assets/images/20180828/Algorithms-pt4-wk3-ex5.png" alt="img" class="center-image" /></p>
+
+<p>Once again, this problem is taken directly from Kleinberg/Tardos’ Algorithm Design, Theorem 11.5.  Please feel free to refer to that text for more in depth analysis.</p>
+
+<p>Firstly, if there are more than m jobs, then T’ ≥ 2t<sub>m+1</sub>.  Note that the jobs are in decreasing sorted order.  So every job up to the m+1 job will be at least t<sub>m+1</sub>.  Since there’s m machines and m+1 jobs, one machine will have two jobs (pigeon hole).  The machine with two jobs will have a total processing time of at least 2t<sub>m+1</sub>.  Since jobs were added in decreasing order, we can then presume T’ ≥ 2t<sub>m+1</sub>, or 0.5 T’ ≥ t<sub>m+1</sub></p>
+
+<p>Now we follow a proof similar to the one used in problem 4; let’s assume machine M<sub>i</sub> is the next machine to receive a job and it has at least two jobs assigned to it already.  An incoming job, j, will have t<sub>j</sub> ≤ t<sub>m+1</sub> ≤ 0.5 T’.  Now in following the proof from problem 4, we get T<sub>i</sub> - t<sub>j</sub> ≤ T’.  Since  t<sub>j</sub> ≤ 0.5 T’, we can then conclude T<sub>i</sub> ≤ 1.5T’.∎</p>
+
+<hr />
+<h2 id="programming-assignment">Programming Assignment</h2>
+
+<p>For this programming assignment we look at the TSP again, but this time with a much larger data set (37000+).  This time around the exponential deterministic algorithm from last week will not cut it, so we must make use of an approximate polynomial-time algorithm, which is the following:</p>
+
+<ol>
+  <li>Start the tour at the first city.</li>
+  <li>Repeatedly visit the closest city that the tour hasn’t visited yet. In case of a tie, go to the closest city with the lowest index. For example, if both the third and fifth cities have the same distance from the first city (and are closer than any other city), then the tour should begin by going from the first city to the third city.</li>
+  <li>Once every city has been visited exactly once, return to the first city to complete the tour.</li>
+</ol>
+
+<p>The data points are already in order by ID number (1, 2, 3,…), but are also, interestingly, in order of increasing x coordinate.  Using the triangle inequality theorem, we can gain a computational advantage.  Instead of having to compare a point to all potential points, we only need to compare points until the minimum recorded distance so far is less than the difference in x coordinates. With this optimization, the following code can run in about 6 seconds:</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-tspalgo">
+           TSP Algorithm 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-tspalgo" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+</pre></td><td class="code"><pre><span class="kt">void</span> <span class="n">solvePart4Week3Q1</span><span class="p">(){</span>
+    <span class="c1">//Open up file of data point data</span>
+    <span class="n">string</span> <span class="n">filename</span> <span class="o">=</span> <span class="s">"/home/nathan/Programming/OSSU/Core_Theory/"</span>
+            <span class="s">"Algorithms-Roughgarden/Part4/Week3/nn.txt"</span><span class="p">;</span>
+    <span class="n">ifstream</span> <span class="n">infile</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+    <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    
+    <span class="c1">//read in number of nodes</span>
+    <span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">numberOfNodes</span> <span class="o">=</span> <span class="n">stoi</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+    
+    <span class="c1">//create and populate array of data points</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">dataPoint</span><span class="o">*&gt;</span> <span class="n">V</span><span class="p">;</span>
+    
+    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    
+    <span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+    
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">coors</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="sc">' '</span><span class="p">);</span>
+        
+    <span class="n">x</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">coors</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">coors</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    
+    <span class="n">dataPoint</span> <span class="n">start</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+    <span class="n">id</span><span class="o">++</span><span class="p">;</span>
+    
+    <span class="n">start</span><span class="p">.</span><span class="n">setPrevious</span><span class="p">(</span><span class="o">&amp;</span><span class="n">start</span><span class="p">);</span>
+    
+    <span class="c1">//Read in data point values and store in V.</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span> <span class="p">){</span>
+        
+        <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">coors</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="sc">' '</span><span class="p">);</span>
+        
+        <span class="n">x</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">coors</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">coors</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+        
+        <span class="n">V</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="k">new</span> <span class="n">dataPoint</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">));</span>
+        
+        <span class="n">id</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">setprecision</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">fixed</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Size of V: "</span> <span class="o">&lt;&lt;</span> <span class="n">V</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> 
+         <span class="o">&lt;&lt;</span> <span class="s">" Expected: "</span> <span class="o">&lt;&lt;</span> <span class="n">numberOfNodes</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">start</span><span class="p">.</span><span class="n">getPrevious</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getID</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+    <span class="c1">//initialize distance, d</span>
+    <span class="kt">double</span> <span class="n">totalPathDistance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">dx</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">minSD</span> <span class="o">=</span> <span class="mi">1000000000</span><span class="p">;</span> <span class="c1">//min square distance for current iteration</span>
+    <span class="kt">double</span> <span class="n">tempMinSD</span><span class="p">;</span>
+    
+    <span class="kt">int</span> <span class="n">currNodeComp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//number of comparisons made with current node</span>
+    <span class="kt">int</span> <span class="n">totalComparisons</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//counts total comparisons made.</span>
+    <span class="kt">int</span> <span class="n">nodesProcessed</span> <span class="o">=</span>  <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">nextIndex</span><span class="p">;</span>
+    
+    
+    <span class="c1">//while V is not empty</span>
+    <span class="k">while</span><span class="p">(</span><span class="o">!</span> <span class="n">V</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+        
+        <span class="n">currNodeComp</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">V</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">currNodeComp</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">tempMinSD</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">squareDistance</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">start</span><span class="p">.</span><span class="n">getPrevious</span><span class="p">()));</span>
+            
+            <span class="k">if</span> <span class="p">(</span> <span class="n">tempMinSD</span> <span class="o">&lt;</span> <span class="n">minSD</span><span class="p">){</span>
+                <span class="n">minSD</span> <span class="o">=</span> <span class="n">tempMinSD</span><span class="p">;</span>
+                <span class="n">nextIndex</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="c1">//datapoints happen to be sorted by x coordinate...</span>
+            <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">getX</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">.</span><span class="n">getPrevious</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getX</span><span class="p">());</span>
+            
+            <span class="k">if</span> <span class="p">(</span><span class="n">minSD</span> <span class="o">&lt;</span> <span class="n">dx</span><span class="o">*</span><span class="n">dx</span><span class="p">){</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        
+        <span class="n">totalComparisons</span> <span class="o">+=</span> <span class="n">currNodeComp</span><span class="p">;</span>
+        <span class="n">start</span><span class="p">.</span><span class="n">setPrevious</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="n">nextIndex</span><span class="p">]);</span>
+        <span class="n">V</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">V</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="n">nextIndex</span><span class="p">);</span>
+        <span class="n">totalPathDistance</span><span class="o">+=</span><span class="n">pow</span><span class="p">(</span><span class="n">minSD</span><span class="p">,</span><span class="mf">0.5</span><span class="p">);</span>
+        
+        <span class="n">nodesProcessed</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">nodesProcessed</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">nodesProcessed</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span> <span class="o">&lt;&lt;</span>  <span class="n">V</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> 
+                 <span class="o">&lt;&lt;</span> <span class="s">" remaining, with distance of "</span> <span class="o">&lt;&lt;</span> <span class="n">totalPathDistance</span> 
+                 <span class="o">&lt;&lt;</span> <span class="s">", broken at "</span> <span class="o">&lt;&lt;</span> <span class="n">currNodeComp</span> <span class="o">&lt;&lt;</span> <span class="s">" when the minDN was at: "</span> 
+                 <span class="o">&lt;&lt;</span> <span class="n">nextIndex</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">minSD</span> <span class="o">=</span> <span class="mi">1000000000</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="n">totalPathDistance</span> <span class="o">+=</span> <span class="n">start</span><span class="p">.</span><span class="n">distance</span><span class="p">(</span><span class="o">*</span><span class="n">start</span><span class="p">.</span><span class="n">getPrevious</span><span class="p">());</span>
+    <span class="c1">//print d</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">totalPathDistance</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"total comparisons: "</span> <span class="o">&lt;&lt;</span> <span class="n">totalComparisons</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of TSP Algorithm</div>
+    </div>
+  </div>
+</div>
+
+<p>Strangely, a vector data structure performs better than a list data structure.  I would think everything would be comparable aside from the deletion of elements, which list should perform better with as there’s no need to shift contiguous data as with the vector (I think?).  But, vector outperforms the list in this algorithm somehow…</p>
+
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/08/25/Coursera-Roughgarden-Algorithms-Pt-4-Wk-2" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 4, Week 2" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/08/30/Coursera-Roughgarden-Algorithms-Pt-4-Wk-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 4, Week 4" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/08/28/Coursera-Roughgarden-Algorithms-Pt-4-Wk-3";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,945 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Coursera Algoirthms with Roughgarden Pt 3, Week 2 </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/08/16/Coursera-Roughgarden-Algorithms-Pt-3-Wk-2">Coursera Algoirthms with Roughgarden Pt 3, Week 2</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>16 Aug 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/coursera">coursera</a></li>
+                      
+                        <li><a href="/tag/roughgarden">roughgarden</a></li>
+                      
+                        <li><a href="/tag/algorithms">algorithms</a></li>
+                      
+                        <li><a href="/tag/c++">c++</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/07/27/Linking-Static-Libraries-In-Netbeans" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Linking Static Libraries in Netbeans 8.2" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/08/17/Coursera-Roughgarden-Algorithms-Pt-3-Wk-3" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 3, Week 3" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <p><em class="highlighted">Note: those marked with an asterisk I am not 100% confident in my answer/reasoning.</em></p>
+
+<p><em class="highlighted">Please feel free to discuss the problems and my proposed solutions below!</em></p>
+
+<h2 id="quiz">Quiz</h2>
+
+<h3 id="p1">*P1</h3>
+<p><img src="/assets/images/20180816/Algorithms-pt3-wk2-ex1.png" alt="img" class="center-image" /></p>
+
+<p>Both might fail to compute a maximum-weight acyclic subgraph because for any edge <strong class="highlighted">e</strong> that gets selected at any iteration, there could be a set of edges with smaller weights but sum to a value larger than the cost of <strong class="highlighted">e</strong> and still yield a DAG.</p>
+
+<h3 id="p2">P2</h3>
+<p><img src="/assets/images/20180816/Algorithms-pt3-wk2-ex2.png" alt="img" class="center-image" /></p>
+
+<p>Making the edge costs negative won’t prevent finding a minimum spanning tree in either algorithm, so both will work.  However, since ties are broken arbitrarily, both algorithms may not produce the same minimum spanning tree.</p>
+
+<h3 id="p3">P3</h3>
+<p><img src="/assets/images/20180816/Algorithms-pt3-wk2-ex3.png" alt="img" class="center-image" /></p>
+
+<p>Kruskal’s algorithm proceeds by sorting the edges from least to greatest and then removes edges in order of increasing weight as long as they are not part of a cycle.  The proposed algorithm is the inverse of Kruskal’s algorithm and will thereby produce the same partition of edges.  Therefore this algorithm will always output a minimum spanning tree.</p>
+
+<h3 id="p4">P4</h3>
+<p><img src="/assets/images/20180816/Algorithms-pt3-wk2-ex4.png" alt="img" class="center-image" /></p>
+
+<p>For every edge in a MST, there is a cut for which that edge is the cheapest one crossing it.  So any other spanning tree will have a maximum edge cost equal to or greater than that of a MST.  Thus, an MST is always a minimum bottleneck spanning tree.</p>
+
+<p>However, just because a tree has the smallest max edge cost possible does not guarantee that it is overall a MST.  As a counterexample, consider a triangle with two unequal, relatively small edge costs and one really large edge cost.  Two different bottleneck spanning trees can be made, but only one of them is a MST.</p>
+
+<p>In other words, a MST is a subset, with unary cardinality, of bottleneck spanning trees of a given graph.</p>
+
+<h3 id="p5">P5</h3>
+<p><img src="/assets/images/20180816/Algorithms-pt3-wk2-ex5.png" alt="img" class="center-image" /></p>
+
+<p>All of them are correct.  If an edge is in the MST and we decrease its cost, the MST won’t be affected.  Likewise if we increase the cost of an edge outside of the MST.</p>
+
+<p>If we decrease the cost of an edge, <strong class="highlighted">e</strong>, outside of the MST we can recompute the MST by examining each edge in the MST and see which one, if any, can be replaced with <strong class="highlighted">e</strong>.  Likewise if we were to increase the cost of an edge inside of the MST, then we search the edges outside of the MST to see if an improved MST can be made.</p>
+
+<p>Therefore, all possibilities listed can be done in <strong class="highlighted">O(m)</strong> time.</p>
+
+<hr />
+<h2 id="programming-assignment">Programming Assignment</h2>
+
+<p>For both programming assignment problems, we need to make use of a unionFind datastructure.  Here is my implementation below (maybe not the best implementation…):</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-unionFind">
+           unionFind 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-unionFind" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+</pre></td><td class="code"><pre><span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  unionFind Header                                                          */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cp">#include "../Graph/PrimNode.h"
+#include &lt;iterator&gt;
+</span>
+<span class="cp">#include &lt;map&gt;
+</span><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="p">;</span>
+
+<span class="cp">#include &lt;vector&gt;
+</span><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="p">;</span>
+
+<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="kt">int</span> <span class="n">c_size_t</span><span class="p">;</span> <span class="c1">//size of cluster </span>
+<span class="k">typedef</span> <span class="kt">int</span> <span class="n">leader_t</span><span class="p">;</span> <span class="c1">//value of leader node</span>
+
+<span class="k">class</span> <span class="nc">unionFind</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">unionFind</span><span class="p">(</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">PrimNode</span><span class="o">*&gt;</span> <span class="n">nodeList</span><span class="p">);</span>
+    
+    <span class="cm">/**
+     * Finds the head value of x's cluster.
+     * @param x
+     * @return Head of x's cluster, or -1 if x does not exist.
+     */</span>
+    <span class="kt">int</span> <span class="n">find</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">);</span>
+    
+    <span class="cm">/**
+     * Unions the two clusters that i and j belong in, if they exist and are 
+     * separate clusters.
+     * @param i
+     * @param j
+     * @return true if successful, false otherwise.
+     */</span>
+    <span class="kt">bool</span> <span class="n">unionClusters</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">);</span>
+    
+    <span class="kt">int</span> <span class="n">numberOfClusters</span><span class="p">();</span>
+    
+    <span class="cm">/**
+     * Returns a pair containing the ID of the cluster that i is in and the size
+     * of that cluster.  This function calls this.find(int) and 
+     * this.unionClusters(int,int) in turn calls this.sizeOfCluster(int), so 
+     * it made sense to me to have sizeOfCluste also return the ID of the 
+     * cluster so that unionClusters doesn't have to call find unnecessarily.
+     * @param i
+     * @return 
+     */</span>
+    <span class="n">pair</span><span class="o">&lt;</span><span class="n">leader_t</span><span class="p">,</span><span class="n">c_size_t</span><span class="o">&gt;</span> <span class="n">sizeOfCluster</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">);</span>
+    
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span> <span class="n">PrimNode</span><span class="o">*&gt;</span> <span class="o">&gt;</span> <span class="n">clusters</span><span class="p">;</span>
+    
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">PrimNode</span><span class="o">*&gt;</span> <span class="n">nodeList</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  unionFind Implementation                                                  */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="n">unionFind</span><span class="o">::</span><span class="n">unionFind</span><span class="p">(</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">PrimNode</span><span class="o">*&gt;</span> <span class="n">nodeList</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// set nodeList field</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">nodeList</span> <span class="o">=</span> <span class="n">nodeList</span><span class="p">;</span>
+    
+    <span class="c1">// populate clusters</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">PrimNode</span><span class="o">*&gt;</span> <span class="n">cluster</span><span class="p">;</span>
+    <span class="kt">int</span>       <span class="n">id</span><span class="p">;</span>
+    <span class="n">PrimNode</span><span class="o">*</span> <span class="n">p</span><span class="p">;</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nodeList</span><span class="p">){</span>
+        <span class="n">id</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
+        <span class="n">p</span>  <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+        
+        <span class="n">cluster</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="k">new</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">PrimNode</span><span class="o">*&gt;</span><span class="p">);</span>
+        <span class="n">cluster</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+        
+        <span class="n">clusters</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">unionFind</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span><span class="p">{</span>
+        <span class="n">nodeList</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">nodeList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">getLeader</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getValue</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">out_of_range</span><span class="p">){</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">unionFind</span><span class="o">::</span><span class="n">numberOfClusters</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">clusters</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">pair</span><span class="o">&lt;</span><span class="n">leader_t</span><span class="p">,</span><span class="n">c_size_t</span><span class="o">&gt;</span> <span class="n">unionFind</span><span class="o">::</span><span class="n">sizeOfCluster</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">pair</span><span class="o">&lt;</span><span class="n">leader_t</span><span class="p">,</span> <span class="n">c_size_t</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">first</span>  <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">second</span> <span class="o">=</span> <span class="n">clusters</span><span class="p">[</span> <span class="n">n</span> <span class="p">].</span><span class="n">size</span><span class="p">();</span> 
+    <span class="p">}</span> <span class="k">else</span><span class="p">{</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">first</span>  <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">second</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">unionFind</span><span class="o">::</span><span class="n">unionClusters</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+    
+    <span class="n">pair</span><span class="o">&lt;</span><span class="n">leader_t</span><span class="p">,</span><span class="n">c_size_t</span><span class="o">&gt;</span> <span class="n">iPair</span> <span class="o">=</span> <span class="n">sizeOfCluster</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">pair</span><span class="o">&lt;</span><span class="n">leader_t</span><span class="p">,</span><span class="n">c_size_t</span><span class="o">&gt;</span> <span class="n">jPair</span> <span class="o">=</span> <span class="n">sizeOfCluster</span><span class="p">(</span><span class="n">j</span><span class="p">);</span>
+    
+    <span class="c1">//determine bigger cluster</span>
+    <span class="kt">int</span> <span class="n">iClusterSize</span> <span class="o">=</span> <span class="n">iPair</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">jClusterSize</span> <span class="o">=</span> <span class="n">jPair</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+    
+    <span class="c1">// only union if both exist</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">iClusterSize</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">||</span> <span class="n">jClusterSize</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    
+    
+    <span class="kt">int</span> <span class="n">largerClusterID</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">smallerClusterID</span><span class="p">;</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">iClusterSize</span> <span class="o">&gt;</span> <span class="n">jClusterSize</span><span class="p">){</span>
+        <span class="n">largerClusterID</span>  <span class="o">=</span> <span class="n">iPair</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
+        <span class="n">smallerClusterID</span> <span class="o">=</span> <span class="n">jPair</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">iClusterSize</span> <span class="o">&lt;</span> <span class="n">jClusterSize</span><span class="p">){</span>
+        <span class="n">largerClusterID</span>  <span class="o">=</span> <span class="n">jPair</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
+        <span class="n">smallerClusterID</span> <span class="o">=</span> <span class="n">iPair</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">//they're equal in size</span>
+        <span class="n">largerClusterID</span>  <span class="o">=</span> <span class="n">iPair</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
+        <span class="n">smallerClusterID</span> <span class="o">=</span> <span class="n">jPair</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// if they have same leader, they are in the same cluster already, so skip</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">largerClusterID</span> <span class="o">==</span> <span class="n">smallerClusterID</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    
+    <span class="c1">//set leader pointers of smaller cluster to that of the larger</span>
+    <span class="n">PrimNode</span><span class="o">*</span> <span class="n">newLeader</span> <span class="o">=</span> <span class="n">clusters</span><span class="p">[</span><span class="n">largerClusterID</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">getLeader</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">i</span> <span class="o">:</span> <span class="n">clusters</span><span class="p">[</span><span class="n">smallerClusterID</span><span class="p">]){</span>
+        <span class="n">i</span><span class="o">-&gt;</span><span class="n">setLeader</span><span class="p">(</span><span class="n">newLeader</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="c1">//copy stuff from smaller cluster to larger cluster</span>
+    <span class="k">auto</span> <span class="n">bitr</span> <span class="o">=</span> <span class="n">clusters</span> <span class="p">[</span> <span class="n">smallerClusterID</span> <span class="p">].</span><span class="n">begin</span><span class="p">();</span>
+    <span class="k">auto</span> <span class="n">eitr</span> <span class="o">=</span> <span class="n">clusters</span> <span class="p">[</span> <span class="n">smallerClusterID</span> <span class="p">].</span><span class="n">end</span><span class="p">();</span>
+    
+    <span class="k">auto</span> <span class="n">here</span> <span class="o">=</span> <span class="n">clusters</span> <span class="p">[</span> <span class="n">largerClusterID</span> <span class="p">].</span><span class="n">end</span><span class="p">();</span>
+    
+    <span class="n">clusters</span> <span class="p">[</span> <span class="n">largerClusterID</span> <span class="p">].</span><span class="n">insert</span><span class="p">(</span><span class="n">here</span><span class="p">,</span> <span class="n">bitr</span><span class="p">,</span> <span class="n">eitr</span><span class="p">);</span>
+    
+    <span class="c1">//delete smaller cluster</span>
+    <span class="n">clusters</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">smallerClusterID</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of unionFind</div>
+    </div>
+  </div>
+</div>
+
+<h3 id="parts-1">Parts 1</h3>
+
+<p>We’re asked implement the clustering algorithm and compute the <strong class="highlighted">k</strong> number of clusters needed for a spacing of 4.  Below is my implementation, added to my undirected weighted graph datastructure from previous weeks.  I also use my <a href="/2018/07/17/Coursera-Roughgarden-Algorithms-Pt-2-Wk-2">pqueue data structure</a> to help sort and determine minimum edge costs.  Just needed to feed a more appropriate comparator to the pqueue, which is also listed below:</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-kspacing">
+           kspacing 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-kspacing" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre></td><td class="code"><pre><span class="kt">int</span> <span class="n">UndirectedWeightedGraph</span><span class="o">::</span><span class="n">kspacing</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">unionFind</span> <span class="n">uf</span><span class="p">(</span><span class="n">nodeList</span><span class="p">);</span>
+    <span class="n">pqueue</span><span class="o">&lt;</span><span class="n">PrimEdge</span><span class="o">*</span><span class="p">,</span> <span class="n">KruskalEdgeComparator</span><span class="o">&lt;</span><span class="n">PrimEdge</span><span class="o">&gt;&gt;</span> <span class="n">kEdgeList</span><span class="p">;</span>
+    
+    <span class="c1">//copy over edges to new pqueue with appropriate comparator for the algo.</span>
+    <span class="n">kEdgeList</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">kEdgeList</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">edgeList</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">edgeList</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+    
+    <span class="kt">int</span> <span class="n">cluster1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">cluster2</span><span class="p">;</span>
+    
+    
+    <span class="k">while</span> <span class="p">(</span><span class="n">uf</span><span class="p">.</span><span class="n">numberOfClusters</span><span class="p">()</span> <span class="o">!=</span> <span class="n">k</span><span class="p">){</span>
+        <span class="n">cluster1</span> <span class="o">=</span> <span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">kEdgeList</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getFirst</span><span class="p">()</span>
+                                          <span class="o">-&gt;</span><span class="n">getLeader</span><span class="p">()</span>
+                                          <span class="o">-&gt;</span><span class="n">getValue</span><span class="p">());</span>
+        
+        <span class="n">cluster2</span> <span class="o">=</span> <span class="n">uf</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">kEdgeList</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getSecond</span><span class="p">()</span>
+                                          <span class="o">-&gt;</span><span class="n">getLeader</span><span class="p">()</span>
+                                          <span class="o">-&gt;</span><span class="n">getValue</span><span class="p">());</span>
+        
+        
+        <span class="c1">// try to union the two clusters, if it works then we need to re order </span>
+        <span class="c1">// the pqueue.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">uf</span><span class="p">.</span><span class="n">unionClusters</span><span class="p">(</span><span class="n">cluster1</span><span class="p">,</span> <span class="n">cluster2</span><span class="p">)){</span>
+        
+            <span class="c1">//reorders pqueue so that min edge between two clusters is on top.</span>
+            <span class="n">kEdgeList</span><span class="p">.</span><span class="n">update</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">kEdgeList</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getWeight</span><span class="p">();</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of kspacing</div>
+    </div>
+  </div>
+</div>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-KruskalEdgeComparator">
+           KruskalEdgeComparator 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-KruskalEdgeComparator" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">KruskalEdgeComparator</span> <span class="p">{</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="p">()</span> <span class="p">(</span> <span class="n">T</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span>  <span class="n">T</span><span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span> <span class="p">(</span> <span class="k">typeid</span><span class="p">(</span><span class="n">T</span><span class="p">).</span><span class="n">name</span><span class="p">(),</span> <span class="s">"PrimEdge"</span><span class="p">)){</span>
+            
+            <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">differentLeaderNodes</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">y</span><span class="o">-&gt;</span><span class="n">sameLeaderNodes</span><span class="p">())</span>
+                <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">sameLeaderNodes</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">y</span><span class="o">-&gt;</span><span class="n">differentLeaderNodes</span><span class="p">())</span>
+                <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+            <span class="k">return</span> <span class="o">*</span><span class="n">x</span> <span class="o">&lt;</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+            <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">"KruskalEdgeComparator may only be used with PrimEdge objects!"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of KruskalEdgeComparator</div>
+    </div>
+  </div>
+</div>
+
+<p>Runs in about 1.5 minutes.  The sorting on almost every iteration is a point of potential improvement.</p>
+
+<h3 id="part-2">Part 2</h3>
+
+<p>In this part we’re asked to determine the largest value of k for a k-clusterring with spacing at least 3 with an input file containing a large number of nodes as binary values.  The edges between nodes is implied by the number of differences between bits between each node.  As such, computing every edge is computationally difficult, so a more clever implementation is required.  For this, I decided to try the dictionary method where you go through each node, and determine all possible neighbors with edge costs 0, 1, and 2 while clustering together these nodes if they were in separate clusters.  Below is my implementation:</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-findKWithSpacingOfThree">
+           findKWithSpacingOfThree 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-findKWithSpacingOfThree" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+</pre></td><td class="code"><pre><span class="kt">int</span> <span class="n">UndirectedWeightedGraph</span><span class="o">::</span><span class="n">findKWithSpacingOfThree</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">unionFind</span> <span class="n">uf</span><span class="p">(</span><span class="n">nodeList</span><span class="p">);</span>
+    
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">neighbor</span><span class="p">;</span>
+    
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Done with 0 buddies"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+    <span class="c1">//iterate through each cluster looking for distance of 1 buddies</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="n">nodeList</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">nodeList</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">i</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">;</span>
+        <span class="n">bitset</span><span class="o">&lt;</span><span class="mi">24</span><span class="o">&gt;</span> <span class="n">bn</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mi">24</span> <span class="p">;</span> <span class="n">d</span><span class="o">++</span><span class="p">){</span>
+            
+            <span class="n">bn</span><span class="p">.</span><span class="n">flip</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+            
+            <span class="n">neighbor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">bn</span><span class="p">.</span><span class="n">to_ulong</span><span class="p">();</span>
+                            
+            <span class="n">uf</span><span class="p">.</span><span class="n">unionClusters</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">neighbor</span><span class="p">);</span>
+                
+            <span class="n">bn</span><span class="p">.</span><span class="n">flip</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+    <span class="p">}</span>
+    
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Done with 1 buddies"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+    <span class="c1">//iterate through each cluster looking for distance of 2 buddies</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="n">nodeList</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">nodeList</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">i</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">;</span>
+        <span class="n">bitset</span><span class="o">&lt;</span><span class="mi">24</span><span class="o">&gt;</span> <span class="n">bn</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mi">24</span> <span class="p">;</span> <span class="n">d</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">bn</span><span class="p">.</span><span class="n">flip</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">dd</span> <span class="o">=</span> <span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">dd</span> <span class="o">&lt;</span> <span class="mi">24</span><span class="p">;</span> <span class="n">dd</span><span class="o">++</span><span class="p">){</span>
+                <span class="n">bn</span><span class="p">.</span><span class="n">flip</span><span class="p">(</span><span class="n">dd</span><span class="p">);</span>
+
+                <span class="n">neighbor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">bn</span><span class="p">.</span><span class="n">to_ulong</span><span class="p">();</span>
+
+                <span class="n">uf</span><span class="p">.</span><span class="n">unionClusters</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">neighbor</span><span class="p">);</span>
+
+                <span class="n">bn</span><span class="p">.</span><span class="n">flip</span><span class="p">(</span><span class="n">dd</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">bn</span><span class="p">.</span><span class="n">flip</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+    <span class="p">}</span>
+    
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Done with 2 buddies"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+    <span class="k">return</span> <span class="n">uf</span><span class="p">.</span><span class="n">numberOfClusters</span><span class="p">();</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">findKWithSpacingOfThree</div>
+    </div>
+  </div>
+</div>
+
+<p>Runs in about 2.5 minutes.</p>
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/07/27/Linking-Static-Libraries-In-Netbeans" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Linking Static Libraries in Netbeans 8.2" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/08/17/Coursera-Roughgarden-Algorithms-Pt-3-Wk-3" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 3, Week 3" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/08/16/Coursera-Roughgarden-Algorithms-Pt-3-Wk-2";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

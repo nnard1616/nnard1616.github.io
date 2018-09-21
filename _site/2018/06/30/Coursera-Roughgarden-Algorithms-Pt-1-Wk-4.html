@@ -1,0 +1,674 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Coursera Algoirthms with Roughgarden Pt 1, Week 4 </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/06/30/Coursera-Roughgarden-Algorithms-Pt-1-Wk-4">Coursera Algoirthms with Roughgarden Pt 1, Week 4</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>30 Jun 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/coursera">coursera</a></li>
+                      
+                        <li><a href="/tag/roughgarden">roughgarden</a></li>
+                      
+                        <li><a href="/tag/algorithms">algorithms</a></li>
+                      
+                        <li><a href="/tag/java">java</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/06/25/Algorithms-Illuminated-Chapter-6-Exercises" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Algorithms Illuminated Pt 1, Ch 6 Exercises" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/07/09/Coursera-Roughgarden-Algorithms-Pt-2-Wk-1" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 1" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <p><em class="highlighted">Note: those marked with an asterisk I am not 100% confident in my answer/reasoning.</em></p>
+
+<p><em class="highlighted">Please feel free to discuss the problems and my proposed solutions below!</em></p>
+
+<p><em class="highlighted">Note 2: Most of this course is a carbon copy of Algorithms Illuminated Pt 1.  See my previous posts on Algorithms Illuminated for content covered in the earlier weeks of this course.</em></p>
+
+<h2 id="quiz">Quiz</h2>
+
+<h3 id="p1">P1</h3>
+
+<p>In a tree of n nodes and n-1 edges, a minimum cut can be made across every edge.  Therefore there are <strong class="highlighted">n-1</strong>  minimum cuts in a tree.</p>
+
+<h3 id="p2">P2</h3>
+
+<p>All statements that are in agreement to “For every graph <em>G</em> with <em>n</em> nodes and every min cut (<strong>A</strong>,<strong>B</strong>) of G, <img src="http://latex.codecogs.com/svg.latex?\color{Orange}Pr[out = (A,B)] \geq p" class="latexinline" />” are correct.</p>
+<h3 id="p3">P3</h3>
+
+<p>This is the same as exercise 6.1 from Algorithms Illuminated Pt 1.  Below is my copy/pasted answer from my previous post:</p>
+
+<p>In order for the first recursive call to be passed a subarray of length at most <strong class="highlighted">αn</strong>, where <strong class="highlighted">α</strong> is strictly between 0.5 and 1, the pivot must be located between two indices at <strong class="highlighted">αn</strong> and <strong class="highlighted">n - αn</strong> from one endpoint of the array.  The size of this region is <strong class="highlighted">αn - (n - αn) = n(2α - 1)</strong>.  Thus <strong class="highlighted">2α - 1</strong> is the fraction of the array that the pivot can be in and is therefore the probability of the conditions being satisfied.</p>
+
+<h3 id="p4">P4</h3>
+
+<p>This is the same as exercise 6.2 from Algorithms Illuminated Pt 1.  Below is my copy/pasted answer from my previous post:</p>
+
+<p>This will require the same reasoning used in problem <a href="/2018/06/23/Algorithms-Illuminated-Chapter-5-Exercises">5.3</a>.  The maximum number of successive recursive calls occurs in the worst case scenario, which is when the subarray is <strong class="highlighted">αn</strong>.  Hence, the answer will be <img src="http://latex.codecogs.com/svg.latex?\color{Orange}log_{\alpha^-1}(n)" class="latexinline" />.</p>
+
+<h3 id="p5">*P5</h3>
+
+<p>The minimum s-t cut problem is the following. The input is an undirected graph, and two distinct vertices of the graph are labelled “s” and “t”. The goal is to compute the minimum cut (i.e., fewest number of crossing edges) that satisfies the property that s and t are on different sides of the cut.</p>
+
+<p>Suppose someone gives you a subroutine for this s-t minimum cut problem via an API. Your job is to solve the original minimum cut problem (the one discussed in the lectures), when all you can do is invoke the given min s-t cut subroutine. (That is, the goal is to reduce the min cut problem to the min s-t cut problem.)</p>
+
+<p>Now suppose you are given an instance of the minimum cut problem – that is, you are given an undirected graph (with no specially labelled vertices) and need to compute the minimum cut. What is the minimum number of times that you need to call the given min s-t cut subroutine to guarantee that you’ll find a min cut of the given graph?</p>
+
+<p>For a given node, s, there are n - 1 other nodes that could be t.  Each s-t pair has one min cut.  So to be sure that a min cut between s-t  is found, n - 1 calls to the min s-t cut subroutine are required.</p>
+
+<h2 id="programming-assignment">Programming Assignment</h2>
+
+<p>We’re asked to find the min cut of a provided undirected graph using the proposed random algorithm.  Below is my implementation, though it runs longer than I would like.  The videos mentioned to do n^2logn repetitions in order to have a virtual guaranteed correct answer (99.6% chance success by my calculations).  However, when I monitor the process it’s able to come up with the correct answer in much fewer repetitions.  With n = 200, the required repetitions should be somewhere between 100,000 to 200,000.  But most times it gets the correct answer within 100 reps.  With 100,000 reps my implementation completes in about 2.5 minutes.  Below is my implementation.  Two ways to improve it would be:</p>
+<ol>
+  <li>Java makes it really difficult to copy/clone objects, so currently for programming convenience I just have it re-read in the data when I want to start a new repetition.  This is costly I believe and if I took the time to properly implement copying of the graph object it could probably run faster.</li>
+  <li>There’s a nested for loop in the contract method.  One way to eliminate this nested loop would be to define Node and Edge data structures and just randomly select edges to contract.  Updating the Graph would not need this nested for loop then.</li>
+</ol>
+
+<blockquote class="filename">
+  <p>Java</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+</pre></td><td class="code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Graph</span> <span class="kd">implements</span> <span class="n">Cloneable</span> <span class="o">{</span>
+    
+    <span class="cm">/**************************************************************************/</span>
+    <span class="cm">/*  Attributes                                                            */</span>
+    <span class="cm">/**************************************************************************/</span>
+    <span class="kd">private</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">adjList</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">minCut</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">filename</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Random</span> <span class="n">rand</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="o">();</span>
+    
+    
+    <span class="cm">/**************************************************************************/</span>
+    <span class="cm">/*  Constructor                                                           */</span>
+    <span class="cm">/**************************************************************************/</span>
+    <span class="kd">public</span> <span class="nf">Graph</span><span class="o">(</span><span class="n">String</span> <span class="n">filename</span><span class="o">){</span>
+        <span class="n">adjList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">filename</span> <span class="o">=</span> <span class="n">filename</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    
+    <span class="cm">/**************************************************************************/</span>
+    <span class="cm">/*  Graph Methods                                                         */</span>
+    <span class="cm">/**************************************************************************/</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">addNode</span><span class="o">(</span><span class="n">Integer</span> <span class="n">n</span><span class="o">,</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">adjs</span><span class="o">){</span>
+        <span class="n">adjList</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">adjs</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kt">int</span> <span class="nf">cutDegree</span><span class="o">(){</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">adjList</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">!=</span> <span class="mi">2</span><span class="o">)</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="s">"Cut has not been made yet."</span><span class="o">);</span>
+        
+        <span class="k">return</span> <span class="n">adjList</span><span class="o">.</span><span class="na">get</span><span class="o">((</span><span class="n">Integer</span><span class="o">)</span><span class="n">adjList</span><span class="o">.</span><span class="na">keySet</span><span class="o">().</span><span class="na">toArray</span><span class="o">()[</span><span class="mi">0</span><span class="o">]).</span><span class="na">size</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">contract</span><span class="o">(</span> <span class="n">Integer</span> <span class="n">a</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">b</span><span class="o">){</span>
+        <span class="n">Iterator</span> <span class="n">itrA</span> <span class="o">=</span> <span class="n">adjList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">a</span><span class="o">).</span><span class="na">iterator</span><span class="o">();</span>
+        <span class="n">Iterator</span> <span class="n">itrB</span> <span class="o">=</span> <span class="n">adjList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">b</span><span class="o">).</span><span class="na">iterator</span><span class="o">();</span>
+        
+        <span class="c1">//remove a from b's neighbors (adjacents)</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">itrA</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">itrA</span><span class="o">.</span><span class="na">next</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">b</span><span class="o">))</span>
+                <span class="n">itrA</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
+        
+        <span class="c1">//remove b from a's neighbors</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">itrB</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">itrB</span><span class="o">.</span><span class="na">next</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">a</span><span class="o">))</span>
+                <span class="n">itrB</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
+        
+        <span class="c1">//Determine larger and smaller values</span>
+        <span class="n">Integer</span> <span class="n">minimum</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+        <span class="n">Integer</span> <span class="n">maximum</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+        
+        <span class="c1">//cycle through adjs of larger valued node... </span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">adjMax</span> <span class="o">=</span> <span class="n">adjList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">maximum</span><span class="o">);</span> <span class="c1">//adjs of max</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">adjMin</span> <span class="o">=</span> <span class="n">adjList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">minimum</span><span class="o">);</span> <span class="c1">//adjs of min</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">adjI</span><span class="o">;</span>
+        
+        <span class="cm">/* Point where improvements can be made.*/</span>
+        
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">adjMax</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++){</span>
+            <span class="n">adjI</span> <span class="o">=</span> <span class="n">adjList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">adjMax</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+            
+            <span class="c1">//cycle through adjs of adjs of larger valued node...</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">adjI</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">j</span><span class="o">++){</span>
+                
+                <span class="c1">//If see larger value in adjs of adjs, convert to smaller value.</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">adjI</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">).</span><span class="na">equals</span><span class="o">(</span><span class="n">maximum</span><span class="o">))</span>
+                    <span class="n">adjI</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">j</span><span class="o">,</span> <span class="n">minimum</span><span class="o">);</span>
+            <span class="o">}</span>
+            
+            <span class="c1">//put adjs of larger into smaller</span>
+            <span class="n">adjMin</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">adjMax</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
+        <span class="o">}</span>
+        
+        <span class="c1">//delete larger value</span>
+        <span class="n">adjList</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">maximum</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">readInData</span><span class="o">(</span><span class="n">String</span> <span class="n">filename</span><span class="o">){</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">adjs</span><span class="o">;</span>
+        <span class="n">Integer</span> <span class="n">n</span><span class="o">;</span>
+        <span class="n">Scanner</span> <span class="n">lineScanner</span><span class="o">;</span>
+        <span class="n">Scanner</span> <span class="n">intScanner</span><span class="o">;</span>
+        
+        <span class="n">adjList</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        
+        <span class="k">try</span><span class="o">{</span>
+            <span class="n">lineScanner</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">filename</span><span class="o">));</span>
+            
+            <span class="k">while</span> <span class="o">(</span><span class="n">lineScanner</span><span class="o">.</span><span class="na">hasNextLine</span><span class="o">()){</span>
+                
+                
+                <span class="n">adjs</span>       <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+                <span class="n">intScanner</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">lineScanner</span><span class="o">.</span><span class="na">nextLine</span><span class="o">());</span>
+                <span class="n">n</span>          <span class="o">=</span> <span class="n">intScanner</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+                
+                <span class="k">while</span> <span class="o">(</span><span class="n">intScanner</span><span class="o">.</span><span class="na">hasNextInt</span><span class="o">())</span>
+                    <span class="n">adjs</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">intScanner</span><span class="o">.</span><span class="na">nextInt</span><span class="o">());</span>
+                
+                <span class="n">addNode</span><span class="o">(</span><span class="n">n</span><span class="o">,</span> <span class="n">adjs</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span><span class="k">catch</span><span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">fnfe</span><span class="o">){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"no file found"</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">determineMinCut</span><span class="o">(){</span>
+        <span class="n">readInData</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">reps</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">reps</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+
+
+            <span class="k">while</span> <span class="o">(</span><span class="n">getAdjList</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="o">){</span>
+                <span class="c1">//randomly select node</span>
+                <span class="n">Integer</span> <span class="n">randFirst</span> <span class="o">=</span> <span class="n">rand</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">adjList</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+                <span class="n">Integer</span> <span class="n">a</span> <span class="o">=</span> <span class="o">(</span><span class="n">Integer</span><span class="o">)</span><span class="n">adjList</span><span class="o">.</span><span class="na">keySet</span><span class="o">().</span><span class="na">toArray</span><span class="o">()[</span><span class="n">randFirst</span><span class="o">];</span>
+
+                <span class="c1">//randomly select neighbor of first node</span>
+                <span class="n">Integer</span> <span class="n">randSecond</span> <span class="o">=</span> <span class="n">rand</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">adjList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">a</span><span class="o">).</span><span class="na">size</span><span class="o">());</span>
+                <span class="n">Integer</span> <span class="n">b</span> <span class="o">=</span> <span class="n">adjList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">a</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="n">randSecond</span><span class="o">);</span>
+
+                <span class="n">contract</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="n">minCut</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">minCut</span><span class="o">,</span> <span class="n">cutDegree</span><span class="o">());</span>
+
+            <span class="c1">//reset</span>
+            <span class="n">readInData</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">minCut</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    
+    <span class="cm">/**************************************************************************/</span>
+    <span class="cm">/*  Getters                                                               */</span>
+    <span class="cm">/**************************************************************************/</span>
+    <span class="kd">public</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">getAdjList</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">adjList</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">size</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">adjList</span><span class="o">.</span><span class="na">keySet</span><span class="o">().</span><span class="na">size</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    
+    <span class="cm">/**************************************************************************/</span>
+    <span class="cm">/*  Overrides                                                             */</span>
+    <span class="cm">/**************************************************************************/</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+        
+        <span class="k">for</span> <span class="o">(</span><span class="n">Integer</span> <span class="nl">i:</span> <span class="n">adjList</span><span class="o">.</span><span class="na">keySet</span><span class="o">()){</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="n">i</span> <span class="o">+</span> <span class="s">" "</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(</span><span class="n">Integer</span> <span class="n">j</span> <span class="o">:</span> <span class="n">adjList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)){</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="n">j</span> <span class="o">+</span> <span class="s">" "</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s">"\n"</span><span class="o">;</span>
+        <span class="o">}</span>
+        
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Graph</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/06/25/Algorithms-Illuminated-Chapter-6-Exercises" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Algorithms Illuminated Pt 1, Ch 6 Exercises" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/07/09/Coursera-Roughgarden-Algorithms-Pt-2-Wk-1" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 1" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/06/30/Coursera-Roughgarden-Algorithms-Pt-1-Wk-4";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

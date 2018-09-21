@@ -1,0 +1,776 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Coursera Algoirthms with Roughgarden Pt 3, Week 3 </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/08/17/Coursera-Roughgarden-Algorithms-Pt-3-Wk-3">Coursera Algoirthms with Roughgarden Pt 3, Week 3</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>17 Aug 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/coursera">coursera</a></li>
+                      
+                        <li><a href="/tag/roughgarden">roughgarden</a></li>
+                      
+                        <li><a href="/tag/algorithms">algorithms</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/08/16/Coursera-Roughgarden-Algorithms-Pt-3-Wk-2" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 3, Week 2" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/08/20/Coursera-Roughgarden-Algorithms-Pt-3-Wk-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 3, Week 4" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <p><em class="highlighted">Note: those marked with an asterisk I am not 100% confident in my answer/reasoning.</em></p>
+
+<p><em class="highlighted">Please feel free to discuss the problems and my proposed solutions below!</em></p>
+
+<h2 id="quiz">Quiz</h2>
+
+<h3 id="p1">P1</h3>
+<p><img src="/assets/images/20180817/Algorithms-pt3-wk3-ex1.png" alt="img" class="center-image" /></p>
+
+<p>Just apply Huffman’s algorthim and you’ll get a tree with depth of 3.  Then it’s just a matter of doing the expectation calculation for how many bits per character and multiplying by 1000.</p>
+
+<h3 id="p2">P2</h3>
+<p><img src="/assets/images/20180817/Algorithms-pt3-wk3-ex2.png" alt="img" class="center-image" /></p>
+
+<p>It is possible that an encoding tree can attain a depth of n-1, such as one of the early examples in lecture.</p>
+
+<h3 id="p3">P3</h3>
+<p><img src="/assets/images/20180817/Algorithms-pt3-wk3-ex3.png" alt="img" class="center-image" /></p>
+
+<p>If the most frequent letter has frequency less than 0.33, then all letters will be coded with at least two bits.  This works out because every letter will undergo at least 2 merges.  The most frequent letter has to undergo two merges because right before its first merge there will be two other branches where at least one of the branches has a cumulative frequency at least (1-.33)/2 &gt; 0.33.  So it will get merged with one branch, then the other for a total of two merges and resulting in every letter with at least two bits.  Problem 1 is an example.</p>
+
+<h3 id="p4">P4</h3>
+<p><img src="/assets/images/20180817/Algorithms-pt3-wk3-ex4.png" alt="img" class="center-image" /></p>
+
+<p>The dynamic programming algorithm, being a recursive algorithm that depends on just the previous two subproblem solutions, can guarantee that once a vertex is excluded twice in a row it will never be in any subsequent subproblem solution.</p>
+
+<h3 id="p5">P5</h3>
+<p><img src="/assets/images/20180817/Algorithms-pt3-wk3-ex5.png" alt="img" class="center-image" /></p>
+
+<p>The proposed algorithm should work for all path graphs and tree graphs with an efficiency of <strong class="highlighted">O(n)</strong>.  All general graphs aren’t guaranteed to work out.  Consider a pentagon with a central vertex that is connected to all outter vertices.  If you were to arbitrarily pick any vertex, say the central vertex, then you won’t get the same output for every other starting vertex.  (starting with central vertex yields an empty set for max weight independent set)</p>
+
+<hr />
+<h2 id="programming-assignments">Programming Assignments</h2>
+
+<h3 id="pa-12">PA 1&amp;2</h3>
+
+<p>This week’s programming assignments were pretty straightforward.  Once again I found my beloved <a href="/2018/07/17/Coursera-Roughgarden-Algorithms-Pt-2-Wk-2">pqueue</a> to be very helpful. For the first two questions regarding Huffman Codes, I needed to write a new data structure for the Weighted Binary Tree used to represent the Huffman encoding, whose implementation is below:</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-WeightedTreeNode">
+           WeightedTreeNode 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-WeightedTreeNode" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+</pre></td><td class="code"><pre><span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  WeightedTreeNode Header                                                   */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="cp">#include "WeightComparator.h"
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+</span>
+<span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ull</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">WeightedTreeNode</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">WeightedTreeNode</span><span class="p">();</span>
+    <span class="n">WeightedTreeNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">,</span> <span class="n">ull</span> <span class="n">weight</span><span class="p">);</span>
+    <span class="c1">//next constructor is for creating a fork node</span>
+    <span class="n">WeightedTreeNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">,</span> <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">n1</span><span class="p">,</span> <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">n2</span><span class="p">);</span>
+    <span class="n">WeightedTreeNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">,</span> <span class="n">ull</span> <span class="n">weight</span><span class="p">,</span> <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">n1</span><span class="p">,</span> <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">n2</span><span class="p">);</span>
+    
+    <span class="n">ull</span> <span class="n">getWeight</span><span class="p">();</span>
+    <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">getLeft</span><span class="p">();</span>
+    <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">getRght</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">getValue</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">getDepth</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="n">incDepths</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">incDepth</span><span class="p">();</span>
+    
+    <span class="k">friend</span> <span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">WeightedTreeNode</span><span class="o">&amp;</span> <span class="n">w</span><span class="p">);</span>
+    <span class="k">friend</span> <span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">w</span><span class="p">);</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//keeps track of how deep into tree the node is</span>
+    <span class="n">ull</span> <span class="n">weight</span><span class="p">;</span>
+    <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">left</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+    <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">rght</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  WeightedTreeNode Implementation                                           */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+
+
+<span class="n">WeightedTreeNode</span><span class="o">::</span><span class="n">WeightedTreeNode</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">weight</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">WeightedTreeNode</span><span class="o">::</span><span class="n">WeightedTreeNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">,</span> 
+                                   <span class="n">ull</span> <span class="n">weight</span><span class="p">,</span> 
+                                   <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">n1</span><span class="p">,</span> 
+                                   <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">n2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">n1</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">rght</span> <span class="o">=</span> <span class="n">n2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">WeightedTreeNode</span><span class="o">::</span><span class="n">WeightedTreeNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">,</span> 
+                                   <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">n1</span><span class="p">,</span> 
+                                   <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">n2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">n1</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">rght</span> <span class="o">=</span> <span class="n">n2</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">weight</span> <span class="o">=</span> <span class="n">n1</span><span class="o">-&gt;</span><span class="n">getWeight</span><span class="p">()</span> <span class="o">+</span> <span class="n">n2</span><span class="o">-&gt;</span><span class="n">getWeight</span><span class="p">();</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+    
+    <span class="n">left</span><span class="o">-&gt;</span><span class="n">incDepths</span><span class="p">();</span>
+    <span class="n">rght</span><span class="o">-&gt;</span><span class="n">incDepths</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">WeightedTreeNode</span><span class="o">::</span><span class="n">WeightedTreeNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">,</span> <span class="n">ull</span> <span class="n">weight</span><span class="p">)</span> <span class="o">:</span> <span class="n">WeightedTreeNode</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">WeightedTreeNode</span><span class="o">::</span><span class="n">getLeft</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">left</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">WeightedTreeNode</span><span class="o">::</span><span class="n">getRght</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">rght</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">WeightedTreeNode</span><span class="o">::</span><span class="n">getValue</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">ull</span> <span class="n">WeightedTreeNode</span><span class="o">::</span><span class="n">getWeight</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">weight</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">WeightedTreeNode</span><span class="o">::</span><span class="n">getDepth</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">depth</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">WeightedTreeNode</span><span class="o">::</span><span class="n">incDepths</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">WeightedTreeNode</span><span class="o">*&gt;</span> <span class="n">dfs</span><span class="p">;</span>
+    
+    <span class="n">dfs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    
+    <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">current</span><span class="p">;</span>
+    
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span> <span class="n">dfs</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">dfs</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">getValue</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="n">current</span><span class="o">-&gt;</span><span class="n">incDepth</span><span class="p">();</span>
+            <span class="n">dfs</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+            <span class="n">dfs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">getLeft</span><span class="p">());</span>
+            <span class="n">dfs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">getRght</span><span class="p">());</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">current</span><span class="o">-&gt;</span><span class="n">incDepth</span><span class="p">();</span>
+            <span class="n">dfs</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">WeightedTreeNode</span><span class="o">::</span><span class="n">incDepth</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">depth</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">WeightedTreeNode</span><span class="o">&amp;</span> <span class="n">w</span><span class="p">){</span>
+    <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">w</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">os</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">w</span><span class="p">){</span>
+    <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">w</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">os</span><span class="p">;</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of WeightedTreeNode</div>
+    </div>
+  </div>
+</div>
+
+<p>Note that the assignment didn’t actually want me to encode/decode anything, it just wanted me to determine what would be the longest and shortest possible Bit codes needed.  As such my code doesn’t create an encoding tree, utility-wise, but it can be used to determine the depths of the tree.  Here is the general algorithm, as presented from lecture, that was employed in my code below:</p>
+
+<p><img src="/assets/images/20180817/Algorithms-pt3-wk3-ex6.png" alt="img" class="center-image" /></p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-HuffmansAlgorithm">
+           Huffman's Algorithm 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-HuffmansAlgorithm" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+</pre></td><td class="code"><pre><span class="c1">//huffman codes</span>
+<span class="kt">void</span> <span class="n">solvePart3Week3Q12</span><span class="p">(){</span>
+    <span class="c1">//    string filename = "/home/nathan/Extracts/stanford-algs/testCases/course3/assignment3HuffmanAndMWIS/question1And2/input_random_1_10.txt";</span>
+    
+    <span class="n">string</span> <span class="n">filename</span> <span class="o">=</span> <span class="s">"/home/nathan/Programming/OSSU/Core_Theory/Algorithms-Roughgarden/Part3/Week3/huffman.txt"</span><span class="p">;</span>
+    
+    <span class="n">ifstream</span> <span class="n">infile</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+    
+    <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    
+    <span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+    
+    <span class="kt">int</span> <span class="n">numberOfNodes</span> <span class="o">=</span> <span class="n">stoi</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+    <span class="n">ull</span> <span class="n">readWeight</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">nodeValue</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">pqueue</span><span class="o">&lt;</span><span class="n">WeightedTreeNode</span><span class="o">*</span><span class="p">,</span> <span class="n">WeightedTreeNodeComparator</span><span class="o">&lt;</span><span class="n">WeightedTreeNode</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">nodes</span><span class="p">;</span>
+    
+    <span class="c1">//read in value weights and create a WeightedTreeNode for each.</span>
+    <span class="c1">//Nodes are sorted in ascending order of weight</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">line</span><span class="p">)){</span>
+        <span class="n">readWeight</span> <span class="o">=</span> <span class="n">stoull</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+        <span class="n">nodes</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="k">new</span> <span class="n">WeightedTreeNode</span><span class="p">(</span><span class="n">nodeValue</span><span class="p">,</span> <span class="n">readWeight</span><span class="p">));</span> <span class="c1">//O(nlogn)</span>
+        <span class="n">nodeValue</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+ 
+    
+    <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">n1</span><span class="p">;</span>
+    <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">n2</span><span class="p">;</span>
+    
+    <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">combined</span><span class="p">;</span>
+    
+    <span class="c1">//assumes more than 1 node at start, create the encoding tree</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">nodes</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">){</span>
+        <span class="n">n1</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+        <span class="n">nodes</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        
+        <span class="n">n2</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+        <span class="n">nodes</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        
+        <span class="n">combined</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WeightedTreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">);</span>
+        <span class="n">nodes</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">combined</span><span class="p">);</span> <span class="c1">//O(nlogn)</span>
+    <span class="p">}</span> <span class="c1">//end of creating encoding tree</span>
+    
+    
+    <span class="c1">//now determine min and max code lengths, via depth first search</span>
+    <span class="kt">int</span> <span class="n">maxDepth</span> <span class="o">=</span> <span class="n">INT32_MIN</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">minDepth</span> <span class="o">=</span> <span class="n">INT32_MAX</span><span class="p">;</span>
+    
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">WeightedTreeNode</span><span class="o">*&gt;</span> <span class="n">dfs</span><span class="p">;</span> <span class="c1">//depth first search, facilitated by stack</span>
+    
+    <span class="n">dfs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">nodes</span><span class="p">.</span><span class="n">top</span><span class="p">());</span>
+    <span class="n">WeightedTreeNode</span><span class="o">*</span> <span class="n">current</span><span class="p">;</span>
+    
+    <span class="k">while</span> <span class="p">(</span> <span class="o">!</span> <span class="n">dfs</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">dfs</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">getValue</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">){</span>
+            <span class="n">dfs</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+            <span class="n">dfs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">getLeft</span><span class="p">());</span>
+            <span class="n">dfs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">getRght</span><span class="p">());</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">maxDepth</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">getDepth</span><span class="p">(),</span> <span class="n">maxDepth</span><span class="p">);</span>
+            <span class="n">minDepth</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">getDepth</span><span class="p">(),</span> <span class="n">minDepth</span><span class="p">);</span>
+            <span class="n">dfs</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">maxDepth</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">minDepth</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">infile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of Huffman's Algorithm</div>
+    </div>
+  </div>
+</div>
+
+<p>Interestingly, one of the assignments in my Scala functional programming course also had me implement Huffman’s algorithm, but in functional programming style.  Compare my OOP solution to my FP solution <a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">here</a>.</p>
+<h3 id="pa-3">PA 3</h3>
+
+<p>The third problem has us employ dynamic programming to compute the maximum-weight independent set of a path graph.</p>
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/08/16/Coursera-Roughgarden-Algorithms-Pt-3-Wk-2" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 3, Week 2" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/08/20/Coursera-Roughgarden-Algorithms-Pt-3-Wk-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 3, Week 4" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/08/17/Coursera-Roughgarden-Algorithms-Pt-3-Wk-3";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

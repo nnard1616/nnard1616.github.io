@@ -1,0 +1,620 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Algorithms Illuminated Pt 1, Ch 1 Exercises </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/06/11/Algorithms-Illuminated-Chapter-1-Exercises">Algorithms Illuminated Pt 1, Ch 1 Exercises</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>11 Jun 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/algorithmsilluminated">algorithmsilluminated</a></li>
+                      
+                        <li><a href="/tag/roughgarden">roughgarden</a></li>
+                      
+                        <li><a href="/tag/bookexercises">bookexercises</a></li>
+                      
+                        <li><a href="/tag/java">java</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/06/10/Karatsuba-Multiplication" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Karatsuba Multiplication" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/06/13/Algorithms-Illuminated-Chapter-2-Exercises" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Algorithms Illuminated Pt 1, Ch 2 Exercises" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <p><em class="highlighted">Note: those marked with an asterisk I am not 100% confident in my answer/reasoning.</em></p>
+
+<p><em class="highlighted">Please feel free to discuss the problems and my proposed solutions below!</em></p>
+
+<h3 id="11">1.1</h3>
+<p>Assuming 0 based counting, 4 will be in position 7.</p>
+
+<h3 id="12">1.2</h3>
+<p>I would think it should be <img src="http://latex.codecogs.com/svg.latex?\color{Orange}O(n\cdot log_3(n))" />, but that’s not an answer choice.  Additionally that would be an improvement of the 2-way merge sort, and I’m not so sure that 3-way mergesort should be better.  I would think it should perform worse as there are now more comparisons being made at the merge steps.  Indeed, if you were to keep making more and more divisions, say make <code class="highlighter-rouge">n</code> groups as opposed to 2 or 3 groups, then you’ve obtained a virtual selection sort algorithm.  And selection sort runs at <img src="http://latex.codecogs.com/svg.latex?\color{Orange}O(n^2)" />.</p>
+
+<p>My guess is going to be b, <img src="http://latex.codecogs.com/svg.latex?\color{Orange}O(n\cdot log(n))" />.</p>
+
+<h3 id="13">1.3</h3>
+<p>Taking two sorted arrays of length <code class="highlighter-rouge">n</code>, there should be at most <code class="highlighter-rouge">n</code> comparisons. If you take that <code class="highlighter-rouge">2n</code> item array and merge with the third <code class="highlighter-rouge">n</code> array, then in the worst case <code class="highlighter-rouge">2n</code> comparisons will be made (first half of the <code class="highlighter-rouge">2n</code> array are lesser than the incoming elements), giving a total of <code class="highlighter-rouge">3n</code> comparisons.  One would be tempted to stop there and say it should be <code class="highlighter-rouge">nk</code>, as 3 was obtained after merging 3 <code class="highlighter-rouge">n</code> arrays.  But the number of comparisons grows by the triangular numbers: <code class="highlighter-rouge">1,3,6,10,...</code> which I believe indicates some sort of squaring on k is occurring.</p>
+
+<p>So my guess is e, <img src="http://latex.codecogs.com/svg.latex?\color{Orange}nk^2" class="latexinline" />.</p>
+
+<h3 id="14">1.4</h3>
+<p>Now that we’re applying more “divide and conquer”, we should have a log factor now.  I think it should be <code class="highlighter-rouge">logk</code> as we’re dividing the number of arrays each time.</p>
+
+<p>My guess is c, <img src="http://latex.codecogs.com/svg.latex?\color{Orange}nklog(k)" class="latexinline" />.</p>
+
+<h3 id="15">1.5</h3>
+<p>This problem is pretty similar to the classic problem of:</p>
+<blockquote>
+  <p>If we arrange a single elimination tournament with <code class="highlighter-rouge">n</code> contestants, how many matches will need to be organized?</p>
+</blockquote>
+
+<p>The intuition I’ve used for that classic problem is: in order for there to be 1 winner, there must be (*)<code class="highlighter-rouge">n - 1</code> losers.  In order to have a loser, you have to play a match.  Since there’s <code class="highlighter-rouge">n - 1</code> losers, then that’s how many matches are needed to determine a winner.</p>
+
+<p>The same principle can be performed on this unsorted array, similar to merge sort.  But for the second largest value (SLV) we’ll need to do some extra steps.  Particularly, we’ll need to keep a record of each defeated opponent for each value in our list.  Once we determine what the largest value (LV) is, the SLV will be one of the defeated opponents that the LV faced against in the tournament.  The number of defeated opponents amounts to the number of rounds in the tournament.  Since the number of values is a power of 2, there will be <code class="highlighter-rouge">log_2(n)</code> rounds in the tournament.  Since that’s the number of rounds, then that’s the number of opponents the LV will face.  So to determine the SLV, have a mini tournament of these <code class="highlighter-rouge">log_2(n)</code> values.  Using the same principal from (*), there must be <code class="highlighter-rouge">log_2(n) - 1</code> matches to determine the SLV.  So then the total number of comparisons amounts to: <img src="http://latex.codecogs.com/svg.latex?\color{Orange}(n-1)+(log_2(n)-1) = n+log_2(n)-2" class="latexinline" />.<strong class="highlighted">∎</strong></p>
+
+<hr />
+
+<h2 id="programming-challenge">Programming Challenge</h2>
+<h3 id="16">1.6</h3>
+
+<p>This one took me longer than I think it should have.  It’s super important to plan things out before hand, which I did not do.  I will try to do more preliminary planning in future projects.</p>
+
+<p>There’s probably some simplifying I could do, such as eliminate some steps in which I trim leading zeroes.  Either way, I’ve designed a successful project which computes the correct answer in only a few milliseconds.</p>
+
+<blockquote class="filename">
+  <p>Java</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">XLong</span> <span class="o">{</span>
+    
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">number</span><span class="o">;</span>
+    
+    <span class="cm">/**************************************************************************/</span>
+    <span class="cm">/*  Constructors                                                          */</span>
+    <span class="cm">/**************************************************************************/</span>
+    <span class="kd">public</span> <span class="nf">XLong</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">(</span><span class="s">"0"</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="nf">XLong</span><span class="o">(</span><span class="n">String</span> <span class="n">number</span><span class="o">){</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">isValidNumber</span><span class="o">(</span><span class="n">number</span><span class="o">))</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">number</span> <span class="o">=</span> <span class="n">number</span><span class="o">;</span>
+        <span class="k">else</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="n">number</span> <span class="o">+</span> <span class="s">" is not an integer."</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="cm">/**************************************************************************/</span>
+    <span class="cm">/*  Checkers                                                              */</span>
+    <span class="cm">/**************************************************************************/</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isValidNumber</span><span class="o">(</span><span class="n">String</span> <span class="n">candidate</span><span class="o">){</span>
+        <span class="n">String</span> <span class="n">validNums</span> <span class="o">=</span> <span class="s">"0123456789"</span><span class="o">;</span>
+        
+        <span class="c1">//check that each digit is one of the valid numbers.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">candidate</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="n">validNums</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">Character</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">c</span><span class="o">)))</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isPowerOf2</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        
+        <span class="k">if</span> <span class="o">(</span><span class="n">n</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+            <span class="n">n</span> <span class="o">/=</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        
+        <span class="k">return</span> <span class="nf">isPowerOf2</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    
+    <span class="cm">/**************************************************************************/</span>
+    <span class="cm">/*  Getters &amp; Setter                                                      */</span>
+    <span class="cm">/**************************************************************************/</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">length</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">number</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getNumber</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">number</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setNumber</span><span class="o">(</span><span class="n">String</span> <span class="n">number</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">number</span> <span class="o">=</span> <span class="n">number</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    
+    <span class="cm">/**************************************************************************/</span>
+    <span class="cm">/*  Helpers                                                               */</span>
+    <span class="cm">/**************************************************************************/</span>
+    <span class="cm">/**
+     * Adds leading zeroes to other number until both this and other
+     * are the same length.
+     * 
+     * @param other
+     */</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">tackOnLeadingZeroesTo</span><span class="o">(</span><span class="n">XLong</span> <span class="n">other</span><span class="o">){</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">other</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">.</span><span class="na">length</span><span class="o">())</span>
+            <span class="n">other</span><span class="o">.</span><span class="na">setNumber</span><span class="o">(</span><span class="s">"0"</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="na">getNumber</span><span class="o">());</span>
+    <span class="o">}</span>
+    
+    <span class="cm">/**
+     * Adds n trailing zeroes to this number.
+     * @param other 
+     */</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">tackOnTrailingZeroes</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">setNumber</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getNumber</span><span class="o">()</span> <span class="o">+</span> <span class="s">"0"</span><span class="o">);</span>
+            <span class="n">n</span><span class="o">--;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">trimLeadingZeroes</span><span class="o">(){</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="k">return</span><span class="o">;</span>
+        
+        <span class="c1">// need to also check that length is &gt; 1 so that numbers like '00' </span>
+        <span class="c1">// don't cause errors.</span>
+        <span class="k">while</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getNumber</span><span class="o">().</span><span class="na">charAt</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span> <span class="o">==</span> <span class="sc">'0'</span> <span class="o">&amp;&amp;</span> <span class="n">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">setNumber</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">copyValueOf</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getNumber</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">(),</span> 
+                                              <span class="mi">1</span><span class="o">,</span> 
+                                              <span class="k">this</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">1</span><span class="o">));</span>
+    <span class="o">}</span>
+    
+    <span class="cm">/**
+     * Converts chars '0','1','2','3','4','5','6','7','8','9' to their literal
+     * int variants.
+     * 
+     * @param digit
+     * @return int literal of digit
+     */</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="nf">string2Int</span><span class="o">(</span><span class="n">String</span> <span class="n">number</span><span class="o">){</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">zeroes</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="na">length</span><span class="o">()-</span><span class="mi">1</span><span class="o">;</span> <span class="c1">// determines place value of digit.</span>
+        
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">number</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">()){</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="o">(</span><span class="n">c</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">)*</span><span class="n">Math</span><span class="o">.</span><span class="na">pow</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span><span class="n">zeroes</span><span class="o">);</span>
+            <span class="n">zeroes</span><span class="o">--;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    
+    <span class="cm">/**************************************************************************/</span>
+    <span class="cm">/*  Math Operations                                                       */</span>
+    <span class="cm">/**************************************************************************/</span>
+    <span class="cm">/**
+     * Assumes both XLongs have lengths that are powers of 2 and are the same
+     * length.
+     * 
+     * @param other
+     * @return product of this and other XLong.
+     */</span>
+    <span class="kd">public</span> <span class="n">XLong</span> <span class="nf">karatMultiplyBy</span><span class="o">(</span><span class="n">XLong</span> <span class="n">other</span><span class="o">){</span>
+        
+        <span class="c1">//base case, both numbers are single digit values.</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">other</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">){</span>
+            <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="n">string2Int</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+            <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">string2Int</span><span class="o">(</span><span class="n">other</span><span class="o">.</span><span class="na">getNumber</span><span class="o">());</span>
+            <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="n">n1</span><span class="o">*</span><span class="n">n2</span><span class="o">;</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">XLong</span><span class="o">(</span><span class="s">""</span><span class="o">+</span><span class="n">p</span><span class="o">);</span>
+        <span class="o">}</span>
+        
+        <span class="c1">//determine which number is the longer and shorter number.</span>
+        <span class="n">XLong</span> <span class="n">longer</span><span class="o">;</span>
+        <span class="n">XLong</span> <span class="n">shorter</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="na">length</span><span class="o">()){</span>
+            <span class="n">longer</span> <span class="o">=</span> <span class="k">this</span><span class="o">;</span>
+            <span class="n">shorter</span> <span class="o">=</span> <span class="n">other</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+            <span class="n">longer</span> <span class="o">=</span> <span class="n">other</span><span class="o">;</span>
+            <span class="n">shorter</span> <span class="o">=</span> <span class="k">this</span><span class="o">;</span>
+        <span class="o">}</span>
+        
+        <span class="c1">//add leading zeroes to the longer number until its length is a power</span>
+        <span class="c1">//of 2.</span>
+        <span class="k">while</span><span class="o">(!</span><span class="n">isPowerOf2</span><span class="o">(</span><span class="n">longer</span><span class="o">.</span><span class="na">length</span><span class="o">()))</span>
+            <span class="n">longer</span><span class="o">.</span><span class="na">setNumber</span><span class="o">(</span><span class="s">"0"</span> <span class="o">+</span> <span class="n">longer</span><span class="o">.</span><span class="na">getNumber</span><span class="o">());</span>
+        
+        <span class="c1">//add leading zeroes to the shorter number until it matches the length</span>
+        <span class="c1">//of the longer number.</span>
+        <span class="n">longer</span><span class="o">.</span><span class="na">tackOnLeadingZeroesTo</span><span class="o">(</span><span class="n">shorter</span><span class="o">);</span>
+        
+        <span class="n">XLong</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XLong</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">copyValueOf</span><span class="o">(</span><span class="n">number</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">(),</span> 
+                                               <span class="mi">0</span><span class="o">,</span> 
+                                               <span class="n">length</span><span class="o">()/</span><span class="mi">2</span><span class="o">));</span>
+        
+        <span class="n">XLong</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XLong</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">copyValueOf</span><span class="o">(</span><span class="n">number</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">(),</span> 
+                                               <span class="n">length</span><span class="o">()/</span><span class="mi">2</span><span class="o">,</span> 
+                                               <span class="n">length</span><span class="o">()/</span><span class="mi">2</span><span class="o">));</span>
+        
+        <span class="n">XLong</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XLong</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">copyValueOf</span><span class="o">(</span><span class="n">other</span><span class="o">.</span><span class="na">getNumber</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">(),</span> 
+                                               <span class="mi">0</span><span class="o">,</span> 
+                                               <span class="n">other</span><span class="o">.</span><span class="na">length</span><span class="o">()/</span><span class="mi">2</span><span class="o">));</span>
+        
+        <span class="n">XLong</span> <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XLong</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">copyValueOf</span><span class="o">(</span><span class="n">other</span><span class="o">.</span><span class="na">getNumber</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">(),</span> 
+                                               <span class="n">other</span><span class="o">.</span><span class="na">length</span><span class="o">()/</span><span class="mi">2</span><span class="o">,</span> 
+                                               <span class="n">other</span><span class="o">.</span><span class="na">length</span><span class="o">()/</span><span class="mi">2</span><span class="o">));</span>
+        
+        
+        <span class="n">XLong</span> <span class="n">ac</span>   <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">karatMultiplyBy</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+        <span class="n">XLong</span> <span class="n">bd</span>   <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">karatMultiplyBy</span><span class="o">(</span><span class="n">d</span><span class="o">);</span>
+        <span class="n">XLong</span> <span class="n">foil</span> <span class="o">=</span> <span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">b</span><span class="o">)).</span><span class="na">karatMultiplyBy</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">d</span><span class="o">));</span><span class="c1">//(a+b)(c+d)</span>
+        <span class="n">XLong</span> <span class="n">sub</span>  <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bd</span><span class="o">);</span>
+        <span class="n">XLong</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">foil</span><span class="o">.</span><span class="na">subtract</span><span class="o">(</span><span class="n">sub</span><span class="o">);</span><span class="c1">//(a+b)(c+d)-ac-bd</span>
+        
+        
+        <span class="c1">//multiply ac by 10^n, if ac is not 0</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">ac</span><span class="o">.</span><span class="na">getNumber</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"0"</span><span class="o">))</span>
+            <span class="n">ac</span><span class="o">.</span><span class="na">tackOnTrailingZeroes</span><span class="o">(</span><span class="n">length</span><span class="o">());</span>
+        
+        <span class="c1">//multiply ((a+b)(c+d)-ac-bd) by 10^n/2</span>
+        <span class="n">diff</span><span class="o">.</span><span class="na">tackOnTrailingZeroes</span><span class="o">(</span><span class="n">length</span><span class="o">()/</span><span class="mi">2</span><span class="o">);</span>
+        
+        <span class="c1">//bring it all together to make the answer.</span>
+        <span class="n">XLong</span> <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="n">ac</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">diff</span><span class="o">)).</span><span class="na">add</span><span class="o">(</span><span class="n">bd</span><span class="o">);</span>
+        
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="cm">/**
+     * Adds the numbers together.
+     * @param other
+     * @return sum of this and other XLong.
+     */</span>
+    <span class="kd">public</span> <span class="n">XLong</span> <span class="nf">add</span><span class="o">(</span><span class="n">XLong</span> <span class="n">other</span><span class="o">){</span>
+        <span class="n">String</span> <span class="n">sum</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="c1">//for when we need to carry a 1.  0 otherwise.</span>
+        
+        <span class="c1">//make sure both numbers are of the same length, add leading zeroes</span>
+        <span class="c1">//to the shorter number if not.</span>
+        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="na">length</span><span class="o">())</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">tackOnLeadingZeroesTo</span><span class="o">(</span><span class="n">other</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">other</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="k">this</span><span class="o">.</span><span class="na">length</span><span class="o">())</span>
+            <span class="n">other</span><span class="o">.</span><span class="na">tackOnLeadingZeroesTo</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        
+        <span class="c1">//cycle through digits, starting with ones place (last index), adding </span>
+        <span class="c1">//the numbers and a carry if one was generated in the previous cycle.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">length</span><span class="o">()-</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--){</span>
+            
+            <span class="c1">//convert chars to ints</span>
+            <span class="kt">int</span> <span class="n">d1</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span> <span class="sc">'0'</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">d2</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="na">getNumber</span><span class="o">().</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">-</span><span class="sc">'0'</span><span class="o">;</span>
+            
+            <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="n">d1</span> <span class="o">+</span> <span class="n">d2</span> <span class="o">+</span> <span class="n">carry</span><span class="o">;</span>
+            
+            <span class="c1">//check if we need to carry a 1</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="o">){</span>
+                <span class="n">carry</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+                <span class="n">s</span> <span class="o">-=</span> <span class="mi">10</span><span class="o">;</span>
+            <span class="o">}</span><span class="k">else</span>
+                <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            
+            <span class="n">sum</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">sum</span><span class="o">;</span>
+        <span class="o">}</span>
+        
+        <span class="k">if</span> <span class="o">(</span><span class="n">carry</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="n">sum</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">sum</span><span class="o">;</span>
+        
+        <span class="c1">//get rid of leading zeroes.</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">trimLeadingZeroes</span><span class="o">();</span>
+        <span class="n">other</span><span class="o">.</span><span class="na">trimLeadingZeroes</span><span class="o">();</span>
+        
+        
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">XLong</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="cm">/** Assumes number to be subtracted is smaller than the current number.
+     * 
+     * @param other
+     * @return difference of other number from this number.
+     */</span>
+    <span class="kd">public</span> <span class="n">XLong</span> <span class="nf">subtract</span><span class="o">(</span><span class="n">XLong</span> <span class="n">other</span><span class="o">){</span>
+        <span class="n">XLong</span> <span class="n">otherCopy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XLong</span><span class="o">(</span><span class="n">other</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+        <span class="n">XLong</span> <span class="n">step</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XLong</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span>
+        <span class="n">XLong</span> <span class="n">accumulator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XLong</span><span class="o">();</span> <span class="c1">//keeps track of difference</span>
+        
+        <span class="k">this</span><span class="o">.</span><span class="na">tackOnLeadingZeroesTo</span><span class="o">(</span><span class="n">otherCopy</span><span class="o">);</span>
+        
+        <span class="c1">//add steps to otherCopy and accumulator until otherCopy equals this </span>
+        <span class="c1">//number.  Step size increases by factor of 10 each time a place value</span>
+        <span class="c1">//is matched with this number.</span>
+        
+        <span class="c1">//cycle through digits, starting with ones place.</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">length</span><span class="o">()-</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--){</span>
+            
+            <span class="c1">//keep adding step to otherCopy until current place value</span>
+            <span class="c1">//being examined matches that of this number's corresponding </span>
+            <span class="c1">//place value.</span>
+            <span class="k">while</span><span class="o">(</span><span class="n">otherCopy</span><span class="o">.</span><span class="na">getNumber</span><span class="o">().</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">!=</span> <span class="n">number</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)){</span>
+                <span class="n">otherCopy</span> <span class="o">=</span> <span class="n">otherCopy</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">step</span><span class="o">);</span>
+                <span class="n">accumulator</span> <span class="o">=</span> <span class="n">accumulator</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">step</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="n">step</span><span class="o">.</span><span class="na">setNumber</span><span class="o">(</span><span class="n">step</span><span class="o">.</span><span class="na">getNumber</span><span class="o">()+</span> <span class="s">"0"</span><span class="o">);</span><span class="c1">//multiply stepsize by 10</span>
+        <span class="o">}</span>
+        
+        <span class="k">return</span> <span class="n">accumulator</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    
+    <span class="cm">/**************************************************************************/</span>
+    <span class="cm">/*  Overrides                                                             */</span>
+    <span class="cm">/**************************************************************************/</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">number</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">number</span><span class="o">.</span><span class="na">equals</span><span class="o">(((</span><span class="n">XLong</span><span class="o">)</span><span class="n">obj</span><span class="o">).</span><span class="na">getNumber</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>This computes the answer to be:</p>
+
+<p>8 539 734 222 673 567 065 463 550 869 546 574 495 034 888 535 765 114 961 879 601 127 067 743 044 893 204 848 617 875 072 216 249 073 013 374 895 871 952 806 582 723 184</p>
+
+<p>which <a href="http://www.wolframalpha.com/input/?i=3141592653589793238462643383279502884197169399375105820974944592*2718281828459045235360287471352662497757247093699959574966967627">wolframalpha</a> affirms.</p>
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/06/10/Karatsuba-Multiplication" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Karatsuba Multiplication" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/06/13/Algorithms-Illuminated-Chapter-2-Exercises" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Algorithms Illuminated Pt 1, Ch 2 Exercises" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/06/11/Algorithms-Illuminated-Chapter-1-Exercises";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

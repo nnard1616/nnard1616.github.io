@@ -1,0 +1,1225 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Coursera Algoirthms with Roughgarden Pt 2, Week 1 </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/07/09/Coursera-Roughgarden-Algorithms-Pt-2-Wk-1">Coursera Algoirthms with Roughgarden Pt 2, Week 1</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>09 Jul 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/coursera">coursera</a></li>
+                      
+                        <li><a href="/tag/roughgarden">roughgarden</a></li>
+                      
+                        <li><a href="/tag/algorithms">algorithms</a></li>
+                      
+                        <li><a href="/tag/c++">c++</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/06/30/Coursera-Roughgarden-Algorithms-Pt-1-Wk-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 1, Week 4" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/07/17/Coursera-Roughgarden-Algorithms-Pt-2-Wk-2" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 2" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <p><em class="highlighted">Note: those marked with an asterisk I am not 100% confident in my answer/reasoning.</em></p>
+
+<p><em class="highlighted">Please feel free to discuss the problems and my proposed solutions below!</em></p>
+
+<h2 id="quiz">Quiz</h2>
+
+<h3 id="p1">P1</h3>
+<blockquote>
+  <p>Given an adjacency-list representation of a directed graph, where each vertex maintains an array of its outgoing edges (but <em>not</em> its incoming edges), how long does it take, in the worst case, to compute the in-degree of a given vertex? As usual, we use <em>n</em> and <em>m</em> to denote the number of vertices and edges, respectively, of the given graph. Also, let <em>k</em> denote the maximum in-degree of a vertex. (Recall that the in-degree of a vertex is the number of edges that enter it.)</p>
+</blockquote>
+
+<p>We need to examine, at worst, all of the edges to see if any go into a given node.  Thus <strong class="highlighted">Θ(m)</strong> is the correct answer.</p>
+
+<h3 id="p2">P2</h3>
+<blockquote>
+  <p>Consider the following problem: given an undirected graph <strong><em>G</em></strong> with <em>n</em> vertices and <em>m</em> edges, and two vertices <em>s</em> and <em>t</em>, does there exist at least one <em>s-t</em> path?</p>
+
+  <p>If <strong><em>G</em></strong> is given in its adjacency list representation, then the above problem can be solved in <strong>O(m+n)</strong> time, using BFS or DFS. (Make sure you see why this is true.)</p>
+
+  <p>Suppose instead that <strong><em>G</em></strong> is given in its adjacency <em>matrix</em> representation. What running time is required, in the worst case, to solve the computational problem stated above? (Assume that <strong><em>G</em></strong> has no parallel edges.)</p>
+</blockquote>
+
+<p>In the adjaceny list version, there are <em>m+n</em> entries that would need to be examined.  But in the matrix version, there are now <em>n<sup>2</sup></em> entries that could all be potentially examined.  Hence it is <strong class="highlighted">Θ(n<sup>2</sup>)</strong>.</p>
+
+<h3 id="p3">P3</h3>
+<blockquote>
+  <p>This problem explores the relationship between two definitions about graph distances. In this problem, we consider only graphs that are undirected and connected. The diameter of a graph is the maximum, over all choices of vertices <em>s</em> and <em>t</em>, of the shortest-path distance between <em>s</em> and <em>t</em>. (Recall the shortest-path distance between <em>s</em> and <em>t</em> is the fewest number of edges in an <em>s-t</em> path.)</p>
+
+  <p>Next, for a vertex <em>s</em>, let <em>l(s)</em> denote the maximum, over all vertices <em>t</em>, of the shortest-path distance between <em>s</em> and <em>t</em>. The radius of a graph is the minimum of l(s)l(s) over all choices of the vertex <em>s</em>.</p>
+
+  <p>Which of the following inequalities always hold (i.e., in every undirected connected graph) for the radius <em>r</em> and the diameter <em>d</em>? [Select all that apply.]</p>
+</blockquote>
+
+<p>By the definitions, it stands to reason that the radius can be as large as the diameter.  The diameter must be less than or equal to twice the radius because any central vertex of a graph can be at most the radius length from any pair of periphery vertices.</p>
+
+<h3 id="p4">P4</h3>
+<blockquote>
+  <p>Consider our algorithm for computing a topological ordering that is based on depth-first search (i.e., NOT the “straightforward solution”). Suppose we run this algorithm on a graph <strong><em>G</em></strong> that is NOT directed acyclic. Obviously it won’t compute a topological order (since none exist). Does it compute an ordering that minimizes the number of edges that go backward?</p>
+
+  <p>For example, consider the four-node graph with the six directed edges (s,v),(s,w),(v,w),(v,t),(w,t),(t,s). Suppose the vertices are ordered s,v,w,t. Then there is one backwards arc, the (t,s) arc. No ordering of the vertices has zero backwards arcs, and some have more than one.</p>
+</blockquote>
+
+<p>It depends on where you start the DFS.  So sometimes yes, sometimes no.</p>
+
+<h3 id="p5">P5</h3>
+<blockquote>
+  <p>On adding one extra edge to a directed graph <strong><em>G</em></strong>, the number of strongly connected components…?</p>
+</blockquote>
+
+<p>Anything is possible upon adding an edge.  Hence all of the answer choices with strong language are wrong.</p>
+
+<h2 id="programming-assignment">Programming Assignment</h2>
+
+<p>We’re asked to implement the Kosaraju’s Two-Pass Algorithm for finding Strongly Connected Components (SCC) in a directed graph.  An SCC is any collection of nodes in a graph that one can traverse from i to j within that cluster alone.  Kosaraju’s Two-Pass Algortihm can be used to find all SCCs in a graph.  Below is my implementation (Node first, then DirectedGraph) of the algorithm, which will print the top 5 most connected SCCs in a given graph.  For this project I switched to C++ as cloning objects is very frustrating in Java.  For the programming assignment it runs in about 39 seconds.</p>
+
+<p>Note that there’s two different implementations for the DFS method in the DirectedGraph class.  The commented out version uses recursion, but if used on the Programming Assignment the program will crash due to a stack overflow.  The second version uses a stack data structure and iteration instead to circumvent this limitation.</p>
+
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+</pre></td><td class="code"><pre><span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Node Class Implementation                                                 */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="c1">//for sorting Node pointers in the neighbors set.</span>
+<span class="n">template</span> <span class="o">&lt;</span><span class="kd">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="n">struct</span> <span class="n">ptrLess</span> <span class="o">{</span>
+    <span class="n">bool</span> <span class="nf">operator</span><span class="o">()</span> <span class="o">(</span><span class="kd">const</span> <span class="n">T</span><span class="o">*</span> <span class="n">x</span><span class="o">,</span> <span class="kd">const</span> <span class="n">T</span><span class="o">*</span> <span class="n">y</span><span class="o">)</span> <span class="kd">const</span> <span class="o">{</span><span class="k">return</span> <span class="o">*</span><span class="n">x</span><span class="o">&lt;*</span><span class="n">y</span><span class="o">;}</span>
+    <span class="n">typedef</span> <span class="n">T</span> <span class="n">first_argument_type</span><span class="o">;</span>
+    <span class="n">typedef</span> <span class="n">T</span> <span class="n">second_argument_type</span><span class="o">;</span>
+    <span class="n">typedef</span> <span class="n">bool</span> <span class="n">result_type</span><span class="o">;</span>
+<span class="o">};</span>
+
+<span class="kd">class</span> <span class="nc">Node</span><span class="o">{</span>
+<span class="kd">public</span><span class="o">:</span>
+
+    <span class="c1">//Constructors &amp; Destructor</span>
+    <span class="n">Node</span><span class="o">();</span>
+    <span class="n">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">);</span>
+    <span class="n">Node</span><span class="o">(</span><span class="kd">const</span> <span class="n">Node</span><span class="o">&amp;</span> <span class="n">orig</span><span class="o">);</span>
+    <span class="n">virtual</span> <span class="o">~</span><span class="n">Node</span><span class="o">();</span>
+    
+    <span class="c1">//Getters &amp; Setters</span>
+    <span class="kt">int</span> <span class="nf">getValue</span> <span class="o">()</span> <span class="kd">const</span><span class="o">;</span>
+    <span class="n">set</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*,</span> <span class="n">ptrLess</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;&gt;*</span> <span class="n">getNeighbors</span><span class="o">();</span>
+    
+    <span class="n">bool</span> <span class="nf">isVisited</span><span class="o">()</span> <span class="kd">const</span><span class="o">;</span>
+    <span class="n">bool</span> <span class="nf">allNeighborsVisited</span><span class="o">();</span>
+    
+    <span class="kt">void</span> <span class="nf">setValue</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">;</span>
+    <span class="kt">void</span> <span class="nf">setVisited</span><span class="o">(</span> <span class="n">bool</span> <span class="n">b</span><span class="o">);</span>
+    
+    <span class="kt">void</span> <span class="nf">addNeighbor</span><span class="o">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">n</span><span class="o">)</span> <span class="o">;</span>
+    
+    <span class="c1">//Operators</span>
+    <span class="n">bool</span> <span class="n">operator</span><span class="o">&lt;</span>   <span class="o">(</span><span class="kd">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">n1</span><span class="o">)</span> <span class="kd">const</span><span class="o">;</span>
+    <span class="n">bool</span> <span class="n">operator</span><span class="o">==</span>  <span class="o">(</span><span class="kd">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">n1</span><span class="o">);</span>
+    <span class="n">bool</span> <span class="n">operator</span><span class="o">!=</span>  <span class="o">(</span><span class="kd">const</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">n1</span><span class="o">);</span>
+    <span class="n">friend</span> <span class="n">ostream</span><span class="o">&amp;</span> <span class="n">operator</span><span class="o">&lt;&lt;</span>  <span class="o">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="o">,</span> <span class="kd">const</span> <span class="n">Node</span><span class="o">&amp;</span> <span class="n">n</span><span class="o">);</span>
+    
+<span class="kd">private</span><span class="o">:</span>
+    
+    <span class="c1">//Attributes</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
+    <span class="n">bool</span> <span class="n">visited</span><span class="o">;</span>
+    <span class="n">set</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*,</span> <span class="n">ptrLess</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;&gt;</span> <span class="n">neighbors</span><span class="o">;</span>
+<span class="o">};</span>
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Constructors/Destructor                                                   */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="nl">Node:</span><span class="o">:</span><span class="n">Node</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="n">visited</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="nl">Node:</span><span class="o">:</span><span class="n">Node</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">){</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="nl">Node:</span><span class="o">:</span><span class="n">Node</span><span class="o">(</span><span class="kd">const</span> <span class="n">Node</span><span class="o">&amp;</span> <span class="n">orig</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">orig</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="nl">Node:</span><span class="o">:~</span><span class="n">Node</span><span class="o">()</span> <span class="o">{</span>
+<span class="o">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Neighbor Methods                                                          */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="kt">void</span> <span class="nl">Node:</span><span class="o">:</span><span class="n">addNeighbor</span><span class="o">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">n</span><span class="o">)</span>  <span class="o">{</span>
+    <span class="n">neighbors</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+<span class="o">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Getters/Setters                                                           */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="kt">int</span> <span class="nl">Node:</span><span class="o">:</span><span class="n">getValue</span><span class="o">()</span> <span class="kd">const</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nl">Node:</span><span class="o">:</span><span class="n">setValue</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="n">set</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*,</span> <span class="n">ptrLess</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&gt;</span> <span class="o">&gt;*</span> <span class="nl">Node:</span><span class="o">:</span><span class="n">getNeighbors</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="n">neighbors</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="n">bool</span> <span class="nl">Node:</span><span class="o">:</span><span class="n">allNeighborsVisited</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">auto</span><span class="o">&amp;</span> <span class="n">i</span> <span class="o">:</span> <span class="n">neighbors</span><span class="o">)</span>
+        <span class="k">if</span> <span class="o">(</span> <span class="o">!</span> <span class="n">i</span><span class="o">-&gt;</span><span class="n">isVisited</span><span class="o">())</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="n">bool</span> <span class="nl">Node:</span><span class="o">:</span><span class="n">isVisited</span><span class="o">()</span> <span class="kd">const</span> <span class="o">{</span> 
+    <span class="k">return</span> <span class="n">visited</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nl">Node:</span><span class="o">:</span><span class="n">setVisited</span><span class="o">(</span> <span class="n">bool</span> <span class="n">b</span><span class="o">){</span>
+    <span class="n">visited</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
+<span class="o">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Operators                                                                 */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="n">bool</span> <span class="nl">Node:</span><span class="o">:</span><span class="n">operator</span><span class="o">==(</span><span class="kd">const</span> <span class="n">Node</span><span class="o">&amp;</span> <span class="n">n1</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">n1</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">==</span> <span class="n">getValue</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="n">bool</span> <span class="nl">Node:</span><span class="o">:</span><span class="n">operator</span><span class="o">!=(</span><span class="kd">const</span> <span class="n">Node</span><span class="o">&amp;</span> <span class="n">n1</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="o">!</span> <span class="o">(</span><span class="n">n1</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">==</span> <span class="n">getValue</span><span class="o">());</span>
+<span class="o">}</span>
+
+<span class="n">bool</span> <span class="nl">Node:</span><span class="o">:</span><span class="n">operator</span><span class="o">&lt;(</span><span class="kd">const</span> <span class="n">Node</span><span class="o">&amp;</span> <span class="n">n1</span><span class="o">)</span> <span class="kd">const</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">n1</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="n">ostream</span><span class="o">&amp;</span> <span class="n">operator</span><span class="o">&lt;&lt;(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="o">,</span> <span class="kd">const</span> <span class="n">Node</span><span class="o">&amp;</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="o">.</span><span class="na">value</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="o">;</span>
+    
+    <span class="k">for</span> <span class="o">(</span><span class="n">auto</span> <span class="n">i</span> <span class="o">:</span> <span class="n">n</span><span class="o">.</span><span class="na">neighbors</span><span class="o">)</span>
+        <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="o">;</span>
+    
+    <span class="k">return</span> <span class="n">os</span><span class="o">;</span>
+<span class="o">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  DirectedGraph Class Implementation                                        */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="kd">class</span> <span class="nc">DirectedGraph</span> <span class="o">{</span>
+<span class="kd">public</span><span class="o">:</span>
+    <span class="c1">//Constructors &amp; Destructor</span>
+    <span class="n">DirectedGraph</span><span class="o">(</span><span class="n">string</span> <span class="n">filename</span><span class="o">);</span>
+    <span class="n">DirectedGraph</span><span class="o">(</span><span class="kd">const</span> <span class="n">DirectedGraph</span><span class="o">&amp;</span> <span class="n">orig</span><span class="o">);</span>
+    <span class="n">virtual</span> <span class="o">~</span><span class="n">DirectedGraph</span><span class="o">();</span>
+    
+    <span class="kt">int</span> <span class="nf">getEdges</span><span class="o">()</span> <span class="kd">const</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="nf">getNodes</span><span class="o">()</span> <span class="kd">const</span><span class="o">;</span>
+    
+    <span class="kt">void</span> <span class="nf">setAllVisited</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">setAllNotVisited</span><span class="o">();</span>
+    <span class="n">bool</span> <span class="nf">areAllVisited</span><span class="o">();</span>
+    <span class="n">bool</span> <span class="nf">areAllNotVisited</span><span class="o">();</span>
+
+    
+    <span class="kt">void</span> <span class="nf">readInData</span><span class="o">(</span><span class="n">string</span> <span class="n">filename</span><span class="o">);</span>
+    <span class="kt">void</span> <span class="nf">findSCCs</span><span class="o">();</span>
+    
+    <span class="n">friend</span> <span class="n">ostream</span><span class="o">&amp;</span> <span class="n">operator</span><span class="o">&lt;&lt;</span> <span class="o">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="o">,</span> <span class="kd">const</span> <span class="n">DirectedGraph</span><span class="o">&amp;</span> <span class="n">g</span><span class="o">);</span>
+    
+<span class="kd">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">edges</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">nodes</span><span class="o">;</span>
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">,</span> <span class="n">Node</span><span class="o">*&gt;</span> <span class="n">nodeList</span><span class="o">;</span>
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">nToFinishTime</span><span class="o">;</span>
+    
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">,</span> <span class="n">Node</span><span class="o">*&gt;</span> <span class="n">reverseArcsAndTransform</span><span class="o">(</span><span class="kd">const</span> <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">,</span> <span class="n">Node</span><span class="o">*&gt;&amp;</span> <span class="n">al</span><span class="o">);</span>
+    <span class="kt">void</span> <span class="nf">DFS</span><span class="o">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">counter</span><span class="o">);</span>
+    <span class="kt">void</span> <span class="nf">DFSOnOriginal</span><span class="o">();</span>
+    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="nf">DFSOnReversedTransform</span><span class="o">();</span>
+<span class="o">};</span>
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Constructors/Destructor                                                   */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">DirectedGraph</span><span class="o">(</span><span class="n">string</span> <span class="n">filename</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">readInData</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">DirectedGraph</span><span class="o">(</span><span class="kd">const</span> <span class="n">DirectedGraph</span><span class="o">&amp;</span> <span class="n">orig</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">orig</span><span class="o">.</span><span class="na">edges</span><span class="o">;</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="n">orig</span><span class="o">.</span><span class="na">nodes</span><span class="o">;</span>
+    <span class="n">nodeList</span> <span class="o">=</span> <span class="n">orig</span><span class="o">.</span><span class="na">nodeList</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="nl">DirectedGraph:</span><span class="o">:~</span><span class="n">DirectedGraph</span><span class="o">()</span> <span class="o">{</span>
+<span class="o">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Public Graph Methods                                                      */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="kt">void</span> <span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">readInData</span><span class="o">(</span><span class="n">string</span> <span class="n">filename</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"reading data..."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="o">;</span>
+    <span class="n">nodeList</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="n">nToFinishTime</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    
+    <span class="n">ifstream</span> <span class="nf">infile</span><span class="o">(</span><span class="n">filename</span><span class="o">);</span>
+    <span class="n">string</span> <span class="n">line</span><span class="o">;</span>
+    
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pair</span><span class="o">;</span>
+    
+    <span class="k">while</span> <span class="o">(</span><span class="n">getline</span><span class="o">(</span><span class="n">infile</span><span class="o">,</span><span class="n">line</span><span class="o">)){</span>
+        <span class="n">pair</span> <span class="o">=</span> <span class="n">strings_to_ints</span><span class="o">(</span><span class="n">split</span><span class="o">(</span><span class="n">line</span><span class="o">,</span> <span class="sc">' '</span><span class="o">));</span>
+        
+        <span class="kt">int</span> <span class="n">mInt</span> <span class="o">=</span> <span class="n">pair</span><span class="o">.</span><span class="na">at</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">nInt</span> <span class="o">=</span> <span class="n">pair</span><span class="o">.</span><span class="na">at</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        
+        
+        <span class="k">if</span> <span class="o">(</span><span class="n">nodeList</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">mInt</span><span class="o">)</span> <span class="o">==</span> <span class="n">nodeList</span><span class="o">.</span><span class="na">end</span><span class="o">()){</span>
+            <span class="n">nodeList</span><span class="o">[</span><span class="n">mInt</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">mInt</span><span class="o">);</span>
+            <span class="n">nodes</span><span class="o">++;</span>
+        <span class="o">}</span>
+        
+        <span class="k">if</span> <span class="o">(</span><span class="n">nodeList</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">nInt</span><span class="o">)</span> <span class="o">==</span> <span class="n">nodeList</span><span class="o">.</span><span class="na">end</span><span class="o">()){</span>
+            <span class="n">nodeList</span><span class="o">[</span><span class="n">nInt</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">nInt</span><span class="o">);</span>
+            <span class="n">nodes</span><span class="o">++;</span>
+        <span class="o">}</span>
+        
+        <span class="n">nodeList</span><span class="o">[</span><span class="n">mInt</span><span class="o">]-&gt;</span><span class="n">addNeighbor</span><span class="o">(</span><span class="n">nodeList</span><span class="o">[</span><span class="n">nInt</span><span class="o">]);</span>
+        <span class="n">edges</span><span class="o">++;</span>
+        
+        <span class="n">pair</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+    <span class="o">}</span>
+    
+    
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Data read. "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">"Nodes: "</span>  <span class="o">&lt;&lt;</span> <span class="n">nodes</span> 
+                                  <span class="o">&lt;&lt;</span> <span class="s">" Edges: "</span> <span class="o">&lt;&lt;</span> <span class="n">edges</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="o">;</span>
+    
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">findSCCs</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Performing DFS on original..."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="o">;</span>
+    
+    <span class="c1">//side affect: 'nToFinishTime' contains mapping from original nodes to </span>
+    <span class="c1">//DFS finish times.</span>
+    <span class="n">DFSOnOriginal</span><span class="o">();</span>
+    
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Done. Performing reverse and map..."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="o">;</span>
+    <span class="n">nodeList</span> <span class="o">=</span> <span class="n">reverseArcsAndTransform</span><span class="o">(</span><span class="n">nodeList</span><span class="o">);</span>
+    
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Done. Performing DFS on reversed transform..."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="o">;</span>
+    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">DFSOnReversedTransform</span><span class="o">();</span>
+     
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Done.  Here are the top 5 results: "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="o">;</span>
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span> <span class="o">++){</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result</span><span class="o">.</span><span class="na">top</span><span class="o">()</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="o">;</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="o">;</span>
+<span class="o">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Private Graph Methods                                                     */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="c1">//Reverses the arcs in graph, and also uses 'nToFinishTime' to map to the</span>
+<span class="c1">//respective finish time from DFS on original graph.</span>
+<span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">,</span> <span class="n">Node</span><span class="o">*&gt;</span> <span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">reverseArcsAndTransform</span><span class="o">(</span>
+                                                    <span class="kd">const</span> <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">,</span> <span class="n">Node</span><span class="o">*&gt;&amp;</span> <span class="n">al</span><span class="o">)</span> <span class="o">{</span>
+    
+    <span class="c1">//reversed, transformed adjacency list.</span>
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">,</span> <span class="n">Node</span><span class="o">*&gt;</span> <span class="n">rtal</span><span class="o">;</span>
+    
+    <span class="k">for</span> <span class="o">(</span><span class="n">auto</span> <span class="n">pair</span> <span class="o">:</span> <span class="n">al</span><span class="o">){</span>
+        
+        <span class="c1">//transform first node</span>
+        <span class="kt">int</span> <span class="n">mInt</span> <span class="o">=</span> <span class="n">nToFinishTime</span><span class="o">[</span><span class="n">pair</span><span class="o">.</span><span class="na">first</span><span class="o">];</span>
+        
+        <span class="k">for</span> <span class="o">(</span> <span class="n">auto</span> <span class="n">i</span> <span class="o">:</span> <span class="o">*</span><span class="n">pair</span><span class="o">.</span><span class="na">second</span><span class="o">-&gt;</span><span class="n">getNeighbors</span><span class="o">()){</span>
+            
+            <span class="c1">//transform second node</span>
+            <span class="kt">int</span> <span class="n">nInt</span> <span class="o">=</span> <span class="n">nToFinishTime</span><span class="o">[</span><span class="n">i</span><span class="o">-&gt;</span><span class="n">getValue</span><span class="o">()];</span>
+            
+            <span class="k">if</span> <span class="o">(</span><span class="n">rtal</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">mInt</span><span class="o">)</span> <span class="o">==</span> <span class="n">rtal</span><span class="o">.</span><span class="na">end</span><span class="o">())</span>
+                <span class="n">rtal</span><span class="o">[</span><span class="n">mInt</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">mInt</span><span class="o">);</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">rtal</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">nInt</span><span class="o">)</span> <span class="o">==</span> <span class="n">rtal</span><span class="o">.</span><span class="na">end</span><span class="o">())</span>
+                <span class="n">rtal</span><span class="o">[</span><span class="n">nInt</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">nInt</span><span class="o">);</span>
+            
+            <span class="c1">//reverse arc</span>
+            <span class="n">rtal</span><span class="o">[</span><span class="n">nInt</span><span class="o">]-&gt;</span><span class="n">addNeighbor</span><span class="o">(</span><span class="n">rtal</span><span class="o">[</span><span class="n">mInt</span><span class="o">]);</span>
+            
+            <span class="c1">//ensure visited parameter is set to false.</span>
+            <span class="n">rtal</span><span class="o">[</span><span class="n">mInt</span><span class="o">]-&gt;</span><span class="n">setVisited</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+            <span class="n">rtal</span><span class="o">[</span><span class="n">nInt</span><span class="o">]-&gt;</span><span class="n">setVisited</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    
+    <span class="k">return</span> <span class="n">rtal</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="c1">//with recursion</span>
+<span class="c1">//void DirectedGraph::DFS(Node* n, int&amp; counter) {</span>
+<span class="c1">//    n-&gt;setVisited(true);</span>
+<span class="c1">//    for (auto&amp; neighbor : *n-&gt;getNeighbors()){</span>
+<span class="c1">//        if ( ! neighbor-&gt;isVisited()){</span>
+<span class="c1">//            DFS(neighbor, counter);</span>
+<span class="c1">//        }</span>
+<span class="c1">//    }</span>
+<span class="c1">//    </span>
+<span class="c1">//    if (nToFinishTime.size() &lt; nodes)</span>
+<span class="c1">//        if (nToFinishTime.find(n-&gt;getValue()) == nToFinishTime.end())</span>
+<span class="c1">//            nToFinishTime[n-&gt;getValue()] = counter;</span>
+<span class="c1">//    counter++;</span>
+<span class="c1">//}</span>
+
+<span class="c1">//without recursion</span>
+<span class="kt">void</span> <span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">DFS</span><span class="o">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">counter</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">stack</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">*&gt;</span> <span class="n">path</span><span class="o">;</span>
+    <span class="n">n</span><span class="o">-&gt;</span><span class="n">setVisited</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="n">path</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">n</span><span class="o">);</span>
+    
+    <span class="k">while</span> <span class="o">(!</span> <span class="n">path</span><span class="o">.</span><span class="na">empty</span><span class="o">()){</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">auto</span><span class="o">&amp;</span> <span class="nl">i:</span> <span class="o">*</span><span class="n">path</span><span class="o">.</span><span class="na">top</span><span class="o">()-&gt;</span><span class="n">getNeighbors</span><span class="o">()){</span>
+            <span class="k">if</span> <span class="o">(</span> <span class="o">!</span> <span class="n">i</span><span class="o">-&gt;</span><span class="n">isVisited</span><span class="o">()){</span>
+                <span class="n">i</span><span class="o">-&gt;</span><span class="n">setVisited</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+                <span class="n">path</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+                <span class="k">break</span><span class="o">;</span><span class="c1">//move to neighbor</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        
+        <span class="c1">//if current node has no unvisited neighbors, start backtracking.</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">path</span><span class="o">.</span><span class="na">top</span><span class="o">()-&gt;</span><span class="n">allNeighborsVisited</span><span class="o">()){</span>
+            
+            <span class="c1">//this portion is only needed for DFS on original graph.  It will </span>
+            <span class="c1">//be skipped over in DFS on reversed transformed graph.</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">nToFinishTime</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">nodes</span><span class="o">)</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">nToFinishTime</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">path</span><span class="o">.</span><span class="na">top</span><span class="o">()-&gt;</span><span class="n">getValue</span><span class="o">())</span> <span class="o">==</span> 
+                    <span class="n">nToFinishTime</span><span class="o">.</span><span class="na">end</span><span class="o">())</span>
+                    <span class="n">nToFinishTime</span><span class="o">[</span><span class="n">path</span><span class="o">.</span><span class="na">top</span><span class="o">()-&gt;</span><span class="n">getValue</span><span class="o">()]</span> <span class="o">=</span> <span class="n">counter</span><span class="o">;</span>
+            
+            <span class="n">counter</span><span class="o">++;</span>
+            <span class="n">path</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">DFSOnOriginal</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">node</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">;</span>
+    
+    <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">&lt;=</span> <span class="n">nodes</span><span class="o">){</span>
+        
+        <span class="c1">//start at highest node, jump to next highest unvisited node after</span>
+        <span class="c1">//a round of DFS.</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">nodeList</span><span class="o">[</span><span class="n">node</span><span class="o">]-&gt;</span><span class="n">isVisited</span><span class="o">())</span>
+            <span class="n">node</span><span class="o">--;</span>
+        
+        <span class="n">DFS</span><span class="o">(</span><span class="n">nodeList</span><span class="o">[</span><span class="n">node</span><span class="o">],</span> <span class="n">counter</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">DFSOnReversedTransform</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">SCCs</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">prevCounter</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">node</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">;</span>
+    
+    <span class="k">while</span> <span class="o">(</span><span class="n">counter</span> <span class="o">&lt;=</span> <span class="n">nodes</span><span class="o">){</span>
+        
+        <span class="n">prevCounter</span> <span class="o">=</span> <span class="n">counter</span><span class="o">;</span>
+        
+        <span class="c1">//start at highest node, jump to next highest unvisited node after</span>
+        <span class="c1">//a round of DFS.</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">nodeList</span><span class="o">[</span><span class="n">node</span><span class="o">]-&gt;</span><span class="n">isVisited</span><span class="o">())</span>
+            <span class="n">node</span><span class="o">--;</span>
+        
+        <span class="n">DFS</span><span class="o">(</span><span class="n">nodeList</span><span class="o">[</span><span class="n">node</span><span class="o">],</span> <span class="n">counter</span><span class="o">);</span>
+        
+        <span class="n">SCCs</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">counter</span> <span class="o">-</span> <span class="n">prevCounter</span><span class="o">);</span>
+        
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">SCCs</span><span class="o">;</span>
+<span class="o">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Getters/Setters                                                           */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="kt">int</span> <span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">getEdges</span><span class="o">()</span> <span class="kd">const</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">edges</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kt">int</span> <span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">getNodes</span><span class="o">()</span> <span class="kd">const</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">nodes</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="n">bool</span> <span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">areAllVisited</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">auto</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nodeList</span><span class="o">)</span>
+        <span class="k">if</span> <span class="o">(</span> <span class="o">!</span> <span class="n">i</span><span class="o">.</span><span class="na">second</span><span class="o">-&gt;</span><span class="n">isVisited</span><span class="o">())</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="n">bool</span> <span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">areAllNotVisited</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">auto</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nodeList</span><span class="o">)</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">i</span><span class="o">.</span><span class="na">second</span><span class="o">-&gt;</span><span class="n">isVisited</span><span class="o">())</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">setAllNotVisited</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">auto</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nodeList</span><span class="o">){</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">i</span><span class="o">.</span><span class="na">second</span><span class="o">-&gt;</span><span class="n">isVisited</span><span class="o">())</span>
+            <span class="n">i</span><span class="o">.</span><span class="na">second</span><span class="o">-&gt;</span><span class="n">setVisited</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nl">DirectedGraph:</span><span class="o">:</span><span class="n">setAllVisited</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">auto</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nodeList</span><span class="o">){</span>
+        <span class="k">if</span> <span class="o">(</span> <span class="o">!</span> <span class="n">i</span><span class="o">.</span><span class="na">second</span><span class="o">-&gt;</span><span class="n">isVisited</span><span class="o">())</span>
+            <span class="n">i</span><span class="o">.</span><span class="na">second</span><span class="o">-&gt;</span><span class="n">setVisited</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Operators                                                                 */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="n">ostream</span><span class="o">&amp;</span> <span class="n">operator</span><span class="o">&lt;&lt;</span> <span class="o">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="o">,</span> <span class="kd">const</span> <span class="n">DirectedGraph</span><span class="o">&amp;</span> <span class="n">g</span> <span class="o">){</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">auto</span> <span class="n">pair</span> <span class="o">:</span> <span class="n">g</span><span class="o">.</span><span class="na">nodeList</span><span class="o">){</span>
+        <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">pair</span><span class="o">.</span><span class="na">second</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">;</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/06/30/Coursera-Roughgarden-Algorithms-Pt-1-Wk-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 1, Week 4" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/07/17/Coursera-Roughgarden-Algorithms-Pt-2-Wk-2" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 2" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/07/09/Coursera-Roughgarden-Algorithms-Pt-2-Wk-1";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

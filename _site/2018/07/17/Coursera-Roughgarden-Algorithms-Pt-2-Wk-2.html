@@ -1,0 +1,1608 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Coursera Algoirthms with Roughgarden Pt 2, Week 2 </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/07/17/Coursera-Roughgarden-Algorithms-Pt-2-Wk-2">Coursera Algoirthms with Roughgarden Pt 2, Week 2</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>17 Jul 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/coursera">coursera</a></li>
+                      
+                        <li><a href="/tag/roughgarden">roughgarden</a></li>
+                      
+                        <li><a href="/tag/algorithms">algorithms</a></li>
+                      
+                        <li><a href="/tag/c++">c++</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/07/09/Coursera-Roughgarden-Algorithms-Pt-2-Wk-1" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 1" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/07/19/Coursera-Roughgarden-Algorithms-Pt-2-Wk-3" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 3" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <p><em class="highlighted">Note: those marked with an asterisk I am not 100% confident in my answer/reasoning.</em></p>
+
+<p><em class="highlighted">Please feel free to discuss the problems and my proposed solutions below!</em></p>
+
+<h2 id="quiz">Quiz</h2>
+
+<h3 id="p1">P1</h3>
+<blockquote>
+  <p>Consider a directed graph with distinct and nonnegative edge lengths and a source vertex <em>s</em>. Fix a destination vertex <em>t</em>, and assume that the graph contains at least one <em>s-t</em> path. Which of the following statements are true? [Check all that apply.]</p>
+</blockquote>
+
+<p>There is no need for the shortest path <em>s-t</em> to include the smallest edge length in the graph.  Same goes for <em>strictly</em> excluding the largest edge length.  Though it is possible for the path to contain all of the edges and it is guaranteed that the shortest path will not contain a loop as it is against the definition of “shortest path” to have a loop (it would get truncated).</p>
+
+<h3 id="p2">P2</h3>
+<blockquote>
+  <p>Consider a directed graph <em>G</em> with a source vertex <em>s</em>, a destination <em>t</em>, and nonnegative edge lengths. Under what conditions is the shortest <em>s-t</em> path guaranteed to be unique?</p>
+</blockquote>
+
+<p>There can never be a common sum between two different combinations of distinct powers of 2, thus “when all edges are distinct powers of 2” is the correct answer.</p>
+
+<h3 id="p3">P3</h3>
+<blockquote>
+  <p>Consider a directed graph <strong><em>G=(V,E)</em></strong> and a source vertex <em>s</em> with the following properties: edges that leave the source vertex <em>s</em> have arbitrary (possibly negative) lengths; all other edge lengths are nonnegative; and there are no edges from any other vertex to the source <em>s</em>. Does Dijkstra’s shortest-path algorithm correctly compute shortest-path distances (from <em>s</em>) in this graph?</p>
+</blockquote>
+
+<p>Dijkstra falls apart with negative edge lengths when they appear down the line.  Prior nodes may get processed prior to processing those negative edge lengths and will be closed off prematurely– thereby missing the true shortest path that utilizes the later negative edge lengths.</p>
+
+<p>But for this example, the negative edge lengths only appear coming out from the starting node.  Hence, all negative edge lengths are “known” at the start of the algorithm and so it won’t miss any prior to closing off subsequent nodes.  Hence, Dijkstra will always work with this example, so long as the negative edge lengths are always on the starting node.</p>
+
+<h3 id="p4">P4</h3>
+<blockquote>
+  <p>Consider a directed graph <strong><em>G</em></strong> and a source vertex <em>s</em>. Suppose <strong><em>G</em></strong> has some negative edge lengths but no negative cycles, meaning <strong><em>G</em></strong> does not have a directed cycle in which the sum of the edge lengths is negative. Suppose you run Dijkstra’s algorithm on <strong><em>G</em></strong> (with source <em>s</em>). Which of the following statements are true? [Check all that apply.]</p>
+</blockquote>
+
+<p>It’s not impossible to run Dijkstra on a graph with negative edge lengths, there’s just no guarantee outright that the computed answer is correct.  Though we can safely say there will be no infinite loops as Dijkstra always terminates in <em>n-1</em> iterations.</p>
+
+<h3 id="p5">P5</h3>
+<blockquote>
+  <p>Consider a directed graph <strong><em>G</em></strong> and a source vertex <em>s</em>. Suppose <strong><em>G</em></strong> contains a negative cycle (a directed cycle in which the sum of the edge lengths is negative) and also a path from <em>s</em> to this cycle. Suppose you run Dijkstra’s algorithm on <strong><em>G</em></strong> (with source <em>s</em>). Which of the following statements are true? [Check all that apply.]</p>
+</blockquote>
+
+<p>Again Dijkstra will never loop forever as it always terminates in <em>n-1</em> iterations.  As such you can definitely run Dijkstra on this kind of graph, any graph really.  You just have no guarantee that the computed answer is correct.</p>
+
+<hr />
+<h2 id="programming-assignment">Programming Assignment</h2>
+
+<p>We’re asked to implement Dijkstra’s algorithm and use it to compute various shortest paths in a given Undirected Graph (I use a directed graph below, but it works just the same).  Apparently there’s a couple ways of going about it, but the best approach is to use a heap/priority queue data structure in the implementation.</p>
+
+<p>Below you will find my implementation using C++.  Click on the buttons to expand each Class’s code.  While the C++ STL has a priority_queue data structure, it does not actively keep itself sorted once items within it change (via pointers) and there’s no direct member function to force updates and it does not come equipped with iterators.  I tried using the swap member function to pass the nodes between two different priority_queues and other things to force re-sorting of the nodes, but for whatever reason I wasn’t getting correct answers.  So I made my own implementation of a priority_queue, backed by a vector and enabled to accept custom Comparator objects for sorting the objects.  I also provided an update() member function which gets called whenever changing my nodes throughout my Dijkstra implementation.  It just forces a re-sorting of the objects via std::sort from the &lt;algorithm&gt; library. There’s also a neat implmentation of binarysearch using iterators within my priority queue implemenation.</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-weightednode">
+           WeightedNode 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-weightednode" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+</pre></td><td class="code"><pre><span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  WeightedNode Header                                                       */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="cp">#include &lt;map&gt;
+#include &lt;set&gt;
+#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">WeightedNode</span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    
+    <span class="c1">//constructors and destructor</span>
+    <span class="n">WeightedNode</span><span class="p">()</span><span class="o">:</span><span class="n">WeightedNode</span><span class="p">(</span><span class="mi">0</span><span class="p">){}</span>
+    <span class="n">WeightedNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
+    <span class="n">WeightedNode</span><span class="p">(</span><span class="k">const</span> <span class="n">WeightedNode</span><span class="o">&amp;</span> <span class="n">orig</span><span class="p">);</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">WeightedNode</span><span class="p">();</span>
+    
+    <span class="c1">//Getters &amp; Setters</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">getValue</span> <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">getDistance</span> <span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="n">set</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">WeightedNode</span><span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;*&gt;*</span> <span class="n">getNeighbors</span><span class="p">();</span>
+    <span class="n">WeightedNode</span><span class="o">*</span> <span class="n">getPreviousOptimalNeighbor</span><span class="p">();</span>
+    
+    <span class="kt">bool</span> <span class="n">isVisited</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">allNeighborsVisited</span><span class="p">();</span>
+    
+    <span class="kt">void</span> <span class="nf">setValue</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">;</span>
+    <span class="kt">void</span> <span class="n">setVisited</span><span class="p">(</span> <span class="kt">bool</span> <span class="n">b</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="n">setDistance</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">);</span>
+    
+    <span class="kt">void</span> <span class="n">setPreviousOptimalNeighbor</span><span class="p">(</span><span class="n">WeightedNode</span><span class="o">*</span> <span class="n">p</span><span class="p">);</span>
+    
+    <span class="kt">void</span> <span class="n">addNeighbor</span><span class="p">(</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">WeightedNode</span><span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;*</span> <span class="n">n</span><span class="p">);</span>
+    
+    <span class="c1">//Operators</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span>  <span class="p">(</span><span class="k">const</span> <span class="n">WeightedNode</span> <span class="o">&amp;</span><span class="n">n1</span><span class="p">);</span>
+    <span class="k">friend</span> <span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span>  <span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">WeightedNode</span><span class="o">&amp;</span> <span class="n">n</span><span class="p">);</span>
+    
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">visited</span><span class="p">;</span>
+    
+    <span class="n">set</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">WeightedNode</span><span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;*&gt;</span> <span class="n">neighborWeights</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">distance</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">;</span>
+    
+    <span class="n">WeightedNode</span><span class="o">*</span> <span class="n">previousOptimalNeighbor</span><span class="p">;</span>
+
+<span class="p">};</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  WeightedNode Implementation                                               */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Constructors/Destructor                                                   */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="n">WeightedNode</span><span class="o">::</span><span class="n">WeightedNode</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">){</span>
+    <span class="n">setValue</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="n">setVisited</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">WeightedNode</span><span class="o">::</span><span class="n">WeightedNode</span><span class="p">(</span><span class="k">const</span> <span class="n">WeightedNode</span><span class="o">&amp;</span> <span class="n">orig</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="n">WeightedNode</span><span class="o">::~</span><span class="n">WeightedNode</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Getters/Setters                                                           */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">WeightedNode</span><span class="o">::</span><span class="n">getValue</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">WeightedNode</span><span class="o">::</span><span class="n">setValue</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">set</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">WeightedNode</span><span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;*&gt;*</span> <span class="n">WeightedNode</span><span class="o">::</span><span class="n">getNeighbors</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="n">neighborWeights</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">WeightedNode</span><span class="o">::</span><span class="n">allNeighborsVisited</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">i</span> <span class="o">:</span> <span class="n">neighborWeights</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">i</span><span class="o">-&gt;</span><span class="n">first</span><span class="o">-&gt;</span><span class="n">isVisited</span><span class="p">())</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">WeightedNode</span><span class="o">::</span><span class="n">isVisited</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> 
+    <span class="k">return</span> <span class="n">visited</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">WeightedNode</span><span class="o">::</span><span class="n">setVisited</span><span class="p">(</span> <span class="kt">bool</span> <span class="n">b</span><span class="p">){</span>
+    <span class="n">visited</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">WeightedNode</span><span class="o">::</span><span class="n">getDistance</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">distance</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">WeightedNode</span><span class="o">::</span><span class="n">setDistance</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">WeightedNode</span><span class="o">*</span> <span class="n">WeightedNode</span><span class="o">::</span><span class="n">getPreviousOptimalNeighbor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">previousOptimalNeighbor</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">WeightedNode</span><span class="o">::</span><span class="n">setPreviousOptimalNeighbor</span><span class="p">(</span><span class="n">WeightedNode</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">previousOptimalNeighbor</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">WeightedNode</span><span class="o">::</span><span class="n">addNeighbor</span><span class="p">(</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">WeightedNode</span><span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;*</span> <span class="n">n</span><span class="p">){</span>
+    <span class="n">neighborWeights</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Operators                                                                 */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="kt">bool</span> <span class="n">WeightedNode</span><span class="o">::</span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">WeightedNode</span><span class="o">&amp;</span> <span class="n">n1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">value</span> <span class="o">==</span> <span class="n">n1</span><span class="p">.</span><span class="n">getValue</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">WeightedNode</span><span class="o">&amp;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">:</span> <span class="n">n</span><span class="p">.</span><span class="n">neighborWeights</span><span class="p">)</span>
+        <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">-&gt;</span><span class="n">first</span><span class="o">-&gt;</span><span class="n">getValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">','</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">-&gt;</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="p">;</span>
+    
+    <span class="k">return</span> <span class="n">os</span><span class="p">;</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of WeightedNode</div>
+    </div>
+  </div>
+</div>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-directedweightedgraph">
+           DirectedWeightedGraph 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-directedweightedgraph" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+</pre></td><td class="code"><pre><span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  DirectedWeightedGraph Header                                              */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="cp">#include "WeightedNode.h"
+#include "StaticFunctions.h"
+#include "DistanceComparator.h"
+#include "../datastructures/pqueue.h"
+</span>
+<span class="cp">#include &lt;vector&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+#include &lt;map&gt;
+#include &lt;queue&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">DirectedWeightedGraph</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    
+    <span class="c1">//Constructors &amp; Destructor</span>
+    <span class="n">DirectedWeightedGraph</span><span class="p">(</span><span class="n">string</span> <span class="n">filename</span><span class="p">);</span>
+    <span class="n">DirectedWeightedGraph</span><span class="p">(</span><span class="k">const</span> <span class="n">DirectedWeightedGraph</span><span class="o">&amp;</span> <span class="n">orig</span><span class="p">);</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">DirectedWeightedGraph</span><span class="p">();</span>
+    
+    <span class="c1">//getters and setters</span>
+    <span class="kt">int</span> <span class="n">getEdges</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">getNodes</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">numberOfEdges</span><span class="p">();</span>
+    
+    <span class="n">string</span> <span class="n">getOptimalPath</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
+    <span class="n">string</span> <span class="n">getAnswer</span><span class="p">();</span>
+    
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">WeightedNode</span><span class="o">*&gt;</span> <span class="n">getNodeList</span><span class="p">();</span>
+    
+    <span class="kt">void</span> <span class="n">setAllVisited</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">setAllNotVisited</span><span class="p">();</span>
+    <span class="kt">bool</span> <span class="n">areAllVisited</span><span class="p">();</span>
+    <span class="kt">bool</span> <span class="n">areAllNotVisited</span><span class="p">();</span>
+    
+    <span class="kt">void</span> <span class="n">printPathScores</span><span class="p">();</span>
+    
+    <span class="c1">//shortest paths solver, n is starting point node</span>
+    <span class="kt">void</span> <span class="n">dijkstra</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
+    
+    <span class="k">friend</span> <span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">DirectedWeightedGraph</span><span class="o">&amp;</span> <span class="n">g</span><span class="p">);</span>
+    
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">edges</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">nodes</span><span class="p">;</span>
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">WeightedNode</span><span class="o">*&gt;</span> <span class="n">nodeList</span><span class="p">;</span>
+    
+    <span class="kt">void</span> <span class="n">readInData</span><span class="p">(</span><span class="n">string</span> <span class="n">filename</span><span class="p">);</span>
+<span class="p">};</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  DirectedWeightedGraph Implementation                                      */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Constructors/Destructor                                                   */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">DirectedWeightedGraph</span><span class="p">(</span><span class="n">string</span> <span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">readInData</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">DirectedWeightedGraph</span><span class="p">(</span><span class="k">const</span> <span class="n">DirectedWeightedGraph</span><span class="o">&amp;</span> <span class="n">orig</span><span class="p">){</span>
+<span class="p">}</span>
+
+<span class="n">DirectedWeightedGraph</span><span class="o">::~</span><span class="n">DirectedWeightedGraph</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Read &amp; Solver Functions                                                   */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="kt">void</span> <span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">readInData</span><span class="p">(</span><span class="n">string</span> <span class="n">filename</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"reading data..."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">nodeList</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="n">ifstream</span> <span class="n">infile</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+    <span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+    
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">adjacency</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">readWeightAndValue</span><span class="p">;</span>
+    
+    <span class="kt">int</span> <span class="n">nodeValue</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">nodeWeight</span><span class="p">;</span>
+    
+    <span class="n">WeightedNode</span><span class="o">*</span> <span class="n">parentNode</span><span class="p">;</span>
+    <span class="n">WeightedNode</span><span class="o">*</span> <span class="n">neighborNode</span><span class="p">;</span>
+    
+    <span class="n">pair</span><span class="o">&lt;</span><span class="n">WeightedNode</span><span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;*</span> <span class="n">weightAndValue</span><span class="p">;</span>
+    
+    
+    <span class="k">while</span> <span class="p">(</span><span class="n">getline</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span><span class="n">line</span><span class="p">)){</span>
+        <span class="n">adjacency</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="sc">'\t'</span><span class="p">);</span>
+        <span class="n">nodeValue</span> <span class="o">=</span> <span class="n">stoi</span><span class="p">(</span><span class="n">adjacency</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+        <span class="n">adjacency</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">adjacency</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
+        
+        <span class="c1">//check if node is already in our list of nodes, add it if it isn't</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">nodeList</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">nodeValue</span><span class="p">)</span> <span class="o">==</span> <span class="n">nodeList</span><span class="p">.</span><span class="n">end</span><span class="p">()){</span>
+            <span class="n">nodeList</span><span class="p">[</span><span class="n">nodeValue</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WeightedNode</span><span class="p">(</span><span class="n">nodeValue</span><span class="p">);</span>
+            <span class="n">nodes</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="n">parentNode</span> <span class="o">=</span> <span class="n">nodeList</span><span class="p">[</span><span class="n">nodeValue</span><span class="p">];</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">i</span> <span class="o">:</span> <span class="n">adjacency</span><span class="p">){</span>
+            
+            <span class="k">try</span><span class="p">{</span>
+                <span class="n">readWeightAndValue</span> <span class="o">=</span> <span class="n">strings_to_ints</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="sc">','</span><span class="p">));</span>
+            <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="n">invalid_argument</span><span class="p">){</span><span class="c1">//each line may end with a space, skip it.</span>
+                <span class="k">continue</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="n">nodeValue</span> <span class="o">=</span> <span class="n">readWeightAndValue</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+            <span class="n">nodeWeight</span> <span class="o">=</span> <span class="n">readWeightAndValue</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        
+            <span class="c1">//check if neighbor is already in our list of nodes, add it if not.</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">nodeList</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">nodeValue</span><span class="p">)</span> <span class="o">==</span> <span class="n">nodeList</span><span class="p">.</span><span class="n">end</span><span class="p">()){</span>
+                <span class="n">nodeList</span><span class="p">[</span><span class="n">nodeValue</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WeightedNode</span><span class="p">(</span><span class="n">nodeValue</span><span class="p">);</span>
+                <span class="n">nodes</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="n">neighborNode</span> <span class="o">=</span> <span class="n">nodeList</span><span class="p">[</span><span class="n">nodeValue</span><span class="p">];</span>
+            
+            <span class="n">weightAndValue</span> <span class="o">=</span> 
+                         <span class="k">new</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">WeightedNode</span><span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">neighborNode</span><span class="p">,</span> <span class="n">nodeWeight</span><span class="p">);</span>
+            
+            <span class="n">edges</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">parentNode</span><span class="o">-&gt;</span><span class="n">addNeighbor</span><span class="p">(</span><span class="n">weightAndValue</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">adjacency</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+    
+    <span class="n">infile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"done reading."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">dijkstra</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">WeightedNode</span><span class="o">*</span> <span class="n">start</span> <span class="o">=</span> <span class="n">nodeList</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+    <span class="n">start</span><span class="o">-&gt;</span><span class="n">setDistance</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">start</span><span class="o">-&gt;</span><span class="n">setPreviousOptimalNeighbor</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+    
+    <span class="c1">//priority queue, Q</span>
+    <span class="n">pqueue</span><span class="o">&lt;</span><span class="n">WeightedNode</span><span class="o">*</span><span class="p">,</span> <span class="n">DistanceComparator</span><span class="o">&gt;</span> <span class="n">Q</span><span class="p">;</span>
+    
+    <span class="n">WeightedNode</span><span class="o">*</span> <span class="n">current</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">potentialDistance</span><span class="p">;</span>
+    <span class="n">WeightedNode</span> <span class="o">*</span><span class="n">j</span><span class="p">,</span> <span class="o">*</span><span class="n">k</span><span class="p">;</span>
+    
+    <span class="c1">//create set of all nodes, store in Q</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nodeList</span><span class="p">){</span>
+        <span class="n">Q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">second</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="k">while</span><span class="p">(</span> <span class="o">!</span> <span class="n">Q</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="p">){</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">Q</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+        <span class="n">Q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="n">current</span><span class="o">-&gt;</span><span class="n">setVisited</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+        
+        <span class="c1">//Relax neighbors if path distance is less than neighbor's current path</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">neighbor</span> <span class="o">:</span> <span class="o">*</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">getNeighbors</span><span class="p">()){</span>
+            
+            <span class="c1">//only look at those who are in Q (ie, not visited yet)</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">neighbor</span><span class="o">-&gt;</span><span class="n">first</span><span class="o">-&gt;</span><span class="n">isVisited</span><span class="p">()</span> <span class="p">){</span>
+                
+                <span class="c1">//compute distance to this neighbor via current path</span>
+                <span class="n">potentialDistance</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">getDistance</span><span class="p">()</span> <span class="o">+</span> <span class="n">neighbor</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span>
+                
+                <span class="c1">//if computed distance is less than neighbor's current path...</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">potentialDistance</span> <span class="o">&lt;</span> <span class="n">neighbor</span><span class="o">-&gt;</span><span class="n">first</span><span class="o">-&gt;</span><span class="n">getDistance</span><span class="p">()){</span>
+                    
+                    <span class="c1">//...update its path and previous node pointer.</span>
+                    <span class="n">neighbor</span><span class="o">-&gt;</span><span class="n">first</span><span class="o">-&gt;</span><span class="n">setDistance</span><span class="p">(</span><span class="n">potentialDistance</span><span class="p">);</span>
+                    <span class="n">neighbor</span><span class="o">-&gt;</span><span class="n">first</span><span class="o">-&gt;</span><span class="n">setPreviousOptimalNeighbor</span><span class="p">(</span><span class="n">current</span><span class="p">);</span>
+                    
+                    <span class="c1">//re-sort Q.</span>
+                    <span class="n">Q</span><span class="p">.</span><span class="n">update</span><span class="p">();</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Getters/Setters                                                           */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="kt">int</span> <span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">getEdges</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">edges</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">getNodes</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">nodes</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">areAllVisited</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nodeList</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">i</span><span class="p">.</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">isVisited</span><span class="p">())</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">areAllNotVisited</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nodeList</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">isVisited</span><span class="p">())</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">setAllNotVisited</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nodeList</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">isVisited</span><span class="p">())</span>
+            <span class="n">i</span><span class="p">.</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">setVisited</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">setAllVisited</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nodeList</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">i</span><span class="p">.</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">isVisited</span><span class="p">())</span>
+            <span class="n">i</span><span class="p">.</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">setVisited</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//for debugging purposes</span>
+<span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">WeightedNode</span><span class="o">*&gt;</span> <span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">getNodeList</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">nodeList</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">printPathScores</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nodeList</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">.</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">getValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">.</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">getDistance</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//assumes dijkstra has already been run.</span>
+<span class="n">string</span> <span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">getOptimalPath</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">string</span> <span class="n">result</span><span class="p">;</span>
+    <span class="n">WeightedNode</span><span class="o">*</span> <span class="n">i</span> <span class="o">=</span> <span class="n">nodeList</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+    
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="nb">nullptr</span><span class="p">){</span>
+        <span class="n">result</span> <span class="o">=</span>  <span class="n">to_string</span><span class="p">(</span><span class="n">i</span><span class="o">-&gt;</span><span class="n">getValue</span><span class="p">())</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">result</span><span class="p">;</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">-&gt;</span><span class="n">getPreviousOptimalNeighbor</span><span class="p">();</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//assumes dijkstra has already been run.</span>
+<span class="n">string</span> <span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">getAnswer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">string</span> <span class="n">result</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">nodes</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">99</span><span class="p">,</span><span class="mi">115</span><span class="p">,</span><span class="mi">133</span><span class="p">,</span><span class="mi">165</span><span class="p">,</span><span class="mi">188</span><span class="p">,</span><span class="mi">197</span><span class="p">};</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nodes</span><span class="p">){</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">to_string</span><span class="p">(</span><span class="n">nodeList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">getDistance</span><span class="p">())</span> <span class="o">+</span> <span class="sc">','</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="n">result</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+    
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//for debugging purposes</span>
+<span class="kt">int</span> <span class="n">DirectedWeightedGraph</span><span class="o">::</span><span class="n">numberOfEdges</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nodeList</span><span class="p">){</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">i</span><span class="p">.</span><span class="n">second</span><span class="o">-&gt;</span><span class="n">getNeighbors</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Operators                                                                 */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="n">ostream</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">DirectedWeightedGraph</span><span class="o">&amp;</span> <span class="n">g</span> <span class="p">){</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">pair</span> <span class="o">:</span> <span class="n">g</span><span class="p">.</span><span class="n">nodeList</span><span class="p">){</span>
+        <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">pair</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">os</span><span class="p">;</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of DirectedWeightedGraph</div>
+    </div>
+  </div>
+</div>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-pqueue">
+           pqueue 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-pqueue" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+</pre></td><td class="code"><pre><span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  pqueue Header                                                             */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="cp">#include &lt;vector&gt;
+#include &lt;iostream&gt;
+#include &lt;iterator&gt;
+#include &lt;algorithm&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="c1">//priority queue with an updater function should an object change.</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Comparable</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">less</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="o">&gt;</span> <span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">pqueue</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    
+    <span class="c1">//constructors</span>
+    <span class="n">pqueue</span><span class="p">();</span>
+    <span class="n">pqueue</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="o">&gt;</span> <span class="n">objects</span><span class="p">);</span>
+    
+    <span class="c1">//getters</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="o">&gt;</span> <span class="n">getObjects</span><span class="p">();</span>
+    <span class="kt">bool</span> <span class="n">empty</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">size</span><span class="p">();</span>
+    <span class="n">Comparable</span> <span class="n">top</span><span class="p">();</span>
+    
+    <span class="c1">//container operations</span>
+    <span class="kt">void</span> <span class="n">push</span><span class="p">(</span><span class="n">Comparable</span> <span class="n">object</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="n">pop</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">update</span><span class="p">();</span>
+    
+    <span class="c1">//needed by push operation</span>
+    <span class="k">typename</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">binarySearch</span><span class="p">(</span><span class="n">Comparable</span> <span class="n">object</span><span class="p">);</span>
+    
+<span class="k">private</span><span class="o">:</span>
+    
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="o">&gt;</span> <span class="n">objects</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cp">#include "pqueue.tpp"
+</span>
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  pqueue Implementation                                                     */</span>
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Constructors                                                              */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Comparable</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span> 
+<span class="n">pqueue</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="p">,</span> <span class="n">Compare</span><span class="o">&gt;::</span><span class="n">pqueue</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Comparable</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span> 
+<span class="n">pqueue</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="p">,</span> <span class="n">Compare</span><span class="o">&gt;::</span><span class="n">pqueue</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="o">&gt;</span> <span class="n">objects</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">objects</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">objects</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Getters                                                                   */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Comparable</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span> 
+<span class="n">Comparable</span> <span class="n">pqueue</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="p">,</span> <span class="n">Compare</span><span class="o">&gt;::</span><span class="n">top</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="n">objects</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Comparable</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span> 
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="o">&gt;</span> <span class="n">pqueue</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="p">,</span> <span class="n">Compare</span><span class="o">&gt;::</span><span class="n">getObjects</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">objects</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Comparable</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="n">pqueue</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="p">,</span> <span class="n">Compare</span><span class="o">&gt;::</span><span class="n">empty</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">objects</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Comparable</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+<span class="kt">int</span> <span class="n">pqueue</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="p">,</span> <span class="n">Compare</span><span class="o">&gt;::</span><span class="n">size</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">objects</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="p">}</span>
+
+
+<span class="cm">/******************************************************************************/</span>
+<span class="cm">/*  Container Operations                                                      */</span>
+<span class="cm">/******************************************************************************/</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Comparable</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span> 
+<span class="kt">void</span> <span class="n">pqueue</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="p">,</span> <span class="n">Compare</span><span class="o">&gt;::</span><span class="n">pop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">objects</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">objects</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Comparable</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span> 
+<span class="kt">void</span> <span class="n">pqueue</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="p">,</span> <span class="n">Compare</span><span class="o">&gt;::</span><span class="n">push</span><span class="p">(</span><span class="n">Comparable</span> <span class="n">object</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">objects</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">binarySearch</span><span class="p">(</span><span class="n">object</span><span class="p">),</span> <span class="n">object</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Comparable</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">pqueue</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="p">,</span> <span class="n">Compare</span><span class="o">&gt;::</span><span class="n">update</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">objects</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">objects</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">Compare</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Comparable</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span> 
+<span class="k">typename</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">pqueue</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="p">,</span> <span class="n">Compare</span><span class="o">&gt;::</span>
+<span class="n">binarySearch</span><span class="p">(</span><span class="n">Comparable</span> <span class="n">object</span><span class="p">)</span> <span class="p">{</span>
+    
+    <span class="k">typename</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">low</span>  <span class="o">=</span> <span class="n">objects</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+    <span class="k">typename</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">high</span> <span class="o">=</span> <span class="n">objects</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">typename</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">Comparable</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">mid</span>  <span class="o">=</span> <span class="n">objects</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+    
+    <span class="c1">//initialize comparator</span>
+    <span class="n">Compare</span> <span class="n">compare</span> <span class="o">=</span> <span class="n">Compare</span><span class="p">();</span>
+    
+    <span class="c1">// if array empty</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">objects</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">objects</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+    
+    <span class="c1">// if object is smaller than first item in array</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">compare</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="o">*</span><span class="n">low</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">objects</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+    
+    <span class="c1">// if object is greater than last item in array</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">compare</span><span class="p">(</span><span class="o">*</span><span class="n">high</span><span class="p">,</span> <span class="n">object</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">objects</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+    
+    <span class="c1">// object is between low and high bounds, search for it...</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">low</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">){</span>
+        
+        <span class="n">mid</span> <span class="o">=</span> <span class="n">low</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">distance</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="p">;</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">compare</span><span class="p">(</span><span class="o">*</span><span class="n">mid</span><span class="p">,</span> <span class="n">object</span><span class="p">))</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">compare</span><span class="p">(</span><span class="n">object</span><span class="p">,</span> <span class="o">*</span><span class="n">mid</span><span class="p">))</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="n">mid</span><span class="p">;</span>
+        
+    <span class="p">}</span>
+    
+    <span class="c1">// object was not present in array, </span>
+    <span class="c1">// return iterator where it should be inserted.</span>
+    <span class="k">return</span> <span class="n">low</span><span class="p">;</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of pqueue</div>
+    </div>
+  </div>
+</div>
+
+<p>This here is the custom Comparator object for sorting the nodes by path distance.</p>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-DistanceComparator">
+           DistanceComparator 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-DistanceComparator" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="k">struct</span> <span class="n">DistanceComparator</span> <span class="p">{</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="p">()</span> <span class="p">(</span><span class="k">const</span> <span class="n">WeightedNode</span><span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n">WeightedNode</span><span class="o">*</span> <span class="n">y</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">-&gt;</span><span class="n">getDistance</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">y</span><span class="o">-&gt;</span><span class="n">getDistance</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">typedef</span> <span class="kt">bool</span> <span class="n">result_type</span><span class="p">;</span>
+<span class="p">};</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of DistanceComparator</div>
+    </div>
+  </div>
+</div>
+
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/07/09/Coursera-Roughgarden-Algorithms-Pt-2-Wk-1" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 1" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                        <a href="/2018/07/19/Coursera-Roughgarden-Algorithms-Pt-2-Wk-3" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Coursera Algoirthms with Roughgarden Pt 2, Week 3" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/07/17/Coursera-Roughgarden-Algorithms-Pt-2-Wk-2";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

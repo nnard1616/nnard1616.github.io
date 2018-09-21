@@ -1,0 +1,915 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | MCS 1st Semester Week 4 Notes </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>19 Sep 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/UIUC-MCS">UIUC-MCS</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/09/13/MCS-Notes-Week-3" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 3 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <h1 id="cs-410--text-information-systems">CS 410 : Text Information Systems</h1>
+<hr />
+<h2 id="goals-and-objectives">Goals and Objectives</h2>
+
+<h2 id="guiding-questions">Guiding Questions</h2>
+
+<h2 id="additional-readings-and-resources">Additional Readings and Resources</h2>
+
+<h2 id="key-phrases-and-concepts">Key Phrases and Concepts</h2>
+
+<h2 id="video-lecture-notes">Video Lecture Notes</h2>
+
+<h1 id="cs-425--distributed-systems">CS 425 : Distributed Systems</h1>
+<hr />
+
+<h2 id="goals">Goals</h2>
+<ul>
+  <li>Know how Napster, Gnutella, FastTrack, and BitTorrent work.</li>
+  <li>Know and analyze how distributed hash tables work (Chord, Pastry, and Kelips).</li>
+</ul>
+
+<h2 id="key-concepts">Key Concepts</h2>
+<ul>
+  <li>Peer-to-peer systems</li>
+  <li>Industrial P2P systems: Napster, Gnutella, FastTrack, BitTorrent</li>
+  <li>Distributed hash tables: Chord, Pastry, Kelips</li>
+</ul>
+
+<h2 id="guiding-questions-1">Guiding Questions</h2>
+<ul>
+  <li>What is the difference between how Napster clients and Gnutella clients search for files?</li>
+  <li>What is the difference between Gnutella and FastTrack?</li>
+  <li>What is BitTorrent’s tit for tat mechanism?</li>
+  <li>What is consistent hashing?</li>
+  <li>Why are DHTs efficient in searching?</li>
+  <li>How does Chord route queries?</li>
+  <li>How does Pastry route queries?</li>
+  <li>How does Kelips route queries?</li>
+  <li>What is churn in P2P systems?</li>
+  <li>How does Chord maintain correct neighbors in spite of failures and churn?</li>
+</ul>
+
+<h2 id="readings-and-resources">Readings and Resources</h2>
+<ul>
+  <li><a href="https://courses.engr.illinois.edu/cs425/fa2014/gnutella_protocol_0.4.pdf">Gnutella v 0.4 paper (PDF)</a></li>
+  <li><a href="http://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf">Chord paper (PDF)</a></li>
+</ul>
+
+<h2 id="video-lecture-notes-1">Video Lecture Notes</h2>
+
+<h3 id="41-p2p-systems-introduction">4.1 P2P Systems Introduction</h3>
+<ul>
+  <li>P2P first distributed systems that seriously focused on scalability with respect to number of nodes</li>
+  <li>Widely-deployed P2P Systems
+    <ol>
+      <li>Napster</li>
+      <li>Gnutella</li>
+      <li>Fasttrack (Kazaa, Kazaalite, Grokster)</li>
+      <li>BitTorrent</li>
+    </ol>
+  </li>
+  <li>P2P Systems with Provable Properties
+    <ol>
+      <li>Chord</li>
+      <li>Pastry</li>
+      <li>Kelips</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="42-napster">4.2 Napster</h3>
+<p><img src="/assets/images/20180919/CS425-wk4-img-1.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Napster Operations:
+    <ul>
+      <li>Client: Connect to a Napster server
+        <ul>
+          <li>Upload list of music files that you want to share</li>
+          <li>Server maintains list of &lt;filename, ip_address, portnum&gt; tuples. <strong class="highlighted">Server stores no files.</strong></li>
+        </ul>
+      </li>
+      <li>Search
+        <ul>
+          <li>Send server keywords to search with</li>
+          <li>(server searchs its list with the keywords)</li>
+          <li>Server returns a list of hosts -&lt;ip_address, portnum&gt; tuples - to client</li>
+          <li>client pings each host in the list to find transfer rates</li>
+          <li>Client fetches file from best host</li>
+        </ul>
+      </li>
+      <li>All communication uses TCP (Transmission control Protocol)
+        <ul>
+          <li>Reliable and ordered networking protocol (TCP)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180919/CS425-wk4-img-2.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Ternary trees store the directory information (3 children per parent)</li>
+  <li>Joining a P2P System
+    <ul>
+      <li>Can be used for any p2p system
+        <ul>
+          <li>Send an http request to well-known url for that p2p service -eg: www.myp2pservice.com</li>
+          <li>Message routed (after lookup in DNS=Domain Name System) to introducer, a well known server that keeps track of some recently joined nodes in p2p system</li>
+          <li>Introducer initializes new peer’s neighbor table</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Problems
+    <ul>
+      <li>Centralized server a source of congestion</li>
+      <li>Centralized server single point of failure</li>
+      <li>No security: plaintext messages on passwds</li>
+      <li>napster.com declared to be responsible for users’ copyright violation
+        <ul>
+          <li>“Indirect infringement”</li>
+          <li>events led to Gnutella development</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="43-gnutella">4.3 Gnutella</h3>
+<ul>
+  <li>Gnutella does:
+    <ul>
+      <li>eliminate the servers</li>
+      <li>Client machines search and <strong class="highlighted">retrieve</strong> amongst themselves (clients act as teh servers)</li>
+      <li>Clients act as servers too, called servents</li>
+      <li>3/2000 released by AOL, immediately withdrawn due to copyright issues, 88K users by 3/2003</li>
+      <li>Original design underwent several modifications</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180919/CS425-wk4-img-3.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>How do I search for my files?
+    <ul>
+      <li>Gnutella routes different messages with the overlay graph</li>
+      <li>Protocol has 5 main message types
+        <ul>
+          <li><strong class="highlighted">Query</strong> (search)</li>
+          <li><strong class="highlighted">QueryHit</strong> (response to query)</li>
+          <li><strong class="highlighted">Ping</strong> (to probe network for other peers)</li>
+          <li><strong class="highlighted">Pong</strong> (reply to ping, contains address of another peer)</li>
+          <li><strong class="highlighted">Push</strong> (used to initiate file transfer)</li>
+        </ul>
+      </li>
+      <li>We’ll go into the message structure and protocol now
+        <ul>
+          <li>All fields except IP address are in little-endian format</li>
+          <li>Little endian example: 0x12345678 stored as 0x78 in lowest address byte, then 0x56 in next, and so on.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180919/CS425-wk4-img-5.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180919/CS425-wk4-img-6.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180919/CS425-wk4-img-7.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180919/CS425-wk4-img-8.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180919/CS425-wk4-img-9.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Avoiding Excessive Traffic
+    <ul>
+      <li>To avoid duplicate transmissions, each peer maintains a list of recently received messages</li>
+      <li>Query forwarded to all neighbors except peer from which received</li>
+      <li>Each Query (identified by DescriptorID) forwarded only once</li>
+      <li>QueryHit routed back only to peer from which Query received with same DescriptorID</li>
+      <li>For flooded messages, duplicates with same DescriptorID and Payload descriptor are dropped</li>
+      <li>QueryHit with DescriptorID for which Query not seen is dropped.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180919/CS425-wk4-img-10.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>HTTP is file transfer protocol. why?
+    <ul>
+      <li>Because it’s standard, well-debugged, and widely used.</li>
+    </ul>
+  </li>
+  <li>Why the “range” field in teh GET request?
+    <ul>
+      <li>To support partial file transfers.</li>
+    </ul>
+  </li>
+  <li>What if responder is behind firewall that disallows incoming connections? (drops it)</li>
+</ul>
+
+<p><img src="/assets/images/20180919/CS425-wk4-img-11.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180919/CS425-wk4-img-12.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Responder establishes a TCP connection at ip_address, port specified.  Sends: GIV <File Index="">:<Servent Identifier="">/<File Name="">\n\n</File></Servent></File></li>
+  <li>Requestor then sends GET to responder (as before) and file is transferred as explained earlier.</li>
+  <li>What if requestor is behind firewall too?
+    <ul>
+      <li>Gnutella gives up</li>
+    </ul>
+  </li>
+  <li>If the responding peer is behind a firewall, which of the following statements ARE TRUE about Gnutella?
+    <ul>
+      <li>A Push message can be sent to it since it is already connected to its peers.</li>
+      <li>A modified version of Gnutella could use the overlay links themselves to transfer the file (though this may be slow).</li>
+    </ul>
+  </li>
+  <li>When a Gnutella peer receives a Ping message from one of its neighbors, which of the following actions does it perform? (all are correct)
+    <ul>
+      <li>It forwards it to appropriate neighbors after checking TTL.</li>
+      <li>It creates a Pong message about itself and reverse routes it.</li>
+      <li>If it was the original peer that initiated the Ping, it uses received Pong responses to update its membership lists.</li>
+      <li>It reverse routes any Pong messages it receives.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180919/CS425-wk4-img-13.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Gnutella Summary
+    <ul>
+      <li>No servers</li>
+      <li>Peers/servents maintain “neighbors”, this forms an overlay graph</li>
+      <li>Peers store their own files</li>
+      <li>Queries flooded out, ttl restricted</li>
+      <li>QueryHit (replies) reverse path routed</li>
+      <li>Supports file transfer through firewalls</li>
+      <li>Periodic Ping-pong to continuously refresh neighbor lists
+        <ul>
+          <li>List size specified by user at peer : heterogeneity means some peers may have more neighbors</li>
+          <li>Gnutella found to follow power law distribution:  P(#Links = L) ~ L<sup>-k</sup>  (k is a constant)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Problems
+    <ul>
+      <li>Ping/Pong constituted 50% traffic
+        <ul>
+          <li>Solution: Multiplex, cache and reduce frequency of pings/pongs</li>
+        </ul>
+      </li>
+      <li>Repeated searches with same keywords
+        <ul>
+          <li>Solution: Cache Query, QueryHit messages</li>
+        </ul>
+      </li>
+      <li>Modem-connected hosts do not have enough bandwidth for passing Gnutella traffic
+        <ul>
+          <li>Solution: use a central server to act as proxy for such peers</li>
+          <li>Another solution:
+            <ul>
+              <li>FastTrack System (soon)</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Large number of freeloaders
+        <ul>
+          <li>70% of users in 2000 were freeloaders</li>
+          <li>Only download files, never upload own files</li>
+        </ul>
+      </li>
+      <li>Flooding causes excessive traffic
+        <ul>
+          <li>Is there some way of maintaining meta-information about peers that leads to more intelligent routing?<br />
+  –&gt; Structured Peer-to-peer systems, eg Chord System (coming up soon)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="44-fasttrack-and-bittorrent">4.4 FastTrack and BitTorrent</h3>
+
+<p><img src="/assets/images/20180919/CS425-wk4-img-14.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>FastTrack
+    <ul>
+      <li>Hybrid of gnutella and napster</li>
+      <li>Takes advantage of “healthier” participants in the system</li>
+      <li>Underlying technology in Kazaa, KazaaLite, Grokster</li>
+      <li>Proprietary protocaol, but some details available</li>
+      <li>Gnutella, but with some peers designated as <strong class="highlighted">supernodes</strong>.</li>
+      <li>A supernode stores a directory listing a subset of nearby (&lt;filename, peer pointer&gt;), similar to Napster servers</li>
+      <li>Supernode membership changes over time <strong class="highlighted">(a member cannot declare itself a supernode)</strong></li>
+      <li>Any peer can become (and stay) a supernode, provided it has earned enough <strong class="highlighted">reputation</strong>
+        <ul>
+          <li>Kazaalite: participation level (=reputation) of a user between 0 and 1000, initially 10, then affected by length of periods of connectivity and total number of uploads</li>
+          <li>More sophisticated Reputation schemes invented, especially based on economics (See P2PEcon Workshop)</li>
+        </ul>
+      </li>
+      <li>A peer searches by contacting nearby supernode.</li>
+      <li>Supernodes get advantage of having information readily available in its structure so it’s faster to look up stuff.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180919/CS425-wk4-img-15.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>BitTorrent
+    <ul>
+      <li>File split into blocks (32 KB - 256 KB)</li>
+      <li>Download <strong class="highlighted">Local Rarest First</strong> block policy: prefer early download of blocks that are least replicated among neighbors
+        <ul>
+          <li>Exception: New node allowed to pick one random neighbor: helps in bootstrapping</li>
+        </ul>
+      </li>
+      <li><strong class="highlighted">Tit for tat</strong> bandwidth usage: Provide blocks to neighbors that provided it the best download rates
+        <ul>
+          <li>Incentive for nodes to provide good download rates</li>
+          <li>Seeds do the same too</li>
+        </ul>
+      </li>
+      <li><strong class="highlighted">Choking</strong>: Limit number of neighbors to which concurrent uploads &lt;= a number (eg, 5), ie, the “best” neighbors
+        <ul>
+          <li>Everyone else choked</li>
+          <li>Priodically re-evaluate this set (eg, every 10 s)</li>
+          <li><strong class="highlighted">Optimistic unchoke</strong>: periodically (eg, ~30s), unchoke a random neighbor - helps keep unchoked set fresh</li>
+        </ul>
+      </li>
+      <li>
+        <p>Choking helps limit how many peers are uploading, to prevent overwhelming upload bandwidth.</p>
+      </li>
+      <li>Why are random choices used in the BitTorrent Choking policy?
+        <ul>
+          <li>To avoid the system from getting stuck where only a few peers receive service (correct)</li>
+          <li>To ensure that all peers receive uniform download speed (incorrect)</li>
+          <li>To ensure Tit for Tat bandwidth usage (incorrect)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="45-chord">4.5 Chord</h3>
+<ul>
+  <li>DHT: Distributed Hash Table
+    <ul>
+      <li>A hash table allows you to insert, lookup and delete objects with keys.</li>
+      <li>A <strong class="highlighted">distributed hash table</strong> allows you to do the same in a distributed setting (objects=files)</li>
+      <li>Performance concerns:
+        <ul>
+          <li>Load balancing</li>
+          <li>Fault-tolerance</li>
+          <li>Efficiency of lookups and inserts</li>
+          <li>Locality</li>
+        </ul>
+      </li>
+      <li>Napster, Gnutella, FastTrack are all DHTs (sort of)</li>
+      <li>So is Chord, a structured peer to peer ssytem that we study next</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180919/CS425-wk4-img-16.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Chord:
+    <ul>
+      <li>Developers: I Stoica, D Karger, F Kaashoek, H Balakrishnan, R Morris, Berkeley and MIT</li>
+      <li>Intelligent choice of neighbors to reduce latency and message cost of routing (lookups/inserts)</li>
+      <li>Uses <strong class="highlighted">Consistent Hashing</strong> on node’s (peer’s) address
+        <ul>
+          <li><strong class="highlighted">SHA-1</strong>(ip_address.port) –&gt; 160 bit string</li>
+          <li>Truncated to m bits</li>
+          <li>Called peer id (number between 0 and 2<sup>m</sup> - 1)</li>
+          <li>Not unique but ide conflicts very unlikely</li>
+          <li>Can then map peers to one of 2<sup>m</sup> logical points on a circle</li>
+        </ul>
+      </li>
+      <li>What are the types of neighbors used in a Chord P2P system (All are correct)?
+        <ul>
+          <li>Successors</li>
+          <li>Finger tables</li>
+          <li>Predecessors (if needed)</li>
+        </ul>
+      </li>
+      <li>In a Chord P2P system with m=8, a peer with id 33 is considering the following peers for its i=3 finger table entry: 40, 42, and 44. Which one is the best (correct) choice?
+        <ul>
+          <li>33 + 2^3 = 41, first number that is &gt;= to that is 42</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180919/CS425-wk4-img-17.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180919/CS425-wk4-img-18.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>what about the files?
+    <ul>
+      <li>Filenames also mapped using same consistent hash function
+        <ul>
+          <li>SHA-1(filename) –&gt; 160 bit string (key)</li>
+          <li>File is stored at first peer with id greater than or equal to its key (mod 2<sup>m</sup>)</li>
+        </ul>
+      </li>
+      <li>File cnn.com/index.html that maps to key K42 is stored at first peer with id greater than 42
+        <ul>
+          <li>Note that we are considering a different file-sahring application here: <strong class="highlighted">cooperative web caching</strong></li>
+          <li>The same discussion applies to any other file sharing application, including that of mp3 files.</li>
+        </ul>
+      </li>
+      <li>Consistent Hashing =&gt; with K keys and N peers, each peer stores O(K/N) keys (ie, &lt; c.K/N, for some constant c) (ie, good load balancing among the peers)</li>
+      <li>In a Chord ring with m=7, three successive peers have ids 12, 19, 33 (there are other peers in the system too, but not in between 12 and 33). If the number of files is large and a uniform hash function is used, which of the following is true?
+        <ul>
+          <li>Peer 33 stores about double the number of files as peer 19.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180919/CS425-wk4-img-19.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180919/CS425-wk4-img-20.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180919/CS425-wk4-img-21.png" alt="img" class="center-image" /></p>
+
+<h3 id="46-failures-in-chord">4.6 Failures in Chord</h3>
+<ul>
+  <li>Search under peer failures
+    <ul>
+      <li>Lookup fails (  N16 does not know N45, when N32 fails)
+        <ul>
+          <li>Solution:  maintain multiple successors, but how many?</li>
+          <li>Choosing 2log(N) successors suffices to maintain lookup correctness with high probability (ie, ring connected)
+            <ul>
+              <li>Say 50% of nodes fail</li>
+              <li>Pr(at given node, at least one successor alive) = 1 - (1/2)^(2logN) = 1 - 1/N^2</li>
+              <li>Pr(above is ttrue at all alive nodes )= (1 - 1/N^2)^(N/2) = e^(-1/2N) ~ 1</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Lookup fails ( N45 fails)
+        <ul>
+          <li>Solution: replicate file/key at r successors adn predecessors)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Need to deal with dynamic changes
+    <ul>
+      <li>Peers fail (we’ve discussed this)</li>
+      <li>New peers join</li>
+      <li>Peers leave
+        <ul>
+          <li>p2p systems have a high rate of <strong class="highlighted">churn</strong> (node join, leave and failure)
+            <ul>
+              <li>25% per hour in Overnet (eDonkey)</li>
+              <li>100% per hour in gnutella</li>
+              <li>Lower in managed clusters</li>
+              <li>Common feature in all distributed systems, including wide-area (eg PlanetLab), clusters (eg Emulab), clouds (eg AWS) etc</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>So, all the time, need to: –&gt; Need to update successors and fingers, and copy keys</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180919/CS425-wk4-img-22.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180919/CS425-wk4-img-23.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>New peers joining:
+    <ul>
+      <li>A new peer affects O(log(N)) other finger entries in teh system, on average</li>
+      <li>Number of messages per peer join = O(logN*logN)</li>
+      <li>Similar set of operations for dealing with peers leaving
+        <ul>
+          <li>For dealing with failures, also need <strong class="highlighted">failure detectors</strong> (we’ll see these later in the course!)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Stabilization Protocol
+    <ul>
+      <li>Concurrent peer joins, leaves, failures might cause loopiness of pointers, and failure of lookups
+        <ul>
+          <li>Chord peers periodically run a <strong class="highlighted">stabilization</strong> algorithm that checks and updates pointers and keys</li>
+          <li>Ensures <em class="highlighted">non-loopiness</em> of fingers, eventual success of lookups and O(logN) lookups with high probability</li>
+          <li>Each stabilization round at a peer involves a constant number of messages</li>
+          <li>Strong stability takes O(N^2) stabilization rounds</li>
+          <li>For more see [techReport on Chord webpage]</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Churn
+    <ul>
+      <li>When nodes are consttantly joining, leaving, failing
+        <ul>
+          <li>Significant effect to consider: traces from the Overnet system show hourly peer turnover rates (churn) could be 25-100% of total number of nodes in system</li>
+          <li>Leads to excessive (unnecessary) key copying (remember that keys are replicated)</li>
+          <li>Stabilization algorithm may need to consume more bandwidth to keep up</li>
+          <li>Main issue is that files are replicated, while it might be sufficient to replicate only meta information about files</li>
+          <li>Alternatives
+            <ul>
+              <li>Introduce a level of indirection (any p2p system)</li>
+              <li>Replicate metadata more, eg, Kelips (later in this lecture series)</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Churn leads to which of the following behaviors in Chord (all are correct)?
+        <ul>
+          <li>Successors being continuously updated</li>
+          <li>Finger tables being continuously updated</li>
+          <li>Files being continuously copied to the correct storing servers<br />
+<br /></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Virtual nodes
+    <ul>
+      <li>Hash can get non-uniform –&gt; Bad load balancing
+        <ul>
+          <li>Treat each node as multiple virtual nodes behaving independently</li>
+          <li>Each joins the system</li>
+          <li>Reduces variance of load imabalance</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="47-pastry">4.7 Pastry</h3>
+<ul>
+  <li>Pastry
+    <ul>
+      <li>Designed by Anthony Rostron (MS Reserach) and Peter Druschel (Rice University)</li>
+      <li>Assigns ids to nodes, just like Chord (using a virtual ring)</li>
+      <li><strong class="highlighted">Leaf Set</strong> Each node knows its successor(s) and predecessor(S)<br />
+<br /></li>
+    </ul>
+  </li>
+  <li>Pastry Neighbors
+    <ul>
+      <li><em class="highlighted">Routing tables</em> based <strong class="highlighted"><u>prefix matching</u></strong>
+        <ul>
+          <li>Think of <em>hypercube routing</em></li>
+        </ul>
+      </li>
+      <li>Routing is thus based on prefix matching, and is thus log(N)
+        <ul>
+          <li>And hops are short (in the underlying network)<br />
+<br /></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Pastry Routing
+    <ul>
+      <li>Consider a peer with id 01110100101.  It maintains a neighbor peer with an id matching each of the following prefixes (* = starting bit differing from this peer’s corresponding bit):
+        <ul>
+          <li>*</li>
+          <li>0*</li>
+          <li>01*</li>
+          <li>011*</li>
+          <li>… 0111010010*</li>
+        </ul>
+      </li>
+      <li>When it needs to route to a peer, say 011101<strong class="highlighted"><u>1</u></strong>1001, it starts by forwarding to a neighbor with the largest matching prefix, ie, 011101*<br />
+<br /></li>
+    </ul>
+  </li>
+  <li>Pastry Locality
+    <ul>
+      <li>For each prefix, say 011*, among all potential neighbors with a matching prefix, the neighbor with the shortest round-trip-time is selected</li>
+      <li>Since shorter prefixes have many more candidates (spread out throughout the Internet), the neighbors for shorter prefixes are likely to be closer than the neighbors for longer prefixes</li>
+      <li>Thus, in the prefix routing, early hops are short and later hops are longer</li>
+      <li>Yet overall “stretch”, compared to direc Internet path, stays short.</li>
+      <li>A Pastry peer has two neighbors for prefixes of 101* and 101110* respectively. Which of these is more likely to respond to a message faster?
+        <ul>
+          <li>The 101* neighbor<br />
+<br /></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Summary of Chord and Pastry
+    <ul>
+      <li>Chord and Pastry protocols
+        <ul>
+          <li>More structured than Gnutella</li>
+          <li>Black box lookup algorithms</li>
+          <li>Churn handling can get complex</li>
+          <li>O(logN) memory and lookup cost
+            <ul>
+              <li>O(logN) lookup hops may be high</li>
+              <li>Can we reduce the number of hops?</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="48-kelips">4.8 Kelips</h3>
+<p><img src="/assets/images/20180919/CS425-wk4-img-24.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180919/CS425-wk4-img-25.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180919/CS425-wk4-img-26.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180919/CS425-wk4-img-27.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Chord vs Pastry vs Kelips
+    <ul>
+      <li>Range of tradeoffs available
+        <ul>
+          <li>Memory vs lookup cost vs background bandwidth ( to keep neighbors fresh)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="cs-427--software-engineering">CS 427 : Software Engineering</h1>
+<hr />
+
+<h2 id="goals-and-objectives-1">Goals and Objectives</h2>
+
+<h2 id="video-lecture-notes-2">Video Lecture Notes</h2>
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/09/13/MCS-Notes-Week-3" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 3 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+    <li><a href="/2018/09/06/Scala-Spec-Pt-1-Wk-2">Scala Specialization Part 1 Week 2</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="4">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/09/19/MCS-Notes-Week-4";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

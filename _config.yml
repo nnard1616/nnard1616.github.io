@@ -1,0 +1,47 @@
+# Jekyll configuration
+
+name: Progress Blog
+description: This is a blog where I document my projects and progress as a computer scientist/programmer/software engineer.
+
+# Url is currently only used for the RSS feed in feed.xml
+url: https://nnard1616.github.io
+
+# For a project page here should be a project name. Otherwise (for user's/organization's page leave it empty)
+baseurl: ''
+
+author: Nathan Nard
+
+share:
+  facebook: true
+  twitter: true
+  gplus: true
+  linkedin: true
+  pinterest: true
+  email: true
+
+social:
+  github: nnard1616
+  linkedin: nathan-nard-103278bb
+
+# Google Analytics key, leave blank to ignore
+google_analytics_key: UA-120646415-1
+
+# Set this to your disqus shortname to enable comments. Note that the 'comments'
+# setting below must also be true. Individual posts can override 'comments' to
+# disable on a post-by-post basis
+disqus: nnard1616-github-io
+comments: false
+
+permalink: /:year/:month/:day/:title
+
+# Enable for using pages, more details are here: http://jekyllrb.com/docs/pagination/
+#paginate: 3
+
+#highlighter: rouge
+
+markdown: kramdown
+kramdown:
+  input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
+  hard_wrap: true
+
+exclude: ['README.md', 'LICENSE']
