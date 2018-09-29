@@ -11,14 +11,160 @@
 				<description>&lt;h1 id=&quot;cs-410--text-information-systems&quot;&gt;CS 410 : Text Information Systems&lt;/h1&gt;
 &lt;hr /&gt;
 &lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Explain how to interpret p(R=1|q,d) and estimate it based on a large set of collected relevance judgments (or clickthrough information) about query q and document d.&lt;/li&gt;
+  &lt;li&gt;Explain how to interpret the conditional probability p(q|d) used for scoring documents in the query likelihood retrieval function.&lt;/li&gt;
+  &lt;li&gt;Explain what a statistical language model and a unigram language model are.&lt;/li&gt;
+  &lt;li&gt;Explain how to compute the maximum likelihood estimate of a unigram language model.&lt;/li&gt;
+  &lt;li&gt;Explain how to use unigram language models to discover semantically related words.&lt;/li&gt;
+  &lt;li&gt;Compute p(q|d) based on a given document language model p(w|d).&lt;/li&gt;
+  &lt;li&gt;Explain what smoothing does.&lt;/li&gt;
+  &lt;li&gt;Show that query likelihood retrieval function implements TF-IDF weighting if we smooth the document language model p(w|d) using the collection language model p(w|C) as a reference language model.&lt;/li&gt;
+  &lt;li&gt;Compute the estimate of p(w|d) using Jelinek-Mercer (JM) smoothing and Dirichlet Prior smoothing, respectively.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Given a table of relevance judgments in the form of three columns (query, document, and binary relevance judgments), how can we estimate p(R=1|q,d)?&lt;/li&gt;
+  &lt;li&gt;How should we interpret the query likelihood conditional probability p(q|d)?&lt;/li&gt;
+  &lt;li&gt;What is a statistical language model? What is a unigram language model? How many parameters are there in a unigram language model?&lt;/li&gt;
+  &lt;li&gt;How do we compute the maximum likelihood estimate of the unigram language model (based on a text sample)?&lt;/li&gt;
+  &lt;li&gt;What is a background language model? What is a collection language model? What is a document language model?&lt;/li&gt;
+  &lt;li&gt;Why do we need to smooth a document language model in the query likelihood retrieval model? What would happen if we don’t do smoothing?&lt;/li&gt;
+  &lt;li&gt;When we smooth a document language model using a collection language model as a reference language model, what is the probability assigned to an unseen word in a document?&lt;/li&gt;
+  &lt;li&gt;How can we prove that the query likelihood retrieval function implements TF-IDF weighting if we use a collection language model smoothing?&lt;/li&gt;
+  &lt;li&gt;How does linear interpolation (Jelinek-Mercer) smoothing work? What is the formula?&lt;/li&gt;
+  &lt;li&gt;How does Dirichlet prior smoothing work? What is the formula?&lt;/li&gt;
+  &lt;li&gt;What are the similarities and differences between Jelinek-Mercer smoothing and Dirichlet prior smoothing?&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;C. Zhai and S. Massung. Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining, ACM Book Series, Morgan &amp;amp; Claypool Publishers, 2016. Chapter 6 - Section 6.4&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;p(R=1|q,d) ; query likelihood, p(q|d)&lt;/li&gt;
+  &lt;li&gt;Statistical and unigram language models&lt;/li&gt;
+  &lt;li&gt;Maximum likelihood estimate&lt;/li&gt;
+  &lt;li&gt;Background, collection, and document language models&lt;/li&gt;
+  &lt;li&gt;Smoothing of unigram language models&lt;/li&gt;
+  &lt;li&gt;Relation between query likelihood and TF-IDF weighting&lt;/li&gt;
+  &lt;li&gt;Linear interpolation (i.e., Jelinek-Mercer) smoothing&lt;/li&gt;
+  &lt;li&gt;Dirichlet Prior smoothing&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;41--probabilistic-retrieval-model&quot;&gt;4.1 : Probabilistic Retrieval Model&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Many different retrieval models:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Probabilistic models&lt;/strong&gt;: f(d,q) = p(R=1|d,q), R ∈ {0,1}
+        &lt;ul&gt;
+          &lt;li&gt;Classic probabilistic model -&amp;gt; BM25&lt;/li&gt;
+          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Language model -&amp;gt; Query Likelihood&lt;/strong&gt;&lt;/li&gt;
+          &lt;li&gt;Divergence-from-randomness model -&amp;gt; PL2
+            &lt;ul&gt;
+              &lt;li&gt;p(R=1|d,q) ≈ p(q|d,R=1)&lt;/li&gt;
+              &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;If a user likes document d, how likely would the user enter query q (in order to retrieve d)?&lt;/strong&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Instead, we prefer to use p(q|d,R=1):
+    &lt;ul&gt;
+      &lt;li&gt;Assume a user formulates a query based on an “&lt;strong class=&quot;highlighted&quot;&gt;imaginary relevant document&lt;/strong&gt;”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;42--statistical-language-models&quot;&gt;4.2 : Statistical Language Models&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;What is a statistical language model?
+    &lt;ul&gt;
+      &lt;li&gt;A probability distribution over word sequences&lt;/li&gt;
+      &lt;li&gt;Context Dependent&lt;/li&gt;
+      &lt;li&gt;Can also be regarded as a probabilistic mechanism for “generating” text, thus also called a “generative” model.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Why is a LM useful?
+    &lt;ul&gt;
+      &lt;li&gt;Quantify the uncertainties in natural language&lt;/li&gt;
+      &lt;li&gt;Allows us to answer questions like:
+        &lt;ul&gt;
+          &lt;li&gt;Given that we see “John” and “feels”, how likely will we see “happy” as opposed to “habit as the next word? (&lt;strong class=&quot;highlighted&quot;&gt;speech recognition&lt;/strong&gt;)&lt;/li&gt;
+          &lt;li&gt;Given that we observe “baseball” three times and “game” once in a news article, how likely is it about “sports”? (&lt;strong class=&quot;highlighted&quot;&gt;text categorization, information retrieval&lt;/strong&gt;)&lt;/li&gt;
+          &lt;li&gt;Given that a user is interested in sports news, how likely would the user use “baseball” in a query? (&lt;strong class=&quot;highlighted&quot;&gt;information retrieval&lt;/strong&gt;)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The Simplest Language Model: Unigram LM
+    &lt;ul&gt;
+      &lt;li&gt;Generate text by generating each word INDEPENDENTLY&lt;/li&gt;
+      &lt;li&gt;thus, p(w1, w2, …wn) = p(w1)p(w2)…p(wn)&lt;/li&gt;
+      &lt;li&gt;Parameters: {p(wi)} p(w1)+…+p(wn)=1 (N is vocabularly size)&lt;/li&gt;
+      &lt;li&gt;Text = sample drawn according to this &lt;strong class=&quot;highlighted&quot;&gt;word distribution&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;43--query-likelihood-retrieval-function&quot;&gt;4.3 : Query Likelihood Retrieval Function&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;p(q|d), if the user is thinking of this doc, how likely would she pose this query?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-9.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;44--ranking-function-based-on-query-likelihood&quot;&gt;4.4 : Ranking Function based on Query likelihood&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Key Question: what probability should be assigned to an unseen word?&lt;/li&gt;
+  &lt;li&gt;Let the probability of an unseen word be proportional to its probability given by a refernce LM&lt;/li&gt;
+  &lt;li&gt;One possibility: Reference LM = Collection LM
+    &lt;ul&gt;
+      &lt;li&gt;p(w|d) = {Pseen(w|d), if w is seen in d} , {α&lt;sub&gt;d&lt;/sub&gt;P(w|C), otherwise}&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-11.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;45--statistical-language-model---part-2&quot;&gt;4.5 : Statistical Language Model - Part 2&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-13.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;46-smoothing-methods---part-1&quot;&gt;4.6 SMoothing Methods - Part 1&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-14.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-15.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-16.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;47--smoothing-methods---part-2&quot;&gt;4.7 : Smoothing Methods - Part 2&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-17.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-18.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-19.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;cs-425--distributed-systems&quot;&gt;CS 425 : Distributed Systems&lt;/h1&gt;
 &lt;hr /&gt;
