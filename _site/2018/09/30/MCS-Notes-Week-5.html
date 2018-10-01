@@ -1,0 +1,888 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | MCS 1st Semester Week 5 Notes </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/09/30/MCS-Notes-Week-5">MCS 1st Semester Week 5 Notes</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>30 Sep 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/UIUC-MCS">UIUC-MCS</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/09/19/MCS-Notes-Week-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 4 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <h1 id="cs-410--text-information-systems">CS 410 : Text Information Systems</h1>
+<hr />
+<h2 id="goals-and-objectives">Goals and Objectives</h2>
+<ul>
+  <li>Explain the similarity and differences in the three different kinds of feedback, i.e., relevance feedback, pseudo-relevance feedback, and implicit feedback.</li>
+  <li>Explain how the Rocchio feedback algorithm works.</li>
+  <li>Explain how the Kullback-Leibler (KL) divergence retrieval function generalizes the query likelihood retrieval function.</li>
+  <li>Explain the basic idea of using a mixture model for feedback.</li>
+  <li>Explain some of the main general challenges in creating a web search engine.</li>
+  <li>Explain what a web crawler is and what factors have to be considered when designing a web crawler.</li>
+  <li>Explain the basic idea of Google File System (GFS).</li>
+  <li>Explain the basic idea of MapReduce and how we can use it to build an inverted index in parallel.</li>
+  <li>Explain how links on the web can be leveraged to improve search results.</li>
+  <li>Explain how PageRank algorithm works.</li>
+</ul>
+
+<h2 id="guiding-questions">Guiding Questions</h2>
+<ul>
+  <li>What is relevance feedback? What is pseudo-relevance feedback? What is implicit feedback?</li>
+  <li>How does Rocchio work? Why do we need to ensure that the original query terms have sufficiently large weights in feedback?</li>
+  <li>What is the KL-divergence retrieval function? How is it related to the query likelihood retrieval function?</li>
+  <li>What is the basic idea of the two-component mixture model for feedback?</li>
+  <li>What are some of the general challenges in building a web search engine?</li>
+  <li>What is a crawler? How can we implement a simple crawler?</li>
+  <li>What is focused crawling? What is incremental crawling?</li>
+  <li>What kind of pages should have a higher priority for recrawling in incremental crawling?</li>
+  <li>What can we do if the inverted index doesn’t fit in any single machine?</li>
+  <li>What’s the basic idea of the Google File System (GFS)?</li>
+  <li>How does MapReduce work? What are the two key functions that a programmer needs to implement when programming with a MapReduce framework?</li>
+  <li>How can we use MapReduce to build an inverted index in parallel?</li>
+  <li>What is anchor text? Why is it useful for improving search accuracy?</li>
+  <li>What is a hub page? What is an authority page?</li>
+  <li>What kind of web pages tend to receive high scores from PageRank?</li>
+  <li>How can we interpret PageRank from the perspective of a random surfer “walking” on the Web?</li>
+  <li>How exactly do you compute PageRank scores?</li>
+  <li>How does the HITS algorithm work?</li>
+</ul>
+
+<h2 id="additional-readings-and-resources">Additional Readings and Resources</h2>
+<ul>
+  <li>C. Zhai and S. Massung. Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining, ACM Book Series, Morgan &amp; Claypool Publishers, 2016. Chapters 7 &amp; 10</li>
+</ul>
+
+<h2 id="key-phrases-and-concepts">Key Phrases and Concepts</h2>
+<ul>
+  <li>Relevance feedback</li>
+  <li>Pseudo-relevance feedback</li>
+  <li>Implicit feedback</li>
+  <li>Rocchio feedback</li>
+  <li>Kullback-Leiber divergence (KL-divergence) retrieval function</li>
+  <li>Mixture language model</li>
+  <li>Scalability and efficiency</li>
+  <li>Spams</li>
+  <li>Crawler, focused crawling, and incremental crawling</li>
+  <li>Google File System (GFS)</li>
+  <li>MapReduce</li>
+  <li>Link analysis and anchor text</li>
+  <li>PageRank</li>
+</ul>
+
+<h2 id="video-lecture-notes">Video Lecture Notes</h2>
+<h3 id="51--feedback-in-text-retrieval">5.1 : Feedback in Text Retrieval</h3>
+<p><img src="/assets/images/20180930/CS410-wk5-img-1.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS410-wk5-img-2.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS410-wk5-img-3.png" alt="img" class="center-image" /></p>
+
+<h3 id="52--feedback-in-vector-space-model---rocchio">5.2 : Feedback in Vector Space Model - Rocchio</h3>
+<ul>
+  <li>Feedback in vector space model
+    <ul>
+      <li>how can a TR system learn from examples to improve retrieval accuracy?
+        <ul>
+          <li>positive examples: docs known to be relevant</li>
+          <li>negatvie examples: docs known to be non-relevant</li>
+        </ul>
+      </li>
+      <li>general method: query modicfication
+        <ul>
+          <li>adding new (weighted) terms (query expansion)</li>
+          <li>adjusting weights of old terms</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Rocchio in Practice
+    <ul>
+      <li>Negative (non-relevant) examples are not very important</li>
+      <li>Often truncate the vector (ie, consider only a small number of words that have highest weights in the centroid vector)(efficiency concern)</li>
+      <li>Avoid “over-fitting” (keep relatively high weight on the original query weights)</li>
+      <li>Can be used for relevence feedback and pseudo feedback (Β should be set to a larger value for relevance feedback than for pseudo feedback)</li>
+      <li>Usually robust and effective</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS410-wk5-img-4.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS410-wk5-img-5.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS410-wk5-img-6.png" alt="img" class="center-image" /></p>
+
+<h3 id="53--feedback-in-text-retrieval---feedback-in-lm">5.3 : Feedback in Text Retrieval - feedback in LM</h3>
+<ul>
+  <li>Feedback with LM
+    <ul>
+      <li>Query likelihood method can’t naturally support relevance feedback</li>
+      <li>Solution:
+        <ul>
+          <li>Kullback-Leibler( KL) divergence retrieval model as a generalization of query likelihood</li>
+          <li>Feedback is achieved through query model estimation/updating</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS410-wk5-img-7.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS410-wk5-img-8.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS410-wk5-img-9.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS410-wk5-img-10.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS410-wk5-img-11.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Summary of feedback in Text Retrieval
+    <ul>
+      <li>Feedback = learn from examples</li>
+      <li>Three major feedback scenarios
+        <ul>
+          <li>Relevance, pseudo, and implicit feedback</li>
+        </ul>
+      </li>
+      <li>Rocchio for VSM (vector space model)</li>
+      <li>Query Model estimation for LM
+        <ul>
+          <li>Mixture model</li>
+          <li>many other methods (eg, relevance model) have been proposed</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="54--web-search-introduction--web-crawler">5.4 : Web Search: Introduction &amp; Web Crawler</h3>
+<ul>
+  <li>Web Search: Challenges &amp; Opportunities
+    <ul>
+      <li>Challenges
+        <ul>
+          <li>scalability
+            <ul>
+              <li>how to handle the size of the web and ensure completeness of coverage?</li>
+              <li>how to serve many user queries quickly?</li>
+            </ul>
+          </li>
+          <li>low quality information and spams</li>
+          <li>dynamics of the web
+            <ul>
+              <li>new pages are constantly created and some pages may be updated very quickly</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Opportunities
+        <ul>
+          <li>many additional heuristics (eg links) can be leveraged to improve search accuracy</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Component I: Crawler/Spider/Robot
+    <ul>
+      <li>Building a “toy crawler” is easy
+        <ul>
+          <li>Start with a set of “seed pages” in a priority queue</li>
+          <li>fetch pages from the web</li>
+          <li>parse fetched pages for hyperlinks; add them to the queue</li>
+          <li>follow the hyperlinks in the queue</li>
+        </ul>
+      </li>
+      <li>A real crawler is much more complicated…
+        <ul>
+          <li>Robustness (server failure, trap, etc)</li>
+          <li>Crawling courtesy (server load balance, robot exlclusion, etc)</li>
+          <li>Handling file types (images, PDF files, etc)</li>
+          <li>URL extensions (cgi script, internal references, etc)</li>
+          <li>recognize redundant pages (identical and duplicates)</li>
+          <li>discover “hidden” urls (eg, truncating a long url)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Major Crawling strategies
+    <ul>
+      <li>Breadth-first is common (balance server load)</li>
+      <li>parallel crawling is natural</li>
+      <li>variation: focused crawling
+        <ul>
+          <li>targeting at a subset of pages (eg, all pages about “automobiles”)</li>
+          <li>typically given a query</li>
+        </ul>
+      </li>
+      <li>How to find new pages (they may not linked to an old page!)</li>
+      <li>Incremental/repeated crawling
+        <ul>
+          <li>need to minimize reource overhead</li>
+          <li>can learn form the past experience (updated daily vs monthly)</li>
+          <li>target at : 1) frequently updated pages; 2) frequently accessed pages</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS410-wk5-img-12.png" alt="img" class="center-image" /></p>
+
+<h3 id="55--web-indexing">5.5 : Web indexing</h3>
+<ul>
+  <li>Overview of web indexing
+    <ul>
+      <li>standard IR techniques are the baseis, but insufficient
+        <ul>
+          <li>scalability</li>
+          <li>efficiency</li>
+        </ul>
+      </li>
+      <li>Google’s gontributions:
+        <ul>
+          <li>google file system (gfs): distributed file system</li>
+          <li>mapreduce: software framework for parallel computation</li>
+          <li>hadoop: open source implementation of mapreduce</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Mapreduce: a framework for parallel programming
+    <ul>
+      <li>minimize effort of programmer for simple parallel processing tasks</li>
+      <li>Features
+        <ul>
+          <li>hide many low-level details (network, storage)</li>
+          <li>build-in fault tolerance</li>
+          <li>automatic load balancing</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS410-wk5-img-13.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS410-wk5-img-14.png" alt="img" class="center-image" /></p>
+
+<h3 id="56--link-analysis">5.6 : Link Analysis</h3>
+<ul>
+  <li>Ranking Algorithms for Web Search
+    <ul>
+      <li>Standard IR (information retrieval) models apply but aren’t sufficient
+        <ul>
+          <li>Different information needs</li>
+          <li>documents have additional information</li>
+          <li>information quality varies a lot</li>
+        </ul>
+      </li>
+      <li>Major extensions
+        <ul>
+          <li>exploiting links to improve scoring</li>
+          <li>exploiting clickthroughs for massive implicit feedback</li>
+          <li>in general, rely on machine learning to combine all kinds of features</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Pagerank: capturing page “popularity”
+    <ul>
+      <li>intutions
+        <ul>
+          <li>links are like citations in literature</li>
+          <li>a page taht is cited often can be expected to be more useful in general</li>
+        </ul>
+      </li>
+      <li>pagerank is essentially “citation counting”, but improves over simple counting
+        <ul>
+          <li>consider “indirect citations” (being cited by a highly cited paper counts a lot…)</li>
+          <li>smoothing of citations (every page is assumed to have a non-zero pseudo citation count)</li>
+        </ul>
+      </li>
+      <li>PageRank can also be interpreted as random surfing (thus capturing popularity)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="57--link-analysis-part-2">5.7 : Link Analysis Part 2</h3>
+<ul>
+  <li>The pagerank algorithm
+    <ul>
+      <li>Random surfing model: At any range,
+        <ul>
+          <li>with probability α randomly jumping to another page</li>
+          <li>with probability (1-α), randomly picking a link to follow.
+            <ul>
+              <li>p(di): PageRank score of di = average probability of visiting page di</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>PageRank in Practice
+    <ul>
+      <li>computation can be quite efficient since M is usually sparse</li>
+      <li>Normalization doesn’t affect ranking, leading to some variants of the formula</li>
+      <li>The zero-outlink problem: p(di)’s don’t sum to 1
+        <ul>
+          <li>one possible solution = page-specific damping factor (α =1.0 for a page with no outlink)</li>
+        </ul>
+      </li>
+      <li>Many extensions (eg, topic-specific PageRank)</li>
+      <li>Many other applications (eg, social network analysis)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS410-wk5-img-15.png" alt="img" class="center-image" /></p>
+<h3 id="58--link-analysis---part-3-optional">5.8 : Link analysis - Part 3 (optional)</h3>
+<ul>
+  <li>HITS: Capturing Authorities &amp; Hubs
+    <ul>
+      <li>Intuitions
+        <ul>
+          <li>Pages that are widely cited are good authorities</li>
+          <li>Pages taht cite many other pages are good hubs</li>
+        </ul>
+      </li>
+      <li>The key idea of HITS (Hypertext-Induced Topic Search)
+        <ul>
+          <li>Good authorities are cited by good hubs</li>
+          <li>Good hubs point to good authorities</li>
+          <li>Iterative reinforcement…</li>
+        </ul>
+      </li>
+      <li>Many applications in graph/network analysis</li>
+    </ul>
+  </li>
+  <li>Summary
+    <ul>
+      <li>link information is very useful
+        <ul>
+          <li>anchor text</li>
+          <li>pagerank</li>
+          <li>HITS</li>
+        </ul>
+      </li>
+      <li>Both pagerank and HITS have many applications in analyzing other graphs or networks</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS410-wk5-img-16.png" alt="img" class="center-image" /></p>
+
+<h1 id="cs-425--distributed-systems">CS 425 : Distributed Systems</h1>
+<hr />
+
+<h2 id="goals">Goals</h2>
+
+<h2 id="key-concepts">Key Concepts</h2>
+
+<h2 id="guiding-questions-1">Guiding Questions</h2>
+
+<h2 id="readings-and-resources">Readings and Resources</h2>
+
+<h2 id="video-lecture-notes-1">Video Lecture Notes</h2>
+
+<h1 id="cs-427--software-engineering">CS 427 : Software Engineering</h1>
+<hr />
+
+<h2 id="goals-and-objectives-1">Goals and Objectives</h2>
+
+<h2 id="video-lecture-notes-2">Video Lecture Notes</h2>
+
+<h3 id="41--definition-of-software-architecture">4.1 : Definition of Software Architecture</h3>
+<ul>
+  <li>Definitions of Software ARchitecture
+    <ul>
+      <li>“A software system’s architecture is the set of of <strong class="highlighted">princiapal design decisions</strong> about the system.”</li>
+      <li>The software architecture of a program or computing system is the structure or strucutures of the system, whcih comprise <strong class="highlighted">software elements</strong>, the <strong class="highlighted">externally visible properties</strong> of those elements, and the <strong class="highlighted">relationshipts</strong> among them.”</li>
+      <li>A model of software architecture “consists of three components: <strong class="highlighted">elements, form, and rationale</strong>.”
+        <ul>
+          <li>Elements (what): Processing, data, or connecting elements</li>
+          <li>Form (how): Constraints (properties, relationships) on the elements</li>
+          <li>Rationale (why): System constraints, often derived from system requirements</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Benefits of sofware architecture
+    <ul>
+      <li>Understanding</li>
+      <li>Reuse</li>
+      <li>Construction</li>
+      <li>Evolution</li>
+      <li>Analysis</li>
+      <li>Management</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="42--software-architect">4.2 : Software Architect</h3>
+<ul>
+  <li>Important skills of software architects
+    <ul>
+      <li>“software architects should <strong class="highlighted">design, develop, nurture, and maintain</strong> the architecture of the software-intensive systems they are involved with.”
+        <ul>
+          <li>Domain Knowledge</li>
+          <li>Software Development Expertise</li>
+          <li>Communication Skills</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS427-wk5-img-1.png" alt="img" class="center-image" /></p>
+
+<h3 id="43--abstraction">4.3 : Abstraction</h3>
+<ul>
+  <li>Definition of Abstraction
+    <ul>
+      <li>Removing detail to <strong class="highlighted">simplify and foucus attention</strong></li>
+      <li>Generalizing to <strong class="highlighted">identify the common core or essence</strong></li>
+    </ul>
+  </li>
+  <li>Importance of Abstraction in CS
+    <ul>
+      <li>“Once you realize that computing is all about <strong class="highlighted">constructing, manipulating, and reasoning about abstractions</strong>, it becomes clear that an important prerequisiite for writing(good) computer programs is the ability to <strong class="highlighted">handle abstractions in a precise manner</strong>.”</li>
+      <li>“Computer science is not computer programming. Thinking like a computer scientist means more than being able to program a computer. It requires <strong class="highlighted">thinking at multiple levels of abstraction</strong>.”</li>
+    </ul>
+  </li>
+  <li>Types of Abstraction in Software Engineering
+    <ul>
+      <li><strong class="highlighted">Procedural</strong> abstraction
+        <ul>
+          <li>Naming a sequence of instructions</li>
+          <li>Parameterizing a procedure</li>
+        </ul>
+      </li>
+      <li><strong class="highlighted">Data</strong> abstraction
+        <ul>
+          <li>Naming a collection of data</li>
+          <li>Data type defined by a set of procedures</li>
+        </ul>
+      </li>
+      <li><strong class="highlighted">Control</strong> abstraction
+        <ul>
+          <li>Without specifying all register/binary-level steps</li>
+        </ul>
+      </li>
+      <li><strong class="highlighted">Performance</strong> abstraction O(N)</li>
+    </ul>
+  </li>
+  <li>Software Development process also has abstractions
+    <ul>
+      <li>Requirements (What)</li>
+      <li>Architecture</li>
+      <li>OO Design</li>
+      <li>Implementation (How)</li>
+    </ul>
+  </li>
+  <li>How to get good abstractions
+    <ul>
+      <li>learn from others</li>
+      <li>generalize from examples</li>
+      <li>look for/eliminate duplication</li>
+    </ul>
+  </li>
+  <li>Abstractions can fool you
+    <ul>
+      <li>suppose a collection c has operation: getItemNumbered(int index)</li>
+      <li>How do you iterate?</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote class="filename">
+  <p>C++</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">c</span><span class="p">.</span><span class="n">getItemNumbered</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> 
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>But what if the collection is a linked list?</li>
+</ul>
+
+<h3 id="44--modularity">4.4 : Modularity</h3>
+<ul>
+  <li>Functional Independence
+    <ul>
+      <li>Cohesion (Good)
+        <ul>
+          <li>Measure of interconnection within a module</li>
+          <li>The degree to which one part of a module depends on another</li>
+          <li>Maximize cohesion</li>
+        </ul>
+      </li>
+      <li>Coupling (Less desirable)
+        <ul>
+          <li>Measure of interconnection among modules</li>
+          <li>The degree to which one module depends on others</li>
+          <li>Minimize coupling</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Major types of cohesion
+    <ul>
+      <li>Coincidental - grouped by chance  (Low cohesion)</li>
+      <li>logical - same idea</li>
+      <li>temporal - same time</li>
+      <li>procedural - one after another</li>
+      <li>communicational - shared data</li>
+      <li>sequential - output of one being input of the other</li>
+      <li>functional - a single well-defined task (high cohesion)</li>
+    </ul>
+  </li>
+  <li>Information hiding
+    <ul>
+      <li>EAch module should hide a design decision from others</li>
+      <li>Ideally, one design decision per module, but usually design decisions are closely related</li>
+    </ul>
+  </li>
+  <li>Example design decisions
+    <ul>
+      <li>Representation of data</li>
+      <li>Use of a particular software package</li>
+      <li>Use of a particular printer</li>
+      <li>Use of a particular operating system</li>
+      <li>Use of a particular algorithm</li>
+    </ul>
+  </li>
+  <li>Other reasons for modularity
+    <ul>
+      <li>collaborative/distributed development: reduced communication</li>
+      <li>security - compartmentalization</li>
+      <li>reliability - localization of failure</li>
+      <li>Conway’s law: the architecture of a system is the same as the structure of the group that developed it.</li>
+    </ul>
+  </li>
+  <li>ways to achieve modularity
+    <ul>
+      <li>reuse a design with good modularity</li>
+      <li>think about and hide design decisions</li>
+      <li>reduce coupling and increase cohesion</li>
+      <li>eliminate duplication</li>
+      <li>reduce impact of changes</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="45--architecture">4.5 : Architecture</h3>
+<ul>
+  <li>Three views of software architecture
+    <ul>
+      <li>Static view</li>
+      <li>Dynamic view</li>
+      <li>Deployment view</li>
+    </ul>
+  </li>
+  <li>Components and connectors</li>
+</ul>
+
+<h3 id="46--architectural-styles">4.6 : Architectural Styles</h3>
+<ul>
+  <li>Architectural Style
+    <ul>
+      <li><strong class="highlighted">Vocabularly</strong> of components and connectors</li>
+      <li>Compositions <strong class="highlighted">constraints</strong></li>
+    </ul>
+  </li>
+  <li>Client-server style
+    <ul>
+      <li>Example: SVN</li>
+      <li>Easy to add new clients to structure</li>
+    </ul>
+  </li>
+  <li>Layered/Tiered style: 3-tier/n-tier client-server (eg local file system)
+    <ul>
+      <li>Presentation tier</li>
+      <li>Logic tier</li>
+      <li>data tier</li>
+    </ul>
+  </li>
+  <li>Pipe-and-filter style
+    <ul>
+      <li>eg cat contatctbook | grep “illinois” | sort &gt; illini</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="47--mvc-pattern">4.7 : MVC Pattern</h3>
+<ul>
+  <li>Architectural Pattern
+    <ul>
+      <li>A <strong class="highlighted">general, reusable</strong> solution to a <strong class="highlighted">commonly occuring</strong> problem in software architecture within a given context.</li>
+      <li>Not the same as architectural style
+        <ul>
+          <li><strong class="highlighted">Vocabularly</strong> of components and connectors</li>
+          <li>Composition <strong class="highlighted">constraints</strong></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Model-View-Controller Pattern</li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS427-wk5-img-2.png" alt="img" class="center-image" /></p>
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/09/19/MCS-Notes-Week-4" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 4 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/09/30/MCS-Notes-Week-5">MCS 1st Semester Week 5 Notes</a></li>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+    <li><a href="/2018/09/09/Scala-Spec-Pt-1-Wk-3">Scala Specialization Part 1 Week 3</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="5">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/09/30/MCS-Notes-Week-5";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

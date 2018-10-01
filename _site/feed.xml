@@ -7,6 +7,630 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>MCS 1st Semester Week 5 Notes</title>
+				<description>&lt;h1 id=&quot;cs-410--text-information-systems&quot;&gt;CS 410 : Text Information Systems&lt;/h1&gt;
+&lt;hr /&gt;
+&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Explain the similarity and differences in the three different kinds of feedback, i.e., relevance feedback, pseudo-relevance feedback, and implicit feedback.&lt;/li&gt;
+  &lt;li&gt;Explain how the Rocchio feedback algorithm works.&lt;/li&gt;
+  &lt;li&gt;Explain how the Kullback-Leibler (KL) divergence retrieval function generalizes the query likelihood retrieval function.&lt;/li&gt;
+  &lt;li&gt;Explain the basic idea of using a mixture model for feedback.&lt;/li&gt;
+  &lt;li&gt;Explain some of the main general challenges in creating a web search engine.&lt;/li&gt;
+  &lt;li&gt;Explain what a web crawler is and what factors have to be considered when designing a web crawler.&lt;/li&gt;
+  &lt;li&gt;Explain the basic idea of Google File System (GFS).&lt;/li&gt;
+  &lt;li&gt;Explain the basic idea of MapReduce and how we can use it to build an inverted index in parallel.&lt;/li&gt;
+  &lt;li&gt;Explain how links on the web can be leveraged to improve search results.&lt;/li&gt;
+  &lt;li&gt;Explain how PageRank algorithm works.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;What is relevance feedback? What is pseudo-relevance feedback? What is implicit feedback?&lt;/li&gt;
+  &lt;li&gt;How does Rocchio work? Why do we need to ensure that the original query terms have sufficiently large weights in feedback?&lt;/li&gt;
+  &lt;li&gt;What is the KL-divergence retrieval function? How is it related to the query likelihood retrieval function?&lt;/li&gt;
+  &lt;li&gt;What is the basic idea of the two-component mixture model for feedback?&lt;/li&gt;
+  &lt;li&gt;What are some of the general challenges in building a web search engine?&lt;/li&gt;
+  &lt;li&gt;What is a crawler? How can we implement a simple crawler?&lt;/li&gt;
+  &lt;li&gt;What is focused crawling? What is incremental crawling?&lt;/li&gt;
+  &lt;li&gt;What kind of pages should have a higher priority for recrawling in incremental crawling?&lt;/li&gt;
+  &lt;li&gt;What can we do if the inverted index doesn’t fit in any single machine?&lt;/li&gt;
+  &lt;li&gt;What’s the basic idea of the Google File System (GFS)?&lt;/li&gt;
+  &lt;li&gt;How does MapReduce work? What are the two key functions that a programmer needs to implement when programming with a MapReduce framework?&lt;/li&gt;
+  &lt;li&gt;How can we use MapReduce to build an inverted index in parallel?&lt;/li&gt;
+  &lt;li&gt;What is anchor text? Why is it useful for improving search accuracy?&lt;/li&gt;
+  &lt;li&gt;What is a hub page? What is an authority page?&lt;/li&gt;
+  &lt;li&gt;What kind of web pages tend to receive high scores from PageRank?&lt;/li&gt;
+  &lt;li&gt;How can we interpret PageRank from the perspective of a random surfer “walking” on the Web?&lt;/li&gt;
+  &lt;li&gt;How exactly do you compute PageRank scores?&lt;/li&gt;
+  &lt;li&gt;How does the HITS algorithm work?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;C. Zhai and S. Massung. Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining, ACM Book Series, Morgan &amp;amp; Claypool Publishers, 2016. Chapters 7 &amp;amp; 10&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Relevance feedback&lt;/li&gt;
+  &lt;li&gt;Pseudo-relevance feedback&lt;/li&gt;
+  &lt;li&gt;Implicit feedback&lt;/li&gt;
+  &lt;li&gt;Rocchio feedback&lt;/li&gt;
+  &lt;li&gt;Kullback-Leiber divergence (KL-divergence) retrieval function&lt;/li&gt;
+  &lt;li&gt;Mixture language model&lt;/li&gt;
+  &lt;li&gt;Scalability and efficiency&lt;/li&gt;
+  &lt;li&gt;Spams&lt;/li&gt;
+  &lt;li&gt;Crawler, focused crawling, and incremental crawling&lt;/li&gt;
+  &lt;li&gt;Google File System (GFS)&lt;/li&gt;
+  &lt;li&gt;MapReduce&lt;/li&gt;
+  &lt;li&gt;Link analysis and anchor text&lt;/li&gt;
+  &lt;li&gt;PageRank&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+&lt;h3 id=&quot;51--feedback-in-text-retrieval&quot;&gt;5.1 : Feedback in Text Retrieval&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;52--feedback-in-vector-space-model---rocchio&quot;&gt;5.2 : Feedback in Vector Space Model - Rocchio&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Feedback in vector space model
+    &lt;ul&gt;
+      &lt;li&gt;how can a TR system learn from examples to improve retrieval accuracy?
+        &lt;ul&gt;
+          &lt;li&gt;positive examples: docs known to be relevant&lt;/li&gt;
+          &lt;li&gt;negatvie examples: docs known to be non-relevant&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;general method: query modicfication
+        &lt;ul&gt;
+          &lt;li&gt;adding new (weighted) terms (query expansion)&lt;/li&gt;
+          &lt;li&gt;adjusting weights of old terms&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Rocchio in Practice
+    &lt;ul&gt;
+      &lt;li&gt;Negative (non-relevant) examples are not very important&lt;/li&gt;
+      &lt;li&gt;Often truncate the vector (ie, consider only a small number of words that have highest weights in the centroid vector)(efficiency concern)&lt;/li&gt;
+      &lt;li&gt;Avoid “over-fitting” (keep relatively high weight on the original query weights)&lt;/li&gt;
+      &lt;li&gt;Can be used for relevence feedback and pseudo feedback (Β should be set to a larger value for relevance feedback than for pseudo feedback)&lt;/li&gt;
+      &lt;li&gt;Usually robust and effective&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;53--feedback-in-text-retrieval---feedback-in-lm&quot;&gt;5.3 : Feedback in Text Retrieval - feedback in LM&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Feedback with LM
+    &lt;ul&gt;
+      &lt;li&gt;Query likelihood method can’t naturally support relevance feedback&lt;/li&gt;
+      &lt;li&gt;Solution:
+        &lt;ul&gt;
+          &lt;li&gt;Kullback-Leibler( KL) divergence retrieval model as a generalization of query likelihood&lt;/li&gt;
+          &lt;li&gt;Feedback is achieved through query model estimation/updating&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-9.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-11.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Summary of feedback in Text Retrieval
+    &lt;ul&gt;
+      &lt;li&gt;Feedback = learn from examples&lt;/li&gt;
+      &lt;li&gt;Three major feedback scenarios
+        &lt;ul&gt;
+          &lt;li&gt;Relevance, pseudo, and implicit feedback&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Rocchio for VSM (vector space model)&lt;/li&gt;
+      &lt;li&gt;Query Model estimation for LM
+        &lt;ul&gt;
+          &lt;li&gt;Mixture model&lt;/li&gt;
+          &lt;li&gt;many other methods (eg, relevance model) have been proposed&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;54--web-search-introduction--web-crawler&quot;&gt;5.4 : Web Search: Introduction &amp;amp; Web Crawler&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Web Search: Challenges &amp;amp; Opportunities
+    &lt;ul&gt;
+      &lt;li&gt;Challenges
+        &lt;ul&gt;
+          &lt;li&gt;scalability
+            &lt;ul&gt;
+              &lt;li&gt;how to handle the size of the web and ensure completeness of coverage?&lt;/li&gt;
+              &lt;li&gt;how to serve many user queries quickly?&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;low quality information and spams&lt;/li&gt;
+          &lt;li&gt;dynamics of the web
+            &lt;ul&gt;
+              &lt;li&gt;new pages are constantly created and some pages may be updated very quickly&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Opportunities
+        &lt;ul&gt;
+          &lt;li&gt;many additional heuristics (eg links) can be leveraged to improve search accuracy&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Component I: Crawler/Spider/Robot
+    &lt;ul&gt;
+      &lt;li&gt;Building a “toy crawler” is easy
+        &lt;ul&gt;
+          &lt;li&gt;Start with a set of “seed pages” in a priority queue&lt;/li&gt;
+          &lt;li&gt;fetch pages from the web&lt;/li&gt;
+          &lt;li&gt;parse fetched pages for hyperlinks; add them to the queue&lt;/li&gt;
+          &lt;li&gt;follow the hyperlinks in the queue&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;A real crawler is much more complicated…
+        &lt;ul&gt;
+          &lt;li&gt;Robustness (server failure, trap, etc)&lt;/li&gt;
+          &lt;li&gt;Crawling courtesy (server load balance, robot exlclusion, etc)&lt;/li&gt;
+          &lt;li&gt;Handling file types (images, PDF files, etc)&lt;/li&gt;
+          &lt;li&gt;URL extensions (cgi script, internal references, etc)&lt;/li&gt;
+          &lt;li&gt;recognize redundant pages (identical and duplicates)&lt;/li&gt;
+          &lt;li&gt;discover “hidden” urls (eg, truncating a long url)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Major Crawling strategies
+    &lt;ul&gt;
+      &lt;li&gt;Breadth-first is common (balance server load)&lt;/li&gt;
+      &lt;li&gt;parallel crawling is natural&lt;/li&gt;
+      &lt;li&gt;variation: focused crawling
+        &lt;ul&gt;
+          &lt;li&gt;targeting at a subset of pages (eg, all pages about “automobiles”)&lt;/li&gt;
+          &lt;li&gt;typically given a query&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;How to find new pages (they may not linked to an old page!)&lt;/li&gt;
+      &lt;li&gt;Incremental/repeated crawling
+        &lt;ul&gt;
+          &lt;li&gt;need to minimize reource overhead&lt;/li&gt;
+          &lt;li&gt;can learn form the past experience (updated daily vs monthly)&lt;/li&gt;
+          &lt;li&gt;target at : 1) frequently updated pages; 2) frequently accessed pages&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;55--web-indexing&quot;&gt;5.5 : Web indexing&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Overview of web indexing
+    &lt;ul&gt;
+      &lt;li&gt;standard IR techniques are the baseis, but insufficient
+        &lt;ul&gt;
+          &lt;li&gt;scalability&lt;/li&gt;
+          &lt;li&gt;efficiency&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Google’s gontributions:
+        &lt;ul&gt;
+          &lt;li&gt;google file system (gfs): distributed file system&lt;/li&gt;
+          &lt;li&gt;mapreduce: software framework for parallel computation&lt;/li&gt;
+          &lt;li&gt;hadoop: open source implementation of mapreduce&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Mapreduce: a framework for parallel programming
+    &lt;ul&gt;
+      &lt;li&gt;minimize effort of programmer for simple parallel processing tasks&lt;/li&gt;
+      &lt;li&gt;Features
+        &lt;ul&gt;
+          &lt;li&gt;hide many low-level details (network, storage)&lt;/li&gt;
+          &lt;li&gt;build-in fault tolerance&lt;/li&gt;
+          &lt;li&gt;automatic load balancing&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-13.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-14.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;56--link-analysis&quot;&gt;5.6 : Link Analysis&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Ranking Algorithms for Web Search
+    &lt;ul&gt;
+      &lt;li&gt;Standard IR (information retrieval) models apply but aren’t sufficient
+        &lt;ul&gt;
+          &lt;li&gt;Different information needs&lt;/li&gt;
+          &lt;li&gt;documents have additional information&lt;/li&gt;
+          &lt;li&gt;information quality varies a lot&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Major extensions
+        &lt;ul&gt;
+          &lt;li&gt;exploiting links to improve scoring&lt;/li&gt;
+          &lt;li&gt;exploiting clickthroughs for massive implicit feedback&lt;/li&gt;
+          &lt;li&gt;in general, rely on machine learning to combine all kinds of features&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pagerank: capturing page “popularity”
+    &lt;ul&gt;
+      &lt;li&gt;intutions
+        &lt;ul&gt;
+          &lt;li&gt;links are like citations in literature&lt;/li&gt;
+          &lt;li&gt;a page taht is cited often can be expected to be more useful in general&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;pagerank is essentially “citation counting”, but improves over simple counting
+        &lt;ul&gt;
+          &lt;li&gt;consider “indirect citations” (being cited by a highly cited paper counts a lot…)&lt;/li&gt;
+          &lt;li&gt;smoothing of citations (every page is assumed to have a non-zero pseudo citation count)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;PageRank can also be interpreted as random surfing (thus capturing popularity)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;57--link-analysis-part-2&quot;&gt;5.7 : Link Analysis Part 2&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;The pagerank algorithm
+    &lt;ul&gt;
+      &lt;li&gt;Random surfing model: At any range,
+        &lt;ul&gt;
+          &lt;li&gt;with probability α randomly jumping to another page&lt;/li&gt;
+          &lt;li&gt;with probability (1-α), randomly picking a link to follow.
+            &lt;ul&gt;
+              &lt;li&gt;p(di): PageRank score of di = average probability of visiting page di&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;PageRank in Practice
+    &lt;ul&gt;
+      &lt;li&gt;computation can be quite efficient since M is usually sparse&lt;/li&gt;
+      &lt;li&gt;Normalization doesn’t affect ranking, leading to some variants of the formula&lt;/li&gt;
+      &lt;li&gt;The zero-outlink problem: p(di)’s don’t sum to 1
+        &lt;ul&gt;
+          &lt;li&gt;one possible solution = page-specific damping factor (α =1.0 for a page with no outlink)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Many extensions (eg, topic-specific PageRank)&lt;/li&gt;
+      &lt;li&gt;Many other applications (eg, social network analysis)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-15.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;58--link-analysis---part-3-optional&quot;&gt;5.8 : Link analysis - Part 3 (optional)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;HITS: Capturing Authorities &amp;amp; Hubs
+    &lt;ul&gt;
+      &lt;li&gt;Intuitions
+        &lt;ul&gt;
+          &lt;li&gt;Pages that are widely cited are good authorities&lt;/li&gt;
+          &lt;li&gt;Pages taht cite many other pages are good hubs&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;The key idea of HITS (Hypertext-Induced Topic Search)
+        &lt;ul&gt;
+          &lt;li&gt;Good authorities are cited by good hubs&lt;/li&gt;
+          &lt;li&gt;Good hubs point to good authorities&lt;/li&gt;
+          &lt;li&gt;Iterative reinforcement…&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Many applications in graph/network analysis&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Summary
+    &lt;ul&gt;
+      &lt;li&gt;link information is very useful
+        &lt;ul&gt;
+          &lt;li&gt;anchor text&lt;/li&gt;
+          &lt;li&gt;pagerank&lt;/li&gt;
+          &lt;li&gt;HITS&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Both pagerank and HITS have many applications in analyzing other graphs or networks&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-16.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;cs-425--distributed-systems&quot;&gt;CS 425 : Distributed Systems&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
+
+&lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
+
+&lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
+
+&lt;h2 id=&quot;readings-and-resources&quot;&gt;Readings and Resources&lt;/h2&gt;
+
+&lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h1 id=&quot;cs-427--software-engineering&quot;&gt;CS 427 : Software Engineering&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals-and-objectives-1&quot;&gt;Goals and Objectives&lt;/h2&gt;
+
+&lt;h2 id=&quot;video-lecture-notes-2&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;41--definition-of-software-architecture&quot;&gt;4.1 : Definition of Software Architecture&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Definitions of Software ARchitecture
+    &lt;ul&gt;
+      &lt;li&gt;“A software system’s architecture is the set of of &lt;strong class=&quot;highlighted&quot;&gt;princiapal design decisions&lt;/strong&gt; about the system.”&lt;/li&gt;
+      &lt;li&gt;The software architecture of a program or computing system is the structure or strucutures of the system, whcih comprise &lt;strong class=&quot;highlighted&quot;&gt;software elements&lt;/strong&gt;, the &lt;strong class=&quot;highlighted&quot;&gt;externally visible properties&lt;/strong&gt; of those elements, and the &lt;strong class=&quot;highlighted&quot;&gt;relationshipts&lt;/strong&gt; among them.”&lt;/li&gt;
+      &lt;li&gt;A model of software architecture “consists of three components: &lt;strong class=&quot;highlighted&quot;&gt;elements, form, and rationale&lt;/strong&gt;.”
+        &lt;ul&gt;
+          &lt;li&gt;Elements (what): Processing, data, or connecting elements&lt;/li&gt;
+          &lt;li&gt;Form (how): Constraints (properties, relationships) on the elements&lt;/li&gt;
+          &lt;li&gt;Rationale (why): System constraints, often derived from system requirements&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Benefits of sofware architecture
+    &lt;ul&gt;
+      &lt;li&gt;Understanding&lt;/li&gt;
+      &lt;li&gt;Reuse&lt;/li&gt;
+      &lt;li&gt;Construction&lt;/li&gt;
+      &lt;li&gt;Evolution&lt;/li&gt;
+      &lt;li&gt;Analysis&lt;/li&gt;
+      &lt;li&gt;Management&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;42--software-architect&quot;&gt;4.2 : Software Architect&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Important skills of software architects
+    &lt;ul&gt;
+      &lt;li&gt;“software architects should &lt;strong class=&quot;highlighted&quot;&gt;design, develop, nurture, and maintain&lt;/strong&gt; the architecture of the software-intensive systems they are involved with.”
+        &lt;ul&gt;
+          &lt;li&gt;Domain Knowledge&lt;/li&gt;
+          &lt;li&gt;Software Development Expertise&lt;/li&gt;
+          &lt;li&gt;Communication Skills&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS427-wk5-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;43--abstraction&quot;&gt;4.3 : Abstraction&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Definition of Abstraction
+    &lt;ul&gt;
+      &lt;li&gt;Removing detail to &lt;strong class=&quot;highlighted&quot;&gt;simplify and foucus attention&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;Generalizing to &lt;strong class=&quot;highlighted&quot;&gt;identify the common core or essence&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Importance of Abstraction in CS
+    &lt;ul&gt;
+      &lt;li&gt;“Once you realize that computing is all about &lt;strong class=&quot;highlighted&quot;&gt;constructing, manipulating, and reasoning about abstractions&lt;/strong&gt;, it becomes clear that an important prerequisiite for writing(good) computer programs is the ability to &lt;strong class=&quot;highlighted&quot;&gt;handle abstractions in a precise manner&lt;/strong&gt;.”&lt;/li&gt;
+      &lt;li&gt;“Computer science is not computer programming. Thinking like a computer scientist means more than being able to program a computer. It requires &lt;strong class=&quot;highlighted&quot;&gt;thinking at multiple levels of abstraction&lt;/strong&gt;.”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Types of Abstraction in Software Engineering
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Procedural&lt;/strong&gt; abstraction
+        &lt;ul&gt;
+          &lt;li&gt;Naming a sequence of instructions&lt;/li&gt;
+          &lt;li&gt;Parameterizing a procedure&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Data&lt;/strong&gt; abstraction
+        &lt;ul&gt;
+          &lt;li&gt;Naming a collection of data&lt;/li&gt;
+          &lt;li&gt;Data type defined by a set of procedures&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Control&lt;/strong&gt; abstraction
+        &lt;ul&gt;
+          &lt;li&gt;Without specifying all register/binary-level steps&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Performance&lt;/strong&gt; abstraction O(N)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Software Development process also has abstractions
+    &lt;ul&gt;
+      &lt;li&gt;Requirements (What)&lt;/li&gt;
+      &lt;li&gt;Architecture&lt;/li&gt;
+      &lt;li&gt;OO Design&lt;/li&gt;
+      &lt;li&gt;Implementation (How)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;How to get good abstractions
+    &lt;ul&gt;
+      &lt;li&gt;learn from others&lt;/li&gt;
+      &lt;li&gt;generalize from examples&lt;/li&gt;
+      &lt;li&gt;look for/eliminate duplication&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Abstractions can fool you
+    &lt;ul&gt;
+      &lt;li&gt;suppose a collection c has operation: getItemNumbered(int index)&lt;/li&gt;
+      &lt;li&gt;How do you iterate?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote class=&quot;filename&quot;&gt;
+  &lt;p&gt;C++&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getItemNumbered&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;But what if the collection is a linked list?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;44--modularity&quot;&gt;4.4 : Modularity&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Functional Independence
+    &lt;ul&gt;
+      &lt;li&gt;Cohesion (Good)
+        &lt;ul&gt;
+          &lt;li&gt;Measure of interconnection within a module&lt;/li&gt;
+          &lt;li&gt;The degree to which one part of a module depends on another&lt;/li&gt;
+          &lt;li&gt;Maximize cohesion&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Coupling (Less desirable)
+        &lt;ul&gt;
+          &lt;li&gt;Measure of interconnection among modules&lt;/li&gt;
+          &lt;li&gt;The degree to which one module depends on others&lt;/li&gt;
+          &lt;li&gt;Minimize coupling&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Major types of cohesion
+    &lt;ul&gt;
+      &lt;li&gt;Coincidental - grouped by chance  (Low cohesion)&lt;/li&gt;
+      &lt;li&gt;logical - same idea&lt;/li&gt;
+      &lt;li&gt;temporal - same time&lt;/li&gt;
+      &lt;li&gt;procedural - one after another&lt;/li&gt;
+      &lt;li&gt;communicational - shared data&lt;/li&gt;
+      &lt;li&gt;sequential - output of one being input of the other&lt;/li&gt;
+      &lt;li&gt;functional - a single well-defined task (high cohesion)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Information hiding
+    &lt;ul&gt;
+      &lt;li&gt;EAch module should hide a design decision from others&lt;/li&gt;
+      &lt;li&gt;Ideally, one design decision per module, but usually design decisions are closely related&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Example design decisions
+    &lt;ul&gt;
+      &lt;li&gt;Representation of data&lt;/li&gt;
+      &lt;li&gt;Use of a particular software package&lt;/li&gt;
+      &lt;li&gt;Use of a particular printer&lt;/li&gt;
+      &lt;li&gt;Use of a particular operating system&lt;/li&gt;
+      &lt;li&gt;Use of a particular algorithm&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Other reasons for modularity
+    &lt;ul&gt;
+      &lt;li&gt;collaborative/distributed development: reduced communication&lt;/li&gt;
+      &lt;li&gt;security - compartmentalization&lt;/li&gt;
+      &lt;li&gt;reliability - localization of failure&lt;/li&gt;
+      &lt;li&gt;Conway’s law: the architecture of a system is the same as the structure of the group that developed it.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;ways to achieve modularity
+    &lt;ul&gt;
+      &lt;li&gt;reuse a design with good modularity&lt;/li&gt;
+      &lt;li&gt;think about and hide design decisions&lt;/li&gt;
+      &lt;li&gt;reduce coupling and increase cohesion&lt;/li&gt;
+      &lt;li&gt;eliminate duplication&lt;/li&gt;
+      &lt;li&gt;reduce impact of changes&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;45--architecture&quot;&gt;4.5 : Architecture&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Three views of software architecture
+    &lt;ul&gt;
+      &lt;li&gt;Static view&lt;/li&gt;
+      &lt;li&gt;Dynamic view&lt;/li&gt;
+      &lt;li&gt;Deployment view&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Components and connectors&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;46--architectural-styles&quot;&gt;4.6 : Architectural Styles&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Architectural Style
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Vocabularly&lt;/strong&gt; of components and connectors&lt;/li&gt;
+      &lt;li&gt;Compositions &lt;strong class=&quot;highlighted&quot;&gt;constraints&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Client-server style
+    &lt;ul&gt;
+      &lt;li&gt;Example: SVN&lt;/li&gt;
+      &lt;li&gt;Easy to add new clients to structure&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Layered/Tiered style: 3-tier/n-tier client-server (eg local file system)
+    &lt;ul&gt;
+      &lt;li&gt;Presentation tier&lt;/li&gt;
+      &lt;li&gt;Logic tier&lt;/li&gt;
+      &lt;li&gt;data tier&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pipe-and-filter style
+    &lt;ul&gt;
+      &lt;li&gt;eg cat contatctbook | grep “illinois” | sort &amp;gt; illini&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;47--mvc-pattern&quot;&gt;4.7 : MVC Pattern&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Architectural Pattern
+    &lt;ul&gt;
+      &lt;li&gt;A &lt;strong class=&quot;highlighted&quot;&gt;general, reusable&lt;/strong&gt; solution to a &lt;strong class=&quot;highlighted&quot;&gt;commonly occuring&lt;/strong&gt; problem in software architecture within a given context.&lt;/li&gt;
+      &lt;li&gt;Not the same as architectural style
+        &lt;ul&gt;
+          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Vocabularly&lt;/strong&gt; of components and connectors&lt;/li&gt;
+          &lt;li&gt;Composition &lt;strong class=&quot;highlighted&quot;&gt;constraints&lt;/strong&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Model-View-Controller Pattern&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS427-wk5-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Sun, 30 Sep 2018 00:00:00 -0500</pubDate>
+				<link>/2018/09/30/MCS-Notes-Week-5</link>
+				<guid isPermaLink="true">/2018/09/30/MCS-Notes-Week-5</guid>
+			</item>
+		
+			<item>
 				<title>MCS 1st Semester Week 4 Notes</title>
 				<description>&lt;h1 id=&quot;cs-410--text-information-systems&quot;&gt;CS 410 : Text Information Systems&lt;/h1&gt;
 &lt;hr /&gt;
@@ -3084,290 +3708,6 @@ This problem is taken directly from Kleinberg/Tardos’ Algorithm Design, Theore
 				<pubDate>Thu, 30 Aug 2018 00:00:00 -0500</pubDate>
 				<link>/2018/08/30/Coursera-Roughgarden-Algorithms-Pt-4-Wk-4</link>
 				<guid isPermaLink="true">/2018/08/30/Coursera-Roughgarden-Algorithms-Pt-4-Wk-4</guid>
-			</item>
-		
-			<item>
-				<title>Coursera Algoirthms with Roughgarden Pt 4, Week 3</title>
-				<description>&lt;p&gt;&lt;em class=&quot;highlighted&quot;&gt;Note: those marked with an asterisk I am not 100% confident in my answer/reasoning.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em class=&quot;highlighted&quot;&gt;Please feel free to discuss the problems and my proposed solutions below!&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;quiz&quot;&gt;Quiz&lt;/h2&gt;
-
-&lt;h3 id=&quot;p1&quot;&gt;P1&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180828/Algorithms-pt4-wk3-ex1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Let S’ be the optimal min-size subset of vertices and S be the subset returned by the greedy algorithm.  Since edges were selected with no common vertices prior to addition to S, none of the edges in S contain common endpoints.  As such, in order for S to be a vertex cover of G one only need one endpoint of each edge that was added to S and this ends up halving the total number of endpoints in S.  Therefore, |S| ≤ 2 * |S’|.∎&lt;/p&gt;
-
-&lt;h3 id=&quot;p2&quot;&gt;P2&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180828/Algorithms-pt4-wk3-ex2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This problem is taken directly from Cormen et al’s Introduction to Algorithms 3rd edition, Theorem 35.4 and Corollary 35.5.  The proof for Theorem 35.4 is rather lengthy and involved so I direct anyone reading this to refer to that text for a full explanation to this problem.  I understand and believe the proofs presented in the text, but I am unable to explain in layman’s what it means nor do I want to make the incredible effort of re-proving it.&lt;/p&gt;
-
-&lt;h3 id=&quot;p3&quot;&gt;P3&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180828/Algorithms-pt4-wk3-ex3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Let C* be an optimal solution pair of sets from the collection of S&lt;sub&gt;1&lt;/sub&gt;, S&lt;sub&gt;2&lt;/sub&gt;,…, S&lt;sub&gt;m&lt;/sub&gt;.  Denote the solution pair as S&lt;sub&gt;i&lt;/sub&gt; and S&lt;sub&gt;j&lt;/sub&gt;, chosen in that order.  Note then that |S&lt;sub&gt;i&lt;/sub&gt;| ≥ |C*|/2 because otherwise S&lt;sub&gt;j&lt;/sub&gt; would have been picked first instead.  Denote the elements in C* that are not already in S&lt;sub&gt;i&lt;/sub&gt; as x.  The second subset S&lt;sub&gt;j&lt;/sub&gt; must then contain half of the elements in x, otherwise either some other subset in the collection, say S&lt;sub&gt;k&lt;/sub&gt;, would have been the second selection or x is not actually as large as originally assumed.  If we assume |S&lt;sub&gt;i&lt;/sub&gt;| equals its lower boundary limit of |C*|/2, then x is also |C*|/2.  And since S&lt;sub&gt;j&lt;/sub&gt; must contain half of x’s elements, |S&lt;sub&gt;j&lt;/sub&gt;|’s lower boundary limit will have to be half of |C*|/2, or |C*|/4.  This means the overall lower limit of any sub-optimal solution from the algorithm will have to be |C*|/2 + |C*|/4 = 3|C*|/4.∎&lt;/p&gt;
-
-&lt;h3 id=&quot;p4&quot;&gt;P4&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180828/Algorithms-pt4-wk3-ex4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This problem is taken directly from Kleinberg/Tardos’ Algorithm Design, Theorem 11.3.  Please feel free to refer to that text for more in depth analysis.&lt;/p&gt;
-
-&lt;p&gt;Let A = average load across the m machines,  (Sum job times)/m, and B = maximum job time.  Denote T’ as the optimal makespan, and note that T’ ≥ A and T’ ≥ B.  Since the jobs are added as they are read, the last job determines the makespan so we will analyze the last job to be added with t&lt;sub&gt;j&lt;/sub&gt; process time.  Denote the last machine to receive the last job as M&lt;sub&gt;i&lt;/sub&gt; and its total load after receiving the last job as T&lt;sub&gt;i&lt;/sub&gt;.  This means its load prior to receiving job t&lt;sub&gt;j&lt;/sub&gt; was T&lt;sub&gt;i&lt;/sub&gt; - t&lt;sub&gt;j&lt;/sub&gt;.  Additionally, since it was the last machine to receive a job, this means its load was the smallest of all the other machines.  As such, each machine had a load at least T&lt;sub&gt;i&lt;/sub&gt; - t&lt;sub&gt;j&lt;/sub&gt;.  Summing these all up, we get Sum(T’s) ≥ m(T&lt;sub&gt;i&lt;/sub&gt; - t&lt;sub&gt;j&lt;/sub&gt;), or equivalently: T&lt;sub&gt;i&lt;/sub&gt; - t&lt;sub&gt;j&lt;/sub&gt; ≤ A. Recall that T’ ≥ A, so this means that T&lt;sub&gt;i&lt;/sub&gt; - t&lt;sub&gt;j&lt;/sub&gt; ≤ T’.  And since T’ ≥ B, we know that T’ ≥ t&lt;sub&gt;j&lt;/sub&gt; which then implies: T&lt;sub&gt;i&lt;/sub&gt; = (T&lt;sub&gt;i&lt;/sub&gt; - t&lt;sub&gt;j&lt;/sub&gt;) +  t&lt;sub&gt;j&lt;/sub&gt; ≤ 2T’.  Or just T ≤ 2T’. ∎&lt;/p&gt;
-
-&lt;h3 id=&quot;p5&quot;&gt;P5&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180828/Algorithms-pt4-wk3-ex5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Once again, this problem is taken directly from Kleinberg/Tardos’ Algorithm Design, Theorem 11.5.  Please feel free to refer to that text for more in depth analysis.&lt;/p&gt;
-
-&lt;p&gt;Firstly, if there are more than m jobs, then T’ ≥ 2t&lt;sub&gt;m+1&lt;/sub&gt;.  Note that the jobs are in decreasing sorted order.  So every job up to the m+1 job will be at least t&lt;sub&gt;m+1&lt;/sub&gt;.  Since there’s m machines and m+1 jobs, one machine will have two jobs (pigeon hole).  The machine with two jobs will have a total processing time of at least 2t&lt;sub&gt;m+1&lt;/sub&gt;.  Since jobs were added in decreasing order, we can then presume T’ ≥ 2t&lt;sub&gt;m+1&lt;/sub&gt;, or 0.5 T’ ≥ t&lt;sub&gt;m+1&lt;/sub&gt;&lt;/p&gt;
-
-&lt;p&gt;Now we follow a proof similar to the one used in problem 4; let’s assume machine M&lt;sub&gt;i&lt;/sub&gt; is the next machine to receive a job and it has at least two jobs assigned to it already.  An incoming job, j, will have t&lt;sub&gt;j&lt;/sub&gt; ≤ t&lt;sub&gt;m+1&lt;/sub&gt; ≤ 0.5 T’.  Now in following the proof from problem 4, we get T&lt;sub&gt;i&lt;/sub&gt; - t&lt;sub&gt;j&lt;/sub&gt; ≤ T’.  Since  t&lt;sub&gt;j&lt;/sub&gt; ≤ 0.5 T’, we can then conclude T&lt;sub&gt;i&lt;/sub&gt; ≤ 1.5T’.∎&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;programming-assignment&quot;&gt;Programming Assignment&lt;/h2&gt;
-
-&lt;p&gt;For this programming assignment we look at the TSP again, but this time with a much larger data set (37000+).  This time around the exponential deterministic algorithm from last week will not cut it, so we must make use of an approximate polynomial-time algorithm, which is the following:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Start the tour at the first city.&lt;/li&gt;
-  &lt;li&gt;Repeatedly visit the closest city that the tour hasn’t visited yet. In case of a tie, go to the closest city with the lowest index. For example, if both the third and fifth cities have the same distance from the first city (and are closer than any other city), then the tour should begin by going from the first city to the third city.&lt;/li&gt;
-  &lt;li&gt;Once every city has been visited exactly once, return to the first city to complete the tour.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The data points are already in order by ID number (1, 2, 3,…), but are also, interestingly, in order of increasing x coordinate.  Using the triangle inequality theorem, we can gain a computational advantage.  Instead of having to compare a point to all potential points, we only need to compare points until the minimum recorded distance so far is less than the difference in x coordinates. With this optimization, the following code can run in about 6 seconds:&lt;/p&gt;
-
-&lt;div class=&quot;panel-group&quot; style=&quot;border-color:#292929; color:#444444;&quot;&gt;
-  &lt;div class=&quot;panel panel-default&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
-    &lt;div class=&quot;panel-heading&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
-      &lt;h4 class=&quot;panel-title&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
-        &lt;button class=&quot;btn&quot; data-toggle=&quot;collapse&quot; style=&quot;background-color:#35B4DE; color:#444444;&quot; data-target=&quot;#toggle-tspalgo&quot;&gt;
-           TSP Algorithm 
-        &lt;/button&gt;
-      &lt;/h4&gt;
-    &lt;/div&gt;
-    &lt;div id=&quot;toggle-tspalgo&quot; class=&quot;panel-collapse collapse&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;&quot;&gt;
-      &lt;div class=&quot;panel-body&quot;&gt;
-&lt;blockquote class=&quot;filename&quot;&gt;
-  &lt;p&gt;C++&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solvePart4Week3Q1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;//Open up file of data point data&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/home/nathan/Programming/OSSU/Core_Theory/&quot;&lt;/span&gt;
-            &lt;span class=&quot;s&quot;&gt;&quot;Algorithms-Roughgarden/Part4/Week3/nn.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ifstream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;infile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;//read in number of nodes&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;getline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;infile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numberOfNodes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stoi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;//create and populate array of data points&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    
-    &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;getline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;infile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coors&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        
-    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;dataPoint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setPrevious&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;//Read in data point values and store in V.&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;infile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        
-        &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coors&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        
-        &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-        
-        &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-        
-        &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    
-    
-    &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setprecision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fixed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Size of V: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
-         &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; Expected: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numberOfNodes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getPrevious&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;//initialize distance, d&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;totalPathDistance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minSD&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000000000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//min square distance for current iteration&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tempMinSD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currNodeComp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//number of comparisons made with current node&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;totalComparisons&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//counts total comparisons made.&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nodesProcessed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nextIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    
-    
-    &lt;span class=&quot;c1&quot;&gt;//while V is not empty&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()){&lt;/span&gt;
-        
-        &lt;span class=&quot;n&quot;&gt;currNodeComp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;currNodeComp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;tempMinSD&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;squareDistance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getPrevious&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()));&lt;/span&gt;
-            
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tempMinSD&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minSD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;minSD&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tempMinSD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;nextIndex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-            
-            &lt;span class=&quot;c1&quot;&gt;//datapoints happen to be sorted by x coordinate...&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;dx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getPrevious&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-            
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minSD&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        
-        &lt;span class=&quot;n&quot;&gt;totalComparisons&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currNodeComp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setPrevious&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nextIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;erase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nextIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;totalPathDistance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minSD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        
-        &lt;span class=&quot;n&quot;&gt;nodesProcessed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodesProcessed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nodesProcessed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
-                 &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; remaining, with distance of &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;totalPathDistance&lt;/span&gt; 
-                 &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, broken at &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currNodeComp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; when the minDN was at: &quot;&lt;/span&gt; 
-                 &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nextIndex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;minSD&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000000000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;totalPathDistance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getPrevious&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;//print d&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;totalPathDistance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;total comparisons: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;totalComparisons&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;/div&gt;
-      &lt;div class=&quot;panel-footer&quot; style=&quot;background-color:#292929; color:#dddddd;&quot;&gt;End of TSP Algorithm&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Strangely, a vector data structure performs better than a list data structure.  I would think everything would be comparable aside from the deletion of elements, which list should perform better with as there’s no need to shift contiguous data as with the vector (I think?).  But, vector outperforms the list in this algorithm somehow…&lt;/p&gt;
-
-</description>
-				<pubDate>Tue, 28 Aug 2018 00:00:00 -0500</pubDate>
-				<link>/2018/08/28/Coursera-Roughgarden-Algorithms-Pt-4-Wk-3</link>
-				<guid isPermaLink="true">/2018/08/28/Coursera-Roughgarden-Algorithms-Pt-4-Wk-3</guid>
 			</item>
 		
 	</channel>
