@@ -8,8 +8,67 @@
 		
 			<item>
 				<title>MCS 1st Semester Week 5 Notes</title>
-				<description>&lt;h1 id=&quot;cs-410--text-information-systems&quot;&gt;CS 410 : Text Information Systems&lt;/h1&gt;
-&lt;hr /&gt;
+				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-1-feedback-in-text-retrieval&quot;&gt;5-1 Feedback in Text Retrieval&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-2-feedback-in-vector-space-model-rocchio&quot;&gt;5-2 Feedback in Vector Space Model Rocchio&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-3-feedback-in-text-retrieval-feedback-in-lm&quot;&gt;5-3 Feedback in Text Retrieval feedback in LM&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-4-web-search-introduction-amp-web-crawler&quot;&gt;5-4 Web Search Introduction &amp;amp; Web Crawler&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-5-web-indexing&quot;&gt;5-5 Web indexing&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-6-link-analysis&quot;&gt;5-6 Link Analysis&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-7-link-analysis-part-2&quot;&gt;5-7 Link Analysis Part 2&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-8-link-analysis-part-3&quot;&gt;5-8 Link analysis Part 3&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals&quot;&gt;Goals&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#key-concepts&quot;&gt;Key Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#readings-and-resources&quot;&gt;Readings and Resources&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-1-1-why-key-value-with-nosql&quot;&gt;5-1-1 Why Key-Value with NoSQL&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-1-2-cassandra&quot;&gt;5-1-2 Cassandra&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-1-3-the-cap-theorem&quot;&gt;5-1-3 The CAP theorem&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-1-4-the-consistency-spectrum&quot;&gt;5-1-4 The Consistency Spectrum&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#4-1-definition-of-software-architecture&quot;&gt;4-1 Definition of Software Architecture&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#4-2-software-architect&quot;&gt;4-2 Software Architect&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#4-3-abstraction&quot;&gt;4-3 Abstraction&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#4-4-modularity&quot;&gt;4-4 Modularity&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#4-5-architecture&quot;&gt;4-5 Architecture&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#4-6-architectural-styles&quot;&gt;4-6 Architectural Styles&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#4-7-mvc-pattern&quot;&gt;4-7 MVC Pattern&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- vim-markdown-toc --&gt;
+
+&lt;h1 id=&quot;cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/h1&gt;
+
 &lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;Explain the similarity and differences in the three different kinds of feedback, i.e., relevance feedback, pseudo-relevance feedback, and implicit feedback.&lt;/li&gt;
@@ -69,12 +128,12 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-&lt;h3 id=&quot;51--feedback-in-text-retrieval&quot;&gt;5.1 : Feedback in Text Retrieval&lt;/h3&gt;
+&lt;h3 id=&quot;5-1-feedback-in-text-retrieval&quot;&gt;5-1 Feedback in Text Retrieval&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
 &lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
 &lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;52--feedback-in-vector-space-model---rocchio&quot;&gt;5.2 : Feedback in Vector Space Model - Rocchio&lt;/h3&gt;
+&lt;h3 id=&quot;5-2-feedback-in-vector-space-model-rocchio&quot;&gt;5-2 Feedback in Vector Space Model Rocchio&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Feedback in vector space model
     &lt;ul&gt;
@@ -107,7 +166,7 @@
 &lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
 &lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;53--feedback-in-text-retrieval---feedback-in-lm&quot;&gt;5.3 : Feedback in Text Retrieval - feedback in LM&lt;/h3&gt;
+&lt;h3 id=&quot;5-3-feedback-in-text-retrieval-feedback-in-lm&quot;&gt;5-3 Feedback in Text Retrieval feedback in LM&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Feedback with LM
     &lt;ul&gt;
@@ -148,7 +207,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;54--web-search-introduction--web-crawler&quot;&gt;5.4 : Web Search: Introduction &amp;amp; Web Crawler&lt;/h3&gt;
+&lt;h3 id=&quot;5-4-web-search-introduction--web-crawler&quot;&gt;5-4 Web Search Introduction &amp;amp; Web Crawler&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Web Search: Challenges &amp;amp; Opportunities
     &lt;ul&gt;
@@ -212,7 +271,7 @@
         &lt;ul&gt;
           &lt;li&gt;need to minimize reource overhead&lt;/li&gt;
           &lt;li&gt;can learn form the past experience (updated daily vs monthly)&lt;/li&gt;
-          &lt;li&gt;target at : 1) frequently updated pages; 2) frequently accessed pages&lt;/li&gt;
+          &lt;li&gt;target at 1) frequently updated pages; 2) frequently accessed pages&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
@@ -221,7 +280,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;55--web-indexing&quot;&gt;5.5 : Web indexing&lt;/h3&gt;
+&lt;h3 id=&quot;5-5-web-indexing&quot;&gt;5-5 Web indexing&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Overview of web indexing
     &lt;ul&gt;
@@ -257,7 +316,7 @@
 &lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-13.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
 &lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-14.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;56--link-analysis&quot;&gt;5.6 : Link Analysis&lt;/h3&gt;
+&lt;h3 id=&quot;5-6-link-analysis&quot;&gt;5-6 Link Analysis&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Ranking Algorithms for Web Search
     &lt;ul&gt;
@@ -296,7 +355,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;57--link-analysis-part-2&quot;&gt;5.7 : Link Analysis Part 2&lt;/h3&gt;
+&lt;h3 id=&quot;5-7-link-analysis-part-2&quot;&gt;5-7 Link Analysis Part 2&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;The pagerank algorithm
     &lt;ul&gt;
@@ -318,7 +377,7 @@
       &lt;li&gt;Normalization doesn’t affect ranking, leading to some variants of the formula&lt;/li&gt;
       &lt;li&gt;The zero-outlink problem: p(di)’s don’t sum to 1
         &lt;ul&gt;
-          &lt;li&gt;one possible solution = page-specific damping factor (α =1.0 for a page with no outlink)&lt;/li&gt;
+          &lt;li&gt;one possible solution = page-specific damping factor (α =1-0 for a page with no outlink)&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
       &lt;li&gt;Many extensions (eg, topic-specific PageRank)&lt;/li&gt;
@@ -328,7 +387,7 @@
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-15.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;58--link-analysis---part-3-optional&quot;&gt;5.8 : Link analysis - Part 3 (optional)&lt;/h3&gt;
+&lt;h3 id=&quot;5-8-link-analysis-part-3&quot;&gt;5-8 Link analysis Part 3&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;HITS: Capturing Authorities &amp;amp; Hubs
     &lt;ul&gt;
@@ -364,27 +423,605 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS410-wk5-img-16.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;cs-425--distributed-systems&quot;&gt;CS 425 : Distributed Systems&lt;/h1&gt;
-&lt;hr /&gt;
+&lt;h1 id=&quot;cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/h1&gt;
 
 &lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Know why key-value/NoSQL are gaining popularity&lt;/li&gt;
+  &lt;li&gt;Know the design of Apache Cassandra&lt;/li&gt;
+  &lt;li&gt;Know the design of Apache HBase&lt;/li&gt;
+  &lt;li&gt;Use various time synchronization algorithms&lt;/li&gt;
+  &lt;li&gt;Apply Lamport and vector timestamps to order events in a distributed system&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Key-value and NoSQL stores&lt;/li&gt;
+  &lt;li&gt;Cassandra system&lt;/li&gt;
+  &lt;li&gt;CAP theorem&lt;/li&gt;
+  &lt;li&gt;Consistency-availability tradeoff and spectrum&lt;/li&gt;
+  &lt;li&gt;Eventual consistency&lt;/li&gt;
+  &lt;li&gt;HBase system&lt;/li&gt;
+  &lt;li&gt;ACID vs. BASE&lt;/li&gt;
+  &lt;li&gt;Time synchronization algorithms in asynchronous systems: Cristian’s, NTP, and Berkeley algorithms&lt;/li&gt;
+  &lt;li&gt;Lamport causality and timestamps&lt;/li&gt;
+  &lt;li&gt;Vector timestamps&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Why are key-value/NoSQL systems popular today?&lt;/li&gt;
+  &lt;li&gt;How does Cassandra make writes fast?&lt;/li&gt;
+  &lt;li&gt;How does Cassandra handle failures?&lt;/li&gt;
+  &lt;li&gt;What is the CAP theorem?&lt;/li&gt;
+  &lt;li&gt;What is eventual consistency?&lt;/li&gt;
+  &lt;li&gt;What is a quorum?&lt;/li&gt;
+  &lt;li&gt;What are the different consistency levels in Cassandra?&lt;/li&gt;
+  &lt;li&gt;How do snitches work in Cassandra?&lt;/li&gt;
+  &lt;li&gt;Why is time synchronization hard in asynchronous systems?&lt;/li&gt;
+  &lt;li&gt;How can you reduce the error while synchronizing time across two machines over a network?&lt;/li&gt;
+  &lt;li&gt;How does HBase ensure consistency?&lt;/li&gt;
+  &lt;li&gt;What is Lamport causality?&lt;/li&gt;
+  &lt;li&gt;Can you assign Lamport timestamps to a run?&lt;/li&gt;
+  &lt;li&gt;Can you assign vector timestamps to a run?&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;readings-and-resources&quot;&gt;Readings and Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.datastax.com/documentation/cassandra/2-0/cassandra/gettingStartedCassandraIntro.html&quot;&gt;Cassandra&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://hbase.apache.org/&quot;&gt;HBase&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.datastax.com/documentation/articles/cassandra/cassandrathenandnow.html&quot;&gt;Cassandra 2-0 Paper&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.slideshare.net/Eweaver/cassandra-presentation-at-nosql&quot;&gt;Cassandra NoSQL Presentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.datastax.com/docs/1-0/index&quot;&gt;Cassandra 1-0 documentation at datastax.com&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://wiki.apache.org/cassandra/ArchitectureOverview&quot;&gt;Cassandra Apache wiki&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.mongodb.org/&quot;&gt;MongoDB&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
 
-&lt;h1 id=&quot;cs-427--software-engineering&quot;&gt;CS 427 : Software Engineering&lt;/h1&gt;
-&lt;hr /&gt;
+&lt;h3 id=&quot;5-1-1-why-key-value-with-nosql&quot;&gt;5-1-1 Why Key-Value with NoSQL&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Distributed Hash Table to construct relational database (P2P)&lt;/li&gt;
+  &lt;li&gt;Mismatch with today’s workloads
+    &lt;ul&gt;
+      &lt;li&gt;Data: large and unstructured&lt;/li&gt;
+      &lt;li&gt;lots of random reads and writes&lt;/li&gt;
+      &lt;li&gt;sometime write-heavy&lt;/li&gt;
+      &lt;li&gt;foreign keys rarely needed&lt;/li&gt;
+      &lt;li&gt;joins infrequent&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Needs of today’s workloads
+    &lt;ul&gt;
+      &lt;li&gt;speed&lt;/li&gt;
+      &lt;li&gt;avoid single point of failure (SPoF)&lt;/li&gt;
+      &lt;li&gt;Fewer system administrators&lt;/li&gt;
+      &lt;li&gt;incremental scalability&lt;/li&gt;
+      &lt;li&gt;scale out, not up
+        &lt;ul&gt;
+          &lt;li&gt;why?&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;scale out, not up
+    &lt;ul&gt;
+      &lt;li&gt;scale up = grow your cluster capacity by replacing with more powerful machines
+        &lt;ul&gt;
+          &lt;li&gt;traditional approach&lt;/li&gt;
+          &lt;li&gt;not cost-effective, as you’re buying above the sweet spot on the price curve&lt;/li&gt;
+          &lt;li&gt;and you need to replace machines often&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;scale out = incrementally grow your cluster capacity by adding more COTS machines (components off the shelf)
+        &lt;ul&gt;
+          &lt;li&gt;cheaper&lt;/li&gt;
+          &lt;li&gt;over a long duration, phase in a few newer (faster) machines as you phase out a few older machines&lt;/li&gt;
+          &lt;li&gt;used by most companies who run datacenters and clouds today&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;key-value/nosql data model
+    &lt;ul&gt;
+      &lt;li&gt;NoSQL = “Not only SQL”&lt;/li&gt;
+      &lt;li&gt;Necessary API operations: get(key) and put(key, value)
+        &lt;ul&gt;
+          &lt;li&gt;get returns value; put updates value if already exists&lt;/li&gt;
+          &lt;li&gt;and some extended operaitons, eg “CQL” in cassandra key-value store&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Tables
+        &lt;ul&gt;
+          &lt;li&gt;“Column families” in Cassandra, “Table” in HBase, “Collection” in MongoDB&lt;/li&gt;
+          &lt;li&gt;Like RDBMS tables, but…&lt;/li&gt;
+          &lt;li&gt;May be unstructured: may not have schemas
+            &lt;ul&gt;
+              &lt;li&gt;some columns may be missing from some rows&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;Don’t always support joins or have foreign keys&lt;/li&gt;
+          &lt;li&gt;can have index tables, just like RDBMSs&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Which of the following may NOT be present in key-value/NoSQL stores? (select all correct answers)
+        &lt;ul&gt;
+          &lt;li&gt;Joins (c)&lt;/li&gt;
+          &lt;li&gt;Foreign Keys (c)&lt;/li&gt;
+          &lt;li&gt;Tables (not c)&lt;/li&gt;
+          &lt;li&gt;Rows (not c)&lt;/li&gt;
+          &lt;li&gt;Some columns in some rows&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Column-Oriented Storage
+    &lt;ul&gt;
+      &lt;li&gt;NoSQL systems often use column-oriented storage
+        &lt;ul&gt;
+          &lt;li&gt;RDBMSs store an entire row together( on disk or at a server)&lt;/li&gt;
+          &lt;li&gt;NoSQL systems typically store a column together (or a group of columns).
+            &lt;ul&gt;
+              &lt;li&gt;Entrie within a column are indexed and easy to locate, given a key (and vice-versa)&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;Why useful?
+            &lt;ul&gt;
+              &lt;li&gt;range searches within a column are fast since you don’t need to fetch the entire database&lt;/li&gt;
+              &lt;li&gt;eg, Get me all the blog_ids from the blog table that were updated within the past month
+                &lt;ul&gt;
+                  &lt;li&gt;search in the last updated column, fetch corresponding blog_id column&lt;/li&gt;
+                  &lt;li&gt;don’t need to fetch the other columns&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Why is column-oriented storage useful? (select all correct answers)
+        &lt;ul&gt;
+          &lt;li&gt;Queries that touch only a few columns are faster than those in a row-oriented storage. (c)&lt;/li&gt;
+          &lt;li&gt;It enables faster range searches using one column. (c)&lt;/li&gt;
+          &lt;li&gt;It leads to lower total storage for the table. (not c)&lt;/li&gt;
+          &lt;li&gt;It prevents the entire table from being read for a query. (c)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-1-2-cassandra&quot;&gt;5-1-2 Cassandra&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Widely used&lt;/li&gt;
+  &lt;li&gt;Data Placement Strategies
+    &lt;ul&gt;
+      &lt;li&gt;Replication Strategy: two options:
+        &lt;ul&gt;
+          &lt;li&gt;SimpleStrategy&lt;/li&gt;
+          &lt;li&gt;NetworkTopologyStrategy&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;u&gt;SimpleStrategy&lt;/u&gt;: uses the partitioner, of which there are two kinds
+        &lt;ul&gt;
+          &lt;li&gt;RandomPartitioner:Chord-like hash partitioning&lt;/li&gt;
+          &lt;li&gt;ByteOrdered Partitioner: ASsigns ranges of keys to servers.
+            &lt;ul&gt;
+              &lt;li&gt;easier for &lt;strong class=&quot;highlighted&quot;&gt;range queries&lt;/strong&gt; (eg, Get me all twitter users starting with [a-b])&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;u&gt;NetworkTopologyStrategy&lt;/u&gt;: for multi-DC deployments
+        &lt;ul&gt;
+          &lt;li&gt;Two replicas per DC (data center)&lt;/li&gt;
+          &lt;li&gt;Three replicas per DC&lt;/li&gt;
+          &lt;li&gt;Per DC
+            &lt;ul&gt;
+              &lt;li&gt;First replica placed according to Partitioner&lt;/li&gt;
+              &lt;li&gt;Then go clockwise around ring until you hit a different rack&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Snitches
+    &lt;ul&gt;
+      &lt;li&gt;Maps: IPs to racks and DCs. Configured in cassandra.yaml config file&lt;/li&gt;
+      &lt;li&gt;Some options:
+        &lt;ul&gt;
+          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;SimpleSnitch&lt;/strong&gt;: Unaware of Topology (rack-unaware)&lt;/li&gt;
+          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;RackInferring&lt;/strong&gt;: Assumes topology of network by octet of server’s IP address
+            &lt;ul&gt;
+              &lt;li&gt;101-102-103-104 = x.&lt;DC octet=&quot;&quot;&gt;.&lt;rack octet=&quot;&quot;&gt;.&lt;node octet=&quot;&quot;&gt;&lt;/node&gt;&lt;/rack&gt;&lt;/DC&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;PropertyFileSnitch&lt;/strong&gt;: uses a config file&lt;/li&gt;
+          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;EC2Snitch&lt;/strong&gt;: uses EC2
+            &lt;ul&gt;
+              &lt;li&gt;EC2 Region = DC&lt;/li&gt;
+              &lt;li&gt;Availability zone = rack&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;Other snitch options available&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Writes
+    &lt;ul&gt;
+      &lt;li&gt;Need to be lock-free and fast (no reads or disk seeks)&lt;/li&gt;
+      &lt;li&gt;Client sends write to one coordinator node in Cassandra cluster
+        &lt;ul&gt;
+          &lt;li&gt;coordinator may be per-key, or per-client, or per-query&lt;/li&gt;
+          &lt;li&gt;Per-key coordinator ensures writes for the key are serialized&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Coordinator uses Partitioner to send query to all replica nodes responsible for key&lt;/li&gt;
+      &lt;li&gt;When X replicas respond, coordinator returns an acknowledgement to the client
+        &lt;ul&gt;
+          &lt;li&gt;X? We’ll see later.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Always writable: &lt;strong class=&quot;highlighted&quot;&gt;Hinted Handoff Mechanism&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;if any replica is down, the coordinator writes to all other replicas, and keeps the write locally until down replica comes back up.&lt;/li&gt;
+          &lt;li&gt;When all replicas are down, the Coordinator (front end) buffers writes (for up to a few hours)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;One ring per datacenter
+        &lt;ul&gt;
+          &lt;li&gt;Per-DC coordinator elected to coordinate with other DCs&lt;/li&gt;
+          &lt;li&gt;Election done via Zookeeper, which runs a Paxos (consensus) variant
+            &lt;ul&gt;
+              &lt;li&gt;Paxos: elswhere in this course&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;WRites at a replica node
+    &lt;ul&gt;
+      &lt;li&gt;log it in disk commit log (for failure recovery)&lt;/li&gt;
+      &lt;li&gt;Make changes to appropriate memtables
+        &lt;ul&gt;
+          &lt;li&gt;Memtable = In-memory representation of multiple key-value pairs&lt;/li&gt;
+          &lt;li&gt;Cache that can be searched by key&lt;/li&gt;
+          &lt;li&gt;Write-back cache as opposed to write-through&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Later, when memtable is full or old, flush to disk
+        &lt;ul&gt;
+          &lt;li&gt;Data File: An &lt;strong class=&quot;highlighted&quot;&gt;SSTable&lt;/strong&gt; (Sorted string table) – list of key-value pairs, sorted by key&lt;/li&gt;
+          &lt;li&gt;Index File: an SSTable of (key, position in data sstable) pairs&lt;/li&gt;
+          &lt;li&gt;And a Bloom filter (for efficient search) – next slide&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Bloom filter
+    &lt;ul&gt;
+      &lt;li&gt;Compact way of representing a set of items&lt;/li&gt;
+      &lt;li&gt;Checking for existence in set is cheap&lt;/li&gt;
+      &lt;li&gt;Some probability of false positives: an item not in set may check true as being in set&lt;/li&gt;
+      &lt;li&gt;Never false negatives&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS425-wk5-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Compaction
+    &lt;ul&gt;
+      &lt;li&gt;Data updates accumulate over time and SStables and logs need to be compacted
+        &lt;ul&gt;
+          &lt;li&gt;the process of compaction merges SSTables, ie, by merging updates for a key&lt;/li&gt;
+          &lt;li&gt;run periodically and locally at each server&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Deletes
+    &lt;ul&gt;
+      &lt;li&gt;Delete: don’t delete item right away
+        &lt;ul&gt;
+          &lt;li&gt;Add a &lt;strong class=&quot;highlighted&quot;&gt;tombstone&lt;/strong&gt; to the log&lt;/li&gt;
+          &lt;li&gt;Eventually, when compaction encounters tombstone it will delete item&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Reads
+    &lt;ul&gt;
+      &lt;li&gt;Read: Similar to writes, except
+        &lt;ul&gt;
+          &lt;li&gt;Coordinator can contact X replicas (eg, in same rack)
+            &lt;ul&gt;
+              &lt;li&gt;Coordinator sends read to replicas that have responded quickest in past&lt;/li&gt;
+              &lt;li&gt;When X replicas respond, coordinator returns the latest-timestamped value from among those X&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;Coordinator also fetches value from other replicas
+            &lt;ul&gt;
+              &lt;li&gt;checks consisten cy in the background, initiating a &lt;strong class=&quot;highlighted&quot;&gt;read repair&lt;/strong&gt; if any two values are different&lt;/li&gt;
+              &lt;li&gt;This mechanism seeks to eventually bring all replicas up to date&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;A row may be split across multiple SSTables =&amp;gt; reads need to touch multiple SSTables =&amp;gt; reads slower than writes (but still fast)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Membership
+    &lt;ul&gt;
+      &lt;li&gt;any server in cluster could be the coordinator&lt;/li&gt;
+      &lt;li&gt;So every server needs to maintain a list of all the other servers that are currently  in the server&lt;/li&gt;
+      &lt;li&gt;List needs to be updated automatically as servers join, leave, and fail.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS425-wk5-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Suspicion Mechanisms in Cassandra
+    &lt;ul&gt;
+      &lt;li&gt;Suspicion mechanisms to adaptively set the timeout based on underlying network and failure behavior&lt;/li&gt;
+      &lt;li&gt;Accrual detector: Failure Detector outputs a vlue (PHI) representing suspicion&lt;/li&gt;
+      &lt;li&gt;Apps set an appropriate threshold&lt;/li&gt;
+      &lt;li&gt;PHI calculation for a member
+        &lt;ul&gt;
+          &lt;li&gt;Inter-arrival times for gossip messages&lt;/li&gt;
+          &lt;li&gt;PHI(t) = -log(CDF or Provbability(t_now - t_last))/log10&lt;/li&gt;
+          &lt;li&gt;PHI basically determines the detection timeout, but takes into account historical inter-arrival time variations for gossiped heartbeats.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;In Practice, PHI = 5 =&amp;gt; 10-15 sec detection time.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cassandra vs RDBMS
+    &lt;ul&gt;
+      &lt;li&gt;MySQL is one of the most popular (and has been for a while)&lt;/li&gt;
+      &lt;li&gt;on &amp;gt; 50 GB data&lt;/li&gt;
+      &lt;li&gt;MySQL
+        &lt;ul&gt;
+          &lt;li&gt;Writes 300 ms avg&lt;/li&gt;
+          &lt;li&gt;Reads 350 ms avg&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Cassandra
+        &lt;ul&gt;
+          &lt;li&gt;Writes 0-12 ms avg&lt;/li&gt;
+          &lt;li&gt;Reads 15 ms avg&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Orders of magnitude faster What’s the catch? What did we lose?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-1-3-the-cap-theorem&quot;&gt;5-1-3 The CAP theorem&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;CAP Theorem
+    &lt;ul&gt;
+      &lt;li&gt;Prposed by Eric Brewer (Berkeley)&lt;/li&gt;
+      &lt;li&gt;Proved by Gilbert and Lynch (NUS and MIT)&lt;/li&gt;
+      &lt;li&gt;In a DS you can stisfy at most 2 out of the 3 guarantees:
+        &lt;ol&gt;
+          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Consistency&lt;/strong&gt;: all nodes see same data at any time, or reads return latest written value by any client&lt;/li&gt;
+          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Availability&lt;/strong&gt;: the system allows operations all the time, and operations return quickly&lt;/li&gt;
+          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Partition-tolerance&lt;/strong&gt;: the system continues to work in spite of network partitions&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Why is availability important?
+    &lt;ul&gt;
+      &lt;li&gt;Availabilty = reads/writes complete reliably and quickly.&lt;/li&gt;
+      &lt;li&gt;Measurements have shown that a 500 ms increase in latency for opeartions at Amazon.com or at Google.com can cause a 20% drop in revenue.&lt;/li&gt;
+      &lt;li&gt;At amazon, each added millisecond of latency implies a $6M yearly loss&lt;/li&gt;
+      &lt;li&gt;SLAs (Service Level Agreements) written by providers predominantly deal with latencies faced by clients.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Why is consistency important?
+    &lt;ul&gt;
+      &lt;li&gt;Consistency = all nodes see same data at any time, or reads return latest written value by any client.&lt;/li&gt;
+      &lt;li&gt;When you access your bank or investment account via multiple clients (laptop, workstation, phone, tablet), you want the updates done from one client to be visible to other clients.&lt;/li&gt;
+      &lt;li&gt;When thousands of customers are looking to book a flight, all updates from any client (eg book a flight) should be accessible by other clients.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;why is Partition-tolerance important?
+    &lt;ul&gt;
+      &lt;li&gt;Partitions can happen across datacenters when the Internet gets disconnected
+        &lt;ul&gt;
+          &lt;li&gt;internet router outages&lt;/li&gt;
+          &lt;li&gt;under-sea cables cut&lt;/li&gt;
+          &lt;li&gt;DNS not working&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Partitions can also occur within a datacenter, eg a rack switch outage&lt;/li&gt;
+      &lt;li&gt;Still desire system to continue functioning normally under this scenario&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;CAP Theorem fallout
+    &lt;ul&gt;
+      &lt;li&gt;Since partition-tolerance is essential in today’s cloud computing systems, CAP theorem implies that a system has to choose between consistency and availability&lt;/li&gt;
+      &lt;li&gt;Cassandra
+        &lt;ul&gt;
+          &lt;li&gt;Eventual (weak) consistency, availability, partition-tolerance&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Traditional RDBMSs
+        &lt;ul&gt;
+          &lt;li&gt;strong consistency over availability under a partition&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS425-wk5-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Eventual consistency
+    &lt;ul&gt;
+      &lt;li&gt;If all writes stop (to a key), then all its values (replicas) will converge eventually&lt;/li&gt;
+      &lt;li&gt;If writes continue, then system always tries to keep converging.
+        &lt;ul&gt;
+          &lt;li&gt;Moving “wave” of updated values lagging behind the lateset values sent by clients, but always trying to catch up.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;May still return stale values to clients (eg if many back-to-back writes)&lt;/li&gt;
+      &lt;li&gt;But works well when there are a few periods of low writes – system converges quickly.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;RDBMS vs Key-Value stores
+    &lt;ul&gt;
+      &lt;li&gt;While RDBMS provide ACID
+        &lt;ul&gt;
+          &lt;li&gt;Atomicity&lt;/li&gt;
+          &lt;li&gt;Consistency&lt;/li&gt;
+          &lt;li&gt;Isolation&lt;/li&gt;
+          &lt;li&gt;Durability&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Key-value stores like Cassandra provide BASE
+        &lt;ul&gt;
+          &lt;li&gt;Basically Available Soft-state Eventual Consistency&lt;/li&gt;
+          &lt;li&gt;Prefers Availability over Consistency&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Eventual Consistency says: All values for a given key will eventually be the same after writes have stopped.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Back to cassandra: mystery of x
+    &lt;ul&gt;
+      &lt;li&gt;Cassandra has consistency levels&lt;/li&gt;
+      &lt;li&gt;Client is allowed to choose a consistency level for each operation (read/write)&lt;/li&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;ANY&lt;/strong&gt;: any server (may not be replica)
+        &lt;ul&gt;
+          &lt;li&gt;Fastest: coordinator caches write and replies quickly to client&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;ALL&lt;/strong&gt;: all replicas
+        &lt;ul&gt;
+          &lt;li&gt;Ensures strong consistency, but slowest&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;ONE&lt;/strong&gt;: at least one replica
+        &lt;ul&gt;
+          &lt;li&gt;Faster than ALL, but cannot tolerate a failure&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;QUOROM&lt;/strong&gt;: quorum across all replicas in all datacenters (DCs)
+        &lt;ul&gt;
+          &lt;li&gt;global consistency, but still fast&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;LOCAL_QUORUM&lt;/strong&gt;: quorum in coordinator’s DC
+        &lt;ul&gt;
+          &lt;li&gt;Faster: only waits for quorum in first DC client contacts&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;EACH_QUORUM&lt;/strong&gt;: quorum in every DC
+        &lt;ul&gt;
+          &lt;li&gt;Lets each DC do its own quorum: supports hierarchical replies&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS425-wk5-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Quorums in Detail
+    &lt;ul&gt;
+      &lt;li&gt;Several key-value/NoSQL stores (eg Riak and Cassandra) use quorums&lt;/li&gt;
+      &lt;li&gt;Reads
+        &lt;ul&gt;
+          &lt;li&gt;Client specifies value of R ( ≤ N = total number of replicas of that key).&lt;/li&gt;
+          &lt;li&gt;R = read consistency level.&lt;/li&gt;
+          &lt;li&gt;Coordinator waits for R replicas to respond before sending result to client.&lt;/li&gt;
+          &lt;li&gt;In background, coordinator checks for consistency of remaining (N-R) replicas, and initiates read repair if needed.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Writes come in two flavors
+        &lt;ul&gt;
+          &lt;li&gt;Client specifies W (≤ N)&lt;/li&gt;
+          &lt;li&gt;W = write consistency level.&lt;/li&gt;
+          &lt;li&gt;Client writes new value to W replicas and returns. Two falvors:
+            &lt;ul&gt;
+              &lt;li&gt;Coordinator blocks until quorum is reached.&lt;/li&gt;
+              &lt;li&gt;Asynchronous: Just write and return.&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;R = read replica count, W = write replica count&lt;/li&gt;
+      &lt;li&gt;Two necessary conditions:
+        &lt;ol&gt;
+          &lt;li&gt;W+R &amp;gt; N&lt;/li&gt;
+          &lt;li&gt;W &amp;gt; N/2&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Select values vased on application
+        &lt;ul&gt;
+          &lt;li&gt;(W=1, R=1): very few writes and reads&lt;/li&gt;
+          &lt;li&gt;(W=N, R=1): great for read-heavy workloads&lt;/li&gt;
+          &lt;li&gt;(W=N/2+1, R=N/2+1): great for write-heavy workloads&lt;/li&gt;
+          &lt;li&gt;(W=1, R=N): great for write-heavy workloads with mostly one client writing per key&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Types of Consistency
+    &lt;ul&gt;
+      &lt;li&gt;cassandra offers eventual consistency&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-1-4-the-consistency-spectrum&quot;&gt;5-1-4 The Consistency Spectrum&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS425-wk5-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180930/CS425-wk5-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20180930/CS425-wk5-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Strong consistency models
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Linearizability&lt;/strong&gt;: Each operation by a client is visible (or available) instantaneously to all other clients
+        &lt;ul&gt;
+          &lt;li&gt;Instantaneously in real time&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Sequential Consistency&lt;/strong&gt; (Lamport):
+        &lt;ul&gt;
+          &lt;li&gt;“&lt;em&gt;…the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations of each individual processor appear in this sequence in the order specified by its program.&lt;/em&gt;”&lt;/li&gt;
+          &lt;li&gt;After the fact, find a “reasonable” ordering of the operations (can re-order operations) that obeys sanity (consistency) at all clients, and across clients&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Transaction ACID properties, eg newer key-value/NoSQL stores (sometimes called “NewSQL”)
+        &lt;ul&gt;
+          &lt;li&gt;Hyperdex (Cornell)&lt;/li&gt;
+          &lt;li&gt;Spanner (Google)&lt;/li&gt;
+          &lt;li&gt;Transaction chains (Microsoft Research)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
 
 &lt;h2 id=&quot;goals-and-objectives-1&quot;&gt;Goals and Objectives&lt;/h2&gt;
 
 &lt;h2 id=&quot;video-lecture-notes-2&quot;&gt;Video Lecture Notes&lt;/h2&gt;
 
-&lt;h3 id=&quot;41--definition-of-software-architecture&quot;&gt;4.1 : Definition of Software Architecture&lt;/h3&gt;
+&lt;h3 id=&quot;4-1-definition-of-software-architecture&quot;&gt;4-1 Definition of Software Architecture&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Definitions of Software ARchitecture
     &lt;ul&gt;
@@ -411,7 +1048,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;42--software-architect&quot;&gt;4.2 : Software Architect&lt;/h3&gt;
+&lt;h3 id=&quot;4-2-software-architect&quot;&gt;4-2 Software Architect&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Important skills of software architects
     &lt;ul&gt;
@@ -428,7 +1065,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/20180930/CS427-wk5-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;43--abstraction&quot;&gt;4.3 : Abstraction&lt;/h3&gt;
+&lt;h3 id=&quot;4-3-abstraction&quot;&gt;4-3 Abstraction&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Definition of Abstraction
     &lt;ul&gt;
@@ -502,7 +1139,7 @@
   &lt;li&gt;But what if the collection is a linked list?&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;44--modularity&quot;&gt;4.4 : Modularity&lt;/h3&gt;
+&lt;h3 id=&quot;4-4-modularity&quot;&gt;4-4 Modularity&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Functional Independence
     &lt;ul&gt;
@@ -567,7 +1204,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;45--architecture&quot;&gt;4.5 : Architecture&lt;/h3&gt;
+&lt;h3 id=&quot;4-5-architecture&quot;&gt;4-5 Architecture&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Three views of software architecture
     &lt;ul&gt;
@@ -579,7 +1216,7 @@
   &lt;li&gt;Components and connectors&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;46--architectural-styles&quot;&gt;4.6 : Architectural Styles&lt;/h3&gt;
+&lt;h3 id=&quot;4-6-architectural-styles&quot;&gt;4-6 Architectural Styles&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Architectural Style
     &lt;ul&gt;
@@ -607,7 +1244,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;47--mvc-pattern&quot;&gt;4.7 : MVC Pattern&lt;/h3&gt;
+&lt;h3 id=&quot;4-7-mvc-pattern&quot;&gt;4-7 MVC Pattern&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Architectural Pattern
     &lt;ul&gt;
