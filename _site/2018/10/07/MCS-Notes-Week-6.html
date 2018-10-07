@@ -1,0 +1,793 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | MCS 1st Semester Week 6 Notes </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/10/07/MCS-Notes-Week-6">MCS 1st Semester Week 6 Notes</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>07 Oct 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/UIUC-MCS">UIUC-MCS</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/09/30/MCS-Notes-Week-5" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 5 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <!-- vim-markdown-toc Redcarpet -->
+
+<ul>
+  <li><a href="#cs-410-text-information-systems">CS 410 Text Information Systems</a>
+    <ul>
+      <li><a href="#goals-and-objectives">Goals and Objectives</a></li>
+      <li><a href="#guiding-questions">Guiding Questions</a></li>
+      <li><a href="#additional-readings-and-resources">Additional Readings and Resources</a></li>
+      <li><a href="#key-phrases-and-concepts">Key Phrases and Concepts</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a>
+        <ul>
+          <li><a href="#6-1-learning-to-rank-part-1">6-1 Learning to Rank Part 1</a></li>
+          <li><a href="#6-2-learning-to-rank-part-2">6-2 Learning to Rank Part 2</a></li>
+          <li><a href="#6-3-learning-to-rank-part-3">6-3 Learning to Rank Part 3</a></li>
+          <li><a href="#6-4-future-of-web-search">6-4 Future of Web Search</a></li>
+          <li><a href="#6-5-recommender-systems-content-based-filtering-part-1">6-5 Recommender Systems-Content-Based Filtering Part 1</a></li>
+          <li><a href="#6-6-recommender-systems-content-based-filtering-part-2">6-6 Recommender Systems-Content-Based Filtering Part 2</a></li>
+          <li><a href="#6-7-recommender-systems-collaborative-filtering-part-1">6-7 Recommender Systems-Collaborative Filtering Part 1</a></li>
+          <li><a href="#6-8-recommender-systems-collaborative-filtering-part-2">6-8 Recommender Systems-Collaborative Filtering Part 2</a></li>
+          <li><a href="#6-9-recommender-systems-collaborative-filtering-part-3">6-9 Recommender Systems-Collaborative Filtering Part 3</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#cs-425-distributed-systems">CS 425 Distributed Systems</a>
+    <ul>
+      <li><a href="#goals">Goals</a></li>
+      <li><a href="#key-concepts">Key Concepts</a></li>
+      <li><a href="#guiding-questions">Guiding Questions</a></li>
+      <li><a href="#readings-and-resources">Readings and Resources</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a></li>
+    </ul>
+  </li>
+  <li><a href="#cs-427-software-engineering">CS 427 Software Engineering</a>
+    <ul>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a>
+        <ul>
+          <li><a href="#5-1-object-oriented-modeling">5-1 Object-Oriented Modeling</a></li>
+          <li><a href="#5-2-class-diagram-overview">5-2 Class Diagram-Overview</a></li>
+          <li><a href="#5-3-class-diagram-relationships">5-3 Class Diagram-Relationships</a></li>
+          <li><a href="#5-4-class-diagram-miscellaneous">5-4 Class Diagram-Miscellaneous</a></li>
+          <li><a href="#5-5-requirements-to-class-diagram">5-5 Requirements to Class Diagram</a></li>
+          <li><a href="#5-6-sequence-diagram">5-6 Sequence Diagram</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<!-- vim-markdown-toc -->
+<h1 id="cs-410-text-information-systems">CS 410 Text Information Systems</h1>
+
+<hr />
+
+<h2 id="goals-and-objectives">Goals and Objectives</h2>
+<ul>
+  <li>Explain how we can extend a retrieval system to perform content-based information filtering (recommendation).</li>
+  <li>Explain how we can use a linear utility function to evaluate an information filtering system.</li>
+  <li>Explain the basic idea of collaborative filtering.</li>
+  <li>Explain how the memory-based collaborative filtering algorithm works.</li>
+</ul>
+
+<h2 id="guiding-questions">Guiding Questions</h2>
+<ul>
+  <li>What is content-based information filtering?</li>
+  <li>How can we use a linear utility function to evaluate a filtering system? How should we set the coefficients in such a linear utility function?</li>
+  <li>How can we extend a retrieval system to perform content-based information filtering?</li>
+  <li>What is the exploration-exploitation tradeoff?</li>
+  <li>How does the beta-gamma threshold learning algorithm work?</li>
+  <li>What is the basic idea of collaborative filtering?</li>
+  <li>How does the memory-based collaborative filtering algorithm work?</li>
+  <li>What is the “cold start” problem in collaborative filtering?</li>
+</ul>
+
+<h2 id="additional-readings-and-resources">Additional Readings and Resources</h2>
+<ul>
+  <li>C. Zhai and S. Massung. Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining, ACM Book Series, Morgan &amp; Claypool Publishers, 2016. Chapters 10 - Section 10.4,Chapters 11</li>
+</ul>
+
+<h2 id="key-phrases-and-concepts">Key Phrases and Concepts</h2>
+<ul>
+  <li>Content-based filtering</li>
+  <li>Collaborative filtering</li>
+  <li>Beta-gamma threshold learning</li>
+  <li>Linear utility</li>
+  <li>User profile</li>
+  <li>Exploration-exploitation tradeoff</li>
+  <li>Memory-based collaborative filtering</li>
+  <li>Cold start</li>
+</ul>
+
+<h2 id="video-lecture-notes">Video Lecture Notes</h2>
+
+<h3 id="6-1-learning-to-rank-part-1">6-1 Learning to Rank Part 1</h3>
+<ul>
+  <li>How can we combine many features?  (learning to rank)
+    <ul>
+      <li>General Idea:
+        <ul>
+          <li>Given a query-doc pair (Q,D), define various kinds of features Xi(Q,D)</li>
+          <li>Examples of feature: the number of overlapping terms, BM25 score of Q and D, p(Q|D), PageRank of D, p(Q|Di), where Di may be anchor text or big font text, “does the URL contain ‘~’?”…</li>
+          <li>Hypothesize p(R=1|Q,D)=s(X1(Q,D)),…,Xn(Q,D),λ) where λ is a set of parameters</li>
+          <li>Learn λ by fitting functions with training data, ie, 3-tuples like (D,Q,1)(Dis relevant to Q) or (D,Q,0)(D is non-relevant to Q)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="6-2-learning-to-rank-part-2">6-2 Learning to Rank Part 2</h3>
+
+<p><img src="/assets/images/20181007/CS410-wk6-img-1.png" alt="img" class="center-image" /></p>
+
+<h3 id="6-3-learning-to-rank-part-3">6-3 Learning to Rank Part 3</h3>
+<ul>
+  <li>More Advanced Learning Algorithms
+    <ul>
+      <li>Attempt to directly optimize a retrieval measure (eg MAP, nDCG)
+        <ul>
+          <li>More difficult as an optimization problem</li>
+          <li>Many solutions were proposed</li>
+        </ul>
+      </li>
+      <li>Can be applied to many other ranking problems beyond search
+        <ul>
+          <li>Recommender systems</li>
+          <li>Computational advertising</li>
+          <li>Summarization</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Summary
+    <ul>
+      <li>Machine Learning has been applied to text retrieval since many decades ago (eg, Rocchio feedback)</li>
+      <li>Recent use of machine learning is driven by
+        <ul>
+          <li>large-scale training data available</li>
+          <li>need for combining many features</li>
+          <li>need for robust ranking (again spams)</li>
+        </ul>
+      </li>
+      <li>Modern Web search engines all use some kind of ML technique to combine many features to optimize ranking</li>
+      <li>Learning to ranki is still an active research topic</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="6-4-future-of-web-search">6-4 Future of Web Search</h3>
+<ul>
+  <li>Next generation search engines
+    <ul>
+      <li>more specialized/customized (vertical search engines)
+        <ul>
+          <li>special group of users (community engines, eg, Citeseer)</li>
+          <li>Personalized (better understanding of users)</li>
+          <li>Special genre/domain (better understanding of documents)</li>
+        </ul>
+      </li>
+      <li>Learning over time (evolving)</li>
+      <li>Integration of search, navigation, and recommendation/filtering (full-fledged information management)</li>
+      <li>Beyond search to support tasks (eg shopping)</li>
+      <li>Many opportunities for innovations!</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20181007/CS410-wk6-img-2.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS410-wk6-img-3.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Above image shows what current search engines do (search, keyword queries, bag of words), and what people are working to expand it to do.</li>
+</ul>
+
+<p><img src="/assets/images/20181007/CS410-wk6-img-4.png" alt="img" class="center-image" /></p>
+
+<h3 id="6-5-recommender-systems-content-based-filtering-part-1">6-5 Recommender Systems-Content-Based Filtering Part 1</h3>
+<ul>
+  <li>Two modes of text access: Pull vs Push
+    <ul>
+      <li>Pull mode (search engines)
+        <ul>
+          <li>users take initiative</li>
+          <li>Ad hoc information need</li>
+        </ul>
+      </li>
+      <li>Push mode (recommender systems)
+        <ul>
+          <li>systems take initiative</li>
+          <li>stable information need or system has good knowledge about a user’s need</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Recommender ≈ Filtering system
+    <ul>
+      <li>Stable &amp; long term interest, dynamic info source</li>
+      <li>System must make a delivery decision immediately as a document “arrives”</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20181007/CS410-wk6-img-5.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Basic Filtering Question: Will User U Like Item X?
+    <ul>
+      <li>Two different ways of answering it
+        <ul>
+          <li>look at what items U likes, and then check if X is similar
+            <ul>
+              <li>Item similarity =&gt; content-based filtering</li>
+            </ul>
+          </li>
+          <li>Look at who likes X, and then check if U is similar
+            <ul>
+              <li>User similarity =&gt; collaborative filtering</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Can be combined</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20181007/CS410-wk6-img-6.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Three Basic Problems in content-based filtering
+    <ul>
+      <li>making <strong class="highlighted">filtering decision</strong> (binary classifier)
+        <ul>
+          <li>Doc text, profile text –&gt; yes/no</li>
+        </ul>
+      </li>
+      <li><strong class="highlighted">Initialization</strong>
+        <ul>
+          <li>initialize the filter based on only the profile text or very few examples</li>
+        </ul>
+      </li>
+      <li><strong class="highlighted">Learning</strong> from
+        <ul>
+          <li>Limited relevance judegements (only on “yes” docs)</li>
+          <li>Accumulated documents</li>
+        </ul>
+      </li>
+      <li>All trying to maximize the utility</li>
+    </ul>
+  </li>
+  <li>Extend a retrieval system for information filtering
+    <ul>
+      <li>“Reuse” retrieval techniques to score documents</li>
+      <li>use a score threshold for filtering decision</li>
+      <li>learn to improve scoring with traditional feedback</li>
+      <li>new approaches to threshold setting and learning</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20181007/CS410-wk6-img-7.png" alt="img" class="center-image" /></p>
+
+<h3 id="6-6-recommender-systems-content-based-filtering-part-2">6-6 Recommender Systems-Content-Based Filtering Part 2</h3>
+
+<p><img src="/assets/images/20181007/CS410-wk6-img-8.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Empirical utility optimization
+    <ul>
+      <li>Basic idea
+        <ul>
+          <li>compute the utility on the training data for each candidate score threshold</li>
+          <li>choose the threshold that gives the maximum utility on the training data set</li>
+        </ul>
+      </li>
+      <li>difficulty: biased training sample!
+        <ul>
+          <li>we can only get an upper bound for the true optimal threshold</li>
+          <li>could a discarded item be possibly interesing to the user?</li>
+        </ul>
+      </li>
+      <li>solution:
+        <ul>
+          <li>heuristic adjustment (lowering) of threshold</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20181007/CS410-wk6-img-9.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Beta-Gamma thereshold learning
+    <ul>
+      <li>Pros
+        <ul>
+          <li>explicitly addresses exploration-exploitation tradeoff (“safe” exploration)</li>
+          <li>Arbitrary utility (with appropriate lower bound)</li>
+          <li>empirically effective</li>
+        </ul>
+      </li>
+      <li>Cons
+        <ul>
+          <li>Purely heuristic</li>
+          <li>Zero utility lower bound often too conservative</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Summary
+    <ul>
+      <li>Two strategies for recommendation/filtering
+        <ul>
+          <li>content-based (item similarity)</li>
+          <li>collaborative filtering (user similarity)</li>
+        </ul>
+      </li>
+      <li>Content-based recommender system can be built based on a search engine system by
+        <ul>
+          <li>adding threshold mechanism</li>
+          <li>adding adaptive learning algorithms</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="6-7-recommender-systems-collaborative-filtering-part-1">6-7 Recommender Systems-Collaborative Filtering Part 1</h3>
+<ul>
+  <li>What is Collaborative filtering (CF) ?
+    <ul>
+      <li>Making filtering decisions for an individual user based on the judgements of other users</li>
+      <li>Inferring individual’s interest/preferences from that of other similar users</li>
+      <li>General idea
+        <ul>
+          <li>Given a user u, find similar users {u1, …, um}</li>
+          <li>Predict u’s preferences based on the preferences of u1, …, um</li>
+          <li>User similarity can be judged based on their similarity in preferences on a common set of items.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>CF: Assumptions
+    <ul>
+      <li>Users with the same interest will have similar preferences</li>
+      <li>Users with similar preferences probably share the same interest</li>
+      <li>Examples
+        <ul>
+          <li>“interest is infomration retrieval” =&gt; “favor SIGIR papers”</li>
+          <li>“favor SIGIR papers” =&gt; “interest is information retrieval”</li>
+        </ul>
+      </li>
+      <li>Sufficiently large number of user preferences are avaialable (if not, there will be a “cold start” problem)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20181007/CS410-wk6-img-10.png" alt="img" class="center-image" /></p>
+
+<h3 id="6-8-recommender-systems-collaborative-filtering-part-2">6-8 Recommender Systems-Collaborative Filtering Part 2</h3>
+
+<p><img src="/assets/images/20181007/CS410-wk6-img-11.png" alt="img" class="center-image" /></p>
+
+<p><img src="/assets/images/20181007/CS410-wk6-img-12.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Improving User similarity meeasures
+    <ul>
+      <li>Dealing with missing values: set to default ratings (eg, average ratings)</li>
+      <li>Inverse user frequency (IUF): similar to IDF</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="6-9-recommender-systems-collaborative-filtering-part-3">6-9 Recommender Systems-Collaborative Filtering Part 3</h3>
+<ul>
+  <li>Summary of Recommender Systems
+    <ul>
+      <li>Filtering/Recommendations is “easy”
+        <ul>
+          <li>The user’s expectation is low</li>
+          <li>Any recommendation is better than none</li>
+        </ul>
+      </li>
+      <li>Filtering is “hard”
+        <ul>
+          <li>Must make a binary decision, though ranking is also possible</li>
+          <li>Data sparseness (limited feedback information)</li>
+          <li>“cold start” (little information about users at the beginning)</li>
+        </ul>
+      </li>
+      <li>Content-based vs Collaborative filtering vs Hybrid</li>
+      <li>Recommendation can be combined with search –&gt; Push+Pull</li>
+      <li>Many advanced algorithms have been proposed to use more context information and advanced machine learning.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="cs-425-distributed-systems">CS 425 Distributed Systems</h1>
+
+<hr />
+
+<h2 id="goals">Goals</h2>
+
+<h2 id="key-concepts">Key Concepts</h2>
+
+<h2 id="guiding-questions-1">Guiding Questions</h2>
+
+<h2 id="readings-and-resources">Readings and Resources</h2>
+
+<h2 id="video-lecture-notes-1">Video Lecture Notes</h2>
+
+<h1 id="cs-427-software-engineering">CS 427 Software Engineering</h1>
+
+<hr />
+
+<h2 id="video-lecture-notes-2">Video Lecture Notes</h2>
+
+<h3 id="5-1-object-oriented-modeling">5-1 Object-Oriented Modeling</h3>
+<ul>
+  <li>Abstractions: Software under development
+    <ul>
+      <li>Architecture</li>
+      <li>OO Design</li>
+    </ul>
+  </li>
+  <li>Benefits of Modeling Notations
+    <ul>
+      <li>Communication</li>
+      <li>Documentation</li>
+      <li>Quality Assurance</li>
+      <li>Code Generation</li>
+    </ul>
+  </li>
+  <li>Unified Modeling Language (UML)
+    <ul>
+      <li>Class Diagram</li>
+      <li>Sequence Diagram</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20181007/CS427-wk6-img-1.png" alt="img" class="center-image" /></p>
+
+<h3 id="5-2-class-diagram-overview">5-2 Class Diagram-Overview</h3>
+<ul>
+  <li>Purposes of class diagram
+    <ul>
+      <li>Analysis - conceptual
+        <ul>
+          <li>model problem, not software solution</li>
+          <li>can include actors outside system</li>
+        </ul>
+      </li>
+      <li>Design - specification
+        <ul>
+          <li>the structure of how a software system will be written</li>
+        </ul>
+      </li>
+      <li>Design - implementation
+        <ul>
+          <li>Actual classes of implementation</li>
+        </ul>
+      </li>
+      <li>It <strong class="highlighted">DOES NOT</strong> capture how:
+        <ul>
+          <li>classes interact with each other</li>
+          <li>algorithm or behavior detail</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20181007/CS427-wk6-img-2.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS427-wk6-img-3.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS427-wk6-img-4.png" alt="img" class="center-image" /></p>
+
+<h3 id="5-3-class-diagram-relationships">5-3 Class Diagram-Relationships</h3>
+
+<p><img src="/assets/images/20181007/CS427-wk6-img-5.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS427-wk6-img-6.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS427-wk6-img-7.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS427-wk6-img-8.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS427-wk6-img-9.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS427-wk6-img-10.png" alt="img" class="center-image" /></p>
+
+<h3 id="5-4-class-diagram-miscellaneous">5-4 Class Diagram-Miscellaneous</h3>
+
+<p><img src="/assets/images/20181007/CS427-wk6-img-11.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS427-wk6-img-12.png" alt="img" class="center-image" /></p>
+
+<h3 id="5-5-requirements-to-class-diagram">5-5 Requirements to Class Diagram</h3>
+<ul>
+  <li>Nouns are good candidates for classes/attributes</li>
+  <li>Adjectives are good candidates for interfaces</li>
+  <li>Verbs are good candidates for methods or relationships between classes</li>
+</ul>
+
+<h3 id="5-6-sequence-diagram">5-6 Sequence Diagram</h3>
+<ul>
+  <li>Purposes of UML Sequence Diagram
+    <ul>
+      <li>Used during requirements analysis
+        <ul>
+          <li>to refine use case descriptions</li>
+          <li>to find additional objects (“participating objects”)</li>
+        </ul>
+      </li>
+      <li>Used during system design
+        <ul>
+          <li>to refine subsystem interfaces</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20181007/CS427-wk6-img-13.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS427-wk6-img-14.png" alt="img" class="center-image" /></p>
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/09/30/MCS-Notes-Week-5" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 5 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/10/07/MCS-Notes-Week-6">MCS 1st Semester Week 6 Notes</a></li>
+    
+    <li><a href="/2018/09/30/MCS-Notes-Week-5">MCS 1st Semester Week 5 Notes</a></li>
+    
+    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
+    
+    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
+    
+    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="6">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/10/07/MCS-Notes-Week-6";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

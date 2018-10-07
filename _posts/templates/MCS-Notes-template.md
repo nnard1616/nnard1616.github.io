@@ -7,9 +7,10 @@ comments: true
 tags:
  - UIUC-MCS
 ---
+# CS 410 Text Information Systems
 
-# CS 410 : Text Information Systems
 ---
+
 ## Goals and Objectives
 
 ## Guiding Questions
@@ -20,7 +21,9 @@ tags:
 
 ## Video Lecture Notes
 
-# CS 425 : Distributed Systems
+
+# CS 425 Distributed Systems
+
 ---
 
 ## Goals 
@@ -33,9 +36,12 @@ tags:
 
 ## Video Lecture Notes
 
-# CS 427 : Software Engineering
+# CS 427 Software Engineering
+
 ---
 
 ## Goals and Objectives
 
 ## Video Lecture Notes
+
+

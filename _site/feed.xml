@@ -7,6 +7,535 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>MCS 1st Semester Week 6 Notes</title>
+				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-1-learning-to-rank-part-1&quot;&gt;6-1 Learning to Rank Part 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-2-learning-to-rank-part-2&quot;&gt;6-2 Learning to Rank Part 2&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-3-learning-to-rank-part-3&quot;&gt;6-3 Learning to Rank Part 3&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-4-future-of-web-search&quot;&gt;6-4 Future of Web Search&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-5-recommender-systems-content-based-filtering-part-1&quot;&gt;6-5 Recommender Systems-Content-Based Filtering Part 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-6-recommender-systems-content-based-filtering-part-2&quot;&gt;6-6 Recommender Systems-Content-Based Filtering Part 2&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-7-recommender-systems-collaborative-filtering-part-1&quot;&gt;6-7 Recommender Systems-Collaborative Filtering Part 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-8-recommender-systems-collaborative-filtering-part-2&quot;&gt;6-8 Recommender Systems-Collaborative Filtering Part 2&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-9-recommender-systems-collaborative-filtering-part-3&quot;&gt;6-9 Recommender Systems-Collaborative Filtering Part 3&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals&quot;&gt;Goals&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#key-concepts&quot;&gt;Key Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#readings-and-resources&quot;&gt;Readings and Resources&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-1-object-oriented-modeling&quot;&gt;5-1 Object-Oriented Modeling&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-2-class-diagram-overview&quot;&gt;5-2 Class Diagram-Overview&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-3-class-diagram-relationships&quot;&gt;5-3 Class Diagram-Relationships&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-4-class-diagram-miscellaneous&quot;&gt;5-4 Class Diagram-Miscellaneous&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-5-requirements-to-class-diagram&quot;&gt;5-5 Requirements to Class Diagram&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#5-6-sequence-diagram&quot;&gt;5-6 Sequence Diagram&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- vim-markdown-toc --&gt;
+&lt;h1 id=&quot;cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Explain how we can extend a retrieval system to perform content-based information filtering (recommendation).&lt;/li&gt;
+  &lt;li&gt;Explain how we can use a linear utility function to evaluate an information filtering system.&lt;/li&gt;
+  &lt;li&gt;Explain the basic idea of collaborative filtering.&lt;/li&gt;
+  &lt;li&gt;Explain how the memory-based collaborative filtering algorithm works.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;What is content-based information filtering?&lt;/li&gt;
+  &lt;li&gt;How can we use a linear utility function to evaluate a filtering system? How should we set the coefficients in such a linear utility function?&lt;/li&gt;
+  &lt;li&gt;How can we extend a retrieval system to perform content-based information filtering?&lt;/li&gt;
+  &lt;li&gt;What is the exploration-exploitation tradeoff?&lt;/li&gt;
+  &lt;li&gt;How does the beta-gamma threshold learning algorithm work?&lt;/li&gt;
+  &lt;li&gt;What is the basic idea of collaborative filtering?&lt;/li&gt;
+  &lt;li&gt;How does the memory-based collaborative filtering algorithm work?&lt;/li&gt;
+  &lt;li&gt;What is the “cold start” problem in collaborative filtering?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;C. Zhai and S. Massung. Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining, ACM Book Series, Morgan &amp;amp; Claypool Publishers, 2016. Chapters 10 - Section 10.4,Chapters 11&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Content-based filtering&lt;/li&gt;
+  &lt;li&gt;Collaborative filtering&lt;/li&gt;
+  &lt;li&gt;Beta-gamma threshold learning&lt;/li&gt;
+  &lt;li&gt;Linear utility&lt;/li&gt;
+  &lt;li&gt;User profile&lt;/li&gt;
+  &lt;li&gt;Exploration-exploitation tradeoff&lt;/li&gt;
+  &lt;li&gt;Memory-based collaborative filtering&lt;/li&gt;
+  &lt;li&gt;Cold start&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;6-1-learning-to-rank-part-1&quot;&gt;6-1 Learning to Rank Part 1&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;How can we combine many features?  (learning to rank)
+    &lt;ul&gt;
+      &lt;li&gt;General Idea:
+        &lt;ul&gt;
+          &lt;li&gt;Given a query-doc pair (Q,D), define various kinds of features Xi(Q,D)&lt;/li&gt;
+          &lt;li&gt;Examples of feature: the number of overlapping terms, BM25 score of Q and D, p(Q|D), PageRank of D, p(Q|Di), where Di may be anchor text or big font text, “does the URL contain ‘~’?”…&lt;/li&gt;
+          &lt;li&gt;Hypothesize p(R=1|Q,D)=s(X1(Q,D)),…,Xn(Q,D),λ) where λ is a set of parameters&lt;/li&gt;
+          &lt;li&gt;Learn λ by fitting functions with training data, ie, 3-tuples like (D,Q,1)(Dis relevant to Q) or (D,Q,0)(D is non-relevant to Q)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;6-2-learning-to-rank-part-2&quot;&gt;6-2 Learning to Rank Part 2&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-3-learning-to-rank-part-3&quot;&gt;6-3 Learning to Rank Part 3&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;More Advanced Learning Algorithms
+    &lt;ul&gt;
+      &lt;li&gt;Attempt to directly optimize a retrieval measure (eg MAP, nDCG)
+        &lt;ul&gt;
+          &lt;li&gt;More difficult as an optimization problem&lt;/li&gt;
+          &lt;li&gt;Many solutions were proposed&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Can be applied to many other ranking problems beyond search
+        &lt;ul&gt;
+          &lt;li&gt;Recommender systems&lt;/li&gt;
+          &lt;li&gt;Computational advertising&lt;/li&gt;
+          &lt;li&gt;Summarization&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Summary
+    &lt;ul&gt;
+      &lt;li&gt;Machine Learning has been applied to text retrieval since many decades ago (eg, Rocchio feedback)&lt;/li&gt;
+      &lt;li&gt;Recent use of machine learning is driven by
+        &lt;ul&gt;
+          &lt;li&gt;large-scale training data available&lt;/li&gt;
+          &lt;li&gt;need for combining many features&lt;/li&gt;
+          &lt;li&gt;need for robust ranking (again spams)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Modern Web search engines all use some kind of ML technique to combine many features to optimize ranking&lt;/li&gt;
+      &lt;li&gt;Learning to ranki is still an active research topic&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;6-4-future-of-web-search&quot;&gt;6-4 Future of Web Search&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Next generation search engines
+    &lt;ul&gt;
+      &lt;li&gt;more specialized/customized (vertical search engines)
+        &lt;ul&gt;
+          &lt;li&gt;special group of users (community engines, eg, Citeseer)&lt;/li&gt;
+          &lt;li&gt;Personalized (better understanding of users)&lt;/li&gt;
+          &lt;li&gt;Special genre/domain (better understanding of documents)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Learning over time (evolving)&lt;/li&gt;
+      &lt;li&gt;Integration of search, navigation, and recommendation/filtering (full-fledged information management)&lt;/li&gt;
+      &lt;li&gt;Beyond search to support tasks (eg shopping)&lt;/li&gt;
+      &lt;li&gt;Many opportunities for innovations!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Above image shows what current search engines do (search, keyword queries, bag of words), and what people are working to expand it to do.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-5-recommender-systems-content-based-filtering-part-1&quot;&gt;6-5 Recommender Systems-Content-Based Filtering Part 1&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Two modes of text access: Pull vs Push
+    &lt;ul&gt;
+      &lt;li&gt;Pull mode (search engines)
+        &lt;ul&gt;
+          &lt;li&gt;users take initiative&lt;/li&gt;
+          &lt;li&gt;Ad hoc information need&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Push mode (recommender systems)
+        &lt;ul&gt;
+          &lt;li&gt;systems take initiative&lt;/li&gt;
+          &lt;li&gt;stable information need or system has good knowledge about a user’s need&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Recommender ≈ Filtering system
+    &lt;ul&gt;
+      &lt;li&gt;Stable &amp;amp; long term interest, dynamic info source&lt;/li&gt;
+      &lt;li&gt;System must make a delivery decision immediately as a document “arrives”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Basic Filtering Question: Will User U Like Item X?
+    &lt;ul&gt;
+      &lt;li&gt;Two different ways of answering it
+        &lt;ul&gt;
+          &lt;li&gt;look at what items U likes, and then check if X is similar
+            &lt;ul&gt;
+              &lt;li&gt;Item similarity =&amp;gt; content-based filtering&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;Look at who likes X, and then check if U is similar
+            &lt;ul&gt;
+              &lt;li&gt;User similarity =&amp;gt; collaborative filtering&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Can be combined&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Three Basic Problems in content-based filtering
+    &lt;ul&gt;
+      &lt;li&gt;making &lt;strong class=&quot;highlighted&quot;&gt;filtering decision&lt;/strong&gt; (binary classifier)
+        &lt;ul&gt;
+          &lt;li&gt;Doc text, profile text –&amp;gt; yes/no&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Initialization&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;initialize the filter based on only the profile text or very few examples&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Learning&lt;/strong&gt; from
+        &lt;ul&gt;
+          &lt;li&gt;Limited relevance judegements (only on “yes” docs)&lt;/li&gt;
+          &lt;li&gt;Accumulated documents&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;All trying to maximize the utility&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Extend a retrieval system for information filtering
+    &lt;ul&gt;
+      &lt;li&gt;“Reuse” retrieval techniques to score documents&lt;/li&gt;
+      &lt;li&gt;use a score threshold for filtering decision&lt;/li&gt;
+      &lt;li&gt;learn to improve scoring with traditional feedback&lt;/li&gt;
+      &lt;li&gt;new approaches to threshold setting and learning&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-6-recommender-systems-content-based-filtering-part-2&quot;&gt;6-6 Recommender Systems-Content-Based Filtering Part 2&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Empirical utility optimization
+    &lt;ul&gt;
+      &lt;li&gt;Basic idea
+        &lt;ul&gt;
+          &lt;li&gt;compute the utility on the training data for each candidate score threshold&lt;/li&gt;
+          &lt;li&gt;choose the threshold that gives the maximum utility on the training data set&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;difficulty: biased training sample!
+        &lt;ul&gt;
+          &lt;li&gt;we can only get an upper bound for the true optimal threshold&lt;/li&gt;
+          &lt;li&gt;could a discarded item be possibly interesing to the user?&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;solution:
+        &lt;ul&gt;
+          &lt;li&gt;heuristic adjustment (lowering) of threshold&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-9.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Beta-Gamma thereshold learning
+    &lt;ul&gt;
+      &lt;li&gt;Pros
+        &lt;ul&gt;
+          &lt;li&gt;explicitly addresses exploration-exploitation tradeoff (“safe” exploration)&lt;/li&gt;
+          &lt;li&gt;Arbitrary utility (with appropriate lower bound)&lt;/li&gt;
+          &lt;li&gt;empirically effective&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Cons
+        &lt;ul&gt;
+          &lt;li&gt;Purely heuristic&lt;/li&gt;
+          &lt;li&gt;Zero utility lower bound often too conservative&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Summary
+    &lt;ul&gt;
+      &lt;li&gt;Two strategies for recommendation/filtering
+        &lt;ul&gt;
+          &lt;li&gt;content-based (item similarity)&lt;/li&gt;
+          &lt;li&gt;collaborative filtering (user similarity)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Content-based recommender system can be built based on a search engine system by
+        &lt;ul&gt;
+          &lt;li&gt;adding threshold mechanism&lt;/li&gt;
+          &lt;li&gt;adding adaptive learning algorithms&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;6-7-recommender-systems-collaborative-filtering-part-1&quot;&gt;6-7 Recommender Systems-Collaborative Filtering Part 1&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;What is Collaborative filtering (CF) ?
+    &lt;ul&gt;
+      &lt;li&gt;Making filtering decisions for an individual user based on the judgements of other users&lt;/li&gt;
+      &lt;li&gt;Inferring individual’s interest/preferences from that of other similar users&lt;/li&gt;
+      &lt;li&gt;General idea
+        &lt;ul&gt;
+          &lt;li&gt;Given a user u, find similar users {u1, …, um}&lt;/li&gt;
+          &lt;li&gt;Predict u’s preferences based on the preferences of u1, …, um&lt;/li&gt;
+          &lt;li&gt;User similarity can be judged based on their similarity in preferences on a common set of items.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;CF: Assumptions
+    &lt;ul&gt;
+      &lt;li&gt;Users with the same interest will have similar preferences&lt;/li&gt;
+      &lt;li&gt;Users with similar preferences probably share the same interest&lt;/li&gt;
+      &lt;li&gt;Examples
+        &lt;ul&gt;
+          &lt;li&gt;“interest is infomration retrieval” =&amp;gt; “favor SIGIR papers”&lt;/li&gt;
+          &lt;li&gt;“favor SIGIR papers” =&amp;gt; “interest is information retrieval”&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Sufficiently large number of user preferences are avaialable (if not, there will be a “cold start” problem)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-8-recommender-systems-collaborative-filtering-part-2&quot;&gt;6-8 Recommender Systems-Collaborative Filtering Part 2&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-11.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Improving User similarity meeasures
+    &lt;ul&gt;
+      &lt;li&gt;Dealing with missing values: set to default ratings (eg, average ratings)&lt;/li&gt;
+      &lt;li&gt;Inverse user frequency (IUF): similar to IDF&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;6-9-recommender-systems-collaborative-filtering-part-3&quot;&gt;6-9 Recommender Systems-Collaborative Filtering Part 3&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Summary of Recommender Systems
+    &lt;ul&gt;
+      &lt;li&gt;Filtering/Recommendations is “easy”
+        &lt;ul&gt;
+          &lt;li&gt;The user’s expectation is low&lt;/li&gt;
+          &lt;li&gt;Any recommendation is better than none&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Filtering is “hard”
+        &lt;ul&gt;
+          &lt;li&gt;Must make a binary decision, though ranking is also possible&lt;/li&gt;
+          &lt;li&gt;Data sparseness (limited feedback information)&lt;/li&gt;
+          &lt;li&gt;“cold start” (little information about users at the beginning)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Content-based vs Collaborative filtering vs Hybrid&lt;/li&gt;
+      &lt;li&gt;Recommendation can be combined with search –&amp;gt; Push+Pull&lt;/li&gt;
+      &lt;li&gt;Many advanced algorithms have been proposed to use more context information and advanced machine learning.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
+
+&lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
+
+&lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
+
+&lt;h2 id=&quot;readings-and-resources&quot;&gt;Readings and Resources&lt;/h2&gt;
+
+&lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;video-lecture-notes-2&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;5-1-object-oriented-modeling&quot;&gt;5-1 Object-Oriented Modeling&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Abstractions: Software under development
+    &lt;ul&gt;
+      &lt;li&gt;Architecture&lt;/li&gt;
+      &lt;li&gt;OO Design&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Benefits of Modeling Notations
+    &lt;ul&gt;
+      &lt;li&gt;Communication&lt;/li&gt;
+      &lt;li&gt;Documentation&lt;/li&gt;
+      &lt;li&gt;Quality Assurance&lt;/li&gt;
+      &lt;li&gt;Code Generation&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Unified Modeling Language (UML)
+    &lt;ul&gt;
+      &lt;li&gt;Class Diagram&lt;/li&gt;
+      &lt;li&gt;Sequence Diagram&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;5-2-class-diagram-overview&quot;&gt;5-2 Class Diagram-Overview&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Purposes of class diagram
+    &lt;ul&gt;
+      &lt;li&gt;Analysis - conceptual
+        &lt;ul&gt;
+          &lt;li&gt;model problem, not software solution&lt;/li&gt;
+          &lt;li&gt;can include actors outside system&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Design - specification
+        &lt;ul&gt;
+          &lt;li&gt;the structure of how a software system will be written&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Design - implementation
+        &lt;ul&gt;
+          &lt;li&gt;Actual classes of implementation&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;It &lt;strong class=&quot;highlighted&quot;&gt;DOES NOT&lt;/strong&gt; capture how:
+        &lt;ul&gt;
+          &lt;li&gt;classes interact with each other&lt;/li&gt;
+          &lt;li&gt;algorithm or behavior detail&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;5-3-class-diagram-relationships&quot;&gt;5-3 Class Diagram-Relationships&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-9.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;5-4-class-diagram-miscellaneous&quot;&gt;5-4 Class Diagram-Miscellaneous&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-11.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;5-5-requirements-to-class-diagram&quot;&gt;5-5 Requirements to Class Diagram&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Nouns are good candidates for classes/attributes&lt;/li&gt;
+  &lt;li&gt;Adjectives are good candidates for interfaces&lt;/li&gt;
+  &lt;li&gt;Verbs are good candidates for methods or relationships between classes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-6-sequence-diagram&quot;&gt;5-6 Sequence Diagram&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Purposes of UML Sequence Diagram
+    &lt;ul&gt;
+      &lt;li&gt;Used during requirements analysis
+        &lt;ul&gt;
+          &lt;li&gt;to refine use case descriptions&lt;/li&gt;
+          &lt;li&gt;to find additional objects (“participating objects”)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Used during system design
+        &lt;ul&gt;
+          &lt;li&gt;to refine subsystem interfaces&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-13.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-14.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Sun, 07 Oct 2018 00:00:00 -0500</pubDate>
+				<link>/2018/10/07/MCS-Notes-Week-6</link>
+				<guid isPermaLink="true">/2018/10/07/MCS-Notes-Week-6</guid>
+			</item>
+		
+			<item>
 				<title>MCS 1st Semester Week 5 Notes</title>
 				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
 
@@ -4285,66 +4814,6 @@ This only measures how many query words are in the document words, it provides n
 				<pubDate>Mon, 03 Sep 2018 00:00:00 -0500</pubDate>
 				<link>/2018/09/03/MCS-Notes-Week-1</link>
 				<guid isPermaLink="true">/2018/09/03/MCS-Notes-Week-1</guid>
-			</item>
-		
-			<item>
-				<title>Coursera Algoirthms with Roughgarden Pt 4, Week 4</title>
-				<description>&lt;p&gt;&lt;em class=&quot;highlighted&quot;&gt;Note: those marked with an asterisk I am not 100% confident in my answer/reasoning.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em class=&quot;highlighted&quot;&gt;Please feel free to discuss the problems and my proposed solutions below!&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;quiz&quot;&gt;Quiz&lt;/h2&gt;
-
-&lt;h3 id=&quot;p1&quot;&gt;P1&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180830/Algorithms-pt4-wk4-ex1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The first one is most definitely false as the generic local search algorithm is only guaranteed to provide a local optimal solution, not a general optimal solution.&lt;/p&gt;
-
-&lt;h3 id=&quot;p2&quot;&gt;P2&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180830/Algorithms-pt4-wk4-ex2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;It will certainly finish in polynomial number of iterations, that’s the point of the approximate heuristic algorithm.&lt;/p&gt;
-
-&lt;h3 id=&quot;p3&quot;&gt;P3&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180830/Algorithms-pt4-wk4-ex3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-This problem is taken directly from Kleinberg/Tardos’ Algorithm Design, Theorem 12.5.  Please feel free to refer to that text for more in depth analysis.&lt;/p&gt;
-
-&lt;p&gt;The proof for that theorem is fairly involved for a binary partition, and even more complicated for k partitions.  Refer to my simplified proof below:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180830/Algorithms-pt4-wk4-ex3-1.svg&quot; alt=&quot;img&quot; class=&quot;latexequation&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Note that C is the sum of the weights of the set of edges that cross the clusters, C’ is that of the optimal solution’s.  W is the sum of all of the weights of the edges and A&lt;sub&gt;i&lt;/sub&gt; is the sum of the weights of edges exclusively in that corresponding cluster.&lt;/p&gt;
-
-&lt;p&gt;See the text for background on why the first line is true.&lt;/p&gt;
-
-&lt;h3 id=&quot;p4&quot;&gt;P4&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180830/Algorithms-pt4-wk4-ex4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The probability approaches 100%. (say a sample space of 2 with probability of 99% and -100 with probability of 1%)&lt;/p&gt;
-
-&lt;h3 id=&quot;p5&quot;&gt;P5&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180830/Algorithms-pt4-wk4-ex5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In the smallest case, which represents the case with the maximum probability, consider a sample space of 0 and 2 with equal probability.  This will be as large as the probability can go, due to there not being any negative numbers. So 50% is the largest it can be.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;programming-assignment&quot;&gt;Programming Assignment&lt;/h2&gt;
-
-&lt;p&gt;This assignment we are tasked with determining which of six different 2SAT problems are satisfiable.  Since all of the clauses depend on just two variables, it was easy to make a graph representation (via the corresponding equivalent implications implied by the clauses).  With this representation, I was able to re-use my &lt;a href=&quot;/2018/07/09/Coursera-Roughgarden-Algorithms-Pt-2-Wk-1&quot;&gt;SCC solution&lt;/a&gt; to look for SCC’s.  Those that are not satisfiable will have a paradox, ie ~t -&amp;gt; t, within a SCC.  One could search through the SCCs individually to look for paradoxes, but I found an interesting property that permitted me to quickly determine if a paradox exists based on the number and sizes of the SCCs.  If there’s an even number of SCCs with sizes larger than 1, then no paradox exists.  If there’s an odd number of SCCs with size larger than 1, then a paradox exists.  So as a couple of examples:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;5 3 3 1 1 1 1…. would correspond to paradox present as there’s an odd number of SCCs with size 5.&lt;/li&gt;
-  &lt;li&gt;8 8 5 5 1 1 1…. would correspond to no paradox present as there’s even numbers of SCCs with size 8 &amp;amp; 5.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So I just calculated and printed the SCCs sorted by decreasing size for each 2SAT problem and determined satisfiability based on the number of SCC sizes.&lt;/p&gt;
-
-&lt;p&gt;Since I didn’t change much in my SCC code nor did I write any new interesting code, I refrain from posting any code.&lt;/p&gt;
-
-</description>
-				<pubDate>Thu, 30 Aug 2018 00:00:00 -0500</pubDate>
-				<link>/2018/08/30/Coursera-Roughgarden-Algorithms-Pt-4-Wk-4</link>
-				<guid isPermaLink="true">/2018/08/30/Coursera-Roughgarden-Algorithms-Pt-4-Wk-4</guid>
 			</item>
 		
 	</channel>
