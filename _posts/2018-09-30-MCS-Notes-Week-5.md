@@ -34,6 +34,12 @@ tags:
         * [5-1-2 Cassandra](#5-1-2-cassandra)
         * [5-1-3 The CAP theorem](#5-1-3-the-cap-theorem)
         * [5-1-4 The Consistency Spectrum](#5-1-4-the-consistency-spectrum)
+        * [5-1-5 HBase](#5-1-5-hbase)
+        * [5-2-1 Introduction and Basics of Time and Ordering](#5-2-1-introduction-and-basics-of-time-and-ordering)
+        * [5-2-2 Cristian's Algorithm](#5-2-2-cristian-39-s-algorithm)
+        * [5-2-3 NTP](#5-2-3-ntp)
+        * [5-2-4 Lamport Timestamps](#5-2-4-lamport-timestamps)
+        * [5-2-5 Vector Clocks](#5-2-5-vector-clocks)
 * [CS 427 Software Engineering](#cs-427-software-engineering)
     * [Goals and Objectives](#goals-and-objectives)
     * [Video Lecture Notes](#video-lecture-notes)
@@ -48,6 +54,8 @@ tags:
 <!-- vim-markdown-toc -->
 
 # CS 410 Text Information Systems
+
+---
 
 ## Goals and Objectives
 * Explain the similarity and differences in the three different kinds of feedback, i.e., relevance feedback, pseudo-relevance feedback, and implicit feedback.
@@ -269,6 +277,7 @@ tags:
 
 # CS 425 Distributed Systems
 
+---
 
 ## Goals 
 * Know why key-value/NoSQL are gaining popularity
@@ -607,10 +616,196 @@ tags:
         * Spanner (Google)
         * Transaction chains (Microsoft Research)
 
+### 5-1-5 HBase
+* Cassandra is AP, while HBase is CP
+* HBase
+    * Google's BigTable was first "blob-based" storage system
+    * Yahoo! Open-sourced it --> HBase
+    * Major Apache project today
+    * Facebook uses HBase internally
+    * API functions
+        * Get/Put(row)
+        * Scan(row range, filter) --range queries
+        * MultiPut
+    * Unlike Cassandra, HBase prefers consistency (over availability)
+
+![img]({{ '/assets/images/20180930/CS425-wk5-img-8.png' | relative_url }}){: .center-image}
+
+* HBase Storage Hierarchy
+    * HBase Table
+        * Split into multiple regions: replicated across servers
+            * ColumnFamily = subset of columns with similar query patterns
+            * One **Store**{:.highlighted} per combination of ColumnFamily + region
+                * **Memstore**{:.highlighted} for each Store: in-memory updates to Store; flushed to disk when full
+                    * **StoreFiles**{:.highlighted} for each store for each region: where the data lives
+                        * **HFile**{:.highlighted}
+    * HFile
+        * SSTable from Google's BigTable
+
+
+![img]({{ '/assets/images/20180930/CS425-wk5-img-9.png' | relative_url }}){: .center-image}
+
+* Log Replay
+    * After recovery from failure, or upon bootup (HRegionServer/HMaster)
+        * Replay any stale logs (use timestamps to find out where the databse is with respect to the logs)
+        * Replay: add edits to the MemStore
+
+![img]({{ '/assets/images/20180930/CS425-wk5-img-10.png' | relative_url }}){: .center-image}
+
+* Cross-Datacenter Replication
+    * single Master cluster
+    * Other Slave clusters replicate the same tables
+    * Master cluster synchronously sends HLogs over to slave clusters
+    * Coordination among clusters is via Zookeeper
+    * Zookeeper can be used like a file system to store control informmation
+    1. /hbase/replication/state
+    2. /hbase/replication/peers/<peer cluster number>
+    3. /hbase/replication/rs/<hlog>
+
+* Summary
+    * Traditional Database (RDBMSs) work with storng consistency, and offer ACID
+    * Modern workloads don't need such strong guarantees, but do need fast response times (availability)
+    * Unfortunately, CAP theorem
+    * Key-Value/NoSQL systems offer BASE
+        * Eventual consistency, and a variety of other consistency models striving towards storng consistency
+    * We discussed design of 
+        * Cassandra
+        * HBase
+
+### 5-2-1 Introduction and Basics of Time and Ordering
+* Why is it Challenging?
+    * End hosts in Internet-based systems (like clouds)
+        * each have their own clocks
+        * Unlike processors (CPUs) within one server or workstation which share a system lcock
+    * Processes in Internet-based systems follow an asynchronous system model
+        * No bounds on 
+            * Message delays
+            * Processing delays
+        * Unlike multi-processor (or parallel) systems whcih follow a synchronous system model
+
+* Some definitions
+    * An Asynchronous Distributed System consists of a number of processes
+    * Each process has a state (values of variables)
+    * Each process takes actions to change its state, which may be an instruction or a communication action (send, receive)
+    * An even is the occurrence of an action
+    * Each process has a local clock -- events within a process can be assigned timestamps, and thus ordered linearly
+    * But -- in a distributed system, we also need to know the time order of events across different processes.
+
+* Clock Skew vs Clock drift
+    * EAch process (running at some end host) has its own clock.
+    * When comparing two clocks at two processes:
+        * Clock Skew = Relative Difference in clock values of two processes
+            * Liek distance between two vehicles on a road
+        * Clock Drift = Relative Difference in clock frequencies (rates) of two processes
+            * Like difference in speeds of two vehicles on the road
+    * A non-zero clock skew implies clocks are not synchronized
+    * A non-zero clock drift causes skew to increase (eventually)
+        * If faster vehicle is ahead, it will drift away
+        * If faster vehicle is behind, it will catch up and then drift away
+
+* How often to Synchronize?
+    * Maximum Drift Rate (MDR) of a clock
+    * Absolute MDR is defined relative to Coordinated Universal Time (UTC).  UTC is the correct time at any point of time.
+        * MDR of a process depends on the environment
+    * Max drift rate between two clocks with similar MDR is 2*MDR
+    * Given a max acceptable skew M between any pair of clocks, need to synchronize at least once every M/(2*MDR)
+        * since time = d / r
+
+* External vs internal synchronization
+    * Consider a group of processes
+    * External Synchronization
+        * Each process C(i)'s clock is within a bound D of a well-known clock S external to the group 
+        * \|C(i)-S\| < D at all times
+        * External clock may be connected to UTC or an atomic clock
+        * eg, Cristian's algorithm, NTP
+    * Internal Synchronization
+        * Every pair of processes in gorup have clocks within bound D
+        * \|C(i)-C(j)\| < D at all times and for all processes i,j
+        * eg, Berkeley algorithm
+    * External Synchronization with D => Internal Synchronization with 2*D
+    * Internal synchronization does not imply External Synchronization
+        * In fact, the entire system may drift away from the extern clock S!
+
+### 5-2-2 Cristian's Algorithm
+
+![img]({{ '/assets/images/20180930/CS425-wk5-img-11.png' | relative_url }}){: .center-image}
+
+* Gotchas
+    * Allowed to increase clock value but should never decrease clock value
+        * may violate ordering of events within the same process
+    * Allowed to increase or decrease speed of clock
+    * if error is too high, take multiple readings and average them
+
+### 5-2-3 NTP
+
+![img]({{ '/assets/images/20180930/CS425-wk5-img-12.png' | relative_url }}){: .center-image}
+![img]({{ '/assets/images/20180930/CS425-wk5-img-13.png' | relative_url }}){: .center-image}
+![img]({{ '/assets/images/20180930/CS425-wk5-img-14.png' | relative_url }}){: .center-image}
+![img]({{ '/assets/images/20180930/CS425-wk5-img-15.png' | relative_url }}){: .center-image}
+
+* Gotchas
+    * We still have a non-zero error!
+    * WE just can't seem to get rid of error
+        * Can't as long as message latencies are non-zero
+    * Can we avoid synchronizing clocks altogether, and still be able to order events?
+
+### 5-2-4 Lamport Timestamps
+* Ordering events in a DS
+    * Hard
+    * To order events across processes, trying to sync clocks is one approach 
+    * what if we instead assigned timestamps to events that were not absolute time?
+    * As long as these timestamps obey causality, that would work
+        * If an event A causally happens before another event B, then timestamp(A) < timestamp(B)
+        * Humans use Causality all the time
+            * eg, I enter a house only after I unlock it
+            * eg, You receive a letter only after I send it
+
+* Logical (Lamport) Ordering
+    * Proposed by Leslie Lamport in the 1970s
+    * Used in almost all distributed systems since then
+    * Almost all cloud computing systems use some form of logical ordering of events
+
+
+![img]({{ '/assets/images/20180930/CS425-wk5-img-16.png' | relative_url }}){: .center-image}
+![img]({{ '/assets/images/20180930/CS425-wk5-img-17.png' | relative_url }}){: .center-image}
+
+* In practice: Lamport Timestamps
+    * Goal: assign logical timestamp to each event 
+    * Timestamps obey causality
+    * rules
+        * each process uses a local counter which is an integer
+            * initial value of counter is zero
+        * A process increments its coutner when a send or an instruction happens at it. The counter is assigned to the event as its timestamp
+        * A send (message) event carries its timestamp
+        * For a receive (message) event the coutner is updated by max(local clock, message timestamp) +1
+
+![img]({{ '/assets/images/20180930/CS425-wk5-img-18.png' | relative_url }}){: .center-image}
+
+### 5-2-5 Vector Clocks
+* Vector Timestamps
+    * used in key-value stores like Riak
+    * Each process uses a vector of integer clocks
+    * suppose there are N processes in the group 1...N
+    * Each vector has N elements 
+    * Process i maintains vector Vi[1...N]
+    * jth element of vector clock at process i, Vi[j], is i's knowledge of latest events at rpocess j
+
+* Assigning vector timestamps
+    * incrementing vector clocks
+    1. On an instruction or send event at process i, it increments only its ith elemetn of its vector lcokc
+    2. Each message carries the send-event's vector timestamp V<sub>message></sub>[1...N]
+    3. On receiving a message at process i:
+        * Vi[i] = Vi[i] + 1
+        * Vi[j] = max(V<sub>message</sub>[j], Vi[j]) for j &ne; i
+
+![img]({{ '/assets/images/20180930/CS425-wk5-img-19.png' | relative_url }}){: .center-image}
+![img]({{ '/assets/images/20180930/CS425-wk5-img-20.png' | relative_url }}){: .center-image}
+![img]({{ '/assets/images/20180930/CS425-wk5-img-21.png' | relative_url }}){: .center-image}
 
 
 # CS 427 Software Engineering
 
+---
 
 ## Goals and Objectives
 

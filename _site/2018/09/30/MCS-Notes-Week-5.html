@@ -151,6 +151,12 @@
           <li><a href="#5-1-2-cassandra">5-1-2 Cassandra</a></li>
           <li><a href="#5-1-3-the-cap-theorem">5-1-3 The CAP theorem</a></li>
           <li><a href="#5-1-4-the-consistency-spectrum">5-1-4 The Consistency Spectrum</a></li>
+          <li><a href="#5-1-5-hbase">5-1-5 HBase</a></li>
+          <li><a href="#5-2-1-introduction-and-basics-of-time-and-ordering">5-2-1 Introduction and Basics of Time and Ordering</a></li>
+          <li><a href="#5-2-2-cristian-39-s-algorithm">5-2-2 Cristian’s Algorithm</a></li>
+          <li><a href="#5-2-3-ntp">5-2-3 NTP</a></li>
+          <li><a href="#5-2-4-lamport-timestamps">5-2-4 Lamport Timestamps</a></li>
+          <li><a href="#5-2-5-vector-clocks">5-2-5 Vector Clocks</a></li>
         </ul>
       </li>
     </ul>
@@ -176,6 +182,8 @@
 <!-- vim-markdown-toc -->
 
 <h1 id="cs-410-text-information-systems">CS 410 Text Information Systems</h1>
+
+<hr />
 
 <h2 id="goals-and-objectives">Goals and Objectives</h2>
 <ul>
@@ -532,6 +540,8 @@
 <p><img src="/assets/images/20180930/CS410-wk5-img-16.png" alt="img" class="center-image" /></p>
 
 <h1 id="cs-425-distributed-systems">CS 425 Distributed Systems</h1>
+
+<hr />
 
 <h2 id="goals">Goals</h2>
 <ul>
@@ -1123,7 +1133,349 @@
   </li>
 </ul>
 
+<h3 id="5-1-5-hbase">5-1-5 HBase</h3>
+<ul>
+  <li>Cassandra is AP, while HBase is CP</li>
+  <li>HBase
+    <ul>
+      <li>Google’s BigTable was first “blob-based” storage system</li>
+      <li>Yahoo! Open-sourced it –&gt; HBase</li>
+      <li>Major Apache project today</li>
+      <li>Facebook uses HBase internally</li>
+      <li>API functions
+        <ul>
+          <li>Get/Put(row)</li>
+          <li>Scan(row range, filter) –range queries</li>
+          <li>MultiPut</li>
+        </ul>
+      </li>
+      <li>Unlike Cassandra, HBase prefers consistency (over availability)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS425-wk5-img-8.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>HBase Storage Hierarchy
+    <ul>
+      <li>HBase Table
+        <ul>
+          <li>Split into multiple regions: replicated across servers
+            <ul>
+              <li>ColumnFamily = subset of columns with similar query patterns</li>
+              <li>One <strong class="highlighted">Store</strong> per combination of ColumnFamily + region
+                <ul>
+                  <li><strong class="highlighted">Memstore</strong> for each Store: in-memory updates to Store; flushed to disk when full
+                    <ul>
+                      <li><strong class="highlighted">StoreFiles</strong> for each store for each region: where the data lives
+                        <ul>
+                          <li><strong class="highlighted">HFile</strong></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>HFile
+        <ul>
+          <li>SSTable from Google’s BigTable</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS425-wk5-img-9.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Log Replay
+    <ul>
+      <li>After recovery from failure, or upon bootup (HRegionServer/HMaster)
+        <ul>
+          <li>Replay any stale logs (use timestamps to find out where the databse is with respect to the logs)</li>
+          <li>Replay: add edits to the MemStore</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS425-wk5-img-10.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Cross-Datacenter Replication
+    <ul>
+      <li>single Master cluster</li>
+      <li>Other Slave clusters replicate the same tables</li>
+      <li>Master cluster synchronously sends HLogs over to slave clusters</li>
+      <li>Coordination among clusters is via Zookeeper</li>
+      <li>Zookeeper can be used like a file system to store control informmation
+        <ol>
+          <li>/hbase/replication/state</li>
+          <li>/hbase/replication/peers/<peer cluster="" number=""></peer></li>
+          <li>/hbase/replication/rs/<hlog></hlog></li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>Summary
+    <ul>
+      <li>Traditional Database (RDBMSs) work with storng consistency, and offer ACID</li>
+      <li>Modern workloads don’t need such strong guarantees, but do need fast response times (availability)</li>
+      <li>Unfortunately, CAP theorem</li>
+      <li>Key-Value/NoSQL systems offer BASE
+        <ul>
+          <li>Eventual consistency, and a variety of other consistency models striving towards storng consistency</li>
+        </ul>
+      </li>
+      <li>We discussed design of
+        <ul>
+          <li>Cassandra</li>
+          <li>HBase</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="5-2-1-introduction-and-basics-of-time-and-ordering">5-2-1 Introduction and Basics of Time and Ordering</h3>
+<ul>
+  <li>Why is it Challenging?
+    <ul>
+      <li>End hosts in Internet-based systems (like clouds)
+        <ul>
+          <li>each have their own clocks</li>
+          <li>Unlike processors (CPUs) within one server or workstation which share a system lcock</li>
+        </ul>
+      </li>
+      <li>Processes in Internet-based systems follow an asynchronous system model
+        <ul>
+          <li>No bounds on
+            <ul>
+              <li>Message delays</li>
+              <li>Processing delays</li>
+            </ul>
+          </li>
+          <li>Unlike multi-processor (or parallel) systems whcih follow a synchronous system model</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Some definitions
+    <ul>
+      <li>An Asynchronous Distributed System consists of a number of processes</li>
+      <li>Each process has a state (values of variables)</li>
+      <li>Each process takes actions to change its state, which may be an instruction or a communication action (send, receive)</li>
+      <li>An even is the occurrence of an action</li>
+      <li>Each process has a local clock – events within a process can be assigned timestamps, and thus ordered linearly</li>
+      <li>But – in a distributed system, we also need to know the time order of events across different processes.</li>
+    </ul>
+  </li>
+  <li>Clock Skew vs Clock drift
+    <ul>
+      <li>EAch process (running at some end host) has its own clock.</li>
+      <li>When comparing two clocks at two processes:
+        <ul>
+          <li>Clock Skew = Relative Difference in clock values of two processes
+            <ul>
+              <li>Liek distance between two vehicles on a road</li>
+            </ul>
+          </li>
+          <li>Clock Drift = Relative Difference in clock frequencies (rates) of two processes
+            <ul>
+              <li>Like difference in speeds of two vehicles on the road</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>A non-zero clock skew implies clocks are not synchronized</li>
+      <li>A non-zero clock drift causes skew to increase (eventually)
+        <ul>
+          <li>If faster vehicle is ahead, it will drift away</li>
+          <li>If faster vehicle is behind, it will catch up and then drift away</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>How often to Synchronize?
+    <ul>
+      <li>Maximum Drift Rate (MDR) of a clock</li>
+      <li>Absolute MDR is defined relative to Coordinated Universal Time (UTC).  UTC is the correct time at any point of time.
+        <ul>
+          <li>MDR of a process depends on the environment</li>
+        </ul>
+      </li>
+      <li>Max drift rate between two clocks with similar MDR is 2*MDR</li>
+      <li>Given a max acceptable skew M between any pair of clocks, need to synchronize at least once every M/(2*MDR)
+        <ul>
+          <li>since time = d / r</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>External vs internal synchronization
+    <ul>
+      <li>Consider a group of processes</li>
+      <li>External Synchronization
+        <ul>
+          <li>Each process C(i)’s clock is within a bound D of a well-known clock S external to the group</li>
+          <li>|C(i)-S| &lt; D at all times</li>
+          <li>External clock may be connected to UTC or an atomic clock</li>
+          <li>eg, Cristian’s algorithm, NTP</li>
+        </ul>
+      </li>
+      <li>Internal Synchronization
+        <ul>
+          <li>Every pair of processes in gorup have clocks within bound D</li>
+          <li>|C(i)-C(j)| &lt; D at all times and for all processes i,j</li>
+          <li>eg, Berkeley algorithm</li>
+        </ul>
+      </li>
+      <li>External Synchronization with D =&gt; Internal Synchronization with 2*D</li>
+      <li>Internal synchronization does not imply External Synchronization
+        <ul>
+          <li>In fact, the entire system may drift away from the extern clock S!</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="5-2-2-cristians-algorithm">5-2-2 Cristian’s Algorithm</h3>
+
+<p><img src="/assets/images/20180930/CS425-wk5-img-11.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Gotchas
+    <ul>
+      <li>Allowed to increase clock value but should never decrease clock value
+        <ul>
+          <li>may violate ordering of events within the same process</li>
+        </ul>
+      </li>
+      <li>Allowed to increase or decrease speed of clock</li>
+      <li>if error is too high, take multiple readings and average them</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="5-2-3-ntp">5-2-3 NTP</h3>
+
+<p><img src="/assets/images/20180930/CS425-wk5-img-12.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS425-wk5-img-13.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS425-wk5-img-14.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS425-wk5-img-15.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Gotchas
+    <ul>
+      <li>We still have a non-zero error!</li>
+      <li>WE just can’t seem to get rid of error
+        <ul>
+          <li>Can’t as long as message latencies are non-zero</li>
+        </ul>
+      </li>
+      <li>Can we avoid synchronizing clocks altogether, and still be able to order events?</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="5-2-4-lamport-timestamps">5-2-4 Lamport Timestamps</h3>
+<ul>
+  <li>Ordering events in a DS
+    <ul>
+      <li>Hard</li>
+      <li>To order events across processes, trying to sync clocks is one approach</li>
+      <li>what if we instead assigned timestamps to events that were not absolute time?</li>
+      <li>As long as these timestamps obey causality, that would work
+        <ul>
+          <li>If an event A causally happens before another event B, then timestamp(A) &lt; timestamp(B)</li>
+          <li>Humans use Causality all the time
+            <ul>
+              <li>eg, I enter a house only after I unlock it</li>
+              <li>eg, You receive a letter only after I send it</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Logical (Lamport) Ordering
+    <ul>
+      <li>Proposed by Leslie Lamport in the 1970s</li>
+      <li>Used in almost all distributed systems since then</li>
+      <li>Almost all cloud computing systems use some form of logical ordering of events</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS425-wk5-img-16.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS425-wk5-img-17.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>In practice: Lamport Timestamps
+    <ul>
+      <li>Goal: assign logical timestamp to each event</li>
+      <li>Timestamps obey causality</li>
+      <li>rules
+        <ul>
+          <li>each process uses a local counter which is an integer
+            <ul>
+              <li>initial value of counter is zero</li>
+            </ul>
+          </li>
+          <li>A process increments its coutner when a send or an instruction happens at it. The counter is assigned to the event as its timestamp</li>
+          <li>A send (message) event carries its timestamp</li>
+          <li>For a receive (message) event the coutner is updated by max(local clock, message timestamp) +1</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS425-wk5-img-18.png" alt="img" class="center-image" /></p>
+
+<h3 id="5-2-5-vector-clocks">5-2-5 Vector Clocks</h3>
+<ul>
+  <li>Vector Timestamps
+    <ul>
+      <li>used in key-value stores like Riak</li>
+      <li>Each process uses a vector of integer clocks</li>
+      <li>suppose there are N processes in the group 1…N</li>
+      <li>Each vector has N elements</li>
+      <li>Process i maintains vector Vi[1…N]</li>
+      <li>jth element of vector clock at process i, Vi[j], is i’s knowledge of latest events at rpocess j</li>
+    </ul>
+  </li>
+  <li>Assigning vector timestamps
+    <ul>
+      <li>incrementing vector clocks
+        <ol>
+          <li>On an instruction or send event at process i, it increments only its ith elemetn of its vector lcokc</li>
+          <li>Each message carries the send-event’s vector timestamp V<sub>message&gt;</sub>[1…N]</li>
+          <li>On receiving a message at process i:</li>
+        </ol>
+        <ul>
+          <li>Vi[i] = Vi[i] + 1</li>
+          <li>Vi[j] = max(V<sub>message</sub>[j], Vi[j]) for j ≠ i</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20180930/CS425-wk5-img-19.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS425-wk5-img-20.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20180930/CS425-wk5-img-21.png" alt="img" class="center-image" /></p>
+
 <h1 id="cs-427-software-engineering">CS 427 Software Engineering</h1>
+
+<hr />
 
 <h2 id="goals-and-objectives-1">Goals and Objectives</h2>
 
