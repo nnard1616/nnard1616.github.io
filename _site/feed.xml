@@ -7,6 +7,179 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>MCS 1st Semester Week 8 Notes</title>
+				<description>&lt;h1 id=&quot;cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;(under constructior construction)&lt;/p&gt;
+
+&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
+
+&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
+
+&lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
+
+&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
+
+&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h1 id=&quot;cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;No new content this week, midterm.&lt;/p&gt;
+
+&lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals-and-objectives-1&quot;&gt;Goals and Objectives&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Design pattern&lt;/li&gt;
+  &lt;li&gt;Observer pattern&lt;/li&gt;
+  &lt;li&gt;Composite pattern&lt;/li&gt;
+  &lt;li&gt;Interpreter Pattern&lt;/li&gt;
+  &lt;li&gt;Visitor Pattern&lt;/li&gt;
+  &lt;li&gt;Template Method Pattern&lt;/li&gt;
+  &lt;li&gt;Iterator Pattern&lt;/li&gt;
+  &lt;li&gt;Strategy Pattern&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;5-7-design-pattern&quot;&gt;5-7 Design Pattern&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;A design pattern is the description of &lt;strong class=&quot;highlighted&quot;&gt;communicating objects and classes&lt;/strong&gt; that are customized to solve a general design problem in a particular context, identifying:
+    &lt;ul&gt;
+      &lt;li&gt;The participating classes and objects&lt;/li&gt;
+      &lt;li&gt;Their roles and collaborations&lt;/li&gt;
+      &lt;li&gt;The distribution of responsibilities&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Gang of Four Book: Design Patterns, elements of reusable object-oriented software
+    &lt;ul&gt;
+      &lt;li&gt;presents 23 object-oriented patterns:
+        &lt;ul&gt;
+          &lt;li&gt;creational patterns (5)&lt;/li&gt;
+          &lt;li&gt;structural patterns (7)&lt;/li&gt;
+          &lt;li&gt;behavioral patterns (11)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-8-observer-pattern&quot;&gt;5-8 Observer Pattern&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Using an observer pattern can reduce cycles of dependency (one to many dependency)
+    &lt;ul&gt;
+      &lt;li&gt;Cycles of dependence
+        &lt;ul&gt;
+          &lt;li&gt;If package A depends on package B, then you cannot run the tests for A unless you also have B
+            &lt;ul&gt;
+              &lt;li&gt;“A depends on B” means you cannot use A unless you have B&lt;/li&gt;
+              &lt;li&gt;“Package A depends on packageB” means that something in A deponds on something in B&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;IF package A depends on package B, then package B should &lt;strong class=&quot;highlighted&quot;&gt;NOT&lt;/strong&gt; depend on package A
+            &lt;ul&gt;
+              &lt;li&gt;If classes C and D both depend on each other, put them in the same package&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-9-composite-pattern&quot;&gt;5-9 Composite Pattern&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Composite
+    &lt;ul&gt;
+      &lt;li&gt;problem:
+        &lt;ul&gt;
+          &lt;li&gt;Complex part-whole hierarchy has lots of similar classes
+            &lt;ul&gt;
+              &lt;li&gt;Example: book, chaptter, section, paragraph&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Objectives
+        &lt;ul&gt;
+          &lt;li&gt;Simplicity - treat composite (ie, composition of parts) like a part&lt;/li&gt;
+          &lt;li&gt;Power - create new kind of part by composing existing ones&lt;/li&gt;
+          &lt;li&gt;Safety - treat parts and composites uniformly (no special cases)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS427-wk8-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Behavioral Patterns:
+    &lt;ul&gt;
+      &lt;li&gt;Observer: Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.&lt;/li&gt;
+      &lt;li&gt;Visitor: Represent an operation to be performed on the elements of an object structure.  Visitor lets you define a new operation without changing the classes of the elements on which it operates.&lt;/li&gt;
+      &lt;li&gt;Interpreter: Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.&lt;/li&gt;
+      &lt;li&gt;Template Method: Define the skeleton of an algorithm in an operation, deferring some steps to subclasses.  Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm’s structure.&lt;/li&gt;
+      &lt;li&gt;Iterator: Provide a way to access the elemetns of an aggregate object sequentially without exposing its underlying representation.&lt;/li&gt;
+      &lt;li&gt;Strategy: Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Structural Patterns
+    &lt;ul&gt;
+      &lt;li&gt;Composite: Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS427-wk8-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+</description>
+				<pubDate>Wed, 17 Oct 2018 00:00:00 -0500</pubDate>
+				<link>/2018/10/17/MCS-Notes-Week-8</link>
+				<guid isPermaLink="true">/2018/10/17/MCS-Notes-Week-8</guid>
+			</item>
+		
+			<item>
+				<title>MCS 1st Semester Week 7 Notes</title>
+				<description>&lt;h1 id=&quot;cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/h1&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;(under construction)&lt;/p&gt;
+&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
+
+&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
+
+&lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
+
+&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
+
+&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h1 id=&quot;cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;No content this week, midterm.&lt;/p&gt;
+
+&lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;No content this week, work on mp1.&lt;/p&gt;
+
+</description>
+				<pubDate>Wed, 17 Oct 2018 00:00:00 -0500</pubDate>
+				<link>/2018/10/17/MCS-Notes-Week-7</link>
+				<guid isPermaLink="true">/2018/10/17/MCS-Notes-Week-7</guid>
+			</item>
+		
+			<item>
 				<title>MCS 1st Semester Week 6 Notes</title>
 				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
 
@@ -38,7 +211,14 @@
       &lt;li&gt;&lt;a href=&quot;#key-concepts&quot;&gt;Key Concepts&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#readings-and-resources&quot;&gt;Readings and Resources&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-1-1-what-is-global-snapshot&quot;&gt;6-1-1 What is Global Snapshot&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-1-2-glboal-snapshot-algorithm&quot;&gt;6-1-2 Glboal snapshot algorithm&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-1-3-consistent-cuts&quot;&gt;6-1-3 Consistent cuts&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-1-4-safety-and-liveness&quot;&gt;6-1-4 Safety and liveness&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/a&gt;
@@ -412,14 +592,369 @@
 &lt;hr /&gt;
 
 &lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Design an algorithm to calculate a distributed snapshot.&lt;/li&gt;
+  &lt;li&gt;Assign FIFO/Causal/Total ordering to multicast messages.&lt;/li&gt;
+  &lt;li&gt;Design a reliable multicast protocol.&lt;/li&gt;
+  &lt;li&gt;Know the working of the industry-standard protocol called Paxos.&lt;/li&gt;
+  &lt;li&gt;Know why consensus is hard to solve.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Global Snapshots&lt;/li&gt;
+  &lt;li&gt;Multicast Ordering&lt;/li&gt;
+  &lt;li&gt;Multicast Reliability&lt;/li&gt;
+  &lt;li&gt;Paxos&lt;/li&gt;
+  &lt;li&gt;Impossibility of Consensus&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;What is the difference between a safety property and a liveness property?&lt;/li&gt;
+  &lt;li&gt;How does the Chandy-Lamport algorithm work?&lt;/li&gt;
+  &lt;li&gt;How do you assign FIFO/Causal timestamps to multicasts in a distributed system?&lt;/li&gt;
+  &lt;li&gt;How does Paxos use quorums to ensure safety?&lt;/li&gt;
+  &lt;li&gt;Why is consensus impossible to solve in asynchronous systems?&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;readings-and-resources&quot;&gt;Readings and Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://research.google.com/archive/chubby.html&quot;&gt;Google Chubby&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://zookeeper.apache.org/&quot;&gt;Apache Zookeeper&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;6-1-1-what-is-global-snapshot&quot;&gt;6-1-1 What is Global Snapshot&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Distributed Snapshot
+    &lt;ul&gt;
+      &lt;li&gt;More often, each country’s representative is sitting in their respective capital, and sending messages to each other (say emails)&lt;/li&gt;
+      &lt;li&gt;How do you calculate a “global snapshot” in that DS ?&lt;/li&gt;
+      &lt;li&gt;what does a “global snapshot” even mean?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;In the Cloud
+    &lt;ul&gt;
+      &lt;li&gt;each application or service is running on multiple servers&lt;/li&gt;
+      &lt;li&gt;servers handling concurrent events and interacting with each other&lt;/li&gt;
+      &lt;li&gt;the ability to obtain a “global photograph” of the system is important&lt;/li&gt;
+      &lt;li&gt;some uses of having a global picture of the system
+        &lt;ul&gt;
+          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;checkpointing&lt;/strong&gt;: can restart distributed application on failure&lt;/li&gt;
+          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Garbage collection&lt;/strong&gt; of objects: objecst at servers that don’t have any other objects (at any servers) with pointers to them&lt;/li&gt;
+          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Deadlock detection&lt;/strong&gt;: useful in database transaction systems&lt;/li&gt;
+          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Termination of computation&lt;/strong&gt;: useful in batch computing systems like Folding@Home, SETI@Home&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;What’s a global snapshot?
+    &lt;ul&gt;
+      &lt;li&gt;Global snapshot = global state = individual state of each process in the DS + Individual state of each communication channel in the DS&lt;/li&gt;
+      &lt;li&gt;Capture the instantaneous state of each process&lt;/li&gt;
+      &lt;li&gt;And the instantaneous state of each communication channel, ie messages in transit on the channels&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Obvious first solution
+    &lt;ul&gt;
+      &lt;li&gt;Synchronize clocks of all processes&lt;/li&gt;
+      &lt;li&gt;ask all processes to record their states at known time t&lt;/li&gt;
+      &lt;li&gt;Problems?
+        &lt;ul&gt;
+          &lt;li&gt;time synchronization always has error
+            &lt;ul&gt;
+              &lt;li&gt;your bank might inform you, “we lost the state of our distritbuted cluster due to a 1 ms clock skew in our snapshot algorithm”&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;also, does not record the state of messages in the channels&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;again: synchronization not reuired – causality is enough!&lt;/li&gt;
+      &lt;li&gt;Why does time synchronization not work as a way to calculate a global snapshot in a distributed system? (select all correct answers)
+        &lt;ul&gt;
+          &lt;li&gt;time sync is inaccurate&lt;/li&gt;
+          &lt;li&gt;it may not capture channel states&lt;/li&gt;
+          &lt;li&gt;
+            &lt;s&gt;it may not capture process states&lt;/s&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Moving from state to state
+    &lt;ul&gt;
+      &lt;li&gt;whenever an event happens anywhere in the system, the global state changes
+        &lt;ul&gt;
+          &lt;li&gt;process receives message&lt;/li&gt;
+          &lt;li&gt;process sends message&lt;/li&gt;
+          &lt;li&gt;process takes a step&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;state to state movement obeys causality
+        &lt;ul&gt;
+          &lt;li&gt;next: causal algorithm for global snapshot&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;6-1-2-glboal-snapshot-algorithm&quot;&gt;6-1-2 Glboal snapshot algorithm&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;System model
+    &lt;ul&gt;
+      &lt;li&gt;Problem: record a global snapshot (state for each process, and state for each channel)&lt;/li&gt;
+      &lt;li&gt;System model:
+        &lt;ul&gt;
+          &lt;li&gt;N processes in the system&lt;/li&gt;
+          &lt;li&gt;there are two uni-directional communication channels between each ordered process pair: Pj –&amp;gt; Pi and Pi –&amp;gt; Pj&lt;/li&gt;
+          &lt;li&gt;Communication channels are FIFO-ordered&lt;/li&gt;
+          &lt;li&gt;No failure&lt;/li&gt;
+          &lt;li&gt;All messages arrive intact, and are not duplicated
+            &lt;ul&gt;
+              &lt;li&gt;other papers later relaxed some of these assumptions&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Requirements
+    &lt;ul&gt;
+      &lt;li&gt;snapshot should not interfere with normal application actions, and it should not require application to stop sending messages&lt;/li&gt;
+      &lt;li&gt;Each process is able to record its own state
+        &lt;ul&gt;
+          &lt;li&gt;process state: applicaiton-defined state or, in the worst case:&lt;/li&gt;
+          &lt;li&gt;its heap, registers, program counter, code, etc (essentially the coredump)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Global state is collected in a distributed manner&lt;/li&gt;
+      &lt;li&gt;Any process may initiate the snapshot
+        &lt;ul&gt;
+          &lt;li&gt;We’ll assume just one snapshot run for now&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Chandy-Lamport global snapshot algorithm
+    &lt;ul&gt;
+      &lt;li&gt;first, initiator Pi records its own state&lt;/li&gt;
+      &lt;li&gt;initiator process creates special messages called “Marker” messages
+        &lt;ul&gt;
+          &lt;li&gt;not an application message, does not interfere with application messages&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;for j=1 to N except i
+        &lt;ul&gt;
+          &lt;li&gt;Pi sends out a Marker message on outgoing channel Cij&lt;/li&gt;
+          &lt;li&gt;N-1 channels&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Starts recording the incoming messages on each of the incoming channels at Pi: Cji (for j= 1 to N except i)&lt;/li&gt;
+      &lt;li&gt;Whenever a process Pi receives a Marker message on an incoming channel Cki
+        &lt;ul&gt;
+          &lt;li&gt;if (this is the first Marker Pi is seeing)
+            &lt;ul&gt;
+              &lt;li&gt;Pi records its own state first&lt;/li&gt;
+              &lt;li&gt;Marks the state of channel Cki as “empty”&lt;/li&gt;
+              &lt;li&gt;for j = 1 to N except i
+                &lt;ul&gt;
+                  &lt;li&gt;Pi sends out a Marker message on outgoing channel Cij&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;Starts recording the incoming messages on each of the incoming channels at Pi: Cji (for j = 1 to N except i and k)&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;else // already seen a Marker message
+            &lt;ul&gt;
+              &lt;li&gt;Mark the state of channel Cki as all the messages that have arrived on it since recording was turned on for Cki&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;The algorithm terminates when
+        &lt;ul&gt;
+          &lt;li&gt;All processes have received a Marker
+            &lt;ul&gt;
+              &lt;li&gt;to record their own state&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;all processes have received a Marker on all the (N-1) incoming channels at each
+            &lt;ul&gt;
+              &lt;li&gt;to record the state of all channels&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Then, if needed, a central server collects all these partial state pieces to obtain the full global snapshot.&lt;/li&gt;
+      &lt;li&gt;Which of the following does a process NOT do when it receives its first marker message?
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;s&gt;Starts recording the state of some incoming channels&lt;/s&gt;
+          &lt;/li&gt;
+          &lt;li&gt;Starts recording the state of some outgoing channels&lt;/li&gt;
+          &lt;li&gt;
+            &lt;s&gt;Records its own state&lt;/s&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;s&gt;Marks the state of the incoming channel as empty&lt;/s&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;6-1-3-consistent-cuts&quot;&gt;6-1-3 Consistent cuts&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Cuts
+    &lt;ul&gt;
+      &lt;li&gt;cut = time frontier at each process and at each channel&lt;/li&gt;
+      &lt;li&gt;events at the process/channel that happen before the cut are “in the cut”
+        &lt;ul&gt;
+          &lt;li&gt;and happening after the cut are “out of the cut”&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Consistent cuts
+    &lt;ul&gt;
+      &lt;li&gt;a cut that obeys causality&lt;/li&gt;
+      &lt;li&gt;a cut C is a consistent cut iff for (each pair of events e, f in the system)&lt;/li&gt;
+      &lt;li&gt;such that event e is in the cut C, and if f –&amp;gt; e (f happens-before e)
+        &lt;ul&gt;
+          &lt;li&gt;then: event f is also in the cut C&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Any run of the Chandy-Lamport Global snapshot algorithm creates a consistent cut&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-1-4-safety-and-liveness&quot;&gt;6-1-4 Safety and liveness&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Correctness in DS
+    &lt;ul&gt;
+      &lt;li&gt;can be seen in two ways&lt;/li&gt;
+      &lt;li&gt;liveness and safety&lt;/li&gt;
+      &lt;li&gt;often confused – it’s important to distinguish from each other.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;liveness
+    &lt;ul&gt;
+      &lt;li&gt;guarantee that something good will happen, eventually, meaning if you let the system run long enough, then&lt;/li&gt;
+      &lt;li&gt;Examples in real world
+        &lt;ul&gt;
+          &lt;li&gt;guarantee that “at least one of the atheletes in the 100m final will win gold” is liveness&lt;/li&gt;
+          &lt;li&gt;a criminal will eventually be jailed&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Examples in a DS
+        &lt;ul&gt;
+          &lt;li&gt;distributed computation: Guarantee that it will terminate&lt;/li&gt;
+          &lt;li&gt;“Completeness” in failure detectors: every failure is eventually detected by some non-faulty process&lt;/li&gt;
+          &lt;li&gt;In consensus: all processes eventually decide on a value&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Safety
+    &lt;ul&gt;
+      &lt;li&gt;guarantee that something bad will never happen&lt;/li&gt;
+      &lt;li&gt;examples in real world
+        &lt;ul&gt;
+          &lt;li&gt;a peace treaty between two nations provides safety
+            &lt;ul&gt;
+              &lt;li&gt;war will never happen&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;an innocent person will never be jailed&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;examples in DS:
+        &lt;ul&gt;
+          &lt;li&gt;There is no deadlock in a distributed transaction system&lt;/li&gt;
+          &lt;li&gt;No object is orphaned in a distributed object system&lt;/li&gt;
+          &lt;li&gt;“Accuracy” in failure detectors&lt;/li&gt;
+          &lt;li&gt;in consensus: no two processes decide on different values&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Can we guarantee both?
+    &lt;ul&gt;
+      &lt;li&gt;Can be difficult to satisfy both liveness and safety in an asynchronous DS!
+        &lt;ul&gt;
+          &lt;li&gt;failure detector: completeness (liveness) and accuracy (safety) cannot both be guaranteed by a failure detector in an asynchronous DS&lt;/li&gt;
+          &lt;li&gt;Consensus: Decisions (liveness) and correct decisions (Safety) cannot both be guaranteed by any consensus protocol in an asynchronous DS&lt;/li&gt;
+          &lt;li&gt;Very difficult for legal systems (anywhere in the world) to guaranteed that all criminals are jailed (liveness) and no innocents are jailed (safety)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;In the language of global states:
+    &lt;ul&gt;
+      &lt;li&gt;recall that a DS moves from one global state to another global state, via causal steps&lt;/li&gt;
+      &lt;li&gt;liveness with respect to a property Pr in a given state S means
+        &lt;ul&gt;
+          &lt;li&gt;S satisfies Pr, or there is some causal path of global states from S to S’ where S’ satisfies Pr&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Safety with respect to a property Pr in a given state S means
+        &lt;ul&gt;
+          &lt;li&gt;S satisfies Pr, and all global states S’ reachable from S also satisfy Pr&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;using global snapshot algorithm
+    &lt;ul&gt;
+      &lt;li&gt;chandy-lamport algorithm can be used to detect global properties that are stable
+        &lt;ul&gt;
+          &lt;li&gt;stable = once true, stays true forever afterwards&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;stable liveness examples
+        &lt;ul&gt;
+          &lt;li&gt;computation has terminated&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;stable non-safety examples
+        &lt;ul&gt;
+          &lt;li&gt;there is a deadlock&lt;/li&gt;
+          &lt;li&gt;an object is orphaned (no pointers point to it)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;all stable global properties can be detected using the Chandy-Lamport algorithm
+        &lt;ul&gt;
+          &lt;li&gt;due to its causal correctness&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Summary
+    &lt;ul&gt;
+      &lt;li&gt;the ability to calculate global snapshots in a DS is very important&lt;/li&gt;
+      &lt;li&gt;but don’t want to interrupt running DS application&lt;/li&gt;
+      &lt;li&gt;chandy-lamport algorithm calculates global snapshot&lt;/li&gt;
+      &lt;li&gt;obeys causality (creates a consistent cut)&lt;/li&gt;
+      &lt;li&gt;can be used to detect stable global properties&lt;/li&gt;
+      &lt;li&gt;safety vs liveness&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
 
@@ -1172,7 +1707,7 @@
           &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;SimpleSnitch&lt;/strong&gt;: Unaware of Topology (rack-unaware)&lt;/li&gt;
           &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;RackInferring&lt;/strong&gt;: Assumes topology of network by octet of server’s IP address
             &lt;ul&gt;
-              &lt;li&gt;101-102-103-104 = x.&lt;DC octet=&quot;&quot;&gt;.&lt;rack octet=&quot;&quot;&gt;.&lt;node octet=&quot;&quot;&gt;&lt;/node&gt;&lt;/rack&gt;&lt;/DC&gt;&lt;/li&gt;
+              &lt;li&gt;101-102-103-104 = x.&amp;lt;DC octet&amp;gt;.&amp;lt;rack octet&amp;gt;.&amp;lt;node octet&amp;gt;&lt;/li&gt;
             &lt;/ul&gt;
           &lt;/li&gt;
           &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;PropertyFileSnitch&lt;/strong&gt;: uses a config file&lt;/li&gt;
@@ -4469,703 +5004,6 @@ This was very challenging, so much so I was not able to come up with a functiona
 				<pubDate>Wed, 05 Sep 2018 00:00:00 -0500</pubDate>
 				<link>/2018/09/05/Scala-Spec-Pt-1-Wk-1</link>
 				<guid isPermaLink="true">/2018/09/05/Scala-Spec-Pt-1-Wk-1</guid>
-			</item>
-		
-			<item>
-				<title>MCS 1st Semester Week 2 Notes</title>
-				<description>&lt;h1 id=&quot;cs-410--text-information-systems&quot;&gt;CS 410 : Text Information Systems&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;What are some different ways to place a document as a vector in the vector space?&lt;/li&gt;
-  &lt;li&gt;What is term frequency (TF)?&lt;/li&gt;
-  &lt;li&gt;What is TF transformation?&lt;/li&gt;
-  &lt;li&gt;What is document frequency (DF)?&lt;/li&gt;
-  &lt;li&gt;What is inverse document frequency (IDF)?&lt;/li&gt;
-  &lt;li&gt;What is TF-IDF weighting?&lt;/li&gt;
-  &lt;li&gt;Why do we need to penalize long documents in text retrieval?&lt;/li&gt;
-  &lt;li&gt;What is pivoted document length normalization?&lt;/li&gt;
-  &lt;li&gt;What are the main ideas behind the retrieval function BM25?&lt;/li&gt;
-  &lt;li&gt;What is the typical architecture of a text retrieval system?&lt;/li&gt;
-  &lt;li&gt;What is an inverted index?&lt;/li&gt;
-  &lt;li&gt;Why is it desirable to compress an inverted index?&lt;/li&gt;
-  &lt;li&gt;How can we create an inverted index when the collection of documents does not fit into the memory?&lt;/li&gt;
-  &lt;li&gt;How can we leverage an inverted index to score documents quickly?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Term frequency (TF)&lt;/li&gt;
-  &lt;li&gt;Document frequency (DF) and inverse document frequency (IDF)&lt;/li&gt;
-  &lt;li&gt;TF transformation&lt;/li&gt;
-  &lt;li&gt;Pivoted length normalization&lt;/li&gt;
-  &lt;li&gt;sBM25&lt;/li&gt;
-  &lt;li&gt;Inverted index and postings&lt;/li&gt;
-  &lt;li&gt;sBinary coding, unary coding, gamma-coding, and d-gap&lt;/li&gt;
-  &lt;li&gt;Zipf’s law&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;21-vector-space-model---improved-instantiation&quot;&gt;2.1 Vector Space Model - Improved Instantiation&lt;/h3&gt;
-
-&lt;p&gt;Slide 2 : Two problems with Simplest VSM&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Matching a keyword more times deserves more credit towards a document&lt;/li&gt;
-  &lt;li&gt;Matching some keywords may be more important than other keywords (not all keywords are created equal).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 3 : Improved Vector Placement: Term Frequency (how many times it occurs in document) Vector&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Use counts of each word in query/document instead of 1’s and 0’s&lt;/li&gt;
-  &lt;li&gt;Will solve term frequency problem, but will not fix hierarchy of keywords&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 6 : Keyword Hierarchy&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;use Inverse Document Frequency of word to help differentiate between low and high priority words&lt;/li&gt;
-  &lt;li&gt;IDF(W) = log((M+1)/k), M = Total number of docs in collection, k = total number of docs containing W (words that appear in many documents have lower priority than words that occur in only a relatively small number.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 12 : VSM with TF-IDF effective?&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;works well for some cases, but introduces new problems in other situations&lt;/li&gt;
-  &lt;li&gt;Still have problems with words that have high frequency in a document but missing other important keywords.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;22--tf-transformation&quot;&gt;2.2 : TF Transformation&lt;/h3&gt;
-
-&lt;p&gt;Slide 5 : TF Transformation: c(w, d) -&amp;gt; TF(w,d)&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;A way to lessen impact of c(w,d) of unimportant word when using TF-IDF weighting.&lt;/li&gt;
-  &lt;li&gt;Best developed so far is BM25: y = (k+1)x/(x+k)  (upper bound of k+1)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180908/CS410-wk2-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;23--doc-length-normalization&quot;&gt;2.3 : Doc Length Normalization&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Length Normalization can be a double edged sword, need to be careful to heavily penalize those with more words and lightly penalize those with more relevant content.&lt;/li&gt;
-  &lt;li&gt;Have length normalizer depend on document length and average document length&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;normalizer = 1 - b + b(&lt;/td&gt;
-          &lt;td&gt;d&lt;/td&gt;
-          &lt;td&gt;)/avdl where b is between 0 and 1.&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;State of the Art VSM Ranking Functions:&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180908/CS410-wk2-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 7 : Further improvement of VSM?&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Improved instantiation of dimension?&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Improved instantiation of similarity function?&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 8 : Further improvements of BM25&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;BM25F (combine frequency counts of terms in all fields and then apply BM25 (instead of the other way)&lt;/li&gt;
-  &lt;li&gt;BM25+ (add small constant to TF)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;24--implementation-of-tr-text-retrieval-systems&quot;&gt;2.4 : Implementation of TR (Text Retrieval) Systems&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180908/CS410-wk2-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;rationale behind why inverted index is so fast compared to just sequential search through a document:&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180908/CS410-wk2-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Two datastructures that can be used:  Dictionary or Posting (&lt;a href=&quot;https://en.wikipedia.org/wiki/Inverted_index&quot;&gt;inverted index&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;25--system-implementation---inverted-index-construction&quot;&gt;2.5 : System Implementation - Inverted Index Construction&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Most of this lecture spoke about different compression procedures:
-    &lt;ul&gt;
-      &lt;li&gt;unary&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Elias_gamma_coding&quot;&gt;γ-encoding&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Delta_encoding&quot;&gt;δ-encoding&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The methods in the links above appear different to what Cheng describes in his slides:&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180908/CS410-wk2-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;
-    &lt;h3 id=&quot;26--system-implementation---fast-search&quot;&gt;2.6 : System Implementation - Fast Search&lt;/h3&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;cs-425--distributed-systems&quot;&gt;CS 425 : Distributed Systems&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Know the key differences between cloud computing and previous generations of distributed systems.&lt;/li&gt;
-  &lt;li&gt;Design MapReduce programs for a variety of problems.&lt;/li&gt;
-  &lt;li&gt;Know how Hadoop schedules jobs.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Clouds&lt;/li&gt;
-  &lt;li&gt;MapReduce&lt;/li&gt;
-  &lt;li&gt;Hadoop YARN&lt;/li&gt;
-  &lt;li&gt;Sumeet Singh Interview&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Why is cloud computing popular today?&lt;/li&gt;
-  &lt;li&gt;What is different in cloud computing compared to previous generations of distributed systems?&lt;/li&gt;
-  &lt;li&gt;How does one program in MapReduce?&lt;/li&gt;
-  &lt;li&gt;How does the MapReduce system schedule jobs?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;11--why-clouds&quot;&gt;1.1 : Why Clouds?&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Many different Cloud services (AWS, Google App Engine, etc)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 5 : Two categories of clouds&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Private Clouds (within company only)&lt;/li&gt;
-  &lt;li&gt;Public Clouds for customers
-    &lt;ul&gt;
-      &lt;li&gt;Amazon S3 (Simple Storage Service): store data&lt;/li&gt;
-      &lt;li&gt;Amazon EC2 (Elastic Compute Cloud): upload and run OS images, pay per hour&lt;/li&gt;
-      &lt;li&gt;Google App Engine/ Compute Engine&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 6 : Customers Save Time and Money&lt;/p&gt;
-
-&lt;h3 id=&quot;12--what-is-a-cloud&quot;&gt;1.2 : What is a Cloud?&lt;/h3&gt;
-&lt;p&gt;Slide 1 : What is it?&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;cluster!&lt;/li&gt;
-  &lt;li&gt;supercomputer!&lt;/li&gt;
-  &lt;li&gt;datastore!&lt;/li&gt;
-  &lt;li&gt;superman!&lt;/li&gt;
-  &lt;li&gt;none or all of the above!&lt;/li&gt;
-  &lt;li&gt;Course Definition: &lt;strong class=&quot;highlighted&quot;&gt;Cloud = Lots of Storage + compute cycles nearby&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 2 : What is it continued&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Single or multiple geographical data centers&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 3 : Sample Cloud topology&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180904/CS425-wk2-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;13--intro-to-clouds-history&quot;&gt;1.3 : Intro to Clouds: History&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180904/CS425-wk2-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180904/CS425-wk2-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;14--intro-to-clouds-whats-new-in-todays-clouds&quot;&gt;1.4 : Intro to Clouds: What’s New in Today’s Clouds&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Massive Scale&lt;/li&gt;
-  &lt;li&gt;On-demand access (pay as you go, anybody!)&lt;/li&gt;
-  &lt;li&gt;Data-intensive Nature&lt;/li&gt;
-  &lt;li&gt;New Cloud Programming Paradigms (MapReduce/Hadoop, NoSQL/Cassandra/MongoDB, etc)&lt;/li&gt;
-  &lt;li&gt;WUE = Annual water usage / IT equipment energy (L/kWh)&lt;/li&gt;
-  &lt;li&gt;PUE = Total Facility Power /IT Equipment Power&lt;/li&gt;
-  &lt;li&gt;A datacenter consumes 2 MW of power, and out of this only 1.5 MW is used for the computing equipment. What is the PUE of this datacenter?
-    &lt;ul&gt;
-      &lt;li&gt;1.33&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;22--what-is-a-distributed-system&quot;&gt;2.2 : What is a Distributed System?&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Cloud is one form of a distributed system&lt;/li&gt;
-  &lt;li&gt;Course Definition: &lt;strong class=&quot;highlighted&quot;&gt;A distributed system is a collection of entities(processes), each of which is autonomous, programmable, asynchronous (not working at same time, ie not parallel systems) and failure-prone, and which communicate through an unreliable communication medium.&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;31--mapreduce-paradigm&quot;&gt;3.1 : MapReduce Paradigm&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;comes from functional programming’s map and reduce&lt;/li&gt;
-  &lt;li&gt;Use hashing to evenly distribute reduce tasks among workers&lt;/li&gt;
-  &lt;li&gt;The primary difference between Map and Reduce is that Reduces process batches of values associated with the same key while Maps process keys independently.&lt;/li&gt;
-  &lt;li&gt;A given Mapreduce program has the Map phase generate 100 key-value pairs with 10 unique keys. How many Reduce tasks can this program have when at least one Reduce task will certainly be assigned no keys when a hash partitioner is used (select all answers that are correct)?”
-    &lt;ul&gt;
-      &lt;li&gt;Between 11 and 101.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;32--mapreduce-examples&quot;&gt;3.2 : MapReduce Examples&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;There are three advantages of Maps and Reduces sorting their outputs:
-    &lt;ul&gt;
-      &lt;li&gt;A Map can know which contiguous sets of its key-value pairs (sharing the same key) need to be sent to one Reduce&lt;/li&gt;
-      &lt;li&gt;A Reduce task can call the Reduce function on a contiguous set of key-value pairs (sharing the same key)&lt;/li&gt;
-      &lt;li&gt;Sorting as an application becomes very simple to write&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;33--mapreduce-scheduling&quot;&gt;3.3 : MapReduce Scheduling&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Ensure no reduce tasks start before the map tasks all finish&lt;/li&gt;
-  &lt;li&gt;Someone writes a variant of Mapreduce without a barrier, i.e., where Reduces can start before all Maps are done computing. Which of the following are TRUE statements?
-    &lt;ul&gt;
-      &lt;li&gt;A Mapreduce run may be incorrect since some of the key-value pairs generated by Maps may never be processed by a Reduce if the reduce function is called exactly once per key&lt;/li&gt;
-      &lt;li&gt;All Mapreduce runs could be correct if Reduces maintain partial results for keys, and update these as new key-value pairs come in&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180904/CS425-wk2-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180904/CS425-wk2-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180904/CS425-wk2-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180904/CS425-wk2-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;FIFO task management.&lt;/li&gt;
-  &lt;li&gt;In YARN, which of the following is dedicated to one job?
-    &lt;ul&gt;
-      &lt;li&gt;Application Master&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;34--mapreduce-fault-tolerance&quot;&gt;3.4 : MapReduce Fault-Tolerance&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180904/CS425-wk2-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Speculative execution refers to (Replicative Execution is a better term, the point is to observe tasks, and if one is going super slow, replicate the task on other threads and whichever replica finishes first completes the task):
-    &lt;ul&gt;
-      &lt;li&gt;Replicating slow tasks so that the first copy that finishes, completes the task&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;cs-427--software-engineering&quot;&gt;CS 427 : Software Engineering&lt;/h1&gt;
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Explain differences between programming and software engineering.&lt;/li&gt;
-  &lt;li&gt;Explain main goals of software engineering.&lt;/li&gt;
-  &lt;li&gt;Explain main subareas of software engineering.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;video-lecture-notes-2&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;11--origins-of-software-engineering&quot;&gt;1.1 : Origins of Software Engineering&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;programming (single worker) vs software engineering (team of workers)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;12--software&quot;&gt;1.2 : Software&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Malleable&lt;/li&gt;
-  &lt;li&gt;Complex&lt;/li&gt;
-  &lt;li&gt;Useful&lt;/li&gt;
-  &lt;li&gt;Varies&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;13--software-project&quot;&gt;1.3 : Software Project&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Development Process (Productivity)&lt;/li&gt;
-  &lt;li&gt;Software System (quality)&lt;/li&gt;
-  &lt;li&gt;Software Users (Experience)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;14--software-engineer&quot;&gt;1.4 : Software Engineer&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;In real world, customer/user requirements for a software are ambiguous, constantly changing&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-				<pubDate>Tue, 04 Sep 2018 00:00:00 -0500</pubDate>
-				<link>/2018/09/04/MCS-Notes-Week-2</link>
-				<guid isPermaLink="true">/2018/09/04/MCS-Notes-Week-2</guid>
-			</item>
-		
-			<item>
-				<title>MCS 1st Semester Week 1 Notes</title>
-				<description>&lt;h1 id=&quot;cs-410--text-information-systems&quot;&gt;CS 410 : Text Information Systems&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180903/CS410-wk1-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
-&lt;p&gt;After you actively engage in the learning experiences in this module, you should be able to:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Explain some basic concepts in natural language processing, text information access.&lt;/li&gt;
-  &lt;li&gt;Explain why text retrieval is often defined as a ranking problem.&lt;/li&gt;
-  &lt;li&gt;Explain the basic idea of the vector space retrieval model and how to instantiate it with the simplest bit-vector representation.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
-&lt;p&gt;Develop your answers to the following guiding questions while watching the video lectures throughout the week.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;What does a computer have to do in order to understand a natural language sentence?&lt;/li&gt;
-  &lt;li&gt;What is ambiguity?&lt;/li&gt;
-  &lt;li&gt;What is bag-of-words representation? Why do modern search engines use this simple representation of text?&lt;/li&gt;
-  &lt;li&gt;What are the two modes of text information access? Which mode does a web search engine such as Google support?&lt;/li&gt;
-  &lt;li&gt;When is browsing more useful than querying to help a user find relevant information?&lt;/li&gt;
-  &lt;li&gt;Why is a text retrieval task defined as a ranking task?&lt;/li&gt;
-  &lt;li&gt;What is a retrieval model?&lt;/li&gt;
-  &lt;li&gt;What are the two assumptions made by the Probability Ranking Principle?&lt;/li&gt;
-  &lt;li&gt;What is the Vector Space Retrieval Model? How does it work?&lt;/li&gt;
-  &lt;li&gt;How do we define the dimensions of the Vector Space Model? What does “bag of words” representation mean?&lt;/li&gt;
-  &lt;li&gt;What does the retrieval function intuitively capture when we instantiate a vector space model with bag of words representation and bit representation for documents and queries?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
-&lt;p&gt;Keep your eyes open for the following key terms or phrases as you complete the readings and interact with the lectures. These topics will help you better understand the content in this module.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Part of speech tagging, syntactic analysis, semantic analysis, and ambiguity&lt;/li&gt;
-  &lt;li&gt;“Bag of words” representation&lt;/li&gt;
-  &lt;li&gt;Push, pull, querying, browsing&lt;/li&gt;
-  &lt;li&gt;Probability ranking principle&lt;/li&gt;
-  &lt;li&gt;Relevance&lt;/li&gt;
-  &lt;li&gt;Vector space model&lt;/li&gt;
-  &lt;li&gt;Dot product&lt;/li&gt;
-  &lt;li&gt;Bag of words representation&lt;/li&gt;
-  &lt;li&gt;Bit vector representation&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;11-natural-language-content-analysis&quot;&gt;1.1 Natural Language Content Analysis&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;NLP: Natural Language Processing&lt;/li&gt;
-  &lt;li&gt;Semantic Analysis&lt;/li&gt;
-  &lt;li&gt;In general, what we find as easy to read and understand is hard and complex for computers.&lt;/li&gt;
-  &lt;li&gt;What we can’t do:
-    &lt;ul&gt;
-      &lt;li&gt;100% Part-Of-Speech (POS) tagging
-        &lt;ul&gt;
-          &lt;li&gt;“He turned &lt;u&gt;off&lt;/u&gt; the highway.” vs “He turned &lt;u&gt;off&lt;/u&gt; his fan.”&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;General complete parsing
-        &lt;ul&gt;
-          &lt;li&gt;“A man saw a boy with telescope.”&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Precise deep semantic analysis
-        &lt;ul&gt;
-          &lt;li&gt;Will we ever be able to precisely define the meaning of “own’ in “John owns a restaurant.” ?&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Robust and general NLP tends to be “shallow” while “deep” understanding doesn’t scale up. (ie, program will only work in conditions they are designed for, will not work in general unrestricted situations).&lt;/li&gt;
-  &lt;li&gt;This implies NLP for text retrieval must be generally robust and efficient, shallow NLP at best.&lt;/li&gt;
-  &lt;li&gt;“Bag of words” representation (google search) tends to be sufficient for most search tasks (but not all!)
-    &lt;ul&gt;
-      &lt;li&gt;words given together often aligns with their intended meanings, obviating the need for more sophisticated algorithms.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Some text retrieval techniques can naturally address NLP problems&lt;/li&gt;
-  &lt;li&gt;However, deeper NLP is needed for complex search tasks.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;12-text-access-high-level&quot;&gt;1.2 Text Access (high level)&lt;/h3&gt;
-
-&lt;p&gt;Slide 1&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;How can a text information system help useres get access to the relevant text data?
-    &lt;ul&gt;
-      &lt;li&gt;push vs pull&lt;/li&gt;
-      &lt;li&gt;querying vs browing&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 2&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Pull mode (search engines)
-    &lt;ul&gt;
-      &lt;li&gt;users take initiative&lt;/li&gt;
-      &lt;li&gt;Ad hoc (temporary) information need&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Push Mode (recommender systems, newsfeeds)
-    &lt;ul&gt;
-      &lt;li&gt;systems take initiative&lt;/li&gt;
-      &lt;li&gt;stable information need (ie, consistent) or system has good knowledge about a user’s need.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 3:  Pull Mode - Querying vs Browsing.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Querying
-    &lt;ul&gt;
-      &lt;li&gt;User enters a (keyword) query&lt;/li&gt;
-      &lt;li&gt;System returns relevant documents&lt;/li&gt;
-      &lt;li&gt;Works well when the user knows what keywords to use&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Browsing
-    &lt;ul&gt;
-      &lt;li&gt;User navigates into relevant information by following a path enabled by the structures on the documents&lt;/li&gt;
-      &lt;li&gt;works well when the user wants to explore information, doesn’t know what keywords to use, or can’t conveniently enter a query.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 4: Information seeking as sightseeing (An analogy)&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Sightseeing: Know address of an attraction?
-    &lt;ul&gt;
-      &lt;li&gt;Yes: take a taxi and go directly to the site.&lt;/li&gt;
-      &lt;li&gt;No: walk around or take a taxi to a nearby place then walk.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Information seeking: Know exactly what you want to find?
-    &lt;ul&gt;
-      &lt;li&gt;Yes: use the right keywords as a query and find the information directly.&lt;/li&gt;
-      &lt;li&gt;No: browse the information space or start with a rough query and then browse.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Need topic map to effectively browse when information seeking, many interesting applications regarding this…&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 5: &lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180903/CS410-wk1-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Generally combine both push (sometimes referred to as “filtering”) and pull  as well as Browsing and Querying to better serve users&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;13-text-retrieval-problem-supporting-pull-method&quot;&gt;1.3: Text Retrieval Problem (supporting pull method)&lt;/h3&gt;
-
-&lt;p&gt;Slide 3: What is Text Retrieval (TR) ?&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Collection of text documents exists&lt;/li&gt;
-  &lt;li&gt;User gives a query to express the information need&lt;/li&gt;
-  &lt;li&gt;Search engine system returns relevant documents to users&lt;/li&gt;
-  &lt;li&gt;Often called “information retrieval” (IR), but IR is actually much broader (there are others aside from “text”, such as images and audio)&lt;/li&gt;
-  &lt;li&gt;known as “search technology’ in industry.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 4: TR vs Database Retrieval&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Information
-    &lt;ul&gt;
-      &lt;li&gt;Unstructured/free text vs structured data&lt;/li&gt;
-      &lt;li&gt;ambiguous vs well-defined semantics&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Query
-    &lt;ul&gt;
-      &lt;li&gt;Ambiguous vs well-defined semantics&lt;/li&gt;
-      &lt;li&gt;incomplete vs complete specification&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Answers
-    &lt;ul&gt;
-      &lt;li&gt;relevant documents vs matched records&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;TR is an empirically defined problem
-    &lt;ul&gt;
-      &lt;li&gt;can’t mathematically prove one method is better than another&lt;/li&gt;
-      &lt;li&gt;must rely on empirical evaluation involving users!&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 5: Formal Formulation of TR&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Vocabulary (set of words in a language): V&lt;/li&gt;
-  &lt;li&gt;query (sequence of words provided by user): q&lt;/li&gt;
-  &lt;li&gt;document (sequence of words provided by document) d&lt;sub&gt;i&lt;/sub&gt;&lt;/li&gt;
-  &lt;li&gt;collection (of documents): C&lt;/li&gt;
-  &lt;li&gt;Set of relevant documents: R(q) is a subset of C
-    &lt;ul&gt;
-      &lt;li&gt;generally unknown and user-dependent&lt;/li&gt;
-      &lt;li&gt;query is a “hint” on which doc is in R(q)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Task = compute R’(q), an approximation of R(q)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 6: How to compute R’(q)&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Strat 1: Document selection
-    &lt;ul&gt;
-      &lt;li&gt;R’(q) = set of documents in C for which f(d, q) = 1 where f(d, q) is either 0 (fail) or 1 (success).&lt;/li&gt;
-      &lt;li&gt;System must decide if a doc is relevant or not (&lt;strong class=&quot;highlighted&quot;&gt;absolute relevance&lt;/strong&gt;)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Strat 2: Document Ranking
-    &lt;ul&gt;
-      &lt;li&gt;R’(q) = set of documents in C for which f(d, q) &amp;gt; Θ where f(d, q) is a relevance measure function, Θ is a cutoff determined by the user&lt;/li&gt;
-      &lt;li&gt;System only needs to decide if one doc is more likely relevant than another (&lt;strong class=&quot;highlighted&quot;&gt;relative relevance&lt;/strong&gt;)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 8: Problems of Document Selection (ranking is usually preferred)&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;The classifier is unlikely accurate
-    &lt;ul&gt;
-      &lt;li&gt;“Over-constrained” query results in no relevant documents to return&lt;/li&gt;
-      &lt;li&gt;“under-constrained” query results in over delivery.&lt;/li&gt;
-      &lt;li&gt;Hard to find the right position between these two extremes.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Even if it is accurate, all relevant documents are not equally relevant (relevance is a matter of degree!)
-    &lt;ul&gt;
-      &lt;li&gt;Prioritization is needed.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 9: Theoretical Justification for Ranking&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Probability Ranking Principle [Robertson 77]: Returning a ranked list of documents in descending order of probability that a document is relevant to the query is the optimal strategy under the following two assumptions:
-    &lt;ul&gt;
-      &lt;li&gt;The utility of a document (to a user) is independent of the utility of any other document.&lt;/li&gt;
-      &lt;li&gt;A user would browse the results sequentially&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Do these two assumptions hold?
-    &lt;ul&gt;
-      &lt;li&gt;Neither are necessarily true, but forms a solid foundation for ranking as the primary method.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;14-overview-of-text-retrieval-methods&quot;&gt;1.4: Overview of Text Retrieval Methods&lt;/h3&gt;
-
-&lt;p&gt;Slide 3 : How to design a Ranking Function&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Query: q&lt;/li&gt;
-  &lt;li&gt;Document: d&lt;/li&gt;
-  &lt;li&gt;Ranking function: f(d, q) in &lt;strong&gt;R&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;A good ranking function should rank relevant documents on top of non-relevant ones.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Key challenge: how to measure the likelihood that document d is &lt;u&gt;relevant&lt;/u&gt; to query q&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Retrieval model = formalization of relevance (give a computational definition of relevance).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 4 : Many different Retrieval Models&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Similarity-based models&lt;/strong&gt;: f(q, d) = similarity(q,d)
-    &lt;ul&gt;
-      &lt;li&gt;vector space model&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;&lt;strong class=&quot;highlighted&quot;&gt;Probabilistic models&lt;/strong&gt;: f(d, q) = p(R=1&lt;/td&gt;
-          &lt;td&gt;d,q), where R is 0 or 1.&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Classic probabilistic model&lt;/li&gt;
-      &lt;li&gt;Language model&lt;/li&gt;
-      &lt;li&gt;Divergence-from-randomness model&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Probabilistic inference model&lt;/strong&gt;:f(q, d) = p(d implies q)&lt;/li&gt;
-  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Axiomatic Model&lt;/strong&gt;: f(q, d) must satisfy a set of constraints.&lt;/li&gt;
-  &lt;li&gt;These different models tend to result in similar ranking functions involving similar variables.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 5 : Common Ideas in State of the Art Retrieval Models&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180903/CS410-wk1-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Slide 6 : Which Model Works the Best?&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;When optimized, the following models tend to perform equally well [Fang eg al 11]:
-    &lt;ul&gt;
-      &lt;li&gt;Pivoted length normalization&lt;/li&gt;
-      &lt;li&gt;BM25&lt;/li&gt;
-      &lt;li&gt;Query Likelihood&lt;/li&gt;
-      &lt;li&gt;PL2&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;BM25 is most popular&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;15--vector-space-model---basic-idea&quot;&gt;1.5 : Vector Space Model - Basic Idea&lt;/h3&gt;
-
-&lt;p&gt;Slide 3 : Many different Retrieval Models&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Similarity-based models: f(q,d) = similarity(q,d)
-    &lt;ul&gt;
-      &lt;li&gt;Vector space model&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 5: VSM is a framework&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Represent a doc/query by a term vector
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Term&lt;/strong&gt;: basic concept, eg word or phrase&lt;/li&gt;
-      &lt;li&gt;Each term defines one dimension&lt;/li&gt;
-      &lt;li&gt;N terms define an &lt;strong class=&quot;highlighted&quot;&gt;N-dimensional space&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Query&lt;/strong&gt; vector: q=(x,…) is query term weight&lt;/li&gt;
-      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Doc&lt;/strong&gt; vector: d=(y,…) is doc term weight&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;relevance(q,d) is proportional to similarity(&lt;strong class=&quot;highlighted&quot;&gt;q&lt;/strong&gt;,&lt;strong class=&quot;highlighted&quot;&gt;d&lt;/strong&gt;) = f(q,d)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Slide 6: What VSM doesn’t say&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;How to define/select the “basic concept”
-    &lt;ul&gt;
-      &lt;li&gt;concepts are assumed to be orthogonal&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;How to place docs and query in the space (= how to assign term weights)
-    &lt;ul&gt;
-      &lt;li&gt;Term weight in query indicates importance of term&lt;/li&gt;
-      &lt;li&gt;Term weight in doc indicates how well the term characterizes the doc&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;How to define the similarity measure? (topic of next lecture)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;16--vector-space-retrieval-model---simplest-instantiation&quot;&gt;1.6 : Vector Space Retrieval Model - Simplest Instantiation&lt;/h3&gt;
-
-&lt;p&gt;Slide 7: &lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180903/CS410-wk1-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-This only measures how many query words are in the document words, it provides nothing on semantic relevance nor repeated words.&lt;/p&gt;
-
-&lt;h1 id=&quot;cs-425--distributed-systems&quot;&gt;CS 425 : Distributed Systems&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;p&gt;No new content was presented this week.&lt;/p&gt;
-
-&lt;h1 id=&quot;cs-427--software-engineering&quot;&gt;CS 427 : Software Engineering&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;p&gt;No new (relevant) content was presented this week.&lt;/p&gt;
-</description>
-				<pubDate>Mon, 03 Sep 2018 00:00:00 -0500</pubDate>
-				<link>/2018/09/03/MCS-Notes-Week-1</link>
-				<guid isPermaLink="true">/2018/09/03/MCS-Notes-Week-1</guid>
 			</item>
 		
 	</channel>

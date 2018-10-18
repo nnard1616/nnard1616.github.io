@@ -108,6 +108,8 @@
                         <a href="/2018/09/30/MCS-Notes-Week-5" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 5 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
                     
                     
+                        <a href="/2018/10/17/MCS-Notes-Week-7" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 7 Notes" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
                   </div>
                   
                   <br>
@@ -144,7 +146,14 @@
       <li><a href="#key-concepts">Key Concepts</a></li>
       <li><a href="#guiding-questions">Guiding Questions</a></li>
       <li><a href="#readings-and-resources">Readings and Resources</a></li>
-      <li><a href="#video-lecture-notes">Video Lecture Notes</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a>
+        <ul>
+          <li><a href="#6-1-1-what-is-global-snapshot">6-1-1 What is Global Snapshot</a></li>
+          <li><a href="#6-1-2-glboal-snapshot-algorithm">6-1-2 Glboal snapshot algorithm</a></li>
+          <li><a href="#6-1-3-consistent-cuts">6-1-3 Consistent cuts</a></li>
+          <li><a href="#6-1-4-safety-and-liveness">6-1-4 Safety and liveness</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><a href="#cs-427-software-engineering">CS 427 Software Engineering</a>
@@ -518,14 +527,369 @@
 <hr />
 
 <h2 id="goals">Goals</h2>
+<ul>
+  <li>Design an algorithm to calculate a distributed snapshot.</li>
+  <li>Assign FIFO/Causal/Total ordering to multicast messages.</li>
+  <li>Design a reliable multicast protocol.</li>
+  <li>Know the working of the industry-standard protocol called Paxos.</li>
+  <li>Know why consensus is hard to solve.</li>
+</ul>
 
 <h2 id="key-concepts">Key Concepts</h2>
+<ul>
+  <li>Global Snapshots</li>
+  <li>Multicast Ordering</li>
+  <li>Multicast Reliability</li>
+  <li>Paxos</li>
+  <li>Impossibility of Consensus</li>
+</ul>
 
 <h2 id="guiding-questions-1">Guiding Questions</h2>
+<ul>
+  <li>What is the difference between a safety property and a liveness property?</li>
+  <li>How does the Chandy-Lamport algorithm work?</li>
+  <li>How do you assign FIFO/Causal timestamps to multicasts in a distributed system?</li>
+  <li>How does Paxos use quorums to ensure safety?</li>
+  <li>Why is consensus impossible to solve in asynchronous systems?</li>
+</ul>
 
 <h2 id="readings-and-resources">Readings and Resources</h2>
+<ul>
+  <li><a href="http://research.google.com/archive/chubby.html">Google Chubby</a></li>
+  <li><a href="http://zookeeper.apache.org/">Apache Zookeeper</a></li>
+</ul>
 
 <h2 id="video-lecture-notes-1">Video Lecture Notes</h2>
+
+<h3 id="6-1-1-what-is-global-snapshot">6-1-1 What is Global Snapshot</h3>
+<ul>
+  <li>Distributed Snapshot
+    <ul>
+      <li>More often, each country’s representative is sitting in their respective capital, and sending messages to each other (say emails)</li>
+      <li>How do you calculate a “global snapshot” in that DS ?</li>
+      <li>what does a “global snapshot” even mean?</li>
+    </ul>
+  </li>
+  <li>In the Cloud
+    <ul>
+      <li>each application or service is running on multiple servers</li>
+      <li>servers handling concurrent events and interacting with each other</li>
+      <li>the ability to obtain a “global photograph” of the system is important</li>
+      <li>some uses of having a global picture of the system
+        <ul>
+          <li><strong class="highlighted">checkpointing</strong>: can restart distributed application on failure</li>
+          <li><strong class="highlighted">Garbage collection</strong> of objects: objecst at servers that don’t have any other objects (at any servers) with pointers to them</li>
+          <li><strong class="highlighted">Deadlock detection</strong>: useful in database transaction systems</li>
+          <li><strong class="highlighted">Termination of computation</strong>: useful in batch computing systems like Folding@Home, SETI@Home</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>What’s a global snapshot?
+    <ul>
+      <li>Global snapshot = global state = individual state of each process in the DS + Individual state of each communication channel in the DS</li>
+      <li>Capture the instantaneous state of each process</li>
+      <li>And the instantaneous state of each communication channel, ie messages in transit on the channels</li>
+    </ul>
+  </li>
+  <li>Obvious first solution
+    <ul>
+      <li>Synchronize clocks of all processes</li>
+      <li>ask all processes to record their states at known time t</li>
+      <li>Problems?
+        <ul>
+          <li>time synchronization always has error
+            <ul>
+              <li>your bank might inform you, “we lost the state of our distritbuted cluster due to a 1 ms clock skew in our snapshot algorithm”</li>
+            </ul>
+          </li>
+          <li>also, does not record the state of messages in the channels</li>
+        </ul>
+      </li>
+      <li>again: synchronization not reuired – causality is enough!</li>
+      <li>Why does time synchronization not work as a way to calculate a global snapshot in a distributed system? (select all correct answers)
+        <ul>
+          <li>time sync is inaccurate</li>
+          <li>it may not capture channel states</li>
+          <li>
+            <s>it may not capture process states</s>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Moving from state to state
+    <ul>
+      <li>whenever an event happens anywhere in the system, the global state changes
+        <ul>
+          <li>process receives message</li>
+          <li>process sends message</li>
+          <li>process takes a step</li>
+        </ul>
+      </li>
+      <li>state to state movement obeys causality
+        <ul>
+          <li>next: causal algorithm for global snapshot</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="6-1-2-glboal-snapshot-algorithm">6-1-2 Glboal snapshot algorithm</h3>
+<ul>
+  <li>System model
+    <ul>
+      <li>Problem: record a global snapshot (state for each process, and state for each channel)</li>
+      <li>System model:
+        <ul>
+          <li>N processes in the system</li>
+          <li>there are two uni-directional communication channels between each ordered process pair: Pj –&gt; Pi and Pi –&gt; Pj</li>
+          <li>Communication channels are FIFO-ordered</li>
+          <li>No failure</li>
+          <li>All messages arrive intact, and are not duplicated
+            <ul>
+              <li>other papers later relaxed some of these assumptions</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Requirements
+    <ul>
+      <li>snapshot should not interfere with normal application actions, and it should not require application to stop sending messages</li>
+      <li>Each process is able to record its own state
+        <ul>
+          <li>process state: applicaiton-defined state or, in the worst case:</li>
+          <li>its heap, registers, program counter, code, etc (essentially the coredump)</li>
+        </ul>
+      </li>
+      <li>Global state is collected in a distributed manner</li>
+      <li>Any process may initiate the snapshot
+        <ul>
+          <li>We’ll assume just one snapshot run for now</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Chandy-Lamport global snapshot algorithm
+    <ul>
+      <li>first, initiator Pi records its own state</li>
+      <li>initiator process creates special messages called “Marker” messages
+        <ul>
+          <li>not an application message, does not interfere with application messages</li>
+        </ul>
+      </li>
+      <li>for j=1 to N except i
+        <ul>
+          <li>Pi sends out a Marker message on outgoing channel Cij</li>
+          <li>N-1 channels</li>
+        </ul>
+      </li>
+      <li>Starts recording the incoming messages on each of the incoming channels at Pi: Cji (for j= 1 to N except i)</li>
+      <li>Whenever a process Pi receives a Marker message on an incoming channel Cki
+        <ul>
+          <li>if (this is the first Marker Pi is seeing)
+            <ul>
+              <li>Pi records its own state first</li>
+              <li>Marks the state of channel Cki as “empty”</li>
+              <li>for j = 1 to N except i
+                <ul>
+                  <li>Pi sends out a Marker message on outgoing channel Cij</li>
+                </ul>
+              </li>
+              <li>Starts recording the incoming messages on each of the incoming channels at Pi: Cji (for j = 1 to N except i and k)</li>
+            </ul>
+          </li>
+          <li>else // already seen a Marker message
+            <ul>
+              <li>Mark the state of channel Cki as all the messages that have arrived on it since recording was turned on for Cki</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>The algorithm terminates when
+        <ul>
+          <li>All processes have received a Marker
+            <ul>
+              <li>to record their own state</li>
+            </ul>
+          </li>
+          <li>all processes have received a Marker on all the (N-1) incoming channels at each
+            <ul>
+              <li>to record the state of all channels</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Then, if needed, a central server collects all these partial state pieces to obtain the full global snapshot.</li>
+      <li>Which of the following does a process NOT do when it receives its first marker message?
+        <ul>
+          <li>
+            <s>Starts recording the state of some incoming channels</s>
+          </li>
+          <li>Starts recording the state of some outgoing channels</li>
+          <li>
+            <s>Records its own state</s>
+          </li>
+          <li>
+            <s>Marks the state of the incoming channel as empty</s>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="6-1-3-consistent-cuts">6-1-3 Consistent cuts</h3>
+<ul>
+  <li>Cuts
+    <ul>
+      <li>cut = time frontier at each process and at each channel</li>
+      <li>events at the process/channel that happen before the cut are “in the cut”
+        <ul>
+          <li>and happening after the cut are “out of the cut”</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Consistent cuts
+    <ul>
+      <li>a cut that obeys causality</li>
+      <li>a cut C is a consistent cut iff for (each pair of events e, f in the system)</li>
+      <li>such that event e is in the cut C, and if f –&gt; e (f happens-before e)
+        <ul>
+          <li>then: event f is also in the cut C</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/images/20181007/CS425-wk6-img-1.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-2.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Any run of the Chandy-Lamport Global snapshot algorithm creates a consistent cut</li>
+</ul>
+
+<p><img src="/assets/images/20181007/CS425-wk6-img-3.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-4.png" alt="img" class="center-image" /></p>
+
+<h3 id="6-1-4-safety-and-liveness">6-1-4 Safety and liveness</h3>
+
+<ul>
+  <li>Correctness in DS
+    <ul>
+      <li>can be seen in two ways</li>
+      <li>liveness and safety</li>
+      <li>often confused – it’s important to distinguish from each other.</li>
+    </ul>
+  </li>
+  <li>liveness
+    <ul>
+      <li>guarantee that something good will happen, eventually, meaning if you let the system run long enough, then</li>
+      <li>Examples in real world
+        <ul>
+          <li>guarantee that “at least one of the atheletes in the 100m final will win gold” is liveness</li>
+          <li>a criminal will eventually be jailed</li>
+        </ul>
+      </li>
+      <li>Examples in a DS
+        <ul>
+          <li>distributed computation: Guarantee that it will terminate</li>
+          <li>“Completeness” in failure detectors: every failure is eventually detected by some non-faulty process</li>
+          <li>In consensus: all processes eventually decide on a value</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Safety
+    <ul>
+      <li>guarantee that something bad will never happen</li>
+      <li>examples in real world
+        <ul>
+          <li>a peace treaty between two nations provides safety
+            <ul>
+              <li>war will never happen</li>
+            </ul>
+          </li>
+          <li>an innocent person will never be jailed</li>
+        </ul>
+      </li>
+      <li>examples in DS:
+        <ul>
+          <li>There is no deadlock in a distributed transaction system</li>
+          <li>No object is orphaned in a distributed object system</li>
+          <li>“Accuracy” in failure detectors</li>
+          <li>in consensus: no two processes decide on different values</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Can we guarantee both?
+    <ul>
+      <li>Can be difficult to satisfy both liveness and safety in an asynchronous DS!
+        <ul>
+          <li>failure detector: completeness (liveness) and accuracy (safety) cannot both be guaranteed by a failure detector in an asynchronous DS</li>
+          <li>Consensus: Decisions (liveness) and correct decisions (Safety) cannot both be guaranteed by any consensus protocol in an asynchronous DS</li>
+          <li>Very difficult for legal systems (anywhere in the world) to guaranteed that all criminals are jailed (liveness) and no innocents are jailed (safety)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>In the language of global states:
+    <ul>
+      <li>recall that a DS moves from one global state to another global state, via causal steps</li>
+      <li>liveness with respect to a property Pr in a given state S means
+        <ul>
+          <li>S satisfies Pr, or there is some causal path of global states from S to S’ where S’ satisfies Pr</li>
+        </ul>
+      </li>
+      <li>Safety with respect to a property Pr in a given state S means
+        <ul>
+          <li>S satisfies Pr, and all global states S’ reachable from S also satisfy Pr</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>using global snapshot algorithm
+    <ul>
+      <li>chandy-lamport algorithm can be used to detect global properties that are stable
+        <ul>
+          <li>stable = once true, stays true forever afterwards</li>
+        </ul>
+      </li>
+      <li>stable liveness examples
+        <ul>
+          <li>computation has terminated</li>
+        </ul>
+      </li>
+      <li>stable non-safety examples
+        <ul>
+          <li>there is a deadlock</li>
+          <li>an object is orphaned (no pointers point to it)</li>
+        </ul>
+      </li>
+      <li>all stable global properties can be detected using the Chandy-Lamport algorithm
+        <ul>
+          <li>due to its causal correctness</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Summary
+    <ul>
+      <li>the ability to calculate global snapshots in a DS is very important</li>
+      <li>but don’t want to interrupt running DS application</li>
+      <li>chandy-lamport algorithm calculates global snapshot</li>
+      <li>obeys causality (creates a consistent cut)</li>
+      <li>can be used to detect stable global properties</li>
+      <li>safety vs liveness</li>
+    </ul>
+  </li>
+</ul>
 
 <h1 id="cs-427-software-engineering">CS 427 Software Engineering</h1>
 
@@ -645,6 +1009,8 @@
                         <a href="/2018/09/30/MCS-Notes-Week-5" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 5 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
                     
                     
+                        <a href="/2018/10/17/MCS-Notes-Week-7" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 7 Notes" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
                   </div>
 
                   <br>
@@ -662,15 +1028,15 @@
   <h2>Recent Posts</h2>
   <ul>
     
+    <li><a href="/2018/10/17/MCS-Notes-Week-8">MCS 1st Semester Week 8 Notes</a></li>
+    
+    <li><a href="/2018/10/17/MCS-Notes-Week-7">MCS 1st Semester Week 7 Notes</a></li>
+    
     <li><a href="/2018/10/07/MCS-Notes-Week-6">MCS 1st Semester Week 6 Notes</a></li>
     
     <li><a href="/2018/09/30/MCS-Notes-Week-5">MCS 1st Semester Week 5 Notes</a></li>
     
     <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
-    
-    <li><a href="/2018/09/13/MCS-Notes-Week-3">MCS 1st Semester Week 3 Notes</a></li>
-    
-    <li><a href="/2018/09/11/Scala-Spec-Pt-1-Wk-4">Scala Specialization Part 1 Week 4</a></li>
     
   </ul>
 </div>
@@ -681,7 +1047,7 @@
     
     
     <li>
-      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="6">
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="8">
         <span>UIUC-MCS</span></a></li>
     
     <li>

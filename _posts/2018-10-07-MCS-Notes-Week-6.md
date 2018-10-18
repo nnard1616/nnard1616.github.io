@@ -31,6 +31,10 @@ tags:
     * [Guiding Questions](#guiding-questions)
     * [Readings and Resources](#readings-and-resources)
     * [Video Lecture Notes](#video-lecture-notes)
+        * [6-1-1 What is Global Snapshot](#6-1-1-what-is-global-snapshot)
+        * [6-1-2 Glboal snapshot algorithm](#6-1-2-glboal-snapshot-algorithm)
+        * [6-1-3 Consistent cuts](#6-1-3-consistent-cuts)
+        * [6-1-4 Safety and liveness](#6-1-4-safety-and-liveness)
 * [CS 427 Software Engineering](#cs-427-software-engineering)
     * [Video Lecture Notes](#video-lecture-notes)
         * [5-1 Object-Oriented Modeling](#5-1-object-oriented-modeling)
@@ -249,14 +253,205 @@ tags:
 ---
 
 ## Goals 
+* Design an algorithm to calculate a distributed snapshot.
+* Assign FIFO/Causal/Total ordering to multicast messages.
+* Design a reliable multicast protocol.
+* Know the working of the industry-standard protocol called Paxos.
+* Know why consensus is hard to solve.
 
 ## Key Concepts
+* Global Snapshots
+* Multicast Ordering
+* Multicast Reliability
+* Paxos
+* Impossibility of Consensus
 
 ## Guiding Questions
+* What is the difference between a safety property and a liveness property?
+* How does the Chandy-Lamport algorithm work?
+* How do you assign FIFO/Causal timestamps to multicasts in a distributed system?
+* How does Paxos use quorums to ensure safety?
+* Why is consensus impossible to solve in asynchronous systems?
 
 ## Readings and Resources
+* [Google Chubby](http://research.google.com/archive/chubby.html)
+* [Apache Zookeeper](http://zookeeper.apache.org/)
 
 ## Video Lecture Notes
+
+### 6-1-1 What is Global Snapshot
+* Distributed Snapshot
+    * More often, each country's representative is sitting in their respective capital, and sending messages to each other (say emails)
+    * How do you calculate a "global snapshot" in that DS ?
+    * what does a "global snapshot" even mean?
+
+* In the Cloud
+    * each application or service is running on multiple servers
+    * servers handling concurrent events and interacting with each other 
+    * the ability to obtain a "global photograph" of the system is important
+    * some uses of having a global picture of the system
+        * **checkpointing**{:.highlighted}: can restart distributed application on failure
+        * **Garbage collection**{:.highlighted} of objects: objecst at servers that don't have any other objects (at any servers) with pointers to them
+        * **Deadlock detection**{:.highlighted}: useful in database transaction systems
+        * **Termination of computation**{:.highlighted}: useful in batch computing systems like Folding@Home, SETI@Home
+
+* What's a global snapshot?
+    * Global snapshot = global state = individual state of each process in the DS + Individual state of each communication channel in the DS
+    * Capture the instantaneous state of each process
+    * And the instantaneous state of each communication channel, ie messages in transit on the channels
+
+* Obvious first solution
+    * Synchronize clocks of all processes 
+    * ask all processes to record their states at known time t
+    * Problems?
+        * time synchronization always has error
+            * your bank might inform you, "we lost the state of our distritbuted cluster due to a 1 ms clock skew in our snapshot algorithm"
+        * also, does not record the state of messages in the channels
+    * again: synchronization not reuired -- causality is enough!
+    * Why does time synchronization not work as a way to calculate a global snapshot in a distributed system? (select all correct answers)
+        * time sync is inaccurate
+        * it may not capture channel states
+        * <s>it may not capture process states</s>
+
+* Moving from state to state
+    * whenever an event happens anywhere in the system, the global state changes
+        * process receives message
+        * process sends message
+        * process takes a step
+    * state to state movement obeys causality
+        * next: causal algorithm for global snapshot
+
+### 6-1-2 Glboal snapshot algorithm
+* System model
+    * Problem: record a global snapshot (state for each process, and state for each channel)
+    * System model:
+        * N processes in the system
+        * there are two uni-directional communication channels between each ordered process pair: Pj --> Pi and Pi --> Pj
+        * Communication channels are FIFO-ordered
+        * No failure
+        * All messages arrive intact, and are not duplicated
+            * other papers later relaxed some of these assumptions
+
+* Requirements
+    * snapshot should not interfere with normal application actions, and it should not require application to stop sending messages
+    * Each process is able to record its own state
+        * process state: applicaiton-defined state or, in the worst case:
+        * its heap, registers, program counter, code, etc (essentially the coredump)
+    * Global state is collected in a distributed manner
+    * Any process may initiate the snapshot
+        * We'll assume just one snapshot run for now
+
+* Chandy-Lamport global snapshot algorithm
+    * first, initiator Pi records its own state
+    * initiator process creates special messages called "Marker" messages
+        * not an application message, does not interfere with application messages
+    * for j=1 to N except i
+        * Pi sends out a Marker message on outgoing channel Cij
+        * N-1 channels
+    * Starts recording the incoming messages on each of the incoming channels at Pi: Cji (for j= 1 to N except i)
+    *  Whenever a process Pi receives a Marker message on an incoming channel Cki
+        * if (this is the first Marker Pi is seeing)
+            * Pi records its own state first
+            * Marks the state of channel Cki as "empty"
+            * for j = 1 to N except i
+                * Pi sends out a Marker message on outgoing channel Cij
+            * Starts recording the incoming messages on each of the incoming channels at Pi: Cji (for j = 1 to N except i and k)
+        * else // already seen a Marker message
+            * Mark the state of channel Cki as all the messages that have arrived on it since recording was turned on for Cki
+    * The algorithm terminates when 
+        * All processes have received a Marker
+            * to record their own state
+        * all processes have received a Marker on all the (N-1) incoming channels at each 
+            * to record the state of all channels
+    * Then, if needed, a central server collects all these partial state pieces to obtain the full global snapshot.
+    * Which of the following does a process NOT do when it receives its first marker message?
+        * <s>Starts recording the state of some incoming channels</s>
+        * Starts recording the state of some outgoing channels
+        * <s>Records its own state</s>
+        * <s>Marks the state of the incoming channel as empty</s>
+
+### 6-1-3 Consistent cuts
+* Cuts
+    * cut = time frontier at each process and at each channel
+    * events at the process/channel that happen before the cut are "in the cut"
+        * and happening after the cut are "out of the cut"
+
+* Consistent cuts
+    * a cut that obeys causality
+    * a cut C is a consistent cut iff for (each pair of events e, f in the system)
+    * such that event e is in the cut C, and if f --> e (f happens-before e)
+        * then: event f is also in the cut C
+
+![img]({{ '/assets/images/20181007/CS425-wk6-img-1.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-2.png' | relative_url }}){: .center-image }
+
+* Any run of the Chandy-Lamport Global snapshot algorithm creates a consistent cut
+
+
+![img]({{ '/assets/images/20181007/CS425-wk6-img-3.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-4.png' | relative_url }}){: .center-image }
+
+### 6-1-4 Safety and liveness
+
+* Correctness in DS
+    * can be seen in two ways
+    * liveness and safety
+    * often confused -- it's important to distinguish from each other.
+
+* liveness
+    * guarantee that something good will happen, eventually, meaning if you let the system run long enough, then
+    * Examples in real world
+        * guarantee that "at least one of the atheletes in the 100m final will win gold" is liveness
+        * a criminal will eventually be jailed
+    * Examples in a DS
+        * distributed computation: Guarantee that it will terminate
+        * "Completeness" in failure detectors: every failure is eventually detected by some non-faulty process
+        * In consensus: all processes eventually decide on a value
+
+* Safety
+    * guarantee that something bad will never happen
+    * examples in real world
+        *  a peace treaty between two nations provides safety
+            * war will never happen
+        * an innocent person will never be jailed
+    * examples in DS:
+        * There is no deadlock in a distributed transaction system
+        * No object is orphaned in a distributed object system
+        * "Accuracy" in failure detectors
+        * in consensus: no two processes decide on different values
+
+* Can we guarantee both?
+    * Can be difficult to satisfy both liveness and safety in an asynchronous DS!
+        * failure detector: completeness (liveness) and accuracy (safety) cannot both be guaranteed by a failure detector in an asynchronous DS
+        * Consensus: Decisions (liveness) and correct decisions (Safety) cannot both be guaranteed by any consensus protocol in an asynchronous DS
+        * Very difficult for legal systems (anywhere in the world) to guaranteed that all criminals are jailed (liveness) and no innocents are jailed (safety)
+
+* In the language of global states:
+    * recall that a DS moves from one global state to another global state, via causal steps
+    * liveness with respect to a property Pr in a given state S means
+        * S satisfies Pr, or there is some causal path of global states from S to S' where S' satisfies Pr
+    * Safety with respect to a property Pr in a given state S means
+        * S satisfies Pr, and all global states S' reachable from S also satisfy Pr
+
+* using global snapshot algorithm
+    * chandy-lamport algorithm can be used to detect global properties that are stable
+        * stable = once true, stays true forever afterwards
+    * stable liveness examples
+        * computation has terminated
+    * stable non-safety examples
+        * there is a deadlock
+        * an object is orphaned (no pointers point to it)
+    * all stable global properties can be detected using the Chandy-Lamport algorithm
+        * due to its causal correctness
+    
+* Summary
+    * the ability to calculate global snapshots in a DS is very important
+    * but don't want to interrupt running DS application
+    * chandy-lamport algorithm calculates global snapshot
+    * obeys causality (creates a consistent cut)
+    * can be used to detect stable global properties
+    * safety vs liveness
+
 
 # CS 427 Software Engineering
 

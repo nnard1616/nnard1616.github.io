@@ -409,7 +409,7 @@ tags:
     * Some options:
         * **SimpleSnitch**{:.highlighted}: Unaware of Topology (rack-unaware)
         * **RackInferring**{:.highlighted}: Assumes topology of network by octet of server's IP address
-            * 101-102-103-104 = x.<DC octet>.<rack octet>.<node octet>
+            * 101-102-103-104 = x.\<DC octet\>.\<rack octet\>.\<node octet\>
         * **PropertyFileSnitch**{:.highlighted}: uses a config file
         * **EC2Snitch**{:.highlighted}: uses EC2
             * EC2 Region = DC
