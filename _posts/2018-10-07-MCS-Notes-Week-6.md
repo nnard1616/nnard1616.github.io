@@ -35,6 +35,11 @@ tags:
         * [6-1-2 Glboal snapshot algorithm](#6-1-2-glboal-snapshot-algorithm)
         * [6-1-3 Consistent cuts](#6-1-3-consistent-cuts)
         * [6-1-4 Safety and liveness](#6-1-4-safety-and-liveness)
+        * [6-2-1 Multicast ordering](#6-2-1-multicast-ordering)
+        * [6-2-2 Implementing Multicast Ordering 1](#6-2-2-implementing-multicast-ordering-1)
+        * [6-2-3 Implementing Multicast Ordering 2](#6-2-3-implementing-multicast-ordering-2)
+        * [6-2-4 Reliable Multicast](#6-2-4-reliable-multicast)
+        * [6-2-5 Virtual Synchrony](#6-2-5-virtual-synchrony)
 * [CS 427 Software Engineering](#cs-427-software-engineering)
     * [Video Lecture Notes](#video-lecture-notes)
         * [5-1 Object-Oriented Modeling](#5-1-object-oriented-modeling)
@@ -451,6 +456,63 @@ tags:
     * obeys causality (creates a consistent cut)
     * can be used to detect stable global properties
     * safety vs liveness
+
+### 6-2-1 Multicast ordering
+
+![img]({{ '/assets/images/20181007/CS425-wk6-img-5.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-6.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-7.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-8.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-9.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-10.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-11.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-12.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-13.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-14.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-15.png' | relative_url }}){: .center-image }
+
+### 6-2-2 Implementing Multicast Ordering 1
+
+![img]({{ '/assets/images/20181007/CS425-wk6-img-16.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-17.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-18.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-19.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-20.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-21.png' | relative_url }}){: .center-image }
+
+### 6-2-3 Implementing Multicast Ordering 2
+
+![img]({{ '/assets/images/20181007/CS425-wk6-img-22.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-23.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-24.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-25.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-26.png' | relative_url }}){: .center-image }
+
+### 6-2-4 Reliable Multicast
+
+![img]({{ '/assets/images/20181007/CS425-wk6-img-27.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-28.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-29.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-30.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-31.png' | relative_url }}){: .center-image }
+
+### 6-2-5 Virtual Synchrony
+
+![img]({{ '/assets/images/20181007/CS425-wk6-img-32.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-33.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-34.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-35.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-36.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-37.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-38.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-39.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-40.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-41.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-42.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-43.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-44.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-45.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-46.png' | relative_url }}){: .center-image }
 
 
 # CS 427 Software Engineering

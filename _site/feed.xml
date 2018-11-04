@@ -217,6 +217,11 @@
           &lt;li&gt;&lt;a href=&quot;#6-1-2-glboal-snapshot-algorithm&quot;&gt;6-1-2 Glboal snapshot algorithm&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href=&quot;#6-1-3-consistent-cuts&quot;&gt;6-1-3 Consistent cuts&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href=&quot;#6-1-4-safety-and-liveness&quot;&gt;6-1-4 Safety and liveness&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-2-1-multicast-ordering&quot;&gt;6-2-1 Multicast ordering&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-2-2-implementing-multicast-ordering-1&quot;&gt;6-2-2 Implementing Multicast Ordering 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-2-3-implementing-multicast-ordering-2&quot;&gt;6-2-3 Implementing Multicast Ordering 2&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-2-4-reliable-multicast&quot;&gt;6-2-4 Reliable Multicast&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-2-5-virtual-synchrony&quot;&gt;6-2-5 Virtual Synchrony&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
@@ -955,6 +960,63 @@
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&quot;6-2-1-multicast-ordering&quot;&gt;6-2-1 Multicast ordering&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-9.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-11.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-13.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-14.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-15.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-2-2-implementing-multicast-ordering-1&quot;&gt;6-2-2 Implementing Multicast Ordering 1&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-16.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-17.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-18.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-19.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-20.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-21.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-2-3-implementing-multicast-ordering-2&quot;&gt;6-2-3 Implementing Multicast Ordering 2&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-22.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-23.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-24.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-25.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-26.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-2-4-reliable-multicast&quot;&gt;6-2-4 Reliable Multicast&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-27.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-28.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-29.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-30.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-31.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-2-5-virtual-synchrony&quot;&gt;6-2-5 Virtual Synchrony&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-32.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-33.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-34.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-35.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-36.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-37.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-38.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-39.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-40.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-41.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-42.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-43.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-44.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-45.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-46.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
 
