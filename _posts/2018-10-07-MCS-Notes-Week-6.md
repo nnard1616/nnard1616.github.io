@@ -40,6 +40,10 @@ tags:
         * [6-2-3 Implementing Multicast Ordering 2](#6-2-3-implementing-multicast-ordering-2)
         * [6-2-4 Reliable Multicast](#6-2-4-reliable-multicast)
         * [6-2-5 Virtual Synchrony](#6-2-5-virtual-synchrony)
+        * [6-3-1 The Consensus Problem](#6-3-1-the-consensus-problem)
+        * [6-3-2 Consensus in Synchronous Systems](#6-3-2-consensus-in-synchronous-systems)
+        * [6-3-3 Paxos put Simply](#6-3-3-paxos-put-simply)
+        * [6-3-4 The FLP Proof](#6-3-4-the-flp-proof)
 * [CS 427 Software Engineering](#cs-427-software-engineering)
     * [Video Lecture Notes](#video-lecture-notes)
         * [5-1 Object-Oriented Modeling](#5-1-object-oriented-modeling)
@@ -513,6 +517,66 @@ tags:
 ![img]({{ '/assets/images/20181007/CS425-wk6-img-44.png' | relative_url }}){: .center-image }
 ![img]({{ '/assets/images/20181007/CS425-wk6-img-45.png' | relative_url }}){: .center-image }
 ![img]({{ '/assets/images/20181007/CS425-wk6-img-46.png' | relative_url }}){: .center-image }
+
+### 6-3-1 The Consensus Problem
+
+![img]({{ '/assets/images/20181007/CS425-wk6-img-47.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-48.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-49.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-50.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-51.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-52.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-53.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-54.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-55.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-56.png' | relative_url }}){: .center-image }
+
+### 6-3-2 Consensus in Synchronous Systems
+
+![img]({{ '/assets/images/20181007/CS425-wk6-img-57.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-58.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-59.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-60.png' | relative_url }}){: .center-image }
+
+### 6-3-3 Paxos put Simply
+
+
+![img]({{ '/assets/images/20181007/CS425-wk6-img-61.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-62.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-63.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-64.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-65.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-66.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-67.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-68.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-69.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-70.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-71.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-72.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-73.png' | relative_url }}){: .center-image }
+
+### 6-3-4 The FLP Proof
+
+![img]({{ '/assets/images/20181007/CS425-wk6-img-74.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-75.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-76.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-77.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-78.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-79.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-80.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-81.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-82.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-83.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-84.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-85.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-86.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-87.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-88.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-89.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-90.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-91.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-92.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181007/CS425-wk6-img-93.png' | relative_url }}){: .center-image }
 
 
 # CS 427 Software Engineering

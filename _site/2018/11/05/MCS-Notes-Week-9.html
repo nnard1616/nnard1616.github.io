@@ -1,0 +1,602 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | MCS 1st Semester Week 9 Notes </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/11/05/MCS-Notes-Week-9">MCS 1st Semester Week 9 Notes</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>05 Nov 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/UIUC-MCS">UIUC-MCS</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/10/17/MCS-Notes-Week-8" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 8 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <!-- vim-markdown-toc Redcarpet -->
+
+<ul>
+  <li><a href="#cs-410-text-information-systems">CS 410 Text Information Systems</a>
+    <ul>
+      <li><a href="#goals-and-objectives">Goals and Objectives</a></li>
+      <li><a href="#guiding-questions">Guiding Questions</a></li>
+      <li><a href="#additional-readings-and-resources">Additional Readings and Resources</a></li>
+      <li><a href="#key-phrases-and-concepts">Key Phrases and Concepts</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a></li>
+    </ul>
+  </li>
+  <li><a href="#cs-425-distributed-systems">CS 425 Distributed Systems</a>
+    <ul>
+      <li><a href="#goals">Goals</a></li>
+      <li><a href="#key-concepts">Key Concepts</a></li>
+      <li><a href="#guiding-questions">Guiding Questions</a></li>
+      <li><a href="#readings-and-resources">Readings and Resources</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a>
+        <ul>
+          <li><a href="#9-1-1-the-election-problem">9-1-1 The Election Problem</a></li>
+          <li><a href="#9-1-2-ring-leader-election">9-1-2 Ring Leader Election</a></li>
+          <li><a href="#9-1-3-election-in-chubby">9-1-3 Election in Chubby</a></li>
+          <li><a href="#9-1-4-bully-algorithm">9-1-4 Bully Algorithm</a></li>
+          <li><a href="#9-2-1-introduction-and-basics">9-2-1 Introduction and Basics</a></li>
+          <li><a href="#9-2-2-distributed-mutual-exclusion">9-2-2 Distributed Mutual Exclusion</a></li>
+          <li><a href="#9-2-3-ricart-agrawalas-algorithm">9-2-3 Ricart Agrawalas Algorithm</a></li>
+          <li><a href="#9-2-4-maekawas-algorithm-and-wrapup">9-2-4 Maekawas Algorithm and WrapUp</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#cs-427-software-engineering">CS 427 Software Engineering</a>
+    <ul>
+      <li><a href="#goals-and-objectives">Goals and Objectives</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a>
+        <ul>
+          <li><a href="#9-6-1-testing-overview">9-6-1 Testing Overview</a></li>
+          <li><a href="#9-6-2-test-cases">9-6-2 Test Cases</a></li>
+          <li><a href="#9-6-3-testing-activities">9-6-3 Testing Activities</a></li>
+          <li><a href="#9-6-4-relating-fault-and-failure">9-6-4 Relating Fault and Failure</a></li>
+          <li><a href="#9-6-5-black-box-testing">9-6-5 Black Box Testing</a></li>
+          <li><a href="#9-6-6-white-box-testing">9-6-6 White Box Testing</a></li>
+          <li><a href="#9-6-7-code-coverage">9-6-7 Code Coverage</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<!-- vim-markdown-toc -->
+
+<h1 id="cs-410-text-information-systems">CS 410 Text Information Systems</h1>
+
+<hr />
+
+<h2 id="goals-and-objectives">Goals and Objectives</h2>
+
+<h2 id="guiding-questions">Guiding Questions</h2>
+
+<h2 id="additional-readings-and-resources">Additional Readings and Resources</h2>
+
+<h2 id="key-phrases-and-concepts">Key Phrases and Concepts</h2>
+
+<h2 id="video-lecture-notes">Video Lecture Notes</h2>
+
+<h1 id="cs-425-distributed-systems">CS 425 Distributed Systems</h1>
+
+<hr />
+
+<h2 id="goals">Goals</h2>
+<ul>
+  <li>Design Leader Election algorithms including Ring algorithm and Bully algorithm.</li>
+  <li>Design Mutual Exclusion algorithms including Ricart-Agrawala’s algorithm and Maekawa’s algorithm.</li>
+  <li>Know the design of Leader Election used in industry systems: Google’s Chubby system and Apache Zookeeper.</li>
+  <li>Know how industry systems like Google’s Chubby support mutual exclusion.</li>
+</ul>
+
+<h2 id="key-concepts">Key Concepts</h2>
+<ul>
+  <li>Google Chubby Leader Election</li>
+  <li>Apache Zookeeper Leader Election</li>
+  <li>Ring Mutual Exclusion</li>
+  <li>Ricart-Agrawala’s Mutual Exclusion</li>
+  <li>Maekawa Mutual Exclusion</li>
+</ul>
+
+<h2 id="guiding-questions-1">Guiding Questions</h2>
+<ul>
+  <li>What are the safety and liveness conditions for Leader Election?</li>
+  <li>Why is Leader Election hard?</li>
+  <li>How long does the Ring Election algorithm take to complete?</li>
+  <li>How long does the Bully Election algorithm take to complete?</li>
+  <li>How does Google Chubby use quorums for election?</li>
+  <li>What are the safety and liveness conditions for Mutual Exclusion?</li>
+  <li>How do semaphores work?</li>
+  <li>How long does the Ring Mutual Exclusion algorithm take to complete?</li>
+  <li>How long does the Ricart-Agrawala’s algorithm take to complete?</li>
+  <li>Why is Maekawa’s algorithm “optimal”?</li>
+  <li>How does Google Chubby use quorums for mutual exclusion?</li>
+</ul>
+
+<h2 id="readings-and-resources">Readings and Resources</h2>
+<ul>
+  <li>(Optional, fun video) <a href="http://aws.amazon.com/training/intro_series/">Amazon Web Services (AWS) Training Videos</a></li>
+</ul>
+
+<h2 id="video-lecture-notes-1">Video Lecture Notes</h2>
+
+<h3 id="9-1-1-the-election-problem">9-1-1 The Election Problem</h3>
+
+<p><img src="/assets/images/20181105/CS425-wk9-img-1.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-2.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-3.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-4.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-5.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-6.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-7.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-1-2-ring-leader-election">9-1-2 Ring Leader Election</h3>
+
+<p><img src="/assets/images/20181105/CS425-wk9-img-8.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-9.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-10.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-11.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-12.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-13.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-14.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-15.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-16.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-17.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-18.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-19.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-20.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-21.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-22.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-23.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-24.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-1-3-election-in-chubby">9-1-3 Election in Chubby</h3>
+
+<p><img src="/assets/images/20181105/CS425-wk9-img-25.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-26.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-27.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-28.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-29.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-30.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-31.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-32.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-33.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-34.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-35.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-36.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-1-4-bully-algorithm">9-1-4 Bully Algorithm</h3>
+
+<p><img src="/assets/images/20181105/CS425-wk9-img-37.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-38.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-39.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-40.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-41.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-42.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-43.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-44.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-45.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-46.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-47.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-48.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-2-1-introduction-and-basics">9-2-1 Introduction and Basics</h3>
+
+<p><img src="/assets/images/20181105/CS425-wk9-img-49.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-50.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-51.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-52.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-53.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-54.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-55.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-56.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-57.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-58.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-2-2-distributed-mutual-exclusion">9-2-2 Distributed Mutual Exclusion</h3>
+
+<p><img src="/assets/images/20181105/CS425-wk9-img-59.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-60.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-61.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-62.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-63.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-64.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-65.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-66.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-67.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-68.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-69.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-70.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-71.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-72.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-2-3-ricart-agrawalas-algorithm">9-2-3 Ricart Agrawalas Algorithm</h3>
+
+<p><img src="/assets/images/20181105/CS425-wk9-img-73.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-74.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-75.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-76.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-77.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-78.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-79.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-80.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-81.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-82.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-83.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-2-4-maekawas-algorithm-and-wrapup">9-2-4 Maekawas Algorithm and WrapUp</h3>
+
+<p><img src="/assets/images/20181105/CS425-wk9-img-84.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-85.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-86.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-87.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-88.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-89.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-90.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-91.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-92.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-93.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-94.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-95.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-96.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-97.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-98.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS425-wk9-img-99.png" alt="img" class="center-image" /></p>
+
+<h1 id="cs-427-software-engineering">CS 427 Software Engineering</h1>
+
+<hr />
+
+<h2 id="goals-and-objectives-1">Goals and Objectives</h2>
+<ul>
+  <li>Explain what is validation and verification, respectively.</li>
+  <li>Classify a given activity into validation or verification.</li>
+  <li>Explain why conduct testing, who write tests, when to write tests, and when to run tests, respectively</li>
+  <li>Explain what a test case consists of</li>
+  <li>Explain when to use automated tests in contrast to manual tests, and when to use manual tests in contrast to automated tests.</li>
+  <li>Explain the purpose of the given kind of tests.</li>
+  <li>List the four types of testing activities, and explain their differences</li>
+  <li>List the type of knowledge needed by each of the four types of testing activities</li>
+  <li>Explain the differences between mistake, fault, erroro, and failure.</li>
+  <li>Classify a given case into mistake, fault, error, or failure</li>
+  <li>Explain the three conditions illustrated in the PIE model</li>
+  <li>Use the PIE model to explain why covering every statement in the software under test is necessary</li>
+  <li>Use the PIE model to explain why even covering every statement in the software under test is not sufficient.</li>
+  <li>Conduct equivalence partitioning given requirements</li>
+  <li>Conduct boundary value analysis given requirements</li>
+  <li>Conduct black-box testing given a program under test.</li>
+  <li>Explain the type of faults that black-box testing is good at detecting while white-box testing is not.</li>
+  <li>Explain the type of faults that white-box testing is good at detecting while black-box testing is not.</li>
+  <li>Explain differences between the given major types of code coverage</li>
+  <li>Measure code coverage of the given program under test by the given test input values with respect to the given type of code coverage</li>
+  <li>Generate test input values to achieve 100% coverage of the given program under test with respect to the given type of code coverage.</li>
+</ul>
+
+<h2 id="video-lecture-notes-2">Video Lecture Notes</h2>
+
+<h3 id="9-6-1-testing-overview">9-6-1 Testing Overview</h3>
+<ul>
+  <li>Can write tests pretty much at any point in the Waterfall design cycle.</li>
+</ul>
+
+<p><img src="/assets/images/20181105/CS427-wk9-img-1.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-2.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-3.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-4.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-6-2-test-cases">9-6-2 Test Cases</h3>
+
+<p><img src="/assets/images/20181105/CS427-wk9-img-5.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-6.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-7.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-8.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-9.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-10.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-11.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-6-3-testing-activities">9-6-3 Testing Activities</h3>
+
+<p><img src="/assets/images/20181105/CS427-wk9-img-12.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-13.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-6-4-relating-fault-and-failure">9-6-4 Relating Fault and Failure</h3>
+
+<p><img src="/assets/images/20181105/CS427-wk9-img-14.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-15.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-16.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-17.png" alt="img" class="center-image" /></p>
+
+<ul>
+  <li>Fault: erroneous piece of code</li>
+  <li>Error: an unexpected result/output of code</li>
+  <li>Failure: crashes that occur as a result of bad code.</li>
+  <li><a href="https://www.cs.odu.edu/~mln/ltrs-pdfs/NASA-92-ieeeswe.jmv.pdf">see here for paper on PIE…</a></li>
+</ul>
+
+<h3 id="9-6-5-black-box-testing">9-6-5 Black Box Testing</h3>
+
+<p><img src="/assets/images/20181105/CS427-wk9-img-18.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-19.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-20.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-21.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-22.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-23.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-24.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-25.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-6-6-white-box-testing">9-6-6 White Box Testing</h3>
+
+<p><img src="/assets/images/20181105/CS427-wk9-img-26.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-27.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-28.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-6-7-code-coverage">9-6-7 Code Coverage</h3>
+
+<p><img src="/assets/images/20181105/CS427-wk9-img-29.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-30.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-31.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-32.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-33.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-34.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-35.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-36.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS427-wk9-img-37.png" alt="img" class="center-image" /></p>
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/10/17/MCS-Notes-Week-8" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 8 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/11/05/MCS-Notes-Week-9">MCS 1st Semester Week 9 Notes</a></li>
+    
+    <li><a href="/2018/10/17/MCS-Notes-Week-8">MCS 1st Semester Week 8 Notes</a></li>
+    
+    <li><a href="/2018/10/17/MCS-Notes-Week-7">MCS 1st Semester Week 7 Notes</a></li>
+    
+    <li><a href="/2018/10/07/MCS-Notes-Week-6">MCS 1st Semester Week 6 Notes</a></li>
+    
+    <li><a href="/2018/09/30/MCS-Notes-Week-5">MCS 1st Semester Week 5 Notes</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="9">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/11/05/MCS-Notes-Week-9";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

@@ -7,6 +7,344 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>MCS 1st Semester Week 9 Notes</title>
+				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals&quot;&gt;Goals&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#key-concepts&quot;&gt;Key Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#readings-and-resources&quot;&gt;Readings and Resources&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-1-1-the-election-problem&quot;&gt;9-1-1 The Election Problem&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-1-2-ring-leader-election&quot;&gt;9-1-2 Ring Leader Election&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-1-3-election-in-chubby&quot;&gt;9-1-3 Election in Chubby&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-1-4-bully-algorithm&quot;&gt;9-1-4 Bully Algorithm&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-2-1-introduction-and-basics&quot;&gt;9-2-1 Introduction and Basics&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-2-2-distributed-mutual-exclusion&quot;&gt;9-2-2 Distributed Mutual Exclusion&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-2-3-ricart-agrawalas-algorithm&quot;&gt;9-2-3 Ricart Agrawalas Algorithm&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-2-4-maekawas-algorithm-and-wrapup&quot;&gt;9-2-4 Maekawas Algorithm and WrapUp&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-6-1-testing-overview&quot;&gt;9-6-1 Testing Overview&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-6-2-test-cases&quot;&gt;9-6-2 Test Cases&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-6-3-testing-activities&quot;&gt;9-6-3 Testing Activities&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-6-4-relating-fault-and-failure&quot;&gt;9-6-4 Relating Fault and Failure&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-6-5-black-box-testing&quot;&gt;9-6-5 Black Box Testing&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-6-6-white-box-testing&quot;&gt;9-6-6 White Box Testing&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#9-6-7-code-coverage&quot;&gt;9-6-7 Code Coverage&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- vim-markdown-toc --&gt;
+
+&lt;h1 id=&quot;cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
+
+&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
+
+&lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
+
+&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
+
+&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h1 id=&quot;cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Design Leader Election algorithms including Ring algorithm and Bully algorithm.&lt;/li&gt;
+  &lt;li&gt;Design Mutual Exclusion algorithms including Ricart-Agrawala’s algorithm and Maekawa’s algorithm.&lt;/li&gt;
+  &lt;li&gt;Know the design of Leader Election used in industry systems: Google’s Chubby system and Apache Zookeeper.&lt;/li&gt;
+  &lt;li&gt;Know how industry systems like Google’s Chubby support mutual exclusion.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Google Chubby Leader Election&lt;/li&gt;
+  &lt;li&gt;Apache Zookeeper Leader Election&lt;/li&gt;
+  &lt;li&gt;Ring Mutual Exclusion&lt;/li&gt;
+  &lt;li&gt;Ricart-Agrawala’s Mutual Exclusion&lt;/li&gt;
+  &lt;li&gt;Maekawa Mutual Exclusion&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;What are the safety and liveness conditions for Leader Election?&lt;/li&gt;
+  &lt;li&gt;Why is Leader Election hard?&lt;/li&gt;
+  &lt;li&gt;How long does the Ring Election algorithm take to complete?&lt;/li&gt;
+  &lt;li&gt;How long does the Bully Election algorithm take to complete?&lt;/li&gt;
+  &lt;li&gt;How does Google Chubby use quorums for election?&lt;/li&gt;
+  &lt;li&gt;What are the safety and liveness conditions for Mutual Exclusion?&lt;/li&gt;
+  &lt;li&gt;How do semaphores work?&lt;/li&gt;
+  &lt;li&gt;How long does the Ring Mutual Exclusion algorithm take to complete?&lt;/li&gt;
+  &lt;li&gt;How long does the Ricart-Agrawala’s algorithm take to complete?&lt;/li&gt;
+  &lt;li&gt;Why is Maekawa’s algorithm “optimal”?&lt;/li&gt;
+  &lt;li&gt;How does Google Chubby use quorums for mutual exclusion?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;readings-and-resources&quot;&gt;Readings and Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;(Optional, fun video) &lt;a href=&quot;http://aws.amazon.com/training/intro_series/&quot;&gt;Amazon Web Services (AWS) Training Videos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;9-1-1-the-election-problem&quot;&gt;9-1-1 The Election Problem&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;9-1-2-ring-leader-election&quot;&gt;9-1-2 Ring Leader Election&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-9.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-11.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-13.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-14.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-15.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-16.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-17.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-18.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-19.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-20.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-21.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-22.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-23.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-24.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;9-1-3-election-in-chubby&quot;&gt;9-1-3 Election in Chubby&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-25.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-26.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-27.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-28.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-29.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-30.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-31.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-32.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-33.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-34.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-35.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-36.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;9-1-4-bully-algorithm&quot;&gt;9-1-4 Bully Algorithm&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-37.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-38.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-39.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-40.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-41.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-42.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-43.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-44.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-45.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-46.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-47.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-48.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;9-2-1-introduction-and-basics&quot;&gt;9-2-1 Introduction and Basics&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-49.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-50.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-51.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-52.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-53.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-54.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-55.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-56.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-57.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-58.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;9-2-2-distributed-mutual-exclusion&quot;&gt;9-2-2 Distributed Mutual Exclusion&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-59.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-60.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-61.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-62.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-63.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-64.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-65.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-66.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-67.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-68.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-69.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-70.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-71.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-72.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;9-2-3-ricart-agrawalas-algorithm&quot;&gt;9-2-3 Ricart Agrawalas Algorithm&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-73.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-74.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-75.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-76.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-77.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-78.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-79.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-80.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-81.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-82.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-83.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;9-2-4-maekawas-algorithm-and-wrapup&quot;&gt;9-2-4 Maekawas Algorithm and WrapUp&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-84.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-85.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-86.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-87.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-88.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-89.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-90.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-91.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-92.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-93.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-94.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-95.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-96.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-97.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-98.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS425-wk9-img-99.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals-and-objectives-1&quot;&gt;Goals and Objectives&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Explain what is validation and verification, respectively.&lt;/li&gt;
+  &lt;li&gt;Classify a given activity into validation or verification.&lt;/li&gt;
+  &lt;li&gt;Explain why conduct testing, who write tests, when to write tests, and when to run tests, respectively&lt;/li&gt;
+  &lt;li&gt;Explain what a test case consists of&lt;/li&gt;
+  &lt;li&gt;Explain when to use automated tests in contrast to manual tests, and when to use manual tests in contrast to automated tests.&lt;/li&gt;
+  &lt;li&gt;Explain the purpose of the given kind of tests.&lt;/li&gt;
+  &lt;li&gt;List the four types of testing activities, and explain their differences&lt;/li&gt;
+  &lt;li&gt;List the type of knowledge needed by each of the four types of testing activities&lt;/li&gt;
+  &lt;li&gt;Explain the differences between mistake, fault, erroro, and failure.&lt;/li&gt;
+  &lt;li&gt;Classify a given case into mistake, fault, error, or failure&lt;/li&gt;
+  &lt;li&gt;Explain the three conditions illustrated in the PIE model&lt;/li&gt;
+  &lt;li&gt;Use the PIE model to explain why covering every statement in the software under test is necessary&lt;/li&gt;
+  &lt;li&gt;Use the PIE model to explain why even covering every statement in the software under test is not sufficient.&lt;/li&gt;
+  &lt;li&gt;Conduct equivalence partitioning given requirements&lt;/li&gt;
+  &lt;li&gt;Conduct boundary value analysis given requirements&lt;/li&gt;
+  &lt;li&gt;Conduct black-box testing given a program under test.&lt;/li&gt;
+  &lt;li&gt;Explain the type of faults that black-box testing is good at detecting while white-box testing is not.&lt;/li&gt;
+  &lt;li&gt;Explain the type of faults that white-box testing is good at detecting while black-box testing is not.&lt;/li&gt;
+  &lt;li&gt;Explain differences between the given major types of code coverage&lt;/li&gt;
+  &lt;li&gt;Measure code coverage of the given program under test by the given test input values with respect to the given type of code coverage&lt;/li&gt;
+  &lt;li&gt;Generate test input values to achieve 100% coverage of the given program under test with respect to the given type of code coverage.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;video-lecture-notes-2&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;9-6-1-testing-overview&quot;&gt;9-6-1 Testing Overview&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Can write tests pretty much at any point in the Waterfall design cycle.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;9-6-2-test-cases&quot;&gt;9-6-2 Test Cases&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-9.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-11.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;9-6-3-testing-activities&quot;&gt;9-6-3 Testing Activities&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-13.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;9-6-4-relating-fault-and-failure&quot;&gt;9-6-4 Relating Fault and Failure&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-14.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-15.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-16.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-17.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fault: erroneous piece of code&lt;/li&gt;
+  &lt;li&gt;Error: an unexpected result/output of code&lt;/li&gt;
+  &lt;li&gt;Failure: crashes that occur as a result of bad code.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.cs.odu.edu/~mln/ltrs-pdfs/NASA-92-ieeeswe.jmv.pdf&quot;&gt;see here for paper on PIE…&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;9-6-5-black-box-testing&quot;&gt;9-6-5 Black Box Testing&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-18.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-19.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-20.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-21.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-22.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-23.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-24.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-25.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;9-6-6-white-box-testing&quot;&gt;9-6-6 White Box Testing&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-26.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-27.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-28.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;9-6-7-code-coverage&quot;&gt;9-6-7 Code Coverage&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-29.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-30.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-31.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-32.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-33.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-34.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-35.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-36.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181105/CS427-wk9-img-37.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Mon, 05 Nov 2018 00:00:00 -0600</pubDate>
+				<link>/2018/11/05/MCS-Notes-Week-9</link>
+				<guid isPermaLink="true">/2018/11/05/MCS-Notes-Week-9</guid>
+			</item>
+		
+			<item>
 				<title>MCS 1st Semester Week 8 Notes</title>
 				<description>&lt;h1 id=&quot;cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/h1&gt;
 
@@ -222,6 +560,10 @@
           &lt;li&gt;&lt;a href=&quot;#6-2-3-implementing-multicast-ordering-2&quot;&gt;6-2-3 Implementing Multicast Ordering 2&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href=&quot;#6-2-4-reliable-multicast&quot;&gt;6-2-4 Reliable Multicast&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href=&quot;#6-2-5-virtual-synchrony&quot;&gt;6-2-5 Virtual Synchrony&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-3-1-the-consensus-problem&quot;&gt;6-3-1 The Consensus Problem&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-3-2-consensus-in-synchronous-systems&quot;&gt;6-3-2 Consensus in Synchronous Systems&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-3-3-paxos-put-simply&quot;&gt;6-3-3 Paxos put Simply&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#6-3-4-the-flp-proof&quot;&gt;6-3-4 The FLP Proof&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
@@ -1017,6 +1359,65 @@
 &lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-44.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
 &lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-45.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
 &lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-46.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-3-1-the-consensus-problem&quot;&gt;6-3-1 The Consensus Problem&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-47.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-48.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-49.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-50.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-51.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-52.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-53.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-54.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-55.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-56.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-3-2-consensus-in-synchronous-systems&quot;&gt;6-3-2 Consensus in Synchronous Systems&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-57.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-58.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-59.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-60.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-3-3-paxos-put-simply&quot;&gt;6-3-3 Paxos put Simply&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-61.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-62.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-63.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-64.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-65.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-66.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-67.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-68.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-69.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-70.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-71.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-72.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-73.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-3-4-the-flp-proof&quot;&gt;6-3-4 The FLP Proof&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-74.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-75.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-76.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-77.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-78.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-79.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-80.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-81.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-82.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-83.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-84.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-85.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-86.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-87.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-88.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-89.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-90.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-91.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-92.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-93.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
 
@@ -4967,105 +5368,6 @@ Next slide should say “All-to-all gossip heartbeating”&lt;br /&gt;
 				<pubDate>Thu, 06 Sep 2018 00:00:00 -0500</pubDate>
 				<link>/2018/09/06/Scala-Spec-Pt-1-Wk-2</link>
 				<guid isPermaLink="true">/2018/09/06/Scala-Spec-Pt-1-Wk-2</guid>
-			</item>
-		
-			<item>
-				<title>Scala Specialization Part 1 Week 1</title>
-				<description>&lt;p&gt;&lt;img src=&quot;/assets/images/20180905/Scala-wk1-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-The first exercise was pretty simple.   Here is my solution:&lt;/p&gt;
-
-&lt;blockquote class=&quot;filename&quot;&gt;
-  &lt;p&gt;Scala&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-scala&quot; data-lang=&quot;scala&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pascal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180905/Scala-wk1-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-The second exercise was a little more challenging, but I was able to get it eventually, here is my solution:&lt;/p&gt;
-
-&lt;blockquote class=&quot;filename&quot;&gt;
-  &lt;p&gt;Scala&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-scala&quot; data-lang=&quot;scala&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;balance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chars&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Boolean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;acc&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chars&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chars&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isEmpty&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;acc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;acc&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chars&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'('&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;acc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chars&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chars&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;')'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;acc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chars&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;acc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chars&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chars&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180905/Scala-wk1-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-This was very challenging, so much so I was not able to come up with a functional solution.  After some research I was able to come up with an imperative solution:&lt;/p&gt;
-
-&lt;blockquote class=&quot;filename&quot;&gt;
-  &lt;p&gt;Scala&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-scala&quot; data-lang=&quot;scala&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;countChange&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;money&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coins&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;money&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;money&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coins&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;money&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;money&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-</description>
-				<pubDate>Wed, 05 Sep 2018 00:00:00 -0500</pubDate>
-				<link>/2018/09/05/Scala-Spec-Pt-1-Wk-1</link>
-				<guid isPermaLink="true">/2018/09/05/Scala-Spec-Pt-1-Wk-1</guid>
 			</item>
 		
 	</channel>

@@ -157,6 +157,10 @@
           <li><a href="#6-2-3-implementing-multicast-ordering-2">6-2-3 Implementing Multicast Ordering 2</a></li>
           <li><a href="#6-2-4-reliable-multicast">6-2-4 Reliable Multicast</a></li>
           <li><a href="#6-2-5-virtual-synchrony">6-2-5 Virtual Synchrony</a></li>
+          <li><a href="#6-3-1-the-consensus-problem">6-3-1 The Consensus Problem</a></li>
+          <li><a href="#6-3-2-consensus-in-synchronous-systems">6-3-2 Consensus in Synchronous Systems</a></li>
+          <li><a href="#6-3-3-paxos-put-simply">6-3-3 Paxos put Simply</a></li>
+          <li><a href="#6-3-4-the-flp-proof">6-3-4 The FLP Proof</a></li>
         </ul>
       </li>
     </ul>
@@ -953,6 +957,65 @@
 <img src="/assets/images/20181007/CS425-wk6-img-45.png" alt="img" class="center-image" /><br />
 <img src="/assets/images/20181007/CS425-wk6-img-46.png" alt="img" class="center-image" /></p>
 
+<h3 id="6-3-1-the-consensus-problem">6-3-1 The Consensus Problem</h3>
+
+<p><img src="/assets/images/20181007/CS425-wk6-img-47.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-48.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-49.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-50.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-51.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-52.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-53.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-54.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-55.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-56.png" alt="img" class="center-image" /></p>
+
+<h3 id="6-3-2-consensus-in-synchronous-systems">6-3-2 Consensus in Synchronous Systems</h3>
+
+<p><img src="/assets/images/20181007/CS425-wk6-img-57.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-58.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-59.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-60.png" alt="img" class="center-image" /></p>
+
+<h3 id="6-3-3-paxos-put-simply">6-3-3 Paxos put Simply</h3>
+
+<p><img src="/assets/images/20181007/CS425-wk6-img-61.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-62.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-63.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-64.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-65.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-66.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-67.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-68.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-69.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-70.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-71.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-72.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-73.png" alt="img" class="center-image" /></p>
+
+<h3 id="6-3-4-the-flp-proof">6-3-4 The FLP Proof</h3>
+
+<p><img src="/assets/images/20181007/CS425-wk6-img-74.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-75.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-76.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-77.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-78.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-79.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-80.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-81.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-82.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-83.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-84.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-85.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-86.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-87.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-88.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-89.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-90.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-91.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-92.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181007/CS425-wk6-img-93.png" alt="img" class="center-image" /></p>
+
 <h1 id="cs-427-software-engineering">CS 427 Software Engineering</h1>
 
 <hr />
@@ -1090,6 +1153,8 @@
   <h2>Recent Posts</h2>
   <ul>
     
+    <li><a href="/2018/11/05/MCS-Notes-Week-9">MCS 1st Semester Week 9 Notes</a></li>
+    
     <li><a href="/2018/10/17/MCS-Notes-Week-8">MCS 1st Semester Week 8 Notes</a></li>
     
     <li><a href="/2018/10/17/MCS-Notes-Week-7">MCS 1st Semester Week 7 Notes</a></li>
@@ -1097,8 +1162,6 @@
     <li><a href="/2018/10/07/MCS-Notes-Week-6">MCS 1st Semester Week 6 Notes</a></li>
     
     <li><a href="/2018/09/30/MCS-Notes-Week-5">MCS 1st Semester Week 5 Notes</a></li>
-    
-    <li><a href="/2018/09/19/MCS-Notes-Week-4">MCS 1st Semester Week 4 Notes</a></li>
     
   </ul>
 </div>
@@ -1109,7 +1172,7 @@
     
     
     <li>
-      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="8">
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="9">
         <span>UIUC-MCS</span></a></li>
     
     <li>
