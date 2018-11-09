@@ -485,19 +485,137 @@
 		
 			<item>
 				<title>MCS 1st Semester Week 7 Notes</title>
-				<description>&lt;h1 id=&quot;cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/h1&gt;
+				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#7-1-overview-text-mining-and-analytics-part-1&quot;&gt;7-1 Overview Text Mining and Analytics Part 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#7-2-overview-text-mining-and-analytics-part-2&quot;&gt;7-2 Overview Text Mining and Analytics Part 2&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#7-3-natural-language-content-analysis-part-1&quot;&gt;7-3 Natural Language Content Analysis Part 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#7-4-natural-language-content-analysis-part-2&quot;&gt;7-4 Natural Language Content Analysis Part 2&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#7-5-text-representation-part-1&quot;&gt;7-5 Text Representation Part 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#7-6-text-representation-part-2&quot;&gt;7-6 Text Representation Part 2&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#7-7-word-association-mining-and-analysis&quot;&gt;7-7 Word Association Mining and Analysis&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#7-8-paradigmatic-relation-discovery-part-1&quot;&gt;7-8 Paradigmatic Relation Discovery Part 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#7-9-paradigmatic-relation-discvery-part-2&quot;&gt;7-9 Paradigmatic Relation Discvery Part 2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- vim-markdown-toc --&gt;
+
+&lt;h1 id=&quot;cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/h1&gt;
 
 &lt;hr /&gt;
-&lt;p&gt;(under construction)&lt;/p&gt;
 &lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
+&lt;p&gt;Explain some basic concepts in natural language processing.&lt;br /&gt;
+Explain different ways to represent text data.&lt;br /&gt;
+Explain the two basic types of word associations and how to mine paradigmatic relations from text data.&lt;/p&gt;
 
 &lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
+&lt;p&gt;What does a computer have to do in order to understand a natural language sentence?&lt;br /&gt;
+What is ambiguity?&lt;br /&gt;
+Why is natural language processing (NLP) difficult for computers?&lt;br /&gt;
+What is bag-of-words representation?&lt;br /&gt;
+Why is this word-based representation more robust than representations derived from syntactic and semantic analysis of text?&lt;br /&gt;
+What is a paradigmatic relation?&lt;br /&gt;
+What is a syntagmatic relation?&lt;br /&gt;
+What is the general idea for discovering paradigmatic relations from text?&lt;br /&gt;
+What is the general idea for discovering syntagmatic relations from text?&lt;br /&gt;
+Why do we want to do Term Frequency Transformation when computing similarity of context?&lt;br /&gt;
+How does BM25 Term Frequency transformation work?&lt;br /&gt;
+Why do we want to do Inverse Document Frequency (IDF) weighting when computing similarity of context?&lt;/p&gt;
 
 &lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
+&lt;p&gt;C. Zhai and S. Massung, Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining. ACM and Morgan &amp;amp; Claypool Publishers, 2016. Chapters 1-4, Chapter 13.&lt;br /&gt;
+Chris Manning and Hinrich Schütze, Foundations of Statistical Natural Language Processing. MIT Press. Cambridge, MA: May 1999. Chapter 5 on collocations.&lt;br /&gt;
+Chengxiang Zhai, Exploiting context to identify lexical atoms: A statistical view of linguistic context. Proceedings of the International and Interdisciplinary Conference on Modelling and Using Context (CONTEXT-97), Rio de Janeiro, Brazil, Feb. 4-6, 1997, pp. 119-129.&lt;br /&gt;
+Shan Jiang and ChengXiang Zhai, Random walks on adjacency graphs for mining lexical relations from big text data. Proceedings of IEEE BigData Conference 2014, pp. 549-554.&lt;/p&gt;
 
 &lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
+&lt;p&gt;Part of speech tagging&lt;br /&gt;
+Syntactic analysis&lt;br /&gt;
+Semantic analysis&lt;br /&gt;
+Ambiguity&lt;br /&gt;
+Text representation, especially bag-of-words representation&lt;br /&gt;
+Context of a word; context similarity&lt;br /&gt;
+Paradigmatic relation&lt;br /&gt;
+Syntagmatic relation&lt;/p&gt;
 
 &lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;7-1-overview-text-mining-and-analytics-part-1&quot;&gt;7-1 Overview Text Mining and Analytics Part 1&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-001.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-002.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-003.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;7-2-overview-text-mining-and-analytics-part-2&quot;&gt;7-2 Overview Text Mining and Analytics Part 2&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-004.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-005.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;7-3-natural-language-content-analysis-part-1&quot;&gt;7-3 Natural Language Content Analysis Part 1&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-006.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-007.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-008.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-009.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;7-4-natural-language-content-analysis-part-2&quot;&gt;7-4 Natural Language Content Analysis Part 2&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-010.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-011.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;7-5-text-representation-part-1&quot;&gt;7-5 Text Representation Part 1&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-012.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;7-6-text-representation-part-2&quot;&gt;7-6 Text Representation Part 2&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-013.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-014.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;7-7-word-association-mining-and-analysis&quot;&gt;7-7 Word Association Mining and Analysis&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-015.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-016.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-017.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-018.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-019.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-020.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-021.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-022.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-023.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;7-8-paradigmatic-relation-discovery-part-1&quot;&gt;7-8 Paradigmatic Relation Discovery Part 1&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-024.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-025.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-026.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-027.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-028.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-029.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;7-9-paradigmatic-relation-discvery-part-2&quot;&gt;7-9 Paradigmatic Relation Discvery Part 2&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-030.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-031.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-032.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-033.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-034.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-035.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/h1&gt;
 

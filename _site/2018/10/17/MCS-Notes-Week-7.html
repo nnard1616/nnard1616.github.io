@@ -116,19 +116,137 @@
                   <br>
                   <div class="post-content">
                     <div id="toc" class="toc"></div>
-                    <h1 id="cs-410-text-information-systems">CS 410 Text Information Systems</h1>
+                    <!-- vim-markdown-toc Redcarpet -->
+
+<ul>
+  <li><a href="#cs-410-text-information-systems">CS 410 Text Information Systems</a>
+    <ul>
+      <li><a href="#goals-and-objectives">Goals and Objectives</a></li>
+      <li><a href="#guiding-questions">Guiding Questions</a></li>
+      <li><a href="#additional-readings-and-resources">Additional Readings and Resources</a></li>
+      <li><a href="#key-phrases-and-concepts">Key Phrases and Concepts</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a>
+        <ul>
+          <li><a href="#7-1-overview-text-mining-and-analytics-part-1">7-1 Overview Text Mining and Analytics Part 1</a></li>
+          <li><a href="#7-2-overview-text-mining-and-analytics-part-2">7-2 Overview Text Mining and Analytics Part 2</a></li>
+          <li><a href="#7-3-natural-language-content-analysis-part-1">7-3 Natural Language Content Analysis Part 1</a></li>
+          <li><a href="#7-4-natural-language-content-analysis-part-2">7-4 Natural Language Content Analysis Part 2</a></li>
+          <li><a href="#7-5-text-representation-part-1">7-5 Text Representation Part 1</a></li>
+          <li><a href="#7-6-text-representation-part-2">7-6 Text Representation Part 2</a></li>
+          <li><a href="#7-7-word-association-mining-and-analysis">7-7 Word Association Mining and Analysis</a></li>
+          <li><a href="#7-8-paradigmatic-relation-discovery-part-1">7-8 Paradigmatic Relation Discovery Part 1</a></li>
+          <li><a href="#7-9-paradigmatic-relation-discvery-part-2">7-9 Paradigmatic Relation Discvery Part 2</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#cs-425-distributed-systems">CS 425 Distributed Systems</a></li>
+  <li><a href="#cs-427-software-engineering">CS 427 Software Engineering</a></li>
+</ul>
+
+<!-- vim-markdown-toc -->
+
+<h1 id="cs-410-text-information-systems">CS 410 Text Information Systems</h1>
 
 <hr />
-<p>(under construction)</p>
 <h2 id="goals-and-objectives">Goals and Objectives</h2>
+<p>Explain some basic concepts in natural language processing.<br />
+Explain different ways to represent text data.<br />
+Explain the two basic types of word associations and how to mine paradigmatic relations from text data.</p>
 
 <h2 id="guiding-questions">Guiding Questions</h2>
+<p>What does a computer have to do in order to understand a natural language sentence?<br />
+What is ambiguity?<br />
+Why is natural language processing (NLP) difficult for computers?<br />
+What is bag-of-words representation?<br />
+Why is this word-based representation more robust than representations derived from syntactic and semantic analysis of text?<br />
+What is a paradigmatic relation?<br />
+What is a syntagmatic relation?<br />
+What is the general idea for discovering paradigmatic relations from text?<br />
+What is the general idea for discovering syntagmatic relations from text?<br />
+Why do we want to do Term Frequency Transformation when computing similarity of context?<br />
+How does BM25 Term Frequency transformation work?<br />
+Why do we want to do Inverse Document Frequency (IDF) weighting when computing similarity of context?</p>
 
 <h2 id="additional-readings-and-resources">Additional Readings and Resources</h2>
+<p>C. Zhai and S. Massung, Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining. ACM and Morgan &amp; Claypool Publishers, 2016. Chapters 1-4, Chapter 13.<br />
+Chris Manning and Hinrich Schütze, Foundations of Statistical Natural Language Processing. MIT Press. Cambridge, MA: May 1999. Chapter 5 on collocations.<br />
+Chengxiang Zhai, Exploiting context to identify lexical atoms: A statistical view of linguistic context. Proceedings of the International and Interdisciplinary Conference on Modelling and Using Context (CONTEXT-97), Rio de Janeiro, Brazil, Feb. 4-6, 1997, pp. 119-129.<br />
+Shan Jiang and ChengXiang Zhai, Random walks on adjacency graphs for mining lexical relations from big text data. Proceedings of IEEE BigData Conference 2014, pp. 549-554.</p>
 
 <h2 id="key-phrases-and-concepts">Key Phrases and Concepts</h2>
+<p>Part of speech tagging<br />
+Syntactic analysis<br />
+Semantic analysis<br />
+Ambiguity<br />
+Text representation, especially bag-of-words representation<br />
+Context of a word; context similarity<br />
+Paradigmatic relation<br />
+Syntagmatic relation</p>
 
 <h2 id="video-lecture-notes">Video Lecture Notes</h2>
+
+<h3 id="7-1-overview-text-mining-and-analytics-part-1">7-1 Overview Text Mining and Analytics Part 1</h3>
+
+<p><img src="/assets/images/20181017/CS410-wk7-img-001.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-002.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-003.png" alt="img" class="center-image" /></p>
+
+<h3 id="7-2-overview-text-mining-and-analytics-part-2">7-2 Overview Text Mining and Analytics Part 2</h3>
+
+<p><img src="/assets/images/20181017/CS410-wk7-img-004.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-005.png" alt="img" class="center-image" /></p>
+
+<h3 id="7-3-natural-language-content-analysis-part-1">7-3 Natural Language Content Analysis Part 1</h3>
+
+<p><img src="/assets/images/20181017/CS410-wk7-img-006.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-007.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-008.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-009.png" alt="img" class="center-image" /></p>
+
+<h3 id="7-4-natural-language-content-analysis-part-2">7-4 Natural Language Content Analysis Part 2</h3>
+
+<p><img src="/assets/images/20181017/CS410-wk7-img-010.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-011.png" alt="img" class="center-image" /></p>
+
+<h3 id="7-5-text-representation-part-1">7-5 Text Representation Part 1</h3>
+
+<p><img src="/assets/images/20181017/CS410-wk7-img-012.png" alt="img" class="center-image" /></p>
+
+<h3 id="7-6-text-representation-part-2">7-6 Text Representation Part 2</h3>
+
+<p><img src="/assets/images/20181017/CS410-wk7-img-013.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-014.png" alt="img" class="center-image" /></p>
+
+<h3 id="7-7-word-association-mining-and-analysis">7-7 Word Association Mining and Analysis</h3>
+
+<p><img src="/assets/images/20181017/CS410-wk7-img-015.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-016.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-017.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-018.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-019.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-020.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-021.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-022.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-023.png" alt="img" class="center-image" /></p>
+
+<h3 id="7-8-paradigmatic-relation-discovery-part-1">7-8 Paradigmatic Relation Discovery Part 1</h3>
+
+<p><img src="/assets/images/20181017/CS410-wk7-img-024.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-025.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-026.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-027.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-028.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-029.png" alt="img" class="center-image" /></p>
+
+<h3 id="7-9-paradigmatic-relation-discvery-part-2">7-9 Paradigmatic Relation Discvery Part 2</h3>
+
+<p><img src="/assets/images/20181017/CS410-wk7-img-030.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-031.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-032.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-033.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-034.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk7-img-035.png" alt="img" class="center-image" /></p>
 
 <h1 id="cs-425-distributed-systems">CS 425 Distributed Systems</h1>
 
