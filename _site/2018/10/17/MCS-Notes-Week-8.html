@@ -116,21 +116,227 @@
                   <br>
                   <div class="post-content">
                     <div id="toc" class="toc"></div>
-                    <h1 id="cs-410-text-information-systems">CS 410 Text Information Systems</h1>
+                    <!-- vim-markdown-toc Redcarpet -->
+
+<ul>
+  <li><a href="#cs-410-text-information-systems">CS 410 Text Information Systems</a>
+    <ul>
+      <li><a href="#goals-and-objectives">Goals and Objectives</a></li>
+      <li><a href="#guiding-questions">Guiding Questions</a></li>
+      <li><a href="#additional-readings-and-resources">Additional Readings and Resources</a></li>
+      <li><a href="#key-phrases-and-concepts">Key Phrases and Concepts</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a>
+        <ul>
+          <li><a href="#8-1-syntagmatic-relation-discovery">8-1 Syntagmatic Relation Discovery</a>
+            <ul>
+              <li><a href="#8-1-1-entropy">8-1-1 Entropy</a></li>
+              <li><a href="#8-1-2-conditional-entropy">8-1-2 Conditional Entropy</a></li>
+              <li><a href="#8-1-3-mutual-information-part-1">8-1-3 Mutual Information Part 1</a></li>
+              <li><a href="#8-1-4-mutual-information-part-2">8-1-4 Mutual Information Part 2</a></li>
+            </ul>
+          </li>
+          <li><a href="#8-2-topic-mining-and-analysis">8-2 Topic Mining and Analysis</a>
+            <ul>
+              <li><a href="#8-2-1-motivation-and-task-definition">8-2-1 Motivation and Task Definition</a></li>
+              <li><a href="#8-2-2-term-as-topic">8-2-2 Term as Topic</a></li>
+              <li><a href="#8-2-3-probabalistic-topic-models">8-2-3 Probabalistic Topic Models</a>
+                <ul>
+                  <li><a href="#8-2-3-1-overview-of-statistical-language-models-part-1">8-2-3-1 Overview of Statistical Language Models Part 1</a></li>
+                  <li><a href="#8-2-3-2-overview-of-statistical-language-models-part-2">8-2-3-2 Overview of Statistical Language Models Part 2</a></li>
+                  <li><a href="#8-2-3-3-mining-one-topic">8-2-3-3 Mining One Topic</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#cs-425-distributed-systems">CS 425 Distributed Systems</a></li>
+  <li><a href="#cs-427-software-engineering">CS 427 Software Engineering</a>
+    <ul>
+      <li><a href="#goals-and-objectives">Goals and Objectives</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a>
+        <ul>
+          <li><a href="#5-7-design-pattern">5-7 Design Pattern</a></li>
+          <li><a href="#5-8-observer-pattern">5-8 Observer Pattern</a></li>
+          <li><a href="#5-9-composite-pattern">5-9 Composite Pattern</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<!-- vim-markdown-toc -->
+
+<h1 id="cs-410-text-information-systems">CS 410 Text Information Systems</h1>
 
 <hr />
 
 <p>(under constructior construction)</p>
 
 <h2 id="goals-and-objectives">Goals and Objectives</h2>
+<ul>
+  <li>Explain some basic concepts in natural language processing and text information access.</li>
+  <li>Explain why text retrieval is often defined as a ranking problem.</li>
+  <li>Explain the basic idea of the vector space retrieval model and how to instantiate it with the simplest bit-vector representation.</li>
+</ul>
 
 <h2 id="guiding-questions">Guiding Questions</h2>
+<ul>
+  <li>What is entropy? For what kind of random variables does the entropy function reach its minimum and maximum, respectively?</li>
+  <li>What is conditional entropy?</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>What is the relation between conditional entropy H(X</td>
+          <td>Y) and entropy H(X)? Which is larger?</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>How can conditional entropy be used for discovering syntagmatic relations?</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>What is mutual information I(X;Y)? How is it related to entropy H(X) and conditional entropy H(X</td>
+          <td>Y)?</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>What’s the minimum value of I(X;Y)? Is it symmetric?</li>
+  <li>For what kind of X and Y, does mutual information I(X;Y) reach its minimum? For a given X, for what Y does I(X;Y) reach its maximum?</li>
+  <li>Why is mutual information sometimes more useful for discovering syntagmatic relations than conditional entropy?</li>
+  <li>What is a topic?</li>
+  <li>How can we define the task of topic mining and analysis computationally? What’s the input? What’s the output?</li>
+  <li>How can we heuristically solve the problem of topic mining and analysis by treating a term as a topic? What are the main problems of such an approach?</li>
+  <li>What are the benefits of representing a topic by a word distribution?</li>
+  <li>What is a statistical language model? What is a unigram language model? How can we compute the probability of a sequence of words given a unigram language model?</li>
+  <li>What is Maximum Likelihood estimate of a unigram language model given a text article?</li>
+  <li>What is the basic idea of Bayesian estimation? What is a prior distribution? What is a posterior distribution? How are they related with each other? What is Bayes rule?</li>
+</ul>
 
 <h2 id="additional-readings-and-resources">Additional Readings and Resources</h2>
+<ul>
+  <li>C. Zhai and S. Massung. Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining, ACM and Morgan &amp; Claypool Publishers, 2016. Chapters 13, 17.</li>
+</ul>
 
 <h2 id="key-phrases-and-concepts">Key Phrases and Concepts</h2>
+<ul>
+  <li>Entropy</li>
+  <li>Conditional entropy</li>
+  <li>Mutual information</li>
+  <li>Topic and coverage of topic</li>
+  <li>Language model</li>
+  <li>Generative model</li>
+  <li>Unigram language model</li>
+  <li>Word distribution</li>
+  <li>Background language model</li>
+  <li>Parameters of a probabilistic model</li>
+  <li>Likelihood</li>
+  <li>Bayes rule</li>
+  <li>Maximum likelihood estimation</li>
+  <li>Prior and posterior distributions</li>
+  <li>Bayesian estimation &amp; inference</li>
+  <li>Maximum a posteriori (MAP) estimate</li>
+  <li>Prior model</li>
+  <li>Posterior mode</li>
+</ul>
 
 <h2 id="video-lecture-notes">Video Lecture Notes</h2>
+
+<p><img src="/assets/images/20181017/CS410-wk8-img-000.png" alt="img" class="center-image" /></p>
+<h3 id="8-1-syntagmatic-relation-discovery">8-1 Syntagmatic Relation Discovery</h3>
+
+<h4 id="8-1-1-entropy">8-1-1 Entropy</h4>
+
+<p><img src="/assets/images/20181017/CS410-wk8-img-001.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-002.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-003.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-004.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-005.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-006.png" alt="img" class="center-image" /></p>
+
+<h4 id="8-1-2-conditional-entropy">8-1-2 Conditional Entropy</h4>
+<ul>
+  <li>Entropy of a word being present is minimum when given exact word is present (ie 0)</li>
+  <li>Entropy of a word being present is maximum when given unrelated word is present (ie, H(Xword))</li>
+</ul>
+
+<p><img src="/assets/images/20181017/CS410-wk8-img-007.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-008.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-009.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-010.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-011.png" alt="img" class="center-image" /></p>
+
+<h4 id="8-1-3-mutual-information-part-1">8-1-3 Mutual Information Part 1</h4>
+
+<p><img src="/assets/images/20181017/CS410-wk8-img-012.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-013.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-014.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-015.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-016.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-017.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-018.png" alt="img" class="center-image" /></p>
+
+<h4 id="8-1-4-mutual-information-part-2">8-1-4 Mutual Information Part 2</h4>
+
+<p><img src="/assets/images/20181017/CS410-wk8-img-019.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-020.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-021.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-022.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-023.png" alt="img" class="center-image" /></p>
+
+<h3 id="8-2-topic-mining-and-analysis">8-2 Topic Mining and Analysis</h3>
+
+<h4 id="8-2-1-motivation-and-task-definition">8-2-1 Motivation and Task Definition</h4>
+<p><img src="/assets/images/20181017/CS410-wk8-img-024.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-025.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-026.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-027.png" alt="img" class="center-image" /></p>
+
+<h4 id="8-2-2-term-as-topic">8-2-2 Term as Topic</h4>
+<p><img src="/assets/images/20181017/CS410-wk8-img-028.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-029.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-030.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-031.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-032.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-033.png" alt="img" class="center-image" /></p>
+
+<h4 id="8-2-3-probabalistic-topic-models">8-2-3 Probabalistic Topic Models</h4>
+<p><img src="/assets/images/20181017/CS410-wk8-img-034.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-035.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-036.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-037.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-038.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-039.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-040.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-041.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-042.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-043.png" alt="img" class="center-image" /></p>
+
+<h5 id="8-2-3-1-overview-of-statistical-language-models-part-1">8-2-3-1 Overview of Statistical Language Models Part 1</h5>
+<p><img src="/assets/images/20181017/CS410-wk8-img-044.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-045.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-046.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-047.png" alt="img" class="center-image" /></p>
+
+<h5 id="8-2-3-2-overview-of-statistical-language-models-part-2">8-2-3-2 Overview of Statistical Language Models Part 2</h5>
+
+<p><img src="/assets/images/20181017/CS410-wk8-img-048.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-049.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-050.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-051.png" alt="img" class="center-image" /></p>
+
+<h5 id="8-2-3-3-mining-one-topic">8-2-3-3 Mining One Topic</h5>
+
+<p><img src="/assets/images/20181017/CS410-wk8-img-052.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-053.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-054.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181017/CS410-wk8-img-055.png" alt="img" class="center-image" /></p>
 
 <h1 id="cs-425-distributed-systems">CS 425 Distributed Systems</h1>
 
@@ -276,15 +482,15 @@
   <h2>Recent Posts</h2>
   <ul>
     
+    <li><a href="/2018/11/21/MCS-Notes-Week-11">MCS 1st Semester Week 11 Notes</a></li>
+    
+    <li><a href="/2018/11/12/MCS-Notes-Week-10">MCS 1st Semester Week 10 Notes</a></li>
+    
     <li><a href="/2018/11/05/MCS-Notes-Week-9">MCS 1st Semester Week 9 Notes</a></li>
     
     <li><a href="/2018/10/17/MCS-Notes-Week-8">MCS 1st Semester Week 8 Notes</a></li>
     
     <li><a href="/2018/10/17/MCS-Notes-Week-7">MCS 1st Semester Week 7 Notes</a></li>
-    
-    <li><a href="/2018/10/07/MCS-Notes-Week-6">MCS 1st Semester Week 6 Notes</a></li>
-    
-    <li><a href="/2018/09/30/MCS-Notes-Week-5">MCS 1st Semester Week 5 Notes</a></li>
     
   </ul>
 </div>
@@ -295,7 +501,7 @@
     
     
     <li>
-      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="9">
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="11">
         <span>UIUC-MCS</span></a></li>
     
     <li>

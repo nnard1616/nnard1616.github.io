@@ -108,6 +108,8 @@
                         <a href="/2018/10/17/MCS-Notes-Week-8" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 8 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
                     
                     
+                        <a href="/2018/11/12/MCS-Notes-Week-10" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 10 Notes" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
                   </div>
                   
                   <br>
@@ -123,7 +125,24 @@
       <li><a href="#guiding-questions">Guiding Questions</a></li>
       <li><a href="#additional-readings-and-resources">Additional Readings and Resources</a></li>
       <li><a href="#key-phrases-and-concepts">Key Phrases and Concepts</a></li>
-      <li><a href="#video-lecture-notes">Video Lecture Notes</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a>
+        <ul>
+          <li><a href="#9-1-probabalistic-topic-models">9-1 Probabalistic Topic Models</a>
+            <ul>
+              <li><a href="#9-1-1-mixture-of-unigram-language-models">9-1-1 Mixture of Unigram Language Models</a></li>
+              <li><a href="#9-1-2-mixture-model-estimation-part-1">9-1-2 Mixture Model Estimation Part 1</a></li>
+              <li><a href="#9-1-3-mixture-model-estimation-part-2">9-1-3 Mixture Model Estimation Part 2</a></li>
+              <li><a href="#9-1-4-expectation-maximization-algorithm-part-1">9-1-4 Expectation Maximization Algorithm Part 1</a></li>
+              <li><a href="#9-1-5-expectation-maximization-algorithm-part-2">9-1-5 Expectation Maximization Algorithm Part 2</a></li>
+              <li><a href="#9-1-6-expectation-maximization-algorithm-part-3">9-1-6 Expectation Maximization Algorithm Part 3</a></li>
+            </ul>
+          </li>
+          <li><a href="#9-2-probabalistic-latent-semantic-analysis-plsa-part-1">9-2 Probabalistic Latent Semantic Analysis PLSA Part 1</a></li>
+          <li><a href="#9-3-probabalistic-latent-semantic-analysis-plsa-part-2">9-3 Probabalistic Latent Semantic Analysis PLSA Part 2</a></li>
+          <li><a href="#9-4-latent-dirichet-allocation-lda-part-1">9-4 Latent Dirichet Allocation LDA Part 1</a></li>
+          <li><a href="#9-5-latent-dirichet-allocation-lda-part-2">9-5 Latent Dirichet Allocation LDA Part 2</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><a href="#cs-425-distributed-systems">CS 425 Distributed Systems</a>
@@ -171,14 +190,136 @@
 <hr />
 
 <h2 id="goals-and-objectives">Goals and Objectives</h2>
+<p>Explain what a mixture of unigram language model is and why using a background language in a mixture can help “absorb” common words in English.<br />
+Explain what PLSA is and how it can be used to mine and analyze topics in text.<br />
+Explain the general idea of using a generative model for text mining.<br />
+Explain how to compute the probability of observing a word from a mixture model like PLSA.<br />
+Explain the basic idea of the EM algorithm and how it works.<br />
+Explain the main difference between LDA and PLSA.</p>
 
 <h2 id="guiding-questions">Guiding Questions</h2>
+<p>What is a mixture model? In general, how do you compute the probability of observing a particular word from a mixture model? What is the general form of the expression for this probability?<br />
+What does the maximum likelihood estimate of the component word distributions of a mixture model behave like? In what sense do they “collaborate” and/or “compete”? Why can we use a fixed background word distribution to force a discovered topic word distribution to reduce its probability on the common (often non-content) words?<br />
+What is the basic idea of the EM algorithm? What does the E-step typically do? What does the M-step typically do? In which of the two steps do we typically apply the Bayes rule? Does EM converge to a global maximum?<br />
+What is PLSA? How many parameters does a PLSA model have? How is this number affected by the size of our data set to be mined? How can we adjust the standard PLSA to incorporate a prior on a topic word distribution?<br />
+How is LDA different from PLSA? What is shared by the two models?</p>
 
 <h2 id="additional-readings-and-resources">Additional Readings and Resources</h2>
+<p>C. Zhai and S. Massung, Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining. ACM and Morgan &amp; Claypool Publishers, 2016. Chapter 17.<br />
+Blei, D. 2012. Probabilistic Topic Models. Communications of the ACM 55 (4): 77–84. doi: 10.1145/2133806.2133826.<br />
+Qiaozhu Mei, Xuehua Shen, and ChengXiang Zhai. Automatic Labeling of Multinomial Topic Models. Proceedings of ACM KDD 2007, pp. 490-499, DOI=10.1145/1281192.1281246.<br />
+Yue Lu, Qiaozhu Mei, and Chengxiang Zhai. 2011. Investigating task performance of probabilistic topic models: an empirical study of PLSA and LDA. Information Retrieval, 14, 2 (April 2011), 178-203. doi: 10.1007/s10791-010-9141-9.</p>
 
 <h2 id="key-phrases-and-concepts">Key Phrases and Concepts</h2>
+<p>Mixture model<br />
+Component model<br />
+Constraints on probabilities<br />
+Probabilistic Latent Semantic Analysis (PLSA)<br />
+Expectation-Maximization (EM) algorithm<br />
+E-step and M-step<br />
+Hidden variables<br />
+Hill climbing<br />
+Local maximum<br />
+Latent Dirichlet Allocation (LDA)</p>
 
 <h2 id="video-lecture-notes">Video Lecture Notes</h2>
+
+<h3 id="9-1-probabalistic-topic-models">9-1 Probabalistic Topic Models</h3>
+
+<h4 id="9-1-1-mixture-of-unigram-language-models">9-1-1 Mixture of Unigram Language Models</h4>
+
+<p><img src="/assets/images/20181105/CS410-wk9-img-001.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-002.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-003.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-004.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-005.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-006.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-007.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-008.png" alt="img" class="center-image" /></p>
+
+<h4 id="9-1-2-mixture-model-estimation-part-1">9-1-2 Mixture Model Estimation Part 1</h4>
+
+<p><img src="/assets/images/20181105/CS410-wk9-img-009.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-010.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-011.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-012.png" alt="img" class="center-image" /></p>
+
+<h4 id="9-1-3-mixture-model-estimation-part-2">9-1-3 Mixture Model Estimation Part 2</h4>
+
+<p><img src="/assets/images/20181105/CS410-wk9-img-013.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-014.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-015.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-016.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-017.png" alt="img" class="center-image" /></p>
+
+<h4 id="9-1-4-expectation-maximization-algorithm-part-1">9-1-4 Expectation Maximization Algorithm Part 1</h4>
+
+<p><img src="/assets/images/20181105/CS410-wk9-img-018.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-019.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-020.png" alt="img" class="center-image" /></p>
+
+<h4 id="9-1-5-expectation-maximization-algorithm-part-2">9-1-5 Expectation Maximization Algorithm Part 2</h4>
+
+<p><img src="/assets/images/20181105/CS410-wk9-img-021.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-022.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-023.png" alt="img" class="center-image" /></p>
+
+<h4 id="9-1-6-expectation-maximization-algorithm-part-3">9-1-6 Expectation Maximization Algorithm Part 3</h4>
+
+<p><img src="/assets/images/20181105/CS410-wk9-img-024.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-025.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-026.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-027.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-2-probabalistic-latent-semantic-analysis-plsa-part-1">9-2 Probabalistic Latent Semantic Analysis PLSA Part 1</h3>
+
+<p><img src="/assets/images/20181105/CS410-wk9-img-028.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-029.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-030.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-031.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-032.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-033.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-034.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-035.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-036.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-037.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-3-probabalistic-latent-semantic-analysis-plsa-part-2">9-3 Probabalistic Latent Semantic Analysis PLSA Part 2</h3>
+
+<p><img src="/assets/images/20181105/CS410-wk9-img-038.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-039.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-040.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-041.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-042.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-043.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-044.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-045.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-046.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-047.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-048.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-4-latent-dirichet-allocation-lda-part-1">9-4 Latent Dirichet Allocation LDA Part 1</h3>
+
+<p><img src="/assets/images/20181105/CS410-wk9-img-049.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-050.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-051.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-052.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-053.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-054.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-055.png" alt="img" class="center-image" /></p>
+
+<h3 id="9-5-latent-dirichet-allocation-lda-part-2">9-5 Latent Dirichet Allocation LDA Part 2</h3>
+
+<p><img src="/assets/images/20181105/CS410-wk9-img-056.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-057.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-058.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-059.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-060.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-061.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-062.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-063.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-064.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181105/CS410-wk9-img-065.png" alt="img" class="center-image" /></p>
 
 <h1 id="cs-425-distributed-systems">CS 425 Distributed Systems</h1>
 
@@ -454,6 +595,8 @@
                         <a href="/2018/10/17/MCS-Notes-Week-8" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 8 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
                     
                     
+                        <a href="/2018/11/12/MCS-Notes-Week-10" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 10 Notes" style="background-color:#c66331; color: #ececec; float:right;">Next Post &raquo;</a>
+                    
                   </div>
 
                   <br>
@@ -471,15 +614,15 @@
   <h2>Recent Posts</h2>
   <ul>
     
+    <li><a href="/2018/11/21/MCS-Notes-Week-11">MCS 1st Semester Week 11 Notes</a></li>
+    
+    <li><a href="/2018/11/12/MCS-Notes-Week-10">MCS 1st Semester Week 10 Notes</a></li>
+    
     <li><a href="/2018/11/05/MCS-Notes-Week-9">MCS 1st Semester Week 9 Notes</a></li>
     
     <li><a href="/2018/10/17/MCS-Notes-Week-8">MCS 1st Semester Week 8 Notes</a></li>
     
     <li><a href="/2018/10/17/MCS-Notes-Week-7">MCS 1st Semester Week 7 Notes</a></li>
-    
-    <li><a href="/2018/10/07/MCS-Notes-Week-6">MCS 1st Semester Week 6 Notes</a></li>
-    
-    <li><a href="/2018/09/30/MCS-Notes-Week-5">MCS 1st Semester Week 5 Notes</a></li>
     
   </ul>
 </div>
@@ -490,7 +633,7 @@
     
     
     <li>
-      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="9">
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="11">
         <span>UIUC-MCS</span></a></li>
     
     <li>

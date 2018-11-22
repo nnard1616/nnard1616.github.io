@@ -17,6 +17,17 @@ tags:
     * [Additional Readings and Resources](#additional-readings-and-resources)
     * [Key Phrases and Concepts](#key-phrases-and-concepts)
     * [Video Lecture Notes](#video-lecture-notes)
+        * [9-1 Probabalistic Topic Models](#9-1-probabalistic-topic-models)
+            * [9-1-1 Mixture of Unigram Language Models](#9-1-1-mixture-of-unigram-language-models)
+            * [9-1-2 Mixture Model Estimation Part 1](#9-1-2-mixture-model-estimation-part-1)
+            * [9-1-3 Mixture Model Estimation Part 2](#9-1-3-mixture-model-estimation-part-2)
+            * [9-1-4 Expectation Maximization Algorithm Part 1](#9-1-4-expectation-maximization-algorithm-part-1)
+            * [9-1-5 Expectation Maximization Algorithm Part 2](#9-1-5-expectation-maximization-algorithm-part-2)
+            * [9-1-6 Expectation Maximization Algorithm Part 3](#9-1-6-expectation-maximization-algorithm-part-3)
+        * [9-2 Probabalistic Latent Semantic Analysis PLSA Part 1](#9-2-probabalistic-latent-semantic-analysis-plsa-part-1)
+        * [9-3 Probabalistic Latent Semantic Analysis PLSA Part 2](#9-3-probabalistic-latent-semantic-analysis-plsa-part-2)
+        * [9-4 Latent Dirichet Allocation LDA Part 1](#9-4-latent-dirichet-allocation-lda-part-1)
+        * [9-5 Latent Dirichet Allocation LDA Part 2](#9-5-latent-dirichet-allocation-lda-part-2)
 * [CS 425 Distributed Systems](#cs-425-distributed-systems)
     * [Goals](#goals)
     * [Key Concepts](#key-concepts)
@@ -50,15 +61,143 @@ tags:
 ---
 
 ## Goals and Objectives
+Explain what a mixture of unigram language model is and why using a background language in a mixture can help “absorb” common words in English.
+Explain what PLSA is and how it can be used to mine and analyze topics in text.
+Explain the general idea of using a generative model for text mining.
+Explain how to compute the probability of observing a word from a mixture model like PLSA.
+Explain the basic idea of the EM algorithm and how it works.
+Explain the main difference between LDA and PLSA.
 
 ## Guiding Questions
+What is a mixture model? In general, how do you compute the probability of observing a particular word from a mixture model? What is the general form of the expression for this probability?
+What does the maximum likelihood estimate of the component word distributions of a mixture model behave like? In what sense do they “collaborate” and/or “compete”? Why can we use a fixed background word distribution to force a discovered topic word distribution to reduce its probability on the common (often non-content) words?
+What is the basic idea of the EM algorithm? What does the E-step typically do? What does the M-step typically do? In which of the two steps do we typically apply the Bayes rule? Does EM converge to a global maximum?
+What is PLSA? How many parameters does a PLSA model have? How is this number affected by the size of our data set to be mined? How can we adjust the standard PLSA to incorporate a prior on a topic word distribution?
+How is LDA different from PLSA? What is shared by the two models?
 
 ## Additional Readings and Resources
+C. Zhai and S. Massung, Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining. ACM and Morgan & Claypool Publishers, 2016. Chapter 17.
+Blei, D. 2012. Probabilistic Topic Models. Communications of the ACM 55 (4): 77–84. doi: 10.1145/2133806.2133826.
+Qiaozhu Mei, Xuehua Shen, and ChengXiang Zhai. Automatic Labeling of Multinomial Topic Models. Proceedings of ACM KDD 2007, pp. 490-499, DOI=10.1145/1281192.1281246.
+Yue Lu, Qiaozhu Mei, and Chengxiang Zhai. 2011. Investigating task performance of probabilistic topic models: an empirical study of PLSA and LDA. Information Retrieval, 14, 2 (April 2011), 178-203. doi: 10.1007/s10791-010-9141-9.
 
 ## Key Phrases and Concepts
+Mixture model
+Component model
+Constraints on probabilities
+Probabilistic Latent Semantic Analysis (PLSA)
+Expectation-Maximization (EM) algorithm
+E-step and M-step
+Hidden variables
+Hill climbing
+Local maximum
+Latent Dirichlet Allocation (LDA)
 
 ## Video Lecture Notes
 
+### 9-1 Probabalistic Topic Models
+
+#### 9-1-1 Mixture of Unigram Language Models
+
+![img]({{ '/assets/images/20181105/CS410-wk9-img-001.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-002.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-003.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-004.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-005.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-006.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-007.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-008.png' | relative_url }}){: .center-image }
+
+
+#### 9-1-2 Mixture Model Estimation Part 1
+
+![img]({{ '/assets/images/20181105/CS410-wk9-img-009.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-010.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-011.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-012.png' | relative_url }}){: .center-image }
+
+
+#### 9-1-3 Mixture Model Estimation Part 2
+
+![img]({{ '/assets/images/20181105/CS410-wk9-img-013.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-014.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-015.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-016.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-017.png' | relative_url }}){: .center-image }
+
+
+#### 9-1-4 Expectation Maximization Algorithm Part 1
+
+![img]({{ '/assets/images/20181105/CS410-wk9-img-018.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-019.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-020.png' | relative_url }}){: .center-image }
+
+
+#### 9-1-5 Expectation Maximization Algorithm Part 2
+
+![img]({{ '/assets/images/20181105/CS410-wk9-img-021.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-022.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-023.png' | relative_url }}){: .center-image }
+
+#### 9-1-6 Expectation Maximization Algorithm Part 3
+
+![img]({{ '/assets/images/20181105/CS410-wk9-img-024.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-025.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-026.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-027.png' | relative_url }}){: .center-image }
+
+
+### 9-2 Probabalistic Latent Semantic Analysis PLSA Part 1
+
+![img]({{ '/assets/images/20181105/CS410-wk9-img-028.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-029.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-030.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-031.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-032.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-033.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-034.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-035.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-036.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-037.png' | relative_url }}){: .center-image }
+
+
+### 9-3 Probabalistic Latent Semantic Analysis PLSA Part 2
+
+![img]({{ '/assets/images/20181105/CS410-wk9-img-038.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-039.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-040.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-041.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-042.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-043.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-044.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-045.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-046.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-047.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-048.png' | relative_url }}){: .center-image }
+
+
+### 9-4 Latent Dirichet Allocation LDA Part 1
+
+![img]({{ '/assets/images/20181105/CS410-wk9-img-049.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-050.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-051.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-052.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-053.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-054.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-055.png' | relative_url }}){: .center-image }
+
+### 9-5 Latent Dirichet Allocation LDA Part 2
+
+![img]({{ '/assets/images/20181105/CS410-wk9-img-056.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-057.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-058.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-059.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-060.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-061.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-062.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-063.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-064.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181105/CS410-wk9-img-065.png' | relative_url }}){: .center-image }
 
 # CS 425 Distributed Systems
 
