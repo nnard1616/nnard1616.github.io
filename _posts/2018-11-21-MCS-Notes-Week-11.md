@@ -31,6 +31,13 @@ tags:
     * [Guiding Questions](#guiding-questions)
     * [Readings and Resources](#readings-and-resources)
     * [Video Lecture Notes](#video-lecture-notes)
+        * [Stream Processing](#stream-processing)
+        * [Distributed Graph Processing](#distributed-graph-processing)
+        * [Structure of Networks](#structure-of-networks)
+        * [Scheduling](#scheduling)
+            * [Single-processor Scheduling](#single-processor-scheduling)
+            * [Hadoop Scheduling](#hadoop-scheduling)
+            * [Dominant-resource Fair Scheduling](#dominant-resource-fair-scheduling)
 * [CS 427 Software Engineering](#cs-427-software-engineering)
     * [Goals and Objectives](#goals-and-objectives)
     * [Video Lecture Notes](#video-lecture-notes)
@@ -173,14 +180,75 @@ tags:
 ---
 
 ## Goals 
+* Apply classical scheduling algorithms.
+* Apply popular Hadoop scheduling algorithms.
+* Know the internals of Apache Storm, a stream processing engine.
+* Know how enormous graphs can be processed in clouds.
 
 ## Key Concepts
+* Classical Scheduling algorithms, including FIFO, Shortest Task First, and Round Robin
+* Popular Hadoop schedulers including Capacity Scheduler and Fair Scheduler
+* Internals of Apache Storm, a stream processing engine
+* Internals of distributed graph processing engines, e.g., Google’s Pregel
 
 ## Guiding Questions
+* Why is shortest-task-first optimal?
+* What is the difference between the Capacity and Fair schedulers in Hadoop?
+* What is a Storm topology?
+* What is Gather-Apply-Scatter paradigm in distributed graph processing?
 
 ## Readings and Resources
+[Apache Storm](http://storm.apache.org/)
+[Optional: Spark Streaming](http://www.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)
+[Pregel](http://dl.acm.org/citation.cfm?id=1807184)
 
 ## Video Lecture Notes
+
+### Stream Processing
+![img]({{ '/assets/images/20181121/CS425-wk11-img-001.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-002.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-003.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-004.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-005.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-006.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-007.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-008.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-009.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-010.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-011.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-012.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-013.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-014.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-015.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-016.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-017.png' | relative_url }}){: .center-image }
+
+### Distributed Graph Processing
+![img]({{ '/assets/images/20181121/CS425-wk11-img-018.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-019.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-020.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-021.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-022.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-023.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-024.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-025.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-026.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-027.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-028.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-029.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-030.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-031.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-032.png' | relative_url }}){: .center-image }
+
+### Structure of Networks
+
+### Scheduling
+
+#### Single-processor Scheduling
+
+#### Hadoop Scheduling
+
+#### Dominant-resource Fair Scheduling
 
 # CS 427 Software Engineering
 

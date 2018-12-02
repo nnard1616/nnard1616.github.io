@@ -1,0 +1,470 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | MCS 1st Semester Week 12 Notes </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2018/11/22/MCS-Notes-Week-12">MCS 1st Semester Week 12 Notes</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>22 Nov 2018</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/UIUC-MCS">UIUC-MCS</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/11/21/MCS-Notes-Week-11" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 11 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+                  
+                  <br>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <!-- vim-markdown-toc Redcarpet -->
+
+<ul>
+  <li><a href="#cs-410-text-information-systems">CS 410 Text Information Systems</a>
+    <ul>
+      <li><a href="#goals-and-objectives">Goals and Objectives</a></li>
+      <li><a href="#guiding-questions">Guiding Questions</a></li>
+      <li><a href="#additional-readings-and-resources">Additional Readings and Resources</a></li>
+      <li><a href="#key-phrases-and-concepts">Key Phrases and Concepts</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a>
+        <ul>
+          <li><a href="#12-1-opinion-mining-and-sentiment-analysis">12-1 Opinion Mining and Sentiment Analysis</a>
+            <ul>
+              <li><a href="#12-1-1-latent-aspect-rating-analysis-part-1">12-1-1 Latent Aspect Rating Analysis Part 1</a></li>
+              <li><a href="#12-1-2-latent-aspect-rating-analysis-part-2">12-1-2 Latent Aspect Rating Analysis Part 2</a></li>
+            </ul>
+          </li>
+          <li><a href="#12-2-text-based-prediction">12-2 Text-Based Prediction</a></li>
+          <li><a href="#12-3-contextual-text-mining">12-3 Contextual Text Mining</a>
+            <ul>
+              <li><a href="#12-3-1-motivation">12-3-1 Motivation</a></li>
+              <li><a href="#12-3-2-contextual-probabilistic-latent-semantic-analysis">12-3-2 Contextual Probabilistic Latent Semantic Analysis</a></li>
+              <li><a href="#12-3-3-mining-topics-with-social-network-context">12-3-3 Mining topics with social network context</a></li>
+              <li><a href="#12-3-4-mining-causal-topics-with-time-series-supervision">12-3-4 Mining Causal Topics with Time Series Supervision</a></li>
+            </ul>
+          </li>
+          <li><a href="#12-4-summary-for-exam-2">12-4 Summary for Exam 2</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#cs-425-distributed-systems">CS 425 Distributed Systems</a>
+    <ul>
+      <li><a href="#goals">Goals</a></li>
+      <li><a href="#key-concepts">Key Concepts</a></li>
+      <li><a href="#guiding-questions">Guiding Questions</a></li>
+      <li><a href="#readings-and-resources">Readings and Resources</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a></li>
+    </ul>
+  </li>
+  <li><a href="#cs-427-software-engineering">CS 427 Software Engineering</a>
+    <ul>
+      <li><a href="#goals-and-objectives">Goals and Objectives</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a></li>
+    </ul>
+  </li>
+</ul>
+
+<!-- vim-markdown-toc -->
+
+<h1 id="cs-410-text-information-systems">CS 410 Text Information Systems</h1>
+
+<hr />
+
+<h2 id="goals-and-objectives">Goals and Objectives</h2>
+<ul>
+  <li>Explain why it is necessary and useful to perform joint analysis and mining for text and non-text data.</li>
+  <li>Explain the general idea of Contextual Probabilistic Latent Semantic Analysis (CPLSA) and the main difference between CPLSA and PLSA.</li>
+  <li>Give multiple application examples of CPLSA for contextual text mining.</li>
+  <li>Explain the general idea of using the social network of authors as context to analyze topics in text data and its potential benefit from an application perspective.</li>
+  <li>Explain how a time series (such as stock prices) can be used as context to analyze topics in text data that have time stamps using topic models</li>
+</ul>
+
+<h2 id="guiding-questions">Guiding Questions</h2>
+<ul>
+  <li>Why is text-based prediction interesting from an application perspective? Why are humans playing an important role in text-based prediction? What is the “data mining loop”?</li>
+  <li>Why is it necessary and useful to jointly mine and analyze text and non-text data? How can non-text data potentially help in analyzing text data? How can text data potentially help in mining non-text data?</li>
+  <li>Can you give some examples of context of a text article? How can we partition text data using context information? Can you give some examples where we can leverage context information to perform interesting comparative analysis of topics in text data?</li>
+  <li>What’s the general idea of Contextual Probabilistic Latent Semantic Analysis (CPLSA)? How is it different from PLSA?</li>
+  <li>Can you give some examples of interesting topic patterns that can be found by CPLSA? What’s the general idea of using CPLSA for analyzing the impact of an event? Can you think of an interesting application of this kind?</li>
+  <li>What’s the general idea of using the social network of authors of text data as a complex context to improve topic analysis for text data? Can you give an example of an interesting application of this kind?</li>
+  <li>What’s the general idea of using a time series like stock prices over time to supervise the discovery of topics from text data? Can you give an example of an interesting application of this kind?</li>
+</ul>
+
+<h2 id="additional-readings-and-resources">Additional Readings and Resources</h2>
+<ul>
+  <li>C. Zhai and S. Massung, Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining. ACM and Morgan &amp; Claypool Publishers, 2016. Chapters 18 &amp; 19.</li>
+  <li>Hongning Wang, Yue Lu, and ChengXiang Zhai, Latent aspect rating analysis on review text data: a rating regression approach. In Proceedings of ACM KDD 2010, pp. 783-792, 2010. doi: 10.1145/1835804.1835903</li>
+  <li>Hongning Wang, Yue Lu, and ChengXiang Zhai. 2011. Latent aspect rating analysis without aspect keyword supervision. In Proceedings of ACM KDD 2011, pp. 618-626. doi: 10.1145/2020408.2020505</li>
+  <li>ChengXiang Zhai, Atulya Velivelli, and Bei Yu. A cross-collection mixture model for comparative text mining. In Proceedings of the 10th ACM SIGKDD international conference on knowledge discovery and data mining (KDD 2004). ACM, New York, NY, USA, 743-748. doi: 10.1145/1014052.1014150</li>
+  <li>Qiaozhu Mei, Contextual Text Mining, Ph.D. Thesis, University of Illinois at Urbana-Champaign, 2009.</li>
+  <li>Hyun Duk Kim, Malu Castellanos, Meichun Hsu, ChengXiang Zhai, Thomas Rietz, and Daniel Diermeier. Mining causal topics in text data: Iterative topic modeling with time series feedback. In Proceedings of the 22nd ACM international conference on information &amp; knowledge management (CIKM 2013). ACM, New York, NY, USA, 885-890. doi: 10.1145/2505515.2505612</li>
+  <li>Noah Smith, Text-Driven Forecasting. Retrieved on May 31, 2015 from http://www.cs.cmu.edu/~nasmith/papers/smith.whitepaper10.pdf</li>
+</ul>
+
+<h2 id="key-phrases-and-concepts">Key Phrases and Concepts</h2>
+<ul>
+  <li>Text-based prediction</li>
+  <li>The “data mining loop”</li>
+  <li>Context (of text data) and contextual text mining</li>
+  <li>Contextual probabilistic latent semantic analysis (CPLSA): views of a topic and coverage of topics</li>
+  <li>Spatiotemporal trends of topics</li>
+  <li>Event impact analysis</li>
+  <li>Network-regularized topic modeling</li>
+  <li>NetPLSA</li>
+  <li>Causal topics</li>
+  <li>Iterative topic modeling with time series supervision</li>
+</ul>
+
+<h2 id="video-lecture-notes">Video Lecture Notes</h2>
+
+<h3 id="12-1-opinion-mining-and-sentiment-analysis">12-1 Opinion Mining and Sentiment Analysis</h3>
+
+<h4 id="12-1-1-latent-aspect-rating-analysis-part-1">12-1-1 Latent Aspect Rating Analysis Part 1</h4>
+<p><img src="/assets/images/20181122/CS410-wk12-img-001.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-002.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-003.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-004.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-005.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-006.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-007.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-008.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-009.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-010.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-011.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-012.png" alt="img" class="center-image" /></p>
+
+<h4 id="12-1-2-latent-aspect-rating-analysis-part-2">12-1-2 Latent Aspect Rating Analysis Part 2</h4>
+<p><img src="/assets/images/20181122/CS410-wk12-img-013.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-014.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-015.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-016.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-017.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-018.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-019.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-020.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-021.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-022.png" alt="img" class="center-image" /></p>
+
+<h3 id="12-2-text-based-prediction">12-2 Text-Based Prediction</h3>
+<p><img src="/assets/images/20181122/CS410-wk12-img-023.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-024.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-025.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-026.png" alt="img" class="center-image" /></p>
+
+<h3 id="12-3-contextual-text-mining">12-3 Contextual Text Mining</h3>
+
+<h4 id="12-3-1-motivation">12-3-1 Motivation</h4>
+<p><img src="/assets/images/20181122/CS410-wk12-img-027.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-028.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-029.png" alt="img" class="center-image" /></p>
+
+<h4 id="12-3-2-contextual-probabilistic-latent-semantic-analysis">12-3-2 Contextual Probabilistic Latent Semantic Analysis</h4>
+<p><img src="/assets/images/20181122/CS410-wk12-img-030.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-031.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-032.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-033.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-034.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-035.png" alt="img" class="center-image" /></p>
+
+<h4 id="12-3-3-mining-topics-with-social-network-context">12-3-3 Mining topics with social network context</h4>
+<p><img src="/assets/images/20181122/CS410-wk12-img-036.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-037.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-038.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-039.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-040.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-041.png" alt="img" class="center-image" /></p>
+
+<h4 id="12-3-4-mining-causal-topics-with-time-series-supervision">12-3-4 Mining Causal Topics with Time Series Supervision</h4>
+<p><img src="/assets/images/20181122/CS410-wk12-img-042.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-043.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-044.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-045.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-046.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-047.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-048.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-049.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-050.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-051.png" alt="img" class="center-image" /></p>
+
+<h3 id="12-4-summary-for-exam-2">12-4 Summary for Exam 2</h3>
+<p><img src="/assets/images/20181122/CS410-wk12-img-052.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-053.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-054.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181122/CS410-wk12-img-055.png" alt="img" class="center-image" /></p>
+
+<h1 id="cs-425-distributed-systems">CS 425 Distributed Systems</h1>
+
+<hr />
+
+<h2 id="goals">Goals</h2>
+
+<h2 id="key-concepts">Key Concepts</h2>
+
+<h2 id="guiding-questions-1">Guiding Questions</h2>
+
+<h2 id="readings-and-resources">Readings and Resources</h2>
+
+<h2 id="video-lecture-notes-1">Video Lecture Notes</h2>
+
+<h1 id="cs-427-software-engineering">CS 427 Software Engineering</h1>
+
+<hr />
+
+<h2 id="goals-and-objectives-1">Goals and Objectives</h2>
+
+<h2 id="video-lecture-notes-2">Video Lecture Notes</h2>
+
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/11/21/MCS-Notes-Week-11" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="MCS 1st Semester Week 11 Notes" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2018/11/22/MCS-Notes-Week-12">MCS 1st Semester Week 12 Notes</a></li>
+    
+    <li><a href="/2018/11/21/MCS-Notes-Week-11">MCS 1st Semester Week 11 Notes</a></li>
+    
+    <li><a href="/2018/11/12/MCS-Notes-Week-10">MCS 1st Semester Week 10 Notes</a></li>
+    
+    <li><a href="/2018/11/05/MCS-Notes-Week-9">MCS 1st Semester Week 9 Notes</a></li>
+    
+    <li><a href="/2018/10/17/MCS-Notes-Week-8">MCS 1st Semester Week 8 Notes</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="12">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="18">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="4">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2018/11/22/MCS-Notes-Week-12";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

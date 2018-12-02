@@ -154,13 +154,50 @@
       <li><a href="#key-concepts">Key Concepts</a></li>
       <li><a href="#guiding-questions">Guiding Questions</a></li>
       <li><a href="#readings-and-resources">Readings and Resources</a></li>
-      <li><a href="#video-lecture-notes">Video Lecture Notes</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a>
+        <ul>
+          <li><a href="#concurrency-control">Concurrency Control</a>
+            <ul>
+              <li><a href="#rpcs">RPCs</a></li>
+              <li><a href="#transactions">Transactions</a></li>
+              <li><a href="#serial-equivalence">Serial Equivalence</a></li>
+              <li><a href="#pessimistic-concurrency">Pessimistic Concurrency</a></li>
+              <li><a href="#optimistic-concurrency-control">Optimistic Concurrency Control</a></li>
+            </ul>
+          </li>
+          <li><a href="#replication-control">Replication Control</a>
+            <ul>
+              <li><a href="#replication">Replication</a></li>
+              <li><a href="#two-phase-commit">Two-Phase Commit</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><a href="#cs-427-software-engineering">CS 427 Software Engineering</a>
     <ul>
       <li><a href="#goals-and-objectives">Goals and Objectives</a></li>
-      <li><a href="#video-lecture-notes">Video Lecture Notes</a></li>
+      <li><a href="#video-lecture-notes">Video Lecture Notes</a>
+        <ul>
+          <li><a href="#junit">JUnit</a>
+            <ul>
+              <li><a href="#unit-testing">Unit Testing</a></li>
+              <li><a href="#junit-overview">Junit Overview</a></li>
+              <li><a href="#junit-assertions">JUnit Assertions</a></li>
+              <li><a href="#junit-assumptions">JUnit Assumptions</a></li>
+            </ul>
+          </li>
+          <li><a href="#parameterized-tests">Parameterized Tests</a>
+            <ul>
+              <li><a href="#basics">Basics</a></li>
+              <li><a href="#complex-parameters">Complex Parameters</a></li>
+              <li><a href="#writing-parameterized-tests">Writing Parameterized Tests</a></li>
+              <li><a href="#test-generalization">Test Generalization</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>
@@ -324,14 +361,130 @@
 <hr />
 
 <h2 id="goals">Goals</h2>
+<ul>
+  <li>Know how Remote Procedure Calls (RPCs) work.</li>
+  <li>Check a run of transactions for correctness (serial equivalence).</li>
+  <li>Design systems that use optimistic or pessimistic approaches to ensure correctness in spite of many concurrent clients.</li>
+  <li>Detect and avoid deadlocks.</li>
+  <li>Calculate nines availability for a replicated system.</li>
+  <li>Know how to ensure correctness (consistency) in spite of multiple servers.</li>
+</ul>
 
 <h2 id="key-concepts">Key Concepts</h2>
+<ul>
+  <li>LPCs vs RPCs</li>
+  <li>Marshaling</li>
+  <li>Serial Equivalence</li>
+  <li>Pessimistic Concurrency Control</li>
+  <li>Optimistic Concurrency Control</li>
+  <li>Deadlocks and their detection/avoidance/prevention</li>
+  <li>ACID Properties</li>
+  <li>Nines Availability</li>
+  <li>Active and Passive Replication</li>
+  <li>Two-phase commit</li>
+</ul>
 
 <h2 id="guiding-questions-1">Guiding Questions</h2>
+<ul>
+  <li>Does an RPC always cross machine boundaries?</li>
+  <li>Why is marshaling needed at all?</li>
+  <li>What are conflicting operations and how can you use them to detect serial equivalence among transactions?</li>
+  <li>Is locking a form of pessimistic or optimistic concurrency control?</li>
+  <li>Does Google docs use pessimistic or optimistic concurrency control?</li>
+  <li>What is one way to prevent deadlocks among transactions?</li>
+  <li>What does “three nines availability” really mean?</li>
+  <li>Why is Two-phase commit preferable over One-phase commit?</li>
+</ul>
 
 <h2 id="readings-and-resources">Readings and Resources</h2>
+<ul>
+  <li>There are no readings required for this week.</li>
+</ul>
 
 <h2 id="video-lecture-notes-1">Video Lecture Notes</h2>
+
+<h3 id="concurrency-control">Concurrency Control</h3>
+
+<h4 id="rpcs">RPCs</h4>
+<p><img src="/assets/images/20181112/CS425-wk10-img-001.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-002.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-003.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-004.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-005.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-006.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-007.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-008.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-009.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-010.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-011.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-012.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-013.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-014.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-015.png" alt="img" class="center-image" /></p>
+
+<h4 id="transactions">Transactions</h4>
+<p><img src="/assets/images/20181112/CS425-wk10-img-016.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-017.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-018.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-019.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-020.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-021.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-022.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-023.png" alt="img" class="center-image" /></p>
+
+<h4 id="serial-equivalence">Serial Equivalence</h4>
+<p><img src="/assets/images/20181112/CS425-wk10-img-024.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-025.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-026.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-027.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-028.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-029.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-030.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-031.png" alt="img" class="center-image" /></p>
+
+<h4 id="pessimistic-concurrency">Pessimistic Concurrency</h4>
+<p><img src="/assets/images/20181112/CS425-wk10-img-032.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-033.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-034.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-035.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-036.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-037.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-038.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-039.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-040.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-041.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-042.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-043.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-044.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-045.png" alt="img" class="center-image" /></p>
+
+<h4 id="optimistic-concurrency-control">Optimistic Concurrency Control</h4>
+<p><img src="/assets/images/20181112/CS425-wk10-img-046.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-047.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-048.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-049.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-050.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-051.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-052.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-053.png" alt="img" class="center-image" /></p>
+
+<h3 id="replication-control">Replication Control</h3>
+
+<h4 id="replication">Replication</h4>
+<p><img src="/assets/images/20181112/CS425-wk10-img-054.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-055.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-056.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-057.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-058.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-059.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-060.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-061.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-062.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-063.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-064.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS425-wk10-img-065.png" alt="img" class="center-image" /></p>
+
+<h4 id="two-phase-commit">Two-Phase Commit</h4>
 
 <h1 id="cs-427-software-engineering">CS 427 Software Engineering</h1>
 
@@ -340,6 +493,87 @@
 <h2 id="goals-and-objectives-1">Goals and Objectives</h2>
 
 <h2 id="video-lecture-notes-2">Video Lecture Notes</h2>
+
+<h3 id="junit">JUnit</h3>
+
+<h4 id="unit-testing">Unit Testing</h4>
+<p><img src="/assets/images/20181112/CS427-wk10-img-001.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-002.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-003.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-004.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-005.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-006.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-007.png" alt="img" class="center-image" /></p>
+
+<h4 id="junit-overview">Junit Overview</h4>
+<p><img src="/assets/images/20181112/CS427-wk10-img-008.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-009.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-010.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-011.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-012.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-013.png" alt="img" class="center-image" /></p>
+
+<h4 id="junit-assertions">JUnit Assertions</h4>
+<p><img src="/assets/images/20181112/CS427-wk10-img-014.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-015.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-016.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-017.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-018.png" alt="img" class="center-image" /></p>
+
+<h4 id="junit-assumptions">JUnit Assumptions</h4>
+<p><img src="/assets/images/20181112/CS427-wk10-img-019.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-020.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-021.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-022.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-023.png" alt="img" class="center-image" /></p>
+
+<h3 id="parameterized-tests">Parameterized Tests</h3>
+
+<h4 id="basics">Basics</h4>
+<p><img src="/assets/images/20181112/CS427-wk10-img-024.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-025.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-026.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-027.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-028.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-029.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-030.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-031.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-032.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-033.png" alt="img" class="center-image" /></p>
+
+<h4 id="complex-parameters">Complex Parameters</h4>
+<p><img src="/assets/images/20181112/CS427-wk10-img-034.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-035.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-036.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-037.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-038.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-039.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-040.png" alt="img" class="center-image" /></p>
+
+<h4 id="writing-parameterized-tests">Writing Parameterized Tests</h4>
+<p><img src="/assets/images/20181112/CS427-wk10-img-041.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-042.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-043.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-044.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-045.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-046.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-047.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-048.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-049.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-050.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-051.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-052.png" alt="img" class="center-image" /></p>
+
+<h4 id="test-generalization">Test Generalization</h4>
+<p><img src="/assets/images/20181112/CS427-wk10-img-053.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-054.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-055.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-056.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-057.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-058.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-059.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-060.png" alt="img" class="center-image" /><br />
+<img src="/assets/images/20181112/CS427-wk10-img-061.png" alt="img" class="center-image" /></p>
 
 
                     
@@ -370,6 +604,8 @@
   <h2>Recent Posts</h2>
   <ul>
     
+    <li><a href="/2018/11/22/MCS-Notes-Week-12">MCS 1st Semester Week 12 Notes</a></li>
+    
     <li><a href="/2018/11/21/MCS-Notes-Week-11">MCS 1st Semester Week 11 Notes</a></li>
     
     <li><a href="/2018/11/12/MCS-Notes-Week-10">MCS 1st Semester Week 10 Notes</a></li>
@@ -377,8 +613,6 @@
     <li><a href="/2018/11/05/MCS-Notes-Week-9">MCS 1st Semester Week 9 Notes</a></li>
     
     <li><a href="/2018/10/17/MCS-Notes-Week-8">MCS 1st Semester Week 8 Notes</a></li>
-    
-    <li><a href="/2018/10/17/MCS-Notes-Week-7">MCS 1st Semester Week 7 Notes</a></li>
     
   </ul>
 </div>
@@ -389,7 +623,7 @@
     
     
     <li>
-      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="11">
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="12">
         <span>UIUC-MCS</span></a></li>
     
     <li>

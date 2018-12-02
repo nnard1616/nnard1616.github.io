@@ -34,9 +34,28 @@ tags:
     * [Guiding Questions](#guiding-questions)
     * [Readings and Resources](#readings-and-resources)
     * [Video Lecture Notes](#video-lecture-notes)
+        * [Concurrency Control](#concurrency-control)
+            * [RPCs](#rpcs)
+            * [Transactions](#transactions)
+            * [Serial Equivalence](#serial-equivalence)
+            * [Pessimistic Concurrency](#pessimistic-concurrency)
+            * [Optimistic Concurrency Control](#optimistic-concurrency-control)
+        * [Replication Control](#replication-control)
+            * [Replication](#replication)
+            * [Two-Phase Commit](#two-phase-commit)
 * [CS 427 Software Engineering](#cs-427-software-engineering)
     * [Goals and Objectives](#goals-and-objectives)
     * [Video Lecture Notes](#video-lecture-notes)
+        * [JUnit](#junit)
+            * [Unit Testing](#unit-testing)
+            * [Junit Overview](#junit-overview)
+            * [JUnit Assertions](#junit-assertions)
+            * [JUnit Assumptions](#junit-assumptions)
+        * [Parameterized Tests](#parameterized-tests)
+            * [Basics](#basics)
+            * [Complex Parameters](#complex-parameters)
+            * [Writing Parameterized Tests](#writing-parameterized-tests)
+            * [Test Generalization](#test-generalization)
 
 <!-- vim-markdown-toc -->
 
@@ -186,15 +205,122 @@ tags:
 ---
 
 ## Goals 
+* Know how Remote Procedure Calls (RPCs) work.
+* Check a run of transactions for correctness (serial equivalence).
+* Design systems that use optimistic or pessimistic approaches to ensure correctness in spite of many concurrent clients.
+* Detect and avoid deadlocks.
+* Calculate nines availability for a replicated system.
+* Know how to ensure correctness (consistency) in spite of multiple servers.
 
 ## Key Concepts
+* LPCs vs RPCs
+* Marshaling
+* Serial Equivalence
+* Pessimistic Concurrency Control
+* Optimistic Concurrency Control
+* Deadlocks and their detection/avoidance/prevention
+* ACID Properties
+* Nines Availability
+* Active and Passive Replication
+* Two-phase commit
 
 ## Guiding Questions
+* Does an RPC always cross machine boundaries?
+* Why is marshaling needed at all?
+* What are conflicting operations and how can you use them to detect serial equivalence among transactions?
+* Is locking a form of pessimistic or optimistic concurrency control?
+* Does Google docs use pessimistic or optimistic concurrency control?
+* What is one way to prevent deadlocks among transactions?
+* What does “three nines availability” really mean?
+* Why is Two-phase commit preferable over One-phase commit?
 
 ## Readings and Resources
+* There are no readings required for this week.
 
 ## Video Lecture Notes
 
+### Concurrency Control
+
+#### RPCs
+![img]({{ '/assets/images/20181112/CS425-wk10-img-001.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-002.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-003.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-004.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-005.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-006.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-007.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-008.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-009.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-010.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-011.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-012.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-013.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-014.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-015.png' | relative_url }}){: .center-image }
+
+#### Transactions
+![img]({{ '/assets/images/20181112/CS425-wk10-img-016.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-017.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-018.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-019.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-020.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-021.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-022.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-023.png' | relative_url }}){: .center-image }
+
+#### Serial Equivalence
+![img]({{ '/assets/images/20181112/CS425-wk10-img-024.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-025.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-026.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-027.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-028.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-029.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-030.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-031.png' | relative_url }}){: .center-image }
+
+#### Pessimistic Concurrency
+![img]({{ '/assets/images/20181112/CS425-wk10-img-032.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-033.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-034.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-035.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-036.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-037.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-038.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-039.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-040.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-041.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-042.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-043.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-044.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-045.png' | relative_url }}){: .center-image }
+
+#### Optimistic Concurrency Control
+![img]({{ '/assets/images/20181112/CS425-wk10-img-046.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-047.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-048.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-049.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-050.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-051.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-052.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-053.png' | relative_url }}){: .center-image }
+
+### Replication Control
+
+#### Replication
+![img]({{ '/assets/images/20181112/CS425-wk10-img-054.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-055.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-056.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-057.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-058.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-059.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-060.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-061.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-062.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-063.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-064.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS425-wk10-img-065.png' | relative_url }}){: .center-image }
+
+#### Two-Phase Commit
 
 # CS 427 Software Engineering
 
@@ -204,4 +330,84 @@ tags:
 
 ## Video Lecture Notes
 
+### JUnit
+
+#### Unit Testing
+![img]({{ '/assets/images/20181112/CS427-wk10-img-001.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-002.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-003.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-004.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-005.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-006.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-007.png' | relative_url }}){: .center-image }
+
+#### Junit Overview
+![img]({{ '/assets/images/20181112/CS427-wk10-img-008.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-009.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-010.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-011.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-012.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-013.png' | relative_url }}){: .center-image }
+
+#### JUnit Assertions
+![img]({{ '/assets/images/20181112/CS427-wk10-img-014.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-015.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-016.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-017.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-018.png' | relative_url }}){: .center-image }
+
+#### JUnit Assumptions
+![img]({{ '/assets/images/20181112/CS427-wk10-img-019.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-020.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-021.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-022.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-023.png' | relative_url }}){: .center-image }
+
+### Parameterized Tests
+
+#### Basics
+![img]({{ '/assets/images/20181112/CS427-wk10-img-024.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-025.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-026.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-027.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-028.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-029.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-030.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-031.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-032.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-033.png' | relative_url }}){: .center-image }
+
+#### Complex Parameters
+![img]({{ '/assets/images/20181112/CS427-wk10-img-034.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-035.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-036.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-037.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-038.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-039.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-040.png' | relative_url }}){: .center-image }
+
+#### Writing Parameterized Tests
+![img]({{ '/assets/images/20181112/CS427-wk10-img-041.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-042.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-043.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-044.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-045.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-046.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-047.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-048.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-049.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-050.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-051.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-052.png' | relative_url }}){: .center-image }
+
+#### Test Generalization
+![img]({{ '/assets/images/20181112/CS427-wk10-img-053.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-054.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-055.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-056.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-057.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-058.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-059.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-060.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181112/CS427-wk10-img-061.png' | relative_url }}){: .center-image }
 

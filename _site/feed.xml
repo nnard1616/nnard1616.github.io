@@ -7,6 +7,212 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>MCS 1st Semester Week 12 Notes</title>
+				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#12-1-opinion-mining-and-sentiment-analysis&quot;&gt;12-1 Opinion Mining and Sentiment Analysis&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#12-1-1-latent-aspect-rating-analysis-part-1&quot;&gt;12-1-1 Latent Aspect Rating Analysis Part 1&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#12-1-2-latent-aspect-rating-analysis-part-2&quot;&gt;12-1-2 Latent Aspect Rating Analysis Part 2&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#12-2-text-based-prediction&quot;&gt;12-2 Text-Based Prediction&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#12-3-contextual-text-mining&quot;&gt;12-3 Contextual Text Mining&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#12-3-1-motivation&quot;&gt;12-3-1 Motivation&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#12-3-2-contextual-probabilistic-latent-semantic-analysis&quot;&gt;12-3-2 Contextual Probabilistic Latent Semantic Analysis&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#12-3-3-mining-topics-with-social-network-context&quot;&gt;12-3-3 Mining topics with social network context&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#12-3-4-mining-causal-topics-with-time-series-supervision&quot;&gt;12-3-4 Mining Causal Topics with Time Series Supervision&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#12-4-summary-for-exam-2&quot;&gt;12-4 Summary for Exam 2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals&quot;&gt;Goals&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#key-concepts&quot;&gt;Key Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#readings-and-resources&quot;&gt;Readings and Resources&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- vim-markdown-toc --&gt;
+
+&lt;h1 id=&quot;cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Explain why it is necessary and useful to perform joint analysis and mining for text and non-text data.&lt;/li&gt;
+  &lt;li&gt;Explain the general idea of Contextual Probabilistic Latent Semantic Analysis (CPLSA) and the main difference between CPLSA and PLSA.&lt;/li&gt;
+  &lt;li&gt;Give multiple application examples of CPLSA for contextual text mining.&lt;/li&gt;
+  &lt;li&gt;Explain the general idea of using the social network of authors as context to analyze topics in text data and its potential benefit from an application perspective.&lt;/li&gt;
+  &lt;li&gt;Explain how a time series (such as stock prices) can be used as context to analyze topics in text data that have time stamps using topic models&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Why is text-based prediction interesting from an application perspective? Why are humans playing an important role in text-based prediction? What is the “data mining loop”?&lt;/li&gt;
+  &lt;li&gt;Why is it necessary and useful to jointly mine and analyze text and non-text data? How can non-text data potentially help in analyzing text data? How can text data potentially help in mining non-text data?&lt;/li&gt;
+  &lt;li&gt;Can you give some examples of context of a text article? How can we partition text data using context information? Can you give some examples where we can leverage context information to perform interesting comparative analysis of topics in text data?&lt;/li&gt;
+  &lt;li&gt;What’s the general idea of Contextual Probabilistic Latent Semantic Analysis (CPLSA)? How is it different from PLSA?&lt;/li&gt;
+  &lt;li&gt;Can you give some examples of interesting topic patterns that can be found by CPLSA? What’s the general idea of using CPLSA for analyzing the impact of an event? Can you think of an interesting application of this kind?&lt;/li&gt;
+  &lt;li&gt;What’s the general idea of using the social network of authors of text data as a complex context to improve topic analysis for text data? Can you give an example of an interesting application of this kind?&lt;/li&gt;
+  &lt;li&gt;What’s the general idea of using a time series like stock prices over time to supervise the discovery of topics from text data? Can you give an example of an interesting application of this kind?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;C. Zhai and S. Massung, Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining. ACM and Morgan &amp;amp; Claypool Publishers, 2016. Chapters 18 &amp;amp; 19.&lt;/li&gt;
+  &lt;li&gt;Hongning Wang, Yue Lu, and ChengXiang Zhai, Latent aspect rating analysis on review text data: a rating regression approach. In Proceedings of ACM KDD 2010, pp. 783-792, 2010. doi: 10.1145/1835804.1835903&lt;/li&gt;
+  &lt;li&gt;Hongning Wang, Yue Lu, and ChengXiang Zhai. 2011. Latent aspect rating analysis without aspect keyword supervision. In Proceedings of ACM KDD 2011, pp. 618-626. doi: 10.1145/2020408.2020505&lt;/li&gt;
+  &lt;li&gt;ChengXiang Zhai, Atulya Velivelli, and Bei Yu. A cross-collection mixture model for comparative text mining. In Proceedings of the 10th ACM SIGKDD international conference on knowledge discovery and data mining (KDD 2004). ACM, New York, NY, USA, 743-748. doi: 10.1145/1014052.1014150&lt;/li&gt;
+  &lt;li&gt;Qiaozhu Mei, Contextual Text Mining, Ph.D. Thesis, University of Illinois at Urbana-Champaign, 2009.&lt;/li&gt;
+  &lt;li&gt;Hyun Duk Kim, Malu Castellanos, Meichun Hsu, ChengXiang Zhai, Thomas Rietz, and Daniel Diermeier. Mining causal topics in text data: Iterative topic modeling with time series feedback. In Proceedings of the 22nd ACM international conference on information &amp;amp; knowledge management (CIKM 2013). ACM, New York, NY, USA, 885-890. doi: 10.1145/2505515.2505612&lt;/li&gt;
+  &lt;li&gt;Noah Smith, Text-Driven Forecasting. Retrieved on May 31, 2015 from http://www.cs.cmu.edu/~nasmith/papers/smith.whitepaper10.pdf&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Text-based prediction&lt;/li&gt;
+  &lt;li&gt;The “data mining loop”&lt;/li&gt;
+  &lt;li&gt;Context (of text data) and contextual text mining&lt;/li&gt;
+  &lt;li&gt;Contextual probabilistic latent semantic analysis (CPLSA): views of a topic and coverage of topics&lt;/li&gt;
+  &lt;li&gt;Spatiotemporal trends of topics&lt;/li&gt;
+  &lt;li&gt;Event impact analysis&lt;/li&gt;
+  &lt;li&gt;Network-regularized topic modeling&lt;/li&gt;
+  &lt;li&gt;NetPLSA&lt;/li&gt;
+  &lt;li&gt;Causal topics&lt;/li&gt;
+  &lt;li&gt;Iterative topic modeling with time series supervision&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;12-1-opinion-mining-and-sentiment-analysis&quot;&gt;12-1 Opinion Mining and Sentiment Analysis&lt;/h3&gt;
+
+&lt;h4 id=&quot;12-1-1-latent-aspect-rating-analysis-part-1&quot;&gt;12-1-1 Latent Aspect Rating Analysis Part 1&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-001.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-002.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-003.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-004.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-005.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-006.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-007.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-008.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-009.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-010.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-011.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-012.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;12-1-2-latent-aspect-rating-analysis-part-2&quot;&gt;12-1-2 Latent Aspect Rating Analysis Part 2&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-013.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-014.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-015.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-016.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-017.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-018.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-019.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-020.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-021.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-022.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;12-2-text-based-prediction&quot;&gt;12-2 Text-Based Prediction&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-023.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-024.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-025.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-026.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;12-3-contextual-text-mining&quot;&gt;12-3 Contextual Text Mining&lt;/h3&gt;
+
+&lt;h4 id=&quot;12-3-1-motivation&quot;&gt;12-3-1 Motivation&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-027.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-028.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-029.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;12-3-2-contextual-probabilistic-latent-semantic-analysis&quot;&gt;12-3-2 Contextual Probabilistic Latent Semantic Analysis&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-030.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-031.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-032.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-033.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-034.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-035.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;12-3-3-mining-topics-with-social-network-context&quot;&gt;12-3-3 Mining topics with social network context&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-036.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-037.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-038.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-039.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-040.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-041.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;12-3-4-mining-causal-topics-with-time-series-supervision&quot;&gt;12-3-4 Mining Causal Topics with Time Series Supervision&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-042.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-043.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-044.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-045.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-046.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-047.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-048.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-049.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-050.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-051.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;12-4-summary-for-exam-2&quot;&gt;12-4 Summary for Exam 2&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-052.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-053.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-054.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS410-wk12-img-055.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
+
+&lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
+
+&lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
+
+&lt;h2 id=&quot;readings-and-resources&quot;&gt;Readings and Resources&lt;/h2&gt;
+
+&lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals-and-objectives-1&quot;&gt;Goals and Objectives&lt;/h2&gt;
+
+&lt;h2 id=&quot;video-lecture-notes-2&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+</description>
+				<pubDate>Thu, 22 Nov 2018 00:00:00 -0600</pubDate>
+				<link>/2018/11/22/MCS-Notes-Week-12</link>
+				<guid isPermaLink="true">/2018/11/22/MCS-Notes-Week-12</guid>
+			</item>
+		
+			<item>
 				<title>MCS 1st Semester Week 11 Notes</title>
 				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
 
@@ -262,13 +468,50 @@
       &lt;li&gt;&lt;a href=&quot;#key-concepts&quot;&gt;Key Concepts&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#readings-and-resources&quot;&gt;Readings and Resources&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#concurrency-control&quot;&gt;Concurrency Control&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#rpcs&quot;&gt;RPCs&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#transactions&quot;&gt;Transactions&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#serial-equivalence&quot;&gt;Serial Equivalence&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#pessimistic-concurrency&quot;&gt;Pessimistic Concurrency&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#optimistic-concurrency-control&quot;&gt;Optimistic Concurrency Control&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#replication-control&quot;&gt;Replication Control&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#replication&quot;&gt;Replication&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#two-phase-commit&quot;&gt;Two-Phase Commit&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/a&gt;
     &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#junit&quot;&gt;JUnit&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#unit-testing&quot;&gt;Unit Testing&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#junit-overview&quot;&gt;Junit Overview&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#junit-assertions&quot;&gt;JUnit Assertions&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#junit-assumptions&quot;&gt;JUnit Assumptions&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#parameterized-tests&quot;&gt;Parameterized Tests&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#basics&quot;&gt;Basics&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#complex-parameters&quot;&gt;Complex Parameters&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#writing-parameterized-tests&quot;&gt;Writing Parameterized Tests&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#test-generalization&quot;&gt;Test Generalization&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -432,14 +675,130 @@
 &lt;hr /&gt;
 
 &lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Know how Remote Procedure Calls (RPCs) work.&lt;/li&gt;
+  &lt;li&gt;Check a run of transactions for correctness (serial equivalence).&lt;/li&gt;
+  &lt;li&gt;Design systems that use optimistic or pessimistic approaches to ensure correctness in spite of many concurrent clients.&lt;/li&gt;
+  &lt;li&gt;Detect and avoid deadlocks.&lt;/li&gt;
+  &lt;li&gt;Calculate nines availability for a replicated system.&lt;/li&gt;
+  &lt;li&gt;Know how to ensure correctness (consistency) in spite of multiple servers.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;LPCs vs RPCs&lt;/li&gt;
+  &lt;li&gt;Marshaling&lt;/li&gt;
+  &lt;li&gt;Serial Equivalence&lt;/li&gt;
+  &lt;li&gt;Pessimistic Concurrency Control&lt;/li&gt;
+  &lt;li&gt;Optimistic Concurrency Control&lt;/li&gt;
+  &lt;li&gt;Deadlocks and their detection/avoidance/prevention&lt;/li&gt;
+  &lt;li&gt;ACID Properties&lt;/li&gt;
+  &lt;li&gt;Nines Availability&lt;/li&gt;
+  &lt;li&gt;Active and Passive Replication&lt;/li&gt;
+  &lt;li&gt;Two-phase commit&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Does an RPC always cross machine boundaries?&lt;/li&gt;
+  &lt;li&gt;Why is marshaling needed at all?&lt;/li&gt;
+  &lt;li&gt;What are conflicting operations and how can you use them to detect serial equivalence among transactions?&lt;/li&gt;
+  &lt;li&gt;Is locking a form of pessimistic or optimistic concurrency control?&lt;/li&gt;
+  &lt;li&gt;Does Google docs use pessimistic or optimistic concurrency control?&lt;/li&gt;
+  &lt;li&gt;What is one way to prevent deadlocks among transactions?&lt;/li&gt;
+  &lt;li&gt;What does “three nines availability” really mean?&lt;/li&gt;
+  &lt;li&gt;Why is Two-phase commit preferable over One-phase commit?&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;readings-and-resources&quot;&gt;Readings and Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;There are no readings required for this week.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;concurrency-control&quot;&gt;Concurrency Control&lt;/h3&gt;
+
+&lt;h4 id=&quot;rpcs&quot;&gt;RPCs&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-001.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-002.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-003.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-004.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-005.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-006.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-007.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-008.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-009.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-010.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-011.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-012.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-013.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-014.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-015.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;transactions&quot;&gt;Transactions&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-016.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-017.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-018.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-019.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-020.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-021.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-022.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-023.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;serial-equivalence&quot;&gt;Serial Equivalence&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-024.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-025.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-026.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-027.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-028.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-029.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-030.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-031.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;pessimistic-concurrency&quot;&gt;Pessimistic Concurrency&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-032.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-033.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-034.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-035.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-036.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-037.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-038.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-039.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-040.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-041.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-042.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-043.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-044.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-045.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;optimistic-concurrency-control&quot;&gt;Optimistic Concurrency Control&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-046.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-047.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-048.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-049.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-050.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-051.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-052.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-053.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;replication-control&quot;&gt;Replication Control&lt;/h3&gt;
+
+&lt;h4 id=&quot;replication&quot;&gt;Replication&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-054.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-055.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-056.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-057.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-058.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-059.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-060.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-061.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-062.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-063.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-064.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS425-wk10-img-065.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;two-phase-commit&quot;&gt;Two-Phase Commit&lt;/h4&gt;
 
 &lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
 
@@ -448,6 +807,87 @@
 &lt;h2 id=&quot;goals-and-objectives-1&quot;&gt;Goals and Objectives&lt;/h2&gt;
 
 &lt;h2 id=&quot;video-lecture-notes-2&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;junit&quot;&gt;JUnit&lt;/h3&gt;
+
+&lt;h4 id=&quot;unit-testing&quot;&gt;Unit Testing&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-001.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-002.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-003.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-004.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-005.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-006.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-007.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;junit-overview&quot;&gt;Junit Overview&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-008.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-009.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-010.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-011.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-012.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-013.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;junit-assertions&quot;&gt;JUnit Assertions&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-014.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-015.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-016.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-017.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-018.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;junit-assumptions&quot;&gt;JUnit Assumptions&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-019.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-020.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-021.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-022.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-023.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;parameterized-tests&quot;&gt;Parameterized Tests&lt;/h3&gt;
+
+&lt;h4 id=&quot;basics&quot;&gt;Basics&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-024.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-025.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-026.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-027.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-028.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-029.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-030.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-031.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-032.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-033.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;complex-parameters&quot;&gt;Complex Parameters&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-034.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-035.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-036.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-037.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-038.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-039.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-040.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;writing-parameterized-tests&quot;&gt;Writing Parameterized Tests&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-041.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-042.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-043.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-044.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-045.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-046.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-047.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-048.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-049.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-050.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-051.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-052.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;test-generalization&quot;&gt;Test Generalization&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-053.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-054.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-055.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-056.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-057.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-058.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-059.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-060.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181112/CS427-wk10-img-061.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 </description>
 				<pubDate>Mon, 12 Nov 2018 00:00:00 -0600</pubDate>
@@ -5402,58 +5842,6 @@ Next slide should say “All-to-all gossip heartbeating”&lt;br /&gt;
 				<pubDate>Thu, 13 Sep 2018 00:00:00 -0500</pubDate>
 				<link>/2018/09/13/MCS-Notes-Week-3</link>
 				<guid isPermaLink="true">/2018/09/13/MCS-Notes-Week-3</guid>
-			</item>
-		
-			<item>
-				<title>Scala Specialization Part 1 Week 4</title>
-				<description>&lt;h1 id=&quot;under-construction&quot;&gt;under construction&lt;/h1&gt;
-
-&lt;div class=&quot;panel-group&quot; style=&quot;border-color:#292929; color:#444444;&quot;&gt;
-  &lt;div class=&quot;panel panel-default&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
-    &lt;div class=&quot;panel-heading&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
-      &lt;h4 class=&quot;panel-title&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
-        &lt;button class=&quot;btn&quot; data-toggle=&quot;collapse&quot; style=&quot;background-color:#35B4DE; color:#444444;&quot; data-target=&quot;#toggle-Empty&quot;&gt;
-           Empty Set 
-        &lt;/button&gt;
-      &lt;/h4&gt;
-    &lt;/div&gt;
-    &lt;div id=&quot;toggle-Empty&quot; class=&quot;panel-collapse collapse&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;&quot;&gt;
-      &lt;div class=&quot;panel-body&quot;&gt;
-&lt;blockquote class=&quot;filename&quot;&gt;
-  &lt;p&gt;Scala&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;/div&gt;
-      &lt;div class=&quot;panel-footer&quot; style=&quot;background-color:#292929; color:#dddddd;&quot;&gt;End of Empty Set&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;panel-group&quot; style=&quot;border-color:#292929; color:#444444;&quot;&gt;
-  &lt;div class=&quot;panel panel-default&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
-    &lt;div class=&quot;panel-heading&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
-      &lt;h4 class=&quot;panel-title&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
-        &lt;button class=&quot;btn&quot; data-toggle=&quot;collapse&quot; style=&quot;background-color:#35B4DE; color:#444444;&quot; data-target=&quot;#toggle-NonEmpty&quot;&gt;
-           NonEmpty Set 
-        &lt;/button&gt;
-      &lt;/h4&gt;
-    &lt;/div&gt;
-    &lt;div id=&quot;toggle-NonEmpty&quot; class=&quot;panel-collapse collapse&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;&quot;&gt;
-      &lt;div class=&quot;panel-body&quot;&gt;
-&lt;blockquote class=&quot;filename&quot;&gt;
-  &lt;p&gt;Scala&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;/div&gt;
-      &lt;div class=&quot;panel-footer&quot; style=&quot;background-color:#292929; color:#dddddd;&quot;&gt;End of NonEmpty Set&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-</description>
-				<pubDate>Tue, 11 Sep 2018 00:00:00 -0500</pubDate>
-				<link>/2018/09/11/Scala-Spec-Pt-1-Wk-4</link>
-				<guid isPermaLink="true">/2018/09/11/Scala-Spec-Pt-1-Wk-4</guid>
 			</item>
 		
 	</channel>
