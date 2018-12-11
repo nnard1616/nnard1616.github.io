@@ -7,6 +7,200 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>MCS 1st Semester Week 14 Notes</title>
+				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals&quot;&gt;Goals&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#key-concepts&quot;&gt;Key Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#readings-and-resources&quot;&gt;Readings and Resources&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#security&quot;&gt;Security&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#basic-security-concept&quot;&gt;Basic Security Concept&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#basic-cryptography-concepts&quot;&gt;Basic Cryptography Concepts&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#implementing-mechanism-using-cryptography&quot;&gt;Implementing Mechanism using Cryptography&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#datacenter-outage-studies&quot;&gt;Datacenter Outage Studies&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#what-causes-disasters&quot;&gt;What Causes Disasters&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#aws-outage&quot;&gt;AWS Outage&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#facebook-outage&quot;&gt;Facebook Outage&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#the-planet-outage&quot;&gt;The Planet Outage&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#wrap-up&quot;&gt;Wrap-up&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- vim-markdown-toc --&gt;
+
+&lt;h1 id=&quot;cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
+
+&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
+
+&lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
+
+&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
+
+&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h1 id=&quot;cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Know and design security policies.&lt;/li&gt;
+  &lt;li&gt;Know, apply, and design security mechanisms.&lt;/li&gt;
+  &lt;li&gt;Know the common properties of various types of networks.&lt;/li&gt;
+  &lt;li&gt;See case studies of multiple real datacenter outages, and learn lessons from them.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Security policies vs. mechanisms&lt;/li&gt;
+  &lt;li&gt;Security mechanisms: encryption, authentication, authorization&lt;/li&gt;
+  &lt;li&gt;Common characteristics among the various types of networks that surround us&lt;/li&gt;
+  &lt;li&gt;Why do datacenters suffer outages and what can we do about it?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;What is the difference between confidentiality, integrity, and availability?&lt;/li&gt;
+  &lt;li&gt;What is the difference between authentication, authorization, and auditing?&lt;/li&gt;
+  &lt;li&gt;What is a replay attack?&lt;/li&gt;
+  &lt;li&gt;What is the difference between public-private key cryptography and shared key cryptography?&lt;/li&gt;
+  &lt;li&gt;What is a small world network?&lt;/li&gt;
+  &lt;li&gt;What is the difference between a small network and a power law network?&lt;/li&gt;
+  &lt;li&gt;What is the most common cause of datacenter outages?&lt;/li&gt;
+  &lt;li&gt;What are three techniques to mitigate datacenter outages?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;readings-and-resources&quot;&gt;Readings and Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;200~http://www.availabilitydigest.com/public_articles/0704/data_center_outages-lessons.pdf&quot;&gt;Availability Digest Report&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://aws.amazon.com/message/65648/&quot;&gt;AWS Outage Post-mortem&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.facebook.com/notes/facebook-engineering/more-details-on-todays-outage/431441338919&quot;&gt;Facebook Outage Post-mortem&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.availabilitydigest.com/public_articles/0309/planet_explosion.pdf&quot;&gt;The Planet Outage Post-mortem&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;security&quot;&gt;Security&lt;/h3&gt;
+
+&lt;h4 id=&quot;basic-security-concept&quot;&gt;Basic Security Concept&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-001.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-002.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-003.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-004.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-005.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-006.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-007.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;basic-cryptography-concepts&quot;&gt;Basic Cryptography Concepts&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-008.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-009.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-010.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-011.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-012.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-013.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-014.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;implementing-mechanism-using-cryptography&quot;&gt;Implementing Mechanism using Cryptography&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-015.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-016.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-017.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-018.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-019.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-020.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-021.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-022.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-023.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-024.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-025.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-026.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-027.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-028.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;datacenter-outage-studies&quot;&gt;Datacenter Outage Studies&lt;/h3&gt;
+
+&lt;h4 id=&quot;what-causes-disasters&quot;&gt;What Causes Disasters&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-029.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-030.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-031.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-032.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;aws-outage&quot;&gt;AWS Outage&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-033.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-034.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-035.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-036.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-037.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-038.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-039.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-040.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-041.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;facebook-outage&quot;&gt;Facebook Outage&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-042.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-043.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-044.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-045.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-046.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-047.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;the-planet-outage&quot;&gt;The Planet Outage&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-048.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-049.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-050.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-051.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181205/CS425-wk14-img-052.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;wrap-up&quot;&gt;Wrap-up&lt;/h4&gt;
+
+&lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals-and-objectives-1&quot;&gt;Goals and Objectives&lt;/h2&gt;
+
+&lt;h2 id=&quot;video-lecture-notes-2&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+</description>
+				<pubDate>Wed, 05 Dec 2018 00:00:00 -0600</pubDate>
+				<link>/2018/12/05/MCS-Notes-Week-14</link>
+				<guid isPermaLink="true">/2018/12/05/MCS-Notes-Week-14</guid>
+			</item>
+		
+			<item>
 				<title>MCS 1st Semester Week 12 Notes</title>
 				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
 
@@ -45,7 +239,18 @@
       &lt;li&gt;&lt;a href=&quot;#key-concepts&quot;&gt;Key Concepts&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#readings-and-resources&quot;&gt;Readings and Resources&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#distributed-file-systems&quot;&gt;Distributed File Systems&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#file-system-abstraction&quot;&gt;File System Abstraction&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#nfs-and-afs&quot;&gt;NFS and AFS&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#distributed-shared-memory&quot;&gt;Distributed Shared Memory&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#sensor-networks&quot;&gt;Sensor Networks&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/a&gt;
@@ -189,14 +394,98 @@
 &lt;hr /&gt;
 
 &lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Know the internals of Distributed File Systems like NFS and AFS.&lt;/li&gt;
+  &lt;li&gt;Know the internals of Distributed Shared Memory systems.&lt;/li&gt;
+  &lt;li&gt;Know what’s inside a sensor mote and why networks of them are needed.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Distributed File Systems: Why they’re different from single-node file systems&lt;/li&gt;
+  &lt;li&gt;Internals of NFS&lt;/li&gt;
+  &lt;li&gt;Internals of AFS&lt;/li&gt;
+  &lt;li&gt;Distributed Shared Memory: How processes can share memory pages while communicating via messages&lt;/li&gt;
+  &lt;li&gt;Invalidate protocols in Distributed Shared Memory systems&lt;/li&gt;
+  &lt;li&gt;Sensor networks: Why they’ve emerged, what’s inside them, where they’re used, and what are the challenges&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Why are Distributed File Systems stateless?&lt;/li&gt;
+  &lt;li&gt;How does NFS provide transparency?&lt;/li&gt;
+  &lt;li&gt;Why is whole file caching a reasonable approach in AFS?&lt;/li&gt;
+  &lt;li&gt;When is invalidate preferable over update in Distributed Shared memory systems?&lt;/li&gt;
+  &lt;li&gt;Why can’t embedded operating systems be used in sensor motes?&lt;/li&gt;
+  &lt;li&gt;What is the disadvantage of using a spanning tree in sensor network, for aggregation?&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;readings-and-resources&quot;&gt;Readings and Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;TinyOS&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;distributed-file-systems&quot;&gt;Distributed File Systems&lt;/h3&gt;
+
+&lt;h4 id=&quot;file-system-abstraction&quot;&gt;File System Abstraction&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-001.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-002.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-003.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-004.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-005.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-006.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-007.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-008.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-009.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-010.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-011.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-012.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-013.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-014.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;nfs-and-afs&quot;&gt;NFS and AFS&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-015.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-016.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-017.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-018.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-019.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-020.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-021.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-022.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-023.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-024.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;distributed-shared-memory&quot;&gt;Distributed Shared Memory&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-025.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-026.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-027.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-028.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-029.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-030.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-031.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-032.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-033.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-034.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-035.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-036.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-037.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-038.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-039.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-040.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-041.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-042.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-043.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-044.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-045.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-046.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-047.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-048.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-049.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181122/CS425-wk12-img-050.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;sensor-networks&quot;&gt;Sensor Networks&lt;/h3&gt;
 
 &lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
 
@@ -250,7 +539,20 @@
       &lt;li&gt;&lt;a href=&quot;#key-concepts&quot;&gt;Key Concepts&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#readings-and-resources&quot;&gt;Readings and Resources&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#stream-processing&quot;&gt;Stream Processing&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#distributed-graph-processing&quot;&gt;Distributed Graph Processing&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#structure-of-networks&quot;&gt;Structure of Networks&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#scheduling&quot;&gt;Scheduling&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#single-processor-scheduling&quot;&gt;Single-processor Scheduling&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#hadoop-scheduling&quot;&gt;Hadoop Scheduling&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#dominant-resource-fair-scheduling&quot;&gt;Dominant-resource Fair Scheduling&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/a&gt;
@@ -405,14 +707,126 @@
 &lt;hr /&gt;
 
 &lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Apply classical scheduling algorithms.&lt;/li&gt;
+  &lt;li&gt;Apply popular Hadoop scheduling algorithms.&lt;/li&gt;
+  &lt;li&gt;Know the internals of Apache Storm, a stream processing engine.&lt;/li&gt;
+  &lt;li&gt;Know how enormous graphs can be processed in clouds.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Classical Scheduling algorithms, including FIFO, Shortest Task First, and Round Robin&lt;/li&gt;
+  &lt;li&gt;Popular Hadoop schedulers including Capacity Scheduler and Fair Scheduler&lt;/li&gt;
+  &lt;li&gt;Internals of Apache Storm, a stream processing engine&lt;/li&gt;
+  &lt;li&gt;Internals of distributed graph processing engines, e.g., Google’s Pregel&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Why is shortest-task-first optimal?&lt;/li&gt;
+  &lt;li&gt;What is the difference between the Capacity and Fair schedulers in Hadoop?&lt;/li&gt;
+  &lt;li&gt;What is a Storm topology?&lt;/li&gt;
+  &lt;li&gt;What is Gather-Apply-Scatter paradigm in distributed graph processing?&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;readings-and-resources&quot;&gt;Readings and Resources&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://storm.apache.org/&quot;&gt;Apache Storm&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://www.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf&quot;&gt;Optional: Spark Streaming&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://dl.acm.org/citation.cfm?id=1807184&quot;&gt;Pregel&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;stream-processing&quot;&gt;Stream Processing&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-001.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-002.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-003.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-004.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-005.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-006.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-007.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-008.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-009.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-010.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-011.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-012.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-013.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-014.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-015.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-016.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-017.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;distributed-graph-processing&quot;&gt;Distributed Graph Processing&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-018.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-019.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-020.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-021.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-022.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-023.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-024.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-025.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-026.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-027.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-028.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-029.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-030.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-031.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-032.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;structure-of-networks&quot;&gt;Structure of Networks&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-033.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-034.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-035.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-036.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-037.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-038.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-039.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-040.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-041.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-042.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-043.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-044.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-045.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-046.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;scheduling&quot;&gt;Scheduling&lt;/h3&gt;
+
+&lt;h4 id=&quot;single-processor-scheduling&quot;&gt;Single-processor Scheduling&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-047.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-048.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-049.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-050.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-051.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-052.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-053.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-054.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-055.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-056.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;hadoop-scheduling&quot;&gt;Hadoop Scheduling&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-057.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-058.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-059.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-060.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-061.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-062.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-063.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-064.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-065.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-066.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-067.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;dominant-resource-fair-scheduling&quot;&gt;Dominant-resource Fair Scheduling&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-068.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-069.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-070.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-071.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-072.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-073.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-074.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-075.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-076.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/images/20181121/CS425-wk11-img-077.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
 
@@ -5293,555 +5707,6 @@ Syntagmatic relation&lt;/p&gt;
 				<pubDate>Wed, 19 Sep 2018 00:00:00 -0500</pubDate>
 				<link>/2018/09/19/MCS-Notes-Week-4</link>
 				<guid isPermaLink="true">/2018/09/19/MCS-Notes-Week-4</guid>
-			</item>
-		
-			<item>
-				<title>MCS 1st Semester Week 3 Notes</title>
-				<description>&lt;h1 id=&quot;cs-410--text-information-systems&quot;&gt;CS 410 : Text Information Systems&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Explain the Cranfield evaluation methodology and how it works for evaluating a text retrieval system.&lt;/li&gt;
-  &lt;li&gt;Explain how to evaluate a set of retrieved documents and how to compute precision, recall, and F1.&lt;/li&gt;
-  &lt;li&gt;Explain how to evaluate a ranked list of documents.&lt;/li&gt;
-  &lt;li&gt;Explain how to compute and plot a precision-recall curve.&lt;/li&gt;
-  &lt;li&gt;Explain how to compute average precision and mean average precision (MAP).&lt;/li&gt;
-  &lt;li&gt;Explain how to evaluate a ranked list with multi-level relevance judgments.&lt;/li&gt;
-  &lt;li&gt;Explain how to compute normalized discounted cumulative gain.&lt;/li&gt;
-  &lt;li&gt;Explain why it is important to perform statistical significance tests.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Why is evaluation so critical for research and application development in text retrieval?&lt;/li&gt;
-  &lt;li&gt;How does the Cranfield evaluation methodology work?&lt;/li&gt;
-  &lt;li&gt;How do we evaluate a set of retrieved documents?&lt;/li&gt;
-  &lt;li&gt;How do you compute precision, recall, and F1?&lt;/li&gt;
-  &lt;li&gt;How do we evaluate a ranked list of search results?&lt;/li&gt;
-  &lt;li&gt;How do you compute average precision? How do you compute mean average precision (MAP) and geometric mean average precision (gMAP)?&lt;/li&gt;
-  &lt;li&gt;What is mean reciprocal rank?&lt;/li&gt;
-  &lt;li&gt;Why is MAP more appropriate than precision at k documents when comparing two retrieval methods?&lt;/li&gt;
-  &lt;li&gt;Why is precision at k documents more meaningful than average precision from a user’s perspective?&lt;/li&gt;
-  &lt;li&gt;How can we evaluate a ranked list of search results using multi-level relevance judgments?&lt;/li&gt;
-  &lt;li&gt;How do you compute normalized discounted cumulative gain (nDCG)?&lt;/li&gt;
-  &lt;li&gt;Why is normalization necessary in nDCG? Does MAP need a similar normalization? Why is it important to perform statistical significance tests when we compare the retrieval accuracies of two search engine systems?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Mark Sanderson. Test collection based evaluation of information retrieval systems. Foundations and Trends in Information Retrieval 4, 4 (2010), 247-375.&lt;/li&gt;
-  &lt;li&gt;C. Zhai and S. Massung. Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining, ACM Book Series, Morgan &amp;amp; Claypool Publishers, 2016. Chapter 9&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Cranfield evaluation methodology&lt;/li&gt;
-  &lt;li&gt;Precision and recall&lt;/li&gt;
-  &lt;li&gt;Average precision, mean average precision (MAP), and geometric mean average precision (gMAP)&lt;/li&gt;
-  &lt;li&gt;Reciprocal rank and mean reciprocal rank&lt;/li&gt;
-  &lt;li&gt;F-measure&lt;/li&gt;
-  &lt;li&gt;Normalized discounted cumulative Gain (nDCG)&lt;/li&gt;
-  &lt;li&gt;Statistical significance test&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;31-evaluation-of-tr-systems&quot;&gt;3.1 Evaluation of TR Systems&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;What to measure?
-    &lt;ul&gt;
-      &lt;li&gt;Effectiveness/Accuracy (*)&lt;/li&gt;
-      &lt;li&gt;Efficiency&lt;/li&gt;
-      &lt;li&gt;Usability&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The Cranfield Evaluation Methodology
-    &lt;ul&gt;
-      &lt;li&gt;Build reusable test collections &amp;amp; define measures&lt;/li&gt;
-      &lt;li&gt;Collection can be reused many times to compare different systems&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;32-evaluation-of-tr-systems---basic-measures&quot;&gt;3.2 Evaluation of TR Systems - Basic Measures&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS410-wk3-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS410-wk3-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;33-evaluating-ranked-lists---part-1&quot;&gt;3.3 Evaluating Ranked Lists - Part 1&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS410-wk3-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;34-evaluating-ranked-lists---part-2&quot;&gt;3.4 Evaluating Ranked Lists - Part 2&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS410-wk3-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;35-multi-level-judgements&quot;&gt;3.5 Multi-Level Judgements&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;so far we’ve been using a binary decision system, relevant or not relevant.  How about a non-binary, gradient based system?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS410-wk3-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;need normalized DCG so we can compare across different topics.&lt;/li&gt;
-  &lt;li&gt;Normalized Discounted Cumulative Gain (nDCG) main ideas:
-    &lt;ul&gt;
-      &lt;li&gt;Measure the total utility of the top k documents to a user&lt;/li&gt;
-      &lt;li&gt;Utility of a lowly ranked document is discounted&lt;/li&gt;
-      &lt;li&gt;normalized to ensure comparability across queries (note above about topics)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;36-practical-issues&quot;&gt;3.6 Practical Issues&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Need ways to measure significance and utility of evaluation techniques
-    &lt;ul&gt;
-      &lt;li&gt;could use statistical tests, beyond just averaging&lt;/li&gt;
-      &lt;li&gt;need to account for variance&lt;/li&gt;
-      &lt;li&gt;high variance = low reliability&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Use many queries before jumping into conclusions&lt;/li&gt;
-  &lt;li&gt;Pooling: avoid judging all documents
-    &lt;ul&gt;
-      &lt;li&gt;if we can’t afford judging all the documents in teh collection, which subset should we judge?&lt;/li&gt;
-      &lt;li&gt;Pooling strategy
-        &lt;ul&gt;
-          &lt;li&gt;choose a diverse set of rankign methods (TR systems)&lt;/li&gt;
-          &lt;li&gt;Have each to return top-K documents&lt;/li&gt;
-          &lt;li&gt;Combine all the top-K sets to form a pool for human assessors to judge&lt;/li&gt;
-          &lt;li&gt;Other (unjudged) documents are usually assumed to be non-relevant (though they don’t have to)&lt;/li&gt;
-          &lt;li&gt;okay for comparing system that contributed to the pool, but problematic for evaluating new systems.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS410-wk3-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;cs-425--distributed-systems&quot;&gt;cs 425 : Distributed Systems&lt;/h1&gt;
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Analyze various gossip/epidemic protocols.&lt;/li&gt;
-  &lt;li&gt;Design and analyze various distributed membership protocols.&lt;/li&gt;
-  &lt;li&gt;Know what grid computing is.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Failure detectors&lt;/li&gt;
-  &lt;li&gt;Membership protocols&lt;/li&gt;
-  &lt;li&gt;Gossip/epidemic protocols&lt;/li&gt;
-  &lt;li&gt;Grid computing&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Why are gossip and epidemic protocols fast and reliable?&lt;/li&gt;
-  &lt;li&gt;What is the most efficient way for cloud computing systems to detect failures of servers?&lt;/li&gt;
-  &lt;li&gt;How is grid computing related to cloud computing?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;readings&quot;&gt;Readings&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://dl.acm.org/citation.cfm?id=1659238&quot;&gt;Gossip-style FD&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Gossip-Style failure detection will have these properties:
-        &lt;ol&gt;
-          &lt;li&gt;the probability that a member is falsely reported as having failed is inde-&lt;br /&gt;
-  pendent of the number of processes.&lt;/li&gt;
-          &lt;li&gt;the algorithm is resilient against both message loss (or rather, message&lt;br /&gt;
-  delivery timing failures) and process failures, in that a small percentage of&lt;br /&gt;
-  lost (or late) messages or small percentage of failed members does not lead&lt;br /&gt;
-  to false detections.&lt;/li&gt;
-          &lt;li&gt;if local clock drift is negligible, the algorithm detects all failures or un-&lt;br /&gt;
-  reachabilities accurately with known probability of mistake.&lt;/li&gt;
-          &lt;li&gt;the algorithm scales in detection time, in that the detection time increases&lt;br /&gt;
-  O(n log n) with the number of processes.&lt;/li&gt;
-          &lt;li&gt;the algorithm scales in network load, in that the required bandwidth goes&lt;br /&gt;
-  up at most linearly with the number of processes. For large networks, the&lt;br /&gt;
-  bandwidth used in the subnets is approximately constant.&lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Our protocol gossips to figure out whom else is still gossiping.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://ieeexplore.ieee.org/document/1028914/?reload=true&amp;amp;arnumber=1028914&quot;&gt;SWIM&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Membership protocols have been difficult to scale in groups with beyond a few dozen processes [11, &lt;a href=&quot;http://dl.acm.org/citation.cfm?id=1659238&quot;&gt;16&lt;/a&gt;], thus affecting the performance of applications using them. As reported in [&lt;a href=&quot;http://dl.acm.org/citation.cfm?id=1659238&quot;&gt;16&lt;/a&gt;], the main symptoms of bad performance at these group sizes is an increase in either the rate of false failure detections of processes, or the time to detect a failure.[12]&lt;/li&gt;
-      &lt;li&gt;Our system, called SWIM, provides a membership substrate that:
-        &lt;ol&gt;
-          &lt;li&gt;imposes a constant message load per group member;&lt;/li&gt;
-          &lt;li&gt;detects a process failure in an (expected) constant time&lt;br /&gt;
-  at some non-faulty process in the group;&lt;/li&gt;
-          &lt;li&gt;provides a deterministic bound (as a function of group&lt;br /&gt;
-  size) on the local time that a non-faulty process takes to de-&lt;br /&gt;
-  tect failure of another process;&lt;/li&gt;
-          &lt;li&gt;propagates membership updates, including informa-&lt;br /&gt;
-  tion about failures, in infection-style (also gossip-style or&lt;br /&gt;
-  epidemic-style [2, 8]); the dissemination latency in the&lt;br /&gt;
-  group grows slowly (logarithmically) with the number of&lt;br /&gt;
-  members;&lt;/li&gt;
-          &lt;li&gt;provides a mechanism to reduce the rate of false pos-&lt;br /&gt;
-  itives by “suspecting” a process before “declaring” it as&lt;br /&gt;
-  failed within the group.&lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Properties of previous distributed failure detector protocols:
-        &lt;ol&gt;
-          &lt;li&gt;&lt;em class=&quot;highlighted&quot;&gt;Strong Completeness&lt;/em&gt;: crash-failure of any group mem-&lt;br /&gt;
-  ber is detected by all non-faulty members [6]);&lt;/li&gt;
-          &lt;li&gt;&lt;em class=&quot;highlighted&quot;&gt;Speed of failure detection&lt;/em&gt;: the time interval between a&lt;br /&gt;
-  member failure and its detection by some non-faulty group&lt;br /&gt;
-  member;&lt;/li&gt;
-          &lt;li&gt;&lt;em class=&quot;highlighted&quot;&gt;Accuracy&lt;/em&gt;: the rate of false positives of failure detection;&lt;/li&gt;
-          &lt;li&gt;&lt;em class=&quot;highlighted&quot;&gt;Network Message Load&lt;/em&gt;, in bytes per second generated&lt;br /&gt;
-  by the protocol.&lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-      &lt;li&gt;SWIM has two basic components:
-        &lt;ol&gt;
-          &lt;li&gt;a &lt;em class=&quot;highlighted&quot;&gt;Failure Detector Component&lt;/em&gt;, that detects failures of&lt;br /&gt;
-  members, and&lt;/li&gt;
-          &lt;li&gt;a &lt;em class=&quot;highlighted&quot;&gt;Dissemination Component&lt;/em&gt;, that disseminates informa-&lt;br /&gt;
-  tion about members that have recently either joined or left&lt;br /&gt;
-  the group, or failed.&lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-      &lt;li&gt;and these advanced components:
-        &lt;ol&gt;
-          &lt;li&gt;Infection-Style Dissemination Component&lt;/li&gt;
-          &lt;li&gt;Suspicion Mechanism: Reducing the Frequency of False Positives&lt;/li&gt;
-          &lt;li&gt;Round-Robin Probe Target Selection: Providing Time-Bounded Strong Completeness&lt;/li&gt;
-        &lt;/ol&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;gossip&quot;&gt;&lt;strong class=&quot;highlighted&quot;&gt;Gossip&lt;/strong&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;11--multicast-problem&quot;&gt;1.1 : Multicast Problem&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Centralized Multicast, simplest
-    &lt;ul&gt;
-      &lt;li&gt;UDP/TCP packets&lt;/li&gt;
-      &lt;li&gt;A single, center protocol handler&lt;/li&gt;
-      &lt;li&gt;Faulty due to single center protocol handler, if it fails halfway through process then only half of receivers will be updated.&lt;/li&gt;
-      &lt;li&gt;High overhead which leads to large latency&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Tree-Based
-    &lt;ul&gt;
-      &lt;li&gt;eg, IPmulticast, SRM, RMTP, TRAM, TMTP&lt;/li&gt;
-      &lt;li&gt;Pros:
-        &lt;ul&gt;
-          &lt;li&gt;if tree is balanced, then depth is log(n).  As a result, the complexity of a message reaching a node is O(logn).&lt;/li&gt;
-          &lt;li&gt;If children constant at each node, then message propagation is constant&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Con:
-        &lt;ul&gt;
-          &lt;li&gt;setup and maintain tree&lt;/li&gt;
-          &lt;li&gt;if a high node fails, many descendents will be disconnected&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Which of the following is FALSE about a NAK in a tree-based multicast protocol?
-    &lt;ul&gt;
-      &lt;li&gt;It is used to send negative acknowledgments to a sender or designated receiver.&lt;/li&gt;
-      &lt;li&gt;It may result in some of the multicast messages being retransmitted.&lt;/li&gt;
-      &lt;li&gt;NAKs may cause message implosion.&lt;/li&gt;
-      &lt;li&gt;(FALSE) NAKs cannot be used if IP multicast in the underlying network is used.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;12--the-gossip-protocol&quot;&gt;1.2 : The Gossip Protocol&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;The gossip-based protocol described so far (select all correct answers):
-    &lt;ul&gt;
-      &lt;li&gt;(TRUE) Is executed periodically at each node&lt;/li&gt;
-      &lt;li&gt;Receives only one copy of each multicast message at each node&lt;/li&gt;
-      &lt;li&gt;Can turn an infected node into an uninfected node&lt;/li&gt;
-      &lt;li&gt;(TRUE) Can turn an uninfected node into an infected node&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;13--gossip-analysis-important&quot;&gt;1.3 : Gossip Analysis &lt;strong class=&quot;highlighted&quot;&gt;(Important)&lt;/strong&gt;&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Properties of Gossip push protocol:
-    &lt;ul&gt;
-      &lt;li&gt;lightweight, even in large groups&lt;/li&gt;
-      &lt;li&gt;Spreads a multicast quickly&lt;/li&gt;
-      &lt;li&gt;highly fault-tolerant&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;We’re presented the epidemiology differential equations, which we’re asked to solve on our own.  Below is a video I made to walk through the solution:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div style=&quot;position:relative;height:0;padding-bottom:56.25%&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/fLAqNFdnaJw?ecver=2&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; style=&quot;position:absolute;width:100%;height:100%;left:0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Pull is faster than push.&lt;/li&gt;
-  &lt;li&gt;Push-Pull paradigm could involve push to quickly start up the cascade, and then use pull to facilitate propagation of cascade.&lt;/li&gt;
-  &lt;li&gt;second half of pull gossip finishes in time O(loglogn)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;14--gossip-implementations&quot;&gt;1.4 : Gossip Implementations&lt;/h3&gt;
-
-&lt;h3 id=&quot;membership&quot;&gt;&lt;strong class=&quot;highlighted&quot;&gt;Membership&lt;/strong&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;21--what-is-group-membership-list&quot;&gt;2.1 : What is Group Membership List?&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Failures are the norm in datacenters, need to design failure detectors&lt;/li&gt;
-  &lt;li&gt;Crash-stop/Fail-stop process failures (processes do not recover!)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;22--failure-detectors&quot;&gt;2.2 : Failure Detectors&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;detectors cannot be both 100% complete and 100% accurate.&lt;/li&gt;
-  &lt;li&gt;if you can do both, then you’ve solved the “consensus problem”: group deciding/agreeing on the value of something in a lossy network (impossible, more later)&lt;/li&gt;
-  &lt;li&gt;in practice, always 100% complete, 90-99% accurate.&lt;/li&gt;
-  &lt;li&gt;Centralized Heartbeating&lt;/li&gt;
-  &lt;li&gt;ring heartbeating&lt;/li&gt;
-  &lt;li&gt;all-to-all heartbeating (best)
-    &lt;ul&gt;
-      &lt;li&gt;if one node is slow, it may mark many nodes as faulty, thus causing large false positives…how to fix?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;23--gossip-style-membership&quot;&gt;2.3 : Gossip-Style Membership&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;In gossip-style failure detection, why should an entry not be deleted right after it’s detected as failed?
-    &lt;ul&gt;
-      &lt;li&gt;Because other processes may not have deleted that entry and it may be added back (the process may stay in the records despite being dead)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;24--which-is-the-best-failure-detector&quot;&gt;2.4 : Which is the best failure detector?&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-9.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-Next slide should say “All-to-all gossip heartbeating”&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-11.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;25--another-probabilistic-failure-detector&quot;&gt;2.5 : Another probabilistic Failure Detector&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-13.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;SWIM allows a process p&lt;sub&gt;j&lt;/sub&gt; extra chances to respond to p&lt;sub&gt;i&lt;/sub&gt; through time and space.&lt;/li&gt;
-  &lt;li&gt;It allows it more time to respond, and permits direct and indirect (through other random processes) paths to relay a response.&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-14.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-15.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-16.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-17.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;26--dissemination-and-suspicion&quot;&gt;2.6 : Dissemination and suspicion&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;In a system with N processes using the SWIM failure detector, given enough network bandwidth, how long does it take for a failure, after it is detected at one process, to disseminate through the group?
-    &lt;ul&gt;
-      &lt;li&gt;O(logn) (why?)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-18.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-19.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-20.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-21.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;31--grid-applications&quot;&gt;3.1 : Grid Applications&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Question: how do we schedule and distribute a list of jobs across multiple different machines?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;32--scheduling-problem&quot;&gt;3.2 : Scheduling Problem&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Which of the following are typically NOT the responsibility of an inter-site protocol like Globus, but instead the responsibility of an intra-site protocol like HTCondor (select multiple answers)?
-    &lt;ul&gt;
-      &lt;li&gt;Deciding which tasks run on which machines (Correct)&lt;/li&gt;
-      &lt;li&gt;Monitoring of workstations running tasks (Correct)&lt;/li&gt;
-      &lt;li&gt;Wide-area file transfer&lt;/li&gt;
-      &lt;li&gt;Allocating jobs to sites&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-23.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-24.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-25.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-26.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-27.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-28.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS425-wk3-img-29.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;cs-427--software-engineering&quot;&gt;CS 427 : Software Engineering&lt;/h1&gt;
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;goals-and-objectives-1&quot;&gt;Goals and Objectives&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Explain key practices in path-driven methodologies&lt;/li&gt;
-  &lt;li&gt;Explain key practices in agile methodologies&lt;/li&gt;
-  &lt;li&gt;Choose appropriate processes in the given application context&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;video-lecture-notes-2&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;21--process-overview&quot;&gt;2.1 : Process Overview&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Activity groups in IEEE 1074
-    &lt;ul&gt;
-      &lt;li&gt;Project Management
-        &lt;ul&gt;
-          &lt;li&gt;Project initiation&lt;/li&gt;
-          &lt;li&gt;Project Planning&lt;/li&gt;
-          &lt;li&gt;Project Monitoring and control&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Pre-development
-        &lt;ul&gt;
-          &lt;li&gt;Concept exploration&lt;/li&gt;
-          &lt;li&gt;system allocation&lt;/li&gt;
-          &lt;li&gt;software importation&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Development
-        &lt;ul&gt;
-          &lt;li&gt;Software requirements
-            &lt;ul&gt;
-              &lt;li&gt;Define and develop software requirements&lt;/li&gt;
-              &lt;li&gt;Define interface requirements&lt;/li&gt;
-              &lt;li&gt;Prioritize and integrate software requirements&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-          &lt;li&gt;Design&lt;/li&gt;
-          &lt;li&gt;Implementation&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Post-Development
-        &lt;ul&gt;
-          &lt;li&gt;Installation&lt;/li&gt;
-          &lt;li&gt;Operation and support&lt;/li&gt;
-          &lt;li&gt;Maintenance&lt;/li&gt;
-          &lt;li&gt;Retirement&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Support
-        &lt;ul&gt;
-          &lt;li&gt;Evaluation&lt;/li&gt;
-          &lt;li&gt;Software configuration management&lt;/li&gt;
-          &lt;li&gt;Documentation development&lt;/li&gt;
-          &lt;li&gt;Training&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;22--plan-driven-process&quot;&gt;2.2 : Plan Driven Process&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Waterfall Process
-    &lt;ul&gt;
-      &lt;li&gt;Requirements&lt;/li&gt;
-      &lt;li&gt;Design&lt;/li&gt;
-      &lt;li&gt;Implementation&lt;/li&gt;
-      &lt;li&gt;Integration&lt;/li&gt;
-      &lt;li&gt;Testing&lt;/li&gt;
-      &lt;li&gt;Maintenance&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS427-wk3-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS427-wk3-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS427-wk3-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;23--agile-process&quot;&gt;2.3 : Agile Process&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;while all of these are important, we prefer:
-    &lt;ul&gt;
-      &lt;li&gt;Individuals &amp;amp; interactions &amp;gt; processes and tools&lt;/li&gt;
-      &lt;li&gt;Working Software &amp;gt; comprehensive documentation (use better coding to convey meaning, easier/faster to maintain than code with tons of documentation)&lt;/li&gt;
-      &lt;li&gt;Customer collaboration &amp;gt; Contract negotiation (let engineers collaborate with customers)&lt;/li&gt;
-      &lt;li&gt;Responding to change &amp;gt; following a plan (allow audibles)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;XP:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;em class=&quot;highlighted&quot;&gt;Planning game&lt;/em&gt; for requirements&lt;/li&gt;
-      &lt;li&gt;&lt;em class=&quot;highlighted&quot;&gt;Test-driven development&lt;/em&gt; for design and testing&lt;/li&gt;
-      &lt;li&gt;&lt;em class=&quot;highlighted&quot;&gt;Refactoring&lt;/em&gt;  for design&lt;/li&gt;
-      &lt;li&gt;&lt;em class=&quot;highlighted&quot;&gt;Pair programming&lt;/em&gt; for development&lt;/li&gt;
-      &lt;li&gt;&lt;em class=&quot;highlighted&quot;&gt;Continuous integration&lt;/em&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS427-wk3-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS427-wk3-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Scrum is needed when customer expectations are evolving or uncertain.&lt;/li&gt;
-  &lt;li&gt;Scrum should not be chosen if there is high inter-dependencies that make it difficult to split product into shippable increments.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;24-process-choosing&quot;&gt;2.4 Process Choosing&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Five critical factors to help choose a strategy:
-    &lt;ul&gt;
-      &lt;li&gt;Size (number of people on team)&lt;/li&gt;
-      &lt;li&gt;Criticality (what are the costs upon failures?)&lt;/li&gt;
-      &lt;li&gt;Dynamism (how often requirements of tech change)&lt;/li&gt;
-      &lt;li&gt;Personnel (skill of team members)&lt;/li&gt;
-      &lt;li&gt;Culture (team members’ preferences and habits)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS427-wk3-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;25-project-planning&quot;&gt;2.5 Project Planning&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Story Points are relative measures of how much time/effort tasks will take to complete.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;26-scheduling&quot;&gt;2.6 Scheduling&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180913/CS427-wk3-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180913/CS427-wk3-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;27-risk-management&quot;&gt;2.7 Risk Management&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Don’t be afraid of bringing up issues/risks, refraining from doing so can do harm to all stakeholders in the project&lt;/li&gt;
-  &lt;li&gt;Be proactive!&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-				<pubDate>Thu, 13 Sep 2018 00:00:00 -0500</pubDate>
-				<link>/2018/09/13/MCS-Notes-Week-3</link>
-				<guid isPermaLink="true">/2018/09/13/MCS-Notes-Week-3</guid>
 			</item>
 		
 	</channel>

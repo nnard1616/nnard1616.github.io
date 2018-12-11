@@ -33,6 +33,11 @@ tags:
     * [Guiding Questions](#guiding-questions)
     * [Readings and Resources](#readings-and-resources)
     * [Video Lecture Notes](#video-lecture-notes)
+        * [Distributed File Systems](#distributed-file-systems)
+            * [File System Abstraction](#file-system-abstraction)
+            * [NFS and AFS](#nfs-and-afs)
+        * [Distributed Shared Memory](#distributed-shared-memory)
+        * [Sensor Networks](#sensor-networks)
 * [CS 427 Software Engineering](#cs-427-software-engineering)
     * [Goals and Objectives](#goals-and-objectives)
     * [Video Lecture Notes](#video-lecture-notes)
@@ -162,14 +167,91 @@ tags:
 ---
 
 ## Goals 
+* Know the internals of Distributed File Systems like NFS and AFS.
+* Know the internals of Distributed Shared Memory systems.
+* Know what’s inside a sensor mote and why networks of them are needed.
 
 ## Key Concepts
+* Distributed File Systems: Why they’re different from single-node file systems
+* Internals of NFS
+* Internals of AFS
+* Distributed Shared Memory: How processes can share memory pages while communicating via messages
+* Invalidate protocols in Distributed Shared Memory systems
+* Sensor networks: Why they’ve emerged, what’s inside them, where they’re used, and what are the challenges
 
 ## Guiding Questions
+* Why are Distributed File Systems stateless?
+* How does NFS provide transparency?
+* Why is whole file caching a reasonable approach in AFS?
+* When is invalidate preferable over update in Distributed Shared memory systems?
+* Why can’t embedded operating systems be used in sensor motes?
+* What is the disadvantage of using a spanning tree in sensor network, for aggregation?
 
 ## Readings and Resources
+* TinyOS
 
 ## Video Lecture Notes
+
+### Distributed File Systems
+
+#### File System Abstraction
+![img]({{ '/assets/images/20181122/CS425-wk12-img-001.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-002.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-003.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-004.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-005.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-006.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-007.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-008.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-009.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-010.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-011.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-012.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-013.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-014.png' | relative_url }}){: .center-image }
+
+#### NFS and AFS
+![img]({{ '/assets/images/20181122/CS425-wk12-img-015.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-016.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-017.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-018.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-019.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-020.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-021.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-022.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-023.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-024.png' | relative_url }}){: .center-image }
+
+### Distributed Shared Memory
+![img]({{ '/assets/images/20181122/CS425-wk12-img-025.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-026.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-027.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-028.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-029.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-030.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-031.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-032.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-033.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-034.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-035.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-036.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-037.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-038.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-039.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-040.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-041.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-042.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-043.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-044.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-045.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-046.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-047.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-048.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-049.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181122/CS425-wk12-img-050.png' | relative_url }}){: .center-image }
+
+### Sensor Networks
+
 
 # CS 427 Software Engineering
 

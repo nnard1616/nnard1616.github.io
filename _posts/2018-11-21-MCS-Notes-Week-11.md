@@ -241,14 +241,59 @@ tags:
 ![img]({{ '/assets/images/20181121/CS425-wk11-img-032.png' | relative_url }}){: .center-image }
 
 ### Structure of Networks
+![img]({{ '/assets/images/20181121/CS425-wk11-img-033.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-034.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-035.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-036.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-037.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-038.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-039.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-040.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-041.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-042.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-043.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-044.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-045.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-046.png' | relative_url }}){: .center-image }
 
 ### Scheduling
 
 #### Single-processor Scheduling
+![img]({{ '/assets/images/20181121/CS425-wk11-img-047.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-048.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-049.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-050.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-051.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-052.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-053.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-054.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-055.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-056.png' | relative_url }}){: .center-image }
 
 #### Hadoop Scheduling
+![img]({{ '/assets/images/20181121/CS425-wk11-img-057.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-058.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-059.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-060.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-061.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-062.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-063.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-064.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-065.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-066.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-067.png' | relative_url }}){: .center-image }
 
 #### Dominant-resource Fair Scheduling
+![img]({{ '/assets/images/20181121/CS425-wk11-img-068.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-069.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-070.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-071.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-072.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-073.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-074.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-075.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-076.png' | relative_url }}){: .center-image }
+![img]({{ '/assets/images/20181121/CS425-wk11-img-077.png' | relative_url }}){: .center-image }
 
 # CS 427 Software Engineering
 
