@@ -7,6 +7,145 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Sams Teach Yourself TCP/IP in 24 Hours</title>
+				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#part-i-tcpip-basics&quot;&gt;Part I-TCPIP Basics&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#hour-1&quot;&gt;Hour 1&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#interesting-tidbits&quot;&gt;Interesting Tidbits&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#key-terms&quot;&gt;Key Terms&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#hour-2&quot;&gt;Hour 2&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#interesting-tidbits&quot;&gt;Interesting Tidbits&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#key-terms&quot;&gt;Key Terms&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- vim-markdown-toc --&gt;
+
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;In this blog post I shall record summaries and things of interest that I learn from each chapter (hour) in &lt;a href=&quot;https://www.amazon.com/Sams-Teach-Yourself-TCP-Hours/dp/0672329964&quot;&gt;Sams Teach Yourself TCP/IP in 24 Hours 4th ed&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;part-i-tcpip-basics&quot;&gt;Part I-TCPIP Basics&lt;/h1&gt;
+
+&lt;h2 id=&quot;hour-1&quot;&gt;Hour 1&lt;/h2&gt;
+
+&lt;h3 id=&quot;interesting-tidbits&quot;&gt;Interesting Tidbits&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Routers (gateways)  help prevent clutter from outside networks on local networks&lt;/li&gt;
+  &lt;li&gt;A lot of our TCP/IP protocols today are the result of massive efforts from US Military projects (and others)&lt;/li&gt;
+  &lt;li&gt;Many different protocols for different forms of data transfer.&lt;/li&gt;
+  &lt;li&gt;Standard -&amp;gt; rules for what’s expected&lt;/li&gt;
+  &lt;li&gt;Implementation -&amp;gt; how the standard is fulfilled&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;key-terms&quot;&gt;Key Terms&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;ARPAnet&lt;/strong&gt;—An experimental network that was the birthplace of TCP/IP.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Domain name&lt;/strong&gt;—An alphanumeric name associated with an IP address&lt;br /&gt;
+through TCP/IP’s DNS name service system.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Gateway&lt;/strong&gt;—A router that connects a LAN to a larger network. The term&lt;br /&gt;
+gateway sometimes applies specifically to a router that performs some kind&lt;br /&gt;
+of protocol conversion.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;IP address&lt;/strong&gt;—A logical address used to locate a computer or other networked&lt;br /&gt;
+device (such as a printer) on a TCP/IP network.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Logical address&lt;/strong&gt;—A network address configured through the protocol software.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Name service&lt;/strong&gt;—A service that associates human-friendly alphanumeric&lt;br /&gt;
+names with network addresses.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Physical address&lt;/strong&gt;—A permanent address burned into a network adapter in&lt;br /&gt;
+the factory.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Port&lt;/strong&gt;—An internal address that provides an interface between an application&lt;br /&gt;
+and TCP/IP’s Transport layer.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Protocol system&lt;/strong&gt;—A system of standards and procedures that enables comput-&lt;br /&gt;
+ers to communicate over a network.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;RFC (Request for Comment)&lt;/strong&gt;—An official technical paper providing relevant&lt;br /&gt;
+information on TCP/IP or the Internet. You can find the RFCs at several places&lt;br /&gt;
+on the Internet—try www.rfc-editor.org.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Router&lt;/strong&gt;—A network device that forwards data by logical address and can also&lt;br /&gt;
+be used to segment large networks into smaller subnetworks.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;TCP/IP&lt;/strong&gt;—A network protocol suite used on the Internet and also on many&lt;br /&gt;
+other networks around the world.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;hour-2&quot;&gt;Hour 2&lt;/h2&gt;
+
+&lt;h3 id=&quot;interesting-tidbits-1&quot;&gt;Interesting Tidbits&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;There are different models for TCP/IP protocols, but they generally have four main layers:
+    &lt;ul&gt;
+      &lt;li&gt;Application layer&lt;/li&gt;
+      &lt;li&gt;Transport Layer (TCP (reliable but slower) or UDP(faster but less reliable))&lt;/li&gt;
+      &lt;li&gt;Internet Layer&lt;/li&gt;
+      &lt;li&gt;Network Access Layer&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Others, such as the OSI model, define more precise layers, but in general can roughly be grouped into four main layers listed above.&lt;/li&gt;
+  &lt;li&gt;As messages travel from one layer to the next, outgoing messages get &lt;strong class=&quot;highlighted&quot;&gt;encapsulated&lt;/strong&gt; with header messages (contain info on how to handle message) and incoming messages have their headers unwrapped.&lt;/li&gt;
+  &lt;li&gt;IP addresses are logical addresses to identify machines on a network (local or internet)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;key-terms-1&quot;&gt;Key Terms&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Application layer&lt;/strong&gt;—The layer of the TCP/IP stack that supports network appli-&lt;br /&gt;
+cations and provides an interface to the local operating environment.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Datagram&lt;/strong&gt;—The data package passed from the Internet layer to the Network&lt;br /&gt;
+Access layer, or a data package passed from UDP at the Transport layer to the&lt;br /&gt;
+Internet layer.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Frame&lt;/strong&gt;—The data package created at the Network Access layer.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Header&lt;/strong&gt;—A bundle of protocol information attached to the data at each layer&lt;br /&gt;
+of the protocol stack.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Internet layer&lt;/strong&gt;—The layer of the TCP/IP stack that provides logical addressing&lt;br /&gt;
+and routing.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;IP (Internet Protocol)&lt;/strong&gt;—The Internet layer protocol that provides logical&lt;br /&gt;
+addressing and routing capabilities.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Message&lt;/strong&gt;—In TCP/IP networking, a message is the data package passed from&lt;br /&gt;
+the Application layer to the Transport layer. The term is also used generically&lt;br /&gt;
+to describe a message from one entity to another on the network. The term&lt;br /&gt;
+doesn’t always refer to an Application layer data package.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Network Access layer&lt;/strong&gt;—The layer of the TCP/IP stack that provides an inter-&lt;br /&gt;
+face with the physical network.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Segment&lt;/strong&gt;—The data package passed from TCP at the Transport layer to the&lt;br /&gt;
+Internet layer.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Application layer&lt;/strong&gt;—The layer of the TCP/IP stack that supports network appli-&lt;br /&gt;
+cations and provides an interface to the local operating environment.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Datagram&lt;/strong&gt;—The data package passed from the Internet layer to the Network&lt;br /&gt;
+Access layer, or a data package passed from UDP at the Transport layer to the&lt;br /&gt;
+Internet layer.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Frame&lt;/strong&gt;—The data package created at the Network Access layer.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Header&lt;/strong&gt;—A bundle of protocol information attached to the data at each layer&lt;br /&gt;
+of the protocol stack.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Internet layer&lt;/strong&gt;—The layer of the TCP/IP stack that provides logical addressing&lt;br /&gt;
+and routing.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;IP (Internet Protocol)&lt;/strong&gt;—The Internet layer protocol that provides logical&lt;br /&gt;
+addressing and routing capabilities.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Message&lt;/strong&gt;—In TCP/IP networking, a message is the data package passed from&lt;br /&gt;
+the Application layer to the Transport layer. The term is also used generically&lt;br /&gt;
+to describe a message from one entity to another on the network. The term&lt;br /&gt;
+doesn’t always refer to an Application layer data package.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Network Access layer&lt;/strong&gt;—The layer of the TCP/IP stack that provides an inter-&lt;br /&gt;
+face with the physical network.&lt;/li&gt;
+  &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Segment&lt;/strong&gt;—The data package passed from TCP at the Transport layer to the&lt;br /&gt;
+Internet layer.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Wed, 05 Dec 2018 00:00:00 -0600</pubDate>
+				<link>/2018/12/05/Teach-Yourself-TCPIP</link>
+				<guid isPermaLink="true">/2018/12/05/Teach-Yourself-TCPIP</guid>
+			</item>
+		
+			<item>
 				<title>MCS 1st Semester Week 14 Notes</title>
 				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
 
@@ -4910,803 +5049,6 @@ Syntagmatic relation&lt;/p&gt;
 				<pubDate>Sun, 30 Sep 2018 00:00:00 -0500</pubDate>
 				<link>/2018/09/30/MCS-Notes-Week-5</link>
 				<guid isPermaLink="true">/2018/09/30/MCS-Notes-Week-5</guid>
-			</item>
-		
-			<item>
-				<title>MCS 1st Semester Week 4 Notes</title>
-				<description>&lt;h1 id=&quot;cs-410--text-information-systems&quot;&gt;CS 410 : Text Information Systems&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Explain how to interpret p(R=1|q,d) and estimate it based on a large set of collected relevance judgments (or clickthrough information) about query q and document d.&lt;/li&gt;
-  &lt;li&gt;Explain how to interpret the conditional probability p(q|d) used for scoring documents in the query likelihood retrieval function.&lt;/li&gt;
-  &lt;li&gt;Explain what a statistical language model and a unigram language model are.&lt;/li&gt;
-  &lt;li&gt;Explain how to compute the maximum likelihood estimate of a unigram language model.&lt;/li&gt;
-  &lt;li&gt;Explain how to use unigram language models to discover semantically related words.&lt;/li&gt;
-  &lt;li&gt;Compute p(q|d) based on a given document language model p(w|d).&lt;/li&gt;
-  &lt;li&gt;Explain what smoothing does.&lt;/li&gt;
-  &lt;li&gt;Show that query likelihood retrieval function implements TF-IDF weighting if we smooth the document language model p(w|d) using the collection language model p(w|C) as a reference language model.&lt;/li&gt;
-  &lt;li&gt;Compute the estimate of p(w|d) using Jelinek-Mercer (JM) smoothing and Dirichlet Prior smoothing, respectively.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Given a table of relevance judgments in the form of three columns (query, document, and binary relevance judgments), how can we estimate p(R=1|q,d)?&lt;/li&gt;
-  &lt;li&gt;How should we interpret the query likelihood conditional probability p(q|d)?&lt;/li&gt;
-  &lt;li&gt;What is a statistical language model? What is a unigram language model? How many parameters are there in a unigram language model?&lt;/li&gt;
-  &lt;li&gt;How do we compute the maximum likelihood estimate of the unigram language model (based on a text sample)?&lt;/li&gt;
-  &lt;li&gt;What is a background language model? What is a collection language model? What is a document language model?&lt;/li&gt;
-  &lt;li&gt;Why do we need to smooth a document language model in the query likelihood retrieval model? What would happen if we don’t do smoothing?&lt;/li&gt;
-  &lt;li&gt;When we smooth a document language model using a collection language model as a reference language model, what is the probability assigned to an unseen word in a document?&lt;/li&gt;
-  &lt;li&gt;How can we prove that the query likelihood retrieval function implements TF-IDF weighting if we use a collection language model smoothing?&lt;/li&gt;
-  &lt;li&gt;How does linear interpolation (Jelinek-Mercer) smoothing work? What is the formula?&lt;/li&gt;
-  &lt;li&gt;How does Dirichlet prior smoothing work? What is the formula?&lt;/li&gt;
-  &lt;li&gt;What are the similarities and differences between Jelinek-Mercer smoothing and Dirichlet prior smoothing?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;C. Zhai and S. Massung. Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining, ACM Book Series, Morgan &amp;amp; Claypool Publishers, 2016. Chapter 6 - Section 6.4&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;p(R=1|q,d) ; query likelihood, p(q|d)&lt;/li&gt;
-  &lt;li&gt;Statistical and unigram language models&lt;/li&gt;
-  &lt;li&gt;Maximum likelihood estimate&lt;/li&gt;
-  &lt;li&gt;Background, collection, and document language models&lt;/li&gt;
-  &lt;li&gt;Smoothing of unigram language models&lt;/li&gt;
-  &lt;li&gt;Relation between query likelihood and TF-IDF weighting&lt;/li&gt;
-  &lt;li&gt;Linear interpolation (i.e., Jelinek-Mercer) smoothing&lt;/li&gt;
-  &lt;li&gt;Dirichlet Prior smoothing&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;41--probabilistic-retrieval-model&quot;&gt;4.1 : Probabilistic Retrieval Model&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Many different retrieval models:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Probabilistic models&lt;/strong&gt;: f(d,q) = p(R=1|d,q), R ∈ {0,1}
-        &lt;ul&gt;
-          &lt;li&gt;Classic probabilistic model -&amp;gt; BM25&lt;/li&gt;
-          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Language model -&amp;gt; Query Likelihood&lt;/strong&gt;&lt;/li&gt;
-          &lt;li&gt;Divergence-from-randomness model -&amp;gt; PL2
-            &lt;ul&gt;
-              &lt;li&gt;p(R=1|d,q) ≈ p(q|d,R=1)&lt;/li&gt;
-              &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;If a user likes document d, how likely would the user enter query q (in order to retrieve d)?&lt;/strong&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Instead, we prefer to use p(q|d,R=1):
-    &lt;ul&gt;
-      &lt;li&gt;Assume a user formulates a query based on an “&lt;strong class=&quot;highlighted&quot;&gt;imaginary relevant document&lt;/strong&gt;”&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;42--statistical-language-models&quot;&gt;4.2 : Statistical Language Models&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;What is a statistical language model?
-    &lt;ul&gt;
-      &lt;li&gt;A probability distribution over word sequences&lt;/li&gt;
-      &lt;li&gt;Context Dependent&lt;/li&gt;
-      &lt;li&gt;Can also be regarded as a probabilistic mechanism for “generating” text, thus also called a “generative” model.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Why is a LM useful?
-    &lt;ul&gt;
-      &lt;li&gt;Quantify the uncertainties in natural language&lt;/li&gt;
-      &lt;li&gt;Allows us to answer questions like:
-        &lt;ul&gt;
-          &lt;li&gt;Given that we see “John” and “feels”, how likely will we see “happy” as opposed to “habit as the next word? (&lt;strong class=&quot;highlighted&quot;&gt;speech recognition&lt;/strong&gt;)&lt;/li&gt;
-          &lt;li&gt;Given that we observe “baseball” three times and “game” once in a news article, how likely is it about “sports”? (&lt;strong class=&quot;highlighted&quot;&gt;text categorization, information retrieval&lt;/strong&gt;)&lt;/li&gt;
-          &lt;li&gt;Given that a user is interested in sports news, how likely would the user use “baseball” in a query? (&lt;strong class=&quot;highlighted&quot;&gt;information retrieval&lt;/strong&gt;)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The Simplest Language Model: Unigram LM
-    &lt;ul&gt;
-      &lt;li&gt;Generate text by generating each word INDEPENDENTLY&lt;/li&gt;
-      &lt;li&gt;thus, p(w1, w2, …wn) = p(w1)p(w2)…p(wn)&lt;/li&gt;
-      &lt;li&gt;Parameters: {p(wi)} p(w1)+…+p(wn)=1 (N is vocabularly size)&lt;/li&gt;
-      &lt;li&gt;Text = sample drawn according to this &lt;strong class=&quot;highlighted&quot;&gt;word distribution&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;43--query-likelihood-retrieval-function&quot;&gt;4.3 : Query Likelihood Retrieval Function&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;p(q|d), if the user is thinking of this doc, how likely would she pose this query?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-9.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;44--ranking-function-based-on-query-likelihood&quot;&gt;4.4 : Ranking Function based on Query likelihood&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Key Question: what probability should be assigned to an unseen word?&lt;/li&gt;
-  &lt;li&gt;Let the probability of an unseen word be proportional to its probability given by a refernce LM&lt;/li&gt;
-  &lt;li&gt;One possibility: Reference LM = Collection LM
-    &lt;ul&gt;
-      &lt;li&gt;p(w|d) = {Pseen(w|d), if w is seen in d} , {α&lt;sub&gt;d&lt;/sub&gt;P(w|C), otherwise}&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-11.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;45--statistical-language-model---part-2&quot;&gt;4.5 : Statistical Language Model - Part 2&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-13.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;46-smoothing-methods---part-1&quot;&gt;4.6 SMoothing Methods - Part 1&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-14.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-15.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-16.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;47--smoothing-methods---part-2&quot;&gt;4.7 : Smoothing Methods - Part 2&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-17.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-18.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-19.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS410-wk4-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;cs-425--distributed-systems&quot;&gt;CS 425 : Distributed Systems&lt;/h1&gt;
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Know how Napster, Gnutella, FastTrack, and BitTorrent work.&lt;/li&gt;
-  &lt;li&gt;Know and analyze how distributed hash tables work (Chord, Pastry, and Kelips).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Peer-to-peer systems&lt;/li&gt;
-  &lt;li&gt;Industrial P2P systems: Napster, Gnutella, FastTrack, BitTorrent&lt;/li&gt;
-  &lt;li&gt;Distributed hash tables: Chord, Pastry, Kelips&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;What is the difference between how Napster clients and Gnutella clients search for files?&lt;/li&gt;
-  &lt;li&gt;What is the difference between Gnutella and FastTrack?&lt;/li&gt;
-  &lt;li&gt;What is BitTorrent’s tit for tat mechanism?&lt;/li&gt;
-  &lt;li&gt;What is consistent hashing?&lt;/li&gt;
-  &lt;li&gt;Why are DHTs efficient in searching?&lt;/li&gt;
-  &lt;li&gt;How does Chord route queries?&lt;/li&gt;
-  &lt;li&gt;How does Pastry route queries?&lt;/li&gt;
-  &lt;li&gt;How does Kelips route queries?&lt;/li&gt;
-  &lt;li&gt;What is churn in P2P systems?&lt;/li&gt;
-  &lt;li&gt;How does Chord maintain correct neighbors in spite of failures and churn?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;readings-and-resources&quot;&gt;Readings and Resources&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://courses.engr.illinois.edu/cs425/fa2014/gnutella_protocol_0.4.pdf&quot;&gt;Gnutella v 0.4 paper (PDF)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf&quot;&gt;Chord paper (PDF)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;41-p2p-systems-introduction&quot;&gt;4.1 P2P Systems Introduction&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;P2P first distributed systems that seriously focused on scalability with respect to number of nodes&lt;/li&gt;
-  &lt;li&gt;Widely-deployed P2P Systems
-    &lt;ol&gt;
-      &lt;li&gt;Napster&lt;/li&gt;
-      &lt;li&gt;Gnutella&lt;/li&gt;
-      &lt;li&gt;Fasttrack (Kazaa, Kazaalite, Grokster)&lt;/li&gt;
-      &lt;li&gt;BitTorrent&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;P2P Systems with Provable Properties
-    &lt;ol&gt;
-      &lt;li&gt;Chord&lt;/li&gt;
-      &lt;li&gt;Pastry&lt;/li&gt;
-      &lt;li&gt;Kelips&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;42-napster&quot;&gt;4.2 Napster&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Napster Operations:
-    &lt;ul&gt;
-      &lt;li&gt;Client: Connect to a Napster server
-        &lt;ul&gt;
-          &lt;li&gt;Upload list of music files that you want to share&lt;/li&gt;
-          &lt;li&gt;Server maintains list of &amp;lt;filename, ip_address, portnum&amp;gt; tuples. &lt;strong class=&quot;highlighted&quot;&gt;Server stores no files.&lt;/strong&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Search
-        &lt;ul&gt;
-          &lt;li&gt;Send server keywords to search with&lt;/li&gt;
-          &lt;li&gt;(server searchs its list with the keywords)&lt;/li&gt;
-          &lt;li&gt;Server returns a list of hosts -&amp;lt;ip_address, portnum&amp;gt; tuples - to client&lt;/li&gt;
-          &lt;li&gt;client pings each host in the list to find transfer rates&lt;/li&gt;
-          &lt;li&gt;Client fetches file from best host&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;All communication uses TCP (Transmission control Protocol)
-        &lt;ul&gt;
-          &lt;li&gt;Reliable and ordered networking protocol (TCP)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Ternary trees store the directory information (3 children per parent)&lt;/li&gt;
-  &lt;li&gt;Joining a P2P System
-    &lt;ul&gt;
-      &lt;li&gt;Can be used for any p2p system
-        &lt;ul&gt;
-          &lt;li&gt;Send an http request to well-known url for that p2p service -eg: www.myp2pservice.com&lt;/li&gt;
-          &lt;li&gt;Message routed (after lookup in DNS=Domain Name System) to introducer, a well known server that keeps track of some recently joined nodes in p2p system&lt;/li&gt;
-          &lt;li&gt;Introducer initializes new peer’s neighbor table&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Problems
-    &lt;ul&gt;
-      &lt;li&gt;Centralized server a source of congestion&lt;/li&gt;
-      &lt;li&gt;Centralized server single point of failure&lt;/li&gt;
-      &lt;li&gt;No security: plaintext messages on passwds&lt;/li&gt;
-      &lt;li&gt;napster.com declared to be responsible for users’ copyright violation
-        &lt;ul&gt;
-          &lt;li&gt;“Indirect infringement”&lt;/li&gt;
-          &lt;li&gt;events led to Gnutella development&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;43-gnutella&quot;&gt;4.3 Gnutella&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Gnutella does:
-    &lt;ul&gt;
-      &lt;li&gt;eliminate the servers&lt;/li&gt;
-      &lt;li&gt;Client machines search and &lt;strong class=&quot;highlighted&quot;&gt;retrieve&lt;/strong&gt; amongst themselves (clients act as teh servers)&lt;/li&gt;
-      &lt;li&gt;Clients act as servers too, called servents&lt;/li&gt;
-      &lt;li&gt;3/2000 released by AOL, immediately withdrawn due to copyright issues, 88K users by 3/2003&lt;/li&gt;
-      &lt;li&gt;Original design underwent several modifications&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;How do I search for my files?
-    &lt;ul&gt;
-      &lt;li&gt;Gnutella routes different messages with the overlay graph&lt;/li&gt;
-      &lt;li&gt;Protocol has 5 main message types
-        &lt;ul&gt;
-          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Query&lt;/strong&gt; (search)&lt;/li&gt;
-          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;QueryHit&lt;/strong&gt; (response to query)&lt;/li&gt;
-          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Ping&lt;/strong&gt; (to probe network for other peers)&lt;/li&gt;
-          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Pong&lt;/strong&gt; (reply to ping, contains address of another peer)&lt;/li&gt;
-          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Push&lt;/strong&gt; (used to initiate file transfer)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;We’ll go into the message structure and protocol now
-        &lt;ul&gt;
-          &lt;li&gt;All fields except IP address are in little-endian format&lt;/li&gt;
-          &lt;li&gt;Little endian example: 0x12345678 stored as 0x78 in lowest address byte, then 0x56 in next, and so on.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-9.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Avoiding Excessive Traffic
-    &lt;ul&gt;
-      &lt;li&gt;To avoid duplicate transmissions, each peer maintains a list of recently received messages&lt;/li&gt;
-      &lt;li&gt;Query forwarded to all neighbors except peer from which received&lt;/li&gt;
-      &lt;li&gt;Each Query (identified by DescriptorID) forwarded only once&lt;/li&gt;
-      &lt;li&gt;QueryHit routed back only to peer from which Query received with same DescriptorID&lt;/li&gt;
-      &lt;li&gt;For flooded messages, duplicates with same DescriptorID and Payload descriptor are dropped&lt;/li&gt;
-      &lt;li&gt;QueryHit with DescriptorID for which Query not seen is dropped.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;HTTP is file transfer protocol. why?
-    &lt;ul&gt;
-      &lt;li&gt;Because it’s standard, well-debugged, and widely used.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Why the “range” field in teh GET request?
-    &lt;ul&gt;
-      &lt;li&gt;To support partial file transfers.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What if responder is behind firewall that disallows incoming connections? (drops it)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-11.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Responder establishes a TCP connection at ip_address, port specified.  Sends: GIV &lt;File Index=&quot;&quot;&gt;:&lt;Servent Identifier=&quot;&quot;&gt;/&lt;File Name=&quot;&quot;&gt;\n\n&lt;/File&gt;&lt;/Servent&gt;&lt;/File&gt;&lt;/li&gt;
-  &lt;li&gt;Requestor then sends GET to responder (as before) and file is transferred as explained earlier.&lt;/li&gt;
-  &lt;li&gt;What if requestor is behind firewall too?
-    &lt;ul&gt;
-      &lt;li&gt;Gnutella gives up&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;If the responding peer is behind a firewall, which of the following statements ARE TRUE about Gnutella?
-    &lt;ul&gt;
-      &lt;li&gt;A Push message can be sent to it since it is already connected to its peers.&lt;/li&gt;
-      &lt;li&gt;A modified version of Gnutella could use the overlay links themselves to transfer the file (though this may be slow).&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;When a Gnutella peer receives a Ping message from one of its neighbors, which of the following actions does it perform? (all are correct)
-    &lt;ul&gt;
-      &lt;li&gt;It forwards it to appropriate neighbors after checking TTL.&lt;/li&gt;
-      &lt;li&gt;It creates a Pong message about itself and reverse routes it.&lt;/li&gt;
-      &lt;li&gt;If it was the original peer that initiated the Ping, it uses received Pong responses to update its membership lists.&lt;/li&gt;
-      &lt;li&gt;It reverse routes any Pong messages it receives.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-13.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Gnutella Summary
-    &lt;ul&gt;
-      &lt;li&gt;No servers&lt;/li&gt;
-      &lt;li&gt;Peers/servents maintain “neighbors”, this forms an overlay graph&lt;/li&gt;
-      &lt;li&gt;Peers store their own files&lt;/li&gt;
-      &lt;li&gt;Queries flooded out, ttl restricted&lt;/li&gt;
-      &lt;li&gt;QueryHit (replies) reverse path routed&lt;/li&gt;
-      &lt;li&gt;Supports file transfer through firewalls&lt;/li&gt;
-      &lt;li&gt;Periodic Ping-pong to continuously refresh neighbor lists
-        &lt;ul&gt;
-          &lt;li&gt;List size specified by user at peer : heterogeneity means some peers may have more neighbors&lt;/li&gt;
-          &lt;li&gt;Gnutella found to follow power law distribution:  P(#Links = L) ~ L&lt;sup&gt;-k&lt;/sup&gt;  (k is a constant)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Problems
-    &lt;ul&gt;
-      &lt;li&gt;Ping/Pong constituted 50% traffic
-        &lt;ul&gt;
-          &lt;li&gt;Solution: Multiplex, cache and reduce frequency of pings/pongs&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Repeated searches with same keywords
-        &lt;ul&gt;
-          &lt;li&gt;Solution: Cache Query, QueryHit messages&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Modem-connected hosts do not have enough bandwidth for passing Gnutella traffic
-        &lt;ul&gt;
-          &lt;li&gt;Solution: use a central server to act as proxy for such peers&lt;/li&gt;
-          &lt;li&gt;Another solution:
-            &lt;ul&gt;
-              &lt;li&gt;FastTrack System (soon)&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Large number of freeloaders
-        &lt;ul&gt;
-          &lt;li&gt;70% of users in 2000 were freeloaders&lt;/li&gt;
-          &lt;li&gt;Only download files, never upload own files&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Flooding causes excessive traffic
-        &lt;ul&gt;
-          &lt;li&gt;Is there some way of maintaining meta-information about peers that leads to more intelligent routing?&lt;br /&gt;
-  –&amp;gt; Structured Peer-to-peer systems, eg Chord System (coming up soon)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;44-fasttrack-and-bittorrent&quot;&gt;4.4 FastTrack and BitTorrent&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-14.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;FastTrack
-    &lt;ul&gt;
-      &lt;li&gt;Hybrid of gnutella and napster&lt;/li&gt;
-      &lt;li&gt;Takes advantage of “healthier” participants in the system&lt;/li&gt;
-      &lt;li&gt;Underlying technology in Kazaa, KazaaLite, Grokster&lt;/li&gt;
-      &lt;li&gt;Proprietary protocaol, but some details available&lt;/li&gt;
-      &lt;li&gt;Gnutella, but with some peers designated as &lt;strong class=&quot;highlighted&quot;&gt;supernodes&lt;/strong&gt;.&lt;/li&gt;
-      &lt;li&gt;A supernode stores a directory listing a subset of nearby (&amp;lt;filename, peer pointer&amp;gt;), similar to Napster servers&lt;/li&gt;
-      &lt;li&gt;Supernode membership changes over time &lt;strong class=&quot;highlighted&quot;&gt;(a member cannot declare itself a supernode)&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;Any peer can become (and stay) a supernode, provided it has earned enough &lt;strong class=&quot;highlighted&quot;&gt;reputation&lt;/strong&gt;
-        &lt;ul&gt;
-          &lt;li&gt;Kazaalite: participation level (=reputation) of a user between 0 and 1000, initially 10, then affected by length of periods of connectivity and total number of uploads&lt;/li&gt;
-          &lt;li&gt;More sophisticated Reputation schemes invented, especially based on economics (See P2PEcon Workshop)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;A peer searches by contacting nearby supernode.&lt;/li&gt;
-      &lt;li&gt;Supernodes get advantage of having information readily available in its structure so it’s faster to look up stuff.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-15.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;BitTorrent
-    &lt;ul&gt;
-      &lt;li&gt;File split into blocks (32 KB - 256 KB)&lt;/li&gt;
-      &lt;li&gt;Download &lt;strong class=&quot;highlighted&quot;&gt;Local Rarest First&lt;/strong&gt; block policy: prefer early download of blocks that are least replicated among neighbors
-        &lt;ul&gt;
-          &lt;li&gt;Exception: New node allowed to pick one random neighbor: helps in bootstrapping&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Tit for tat&lt;/strong&gt; bandwidth usage: Provide blocks to neighbors that provided it the best download rates
-        &lt;ul&gt;
-          &lt;li&gt;Incentive for nodes to provide good download rates&lt;/li&gt;
-          &lt;li&gt;Seeds do the same too&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Choking&lt;/strong&gt;: Limit number of neighbors to which concurrent uploads &amp;lt;= a number (eg, 5), ie, the “best” neighbors
-        &lt;ul&gt;
-          &lt;li&gt;Everyone else choked&lt;/li&gt;
-          &lt;li&gt;Priodically re-evaluate this set (eg, every 10 s)&lt;/li&gt;
-          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Optimistic unchoke&lt;/strong&gt;: periodically (eg, ~30s), unchoke a random neighbor - helps keep unchoked set fresh&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Choking helps limit how many peers are uploading, to prevent overwhelming upload bandwidth.&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Why are random choices used in the BitTorrent Choking policy?
-        &lt;ul&gt;
-          &lt;li&gt;To avoid the system from getting stuck where only a few peers receive service (correct)&lt;/li&gt;
-          &lt;li&gt;To ensure that all peers receive uniform download speed (incorrect)&lt;/li&gt;
-          &lt;li&gt;To ensure Tit for Tat bandwidth usage (incorrect)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;45-chord&quot;&gt;4.5 Chord&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;DHT: Distributed Hash Table
-    &lt;ul&gt;
-      &lt;li&gt;A hash table allows you to insert, lookup and delete objects with keys.&lt;/li&gt;
-      &lt;li&gt;A &lt;strong class=&quot;highlighted&quot;&gt;distributed hash table&lt;/strong&gt; allows you to do the same in a distributed setting (objects=files)&lt;/li&gt;
-      &lt;li&gt;Performance concerns:
-        &lt;ul&gt;
-          &lt;li&gt;Load balancing&lt;/li&gt;
-          &lt;li&gt;Fault-tolerance&lt;/li&gt;
-          &lt;li&gt;Efficiency of lookups and inserts&lt;/li&gt;
-          &lt;li&gt;Locality&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Napster, Gnutella, FastTrack are all DHTs (sort of)&lt;/li&gt;
-      &lt;li&gt;So is Chord, a structured peer to peer ssytem that we study next&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-16.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Chord:
-    &lt;ul&gt;
-      &lt;li&gt;Developers: I Stoica, D Karger, F Kaashoek, H Balakrishnan, R Morris, Berkeley and MIT&lt;/li&gt;
-      &lt;li&gt;Intelligent choice of neighbors to reduce latency and message cost of routing (lookups/inserts)&lt;/li&gt;
-      &lt;li&gt;Uses &lt;strong class=&quot;highlighted&quot;&gt;Consistent Hashing&lt;/strong&gt; on node’s (peer’s) address
-        &lt;ul&gt;
-          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;SHA-1&lt;/strong&gt;(ip_address.port) –&amp;gt; 160 bit string&lt;/li&gt;
-          &lt;li&gt;Truncated to m bits&lt;/li&gt;
-          &lt;li&gt;Called peer id (number between 0 and 2&lt;sup&gt;m&lt;/sup&gt; - 1)&lt;/li&gt;
-          &lt;li&gt;Not unique but ide conflicts very unlikely&lt;/li&gt;
-          &lt;li&gt;Can then map peers to one of 2&lt;sup&gt;m&lt;/sup&gt; logical points on a circle&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;What are the types of neighbors used in a Chord P2P system (All are correct)?
-        &lt;ul&gt;
-          &lt;li&gt;Successors&lt;/li&gt;
-          &lt;li&gt;Finger tables&lt;/li&gt;
-          &lt;li&gt;Predecessors (if needed)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;In a Chord P2P system with m=8, a peer with id 33 is considering the following peers for its i=3 finger table entry: 40, 42, and 44. Which one is the best (correct) choice?
-        &lt;ul&gt;
-          &lt;li&gt;33 + 2^3 = 41, first number that is &amp;gt;= to that is 42&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-17.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-18.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;what about the files?
-    &lt;ul&gt;
-      &lt;li&gt;Filenames also mapped using same consistent hash function
-        &lt;ul&gt;
-          &lt;li&gt;SHA-1(filename) –&amp;gt; 160 bit string (key)&lt;/li&gt;
-          &lt;li&gt;File is stored at first peer with id greater than or equal to its key (mod 2&lt;sup&gt;m&lt;/sup&gt;)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;File cnn.com/index.html that maps to key K42 is stored at first peer with id greater than 42
-        &lt;ul&gt;
-          &lt;li&gt;Note that we are considering a different file-sahring application here: &lt;strong class=&quot;highlighted&quot;&gt;cooperative web caching&lt;/strong&gt;&lt;/li&gt;
-          &lt;li&gt;The same discussion applies to any other file sharing application, including that of mp3 files.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Consistent Hashing =&amp;gt; with K keys and N peers, each peer stores O(K/N) keys (ie, &amp;lt; c.K/N, for some constant c) (ie, good load balancing among the peers)&lt;/li&gt;
-      &lt;li&gt;In a Chord ring with m=7, three successive peers have ids 12, 19, 33 (there are other peers in the system too, but not in between 12 and 33). If the number of files is large and a uniform hash function is used, which of the following is true?
-        &lt;ul&gt;
-          &lt;li&gt;Peer 33 stores about double the number of files as peer 19.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-19.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-20.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-21.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;46-failures-in-chord&quot;&gt;4.6 Failures in Chord&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Search under peer failures
-    &lt;ul&gt;
-      &lt;li&gt;Lookup fails (  N16 does not know N45, when N32 fails)
-        &lt;ul&gt;
-          &lt;li&gt;Solution:  maintain multiple successors, but how many?&lt;/li&gt;
-          &lt;li&gt;Choosing 2log(N) successors suffices to maintain lookup correctness with high probability (ie, ring connected)
-            &lt;ul&gt;
-              &lt;li&gt;Say 50% of nodes fail&lt;/li&gt;
-              &lt;li&gt;Pr(at given node, at least one successor alive) = 1 - (1/2)^(2logN) = 1 - 1/N^2&lt;/li&gt;
-              &lt;li&gt;Pr(above is ttrue at all alive nodes )= (1 - 1/N^2)^(N/2) = e^(-1/2N) ~ 1&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Lookup fails ( N45 fails)
-        &lt;ul&gt;
-          &lt;li&gt;Solution: replicate file/key at r successors adn predecessors)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Need to deal with dynamic changes
-    &lt;ul&gt;
-      &lt;li&gt;Peers fail (we’ve discussed this)&lt;/li&gt;
-      &lt;li&gt;New peers join&lt;/li&gt;
-      &lt;li&gt;Peers leave
-        &lt;ul&gt;
-          &lt;li&gt;p2p systems have a high rate of &lt;strong class=&quot;highlighted&quot;&gt;churn&lt;/strong&gt; (node join, leave and failure)
-            &lt;ul&gt;
-              &lt;li&gt;25% per hour in Overnet (eDonkey)&lt;/li&gt;
-              &lt;li&gt;100% per hour in gnutella&lt;/li&gt;
-              &lt;li&gt;Lower in managed clusters&lt;/li&gt;
-              &lt;li&gt;Common feature in all distributed systems, including wide-area (eg PlanetLab), clusters (eg Emulab), clouds (eg AWS) etc&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;So, all the time, need to: –&amp;gt; Need to update successors and fingers, and copy keys&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-22.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-23.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;New peers joining:
-    &lt;ul&gt;
-      &lt;li&gt;A new peer affects O(log(N)) other finger entries in teh system, on average&lt;/li&gt;
-      &lt;li&gt;Number of messages per peer join = O(logN*logN)&lt;/li&gt;
-      &lt;li&gt;Similar set of operations for dealing with peers leaving
-        &lt;ul&gt;
-          &lt;li&gt;For dealing with failures, also need &lt;strong class=&quot;highlighted&quot;&gt;failure detectors&lt;/strong&gt; (we’ll see these later in the course!)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Stabilization Protocol
-    &lt;ul&gt;
-      &lt;li&gt;Concurrent peer joins, leaves, failures might cause loopiness of pointers, and failure of lookups
-        &lt;ul&gt;
-          &lt;li&gt;Chord peers periodically run a &lt;strong class=&quot;highlighted&quot;&gt;stabilization&lt;/strong&gt; algorithm that checks and updates pointers and keys&lt;/li&gt;
-          &lt;li&gt;Ensures &lt;em class=&quot;highlighted&quot;&gt;non-loopiness&lt;/em&gt; of fingers, eventual success of lookups and O(logN) lookups with high probability&lt;/li&gt;
-          &lt;li&gt;Each stabilization round at a peer involves a constant number of messages&lt;/li&gt;
-          &lt;li&gt;Strong stability takes O(N^2) stabilization rounds&lt;/li&gt;
-          &lt;li&gt;For more see [techReport on Chord webpage]&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Churn
-    &lt;ul&gt;
-      &lt;li&gt;When nodes are consttantly joining, leaving, failing
-        &lt;ul&gt;
-          &lt;li&gt;Significant effect to consider: traces from the Overnet system show hourly peer turnover rates (churn) could be 25-100% of total number of nodes in system&lt;/li&gt;
-          &lt;li&gt;Leads to excessive (unnecessary) key copying (remember that keys are replicated)&lt;/li&gt;
-          &lt;li&gt;Stabilization algorithm may need to consume more bandwidth to keep up&lt;/li&gt;
-          &lt;li&gt;Main issue is that files are replicated, while it might be sufficient to replicate only meta information about files&lt;/li&gt;
-          &lt;li&gt;Alternatives
-            &lt;ul&gt;
-              &lt;li&gt;Introduce a level of indirection (any p2p system)&lt;/li&gt;
-              &lt;li&gt;Replicate metadata more, eg, Kelips (later in this lecture series)&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Churn leads to which of the following behaviors in Chord (all are correct)?
-        &lt;ul&gt;
-          &lt;li&gt;Successors being continuously updated&lt;/li&gt;
-          &lt;li&gt;Finger tables being continuously updated&lt;/li&gt;
-          &lt;li&gt;Files being continuously copied to the correct storing servers&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Virtual nodes
-    &lt;ul&gt;
-      &lt;li&gt;Hash can get non-uniform –&amp;gt; Bad load balancing
-        &lt;ul&gt;
-          &lt;li&gt;Treat each node as multiple virtual nodes behaving independently&lt;/li&gt;
-          &lt;li&gt;Each joins the system&lt;/li&gt;
-          &lt;li&gt;Reduces variance of load imabalance&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;47-pastry&quot;&gt;4.7 Pastry&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Pastry
-    &lt;ul&gt;
-      &lt;li&gt;Designed by Anthony Rostron (MS Reserach) and Peter Druschel (Rice University)&lt;/li&gt;
-      &lt;li&gt;Assigns ids to nodes, just like Chord (using a virtual ring)&lt;/li&gt;
-      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Leaf Set&lt;/strong&gt; Each node knows its successor(s) and predecessor(S)&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Pastry Neighbors
-    &lt;ul&gt;
-      &lt;li&gt;&lt;em class=&quot;highlighted&quot;&gt;Routing tables&lt;/em&gt; based &lt;strong class=&quot;highlighted&quot;&gt;&lt;u&gt;prefix matching&lt;/u&gt;&lt;/strong&gt;
-        &lt;ul&gt;
-          &lt;li&gt;Think of &lt;em&gt;hypercube routing&lt;/em&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Routing is thus based on prefix matching, and is thus log(N)
-        &lt;ul&gt;
-          &lt;li&gt;And hops are short (in the underlying network)&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Pastry Routing
-    &lt;ul&gt;
-      &lt;li&gt;Consider a peer with id 01110100101.  It maintains a neighbor peer with an id matching each of the following prefixes (* = starting bit differing from this peer’s corresponding bit):
-        &lt;ul&gt;
-          &lt;li&gt;*&lt;/li&gt;
-          &lt;li&gt;0*&lt;/li&gt;
-          &lt;li&gt;01*&lt;/li&gt;
-          &lt;li&gt;011*&lt;/li&gt;
-          &lt;li&gt;… 0111010010*&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;When it needs to route to a peer, say 011101&lt;strong class=&quot;highlighted&quot;&gt;&lt;u&gt;1&lt;/u&gt;&lt;/strong&gt;1001, it starts by forwarding to a neighbor with the largest matching prefix, ie, 011101*&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Pastry Locality
-    &lt;ul&gt;
-      &lt;li&gt;For each prefix, say 011*, among all potential neighbors with a matching prefix, the neighbor with the shortest round-trip-time is selected&lt;/li&gt;
-      &lt;li&gt;Since shorter prefixes have many more candidates (spread out throughout the Internet), the neighbors for shorter prefixes are likely to be closer than the neighbors for longer prefixes&lt;/li&gt;
-      &lt;li&gt;Thus, in the prefix routing, early hops are short and later hops are longer&lt;/li&gt;
-      &lt;li&gt;Yet overall “stretch”, compared to direc Internet path, stays short.&lt;/li&gt;
-      &lt;li&gt;A Pastry peer has two neighbors for prefixes of 101* and 101110* respectively. Which of these is more likely to respond to a message faster?
-        &lt;ul&gt;
-          &lt;li&gt;The 101* neighbor&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Summary of Chord and Pastry
-    &lt;ul&gt;
-      &lt;li&gt;Chord and Pastry protocols
-        &lt;ul&gt;
-          &lt;li&gt;More structured than Gnutella&lt;/li&gt;
-          &lt;li&gt;Black box lookup algorithms&lt;/li&gt;
-          &lt;li&gt;Churn handling can get complex&lt;/li&gt;
-          &lt;li&gt;O(logN) memory and lookup cost
-            &lt;ul&gt;
-              &lt;li&gt;O(logN) lookup hops may be high&lt;/li&gt;
-              &lt;li&gt;Can we reduce the number of hops?&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;48-kelips&quot;&gt;4.8 Kelips&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-24.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-25.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-26.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20180919/CS425-wk4-img-27.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Chord vs Pastry vs Kelips
-    &lt;ul&gt;
-      &lt;li&gt;Range of tradeoffs available
-        &lt;ul&gt;
-          &lt;li&gt;Memory vs lookup cost vs background bandwidth ( to keep neighbors fresh)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;cs-427--software-engineering&quot;&gt;CS 427 : Software Engineering&lt;/h1&gt;
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;goals-and-objectives-1&quot;&gt;Goals and Objectives&lt;/h2&gt;
-
-&lt;h2 id=&quot;video-lecture-notes-2&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-</description>
-				<pubDate>Wed, 19 Sep 2018 00:00:00 -0500</pubDate>
-				<link>/2018/09/19/MCS-Notes-Week-4</link>
-				<guid isPermaLink="true">/2018/09/19/MCS-Notes-Week-4</guid>
 			</item>
 		
 	</channel>
