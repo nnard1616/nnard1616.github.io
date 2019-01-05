@@ -131,6 +131,7 @@
           <li><a href="#lemma-1-proof">Lemma 1 Proof</a></li>
         </ul>
       </li>
+      <li><a href="#proving-distributive-property-of-map-across-concatenation">Proving Distributive property of map across concatenation</a></li>
     </ul>
   </li>
 </ul>
@@ -143,7 +144,11 @@
 
 <h2 id="proving-associative-property-of-list-concatenation">Proving Associative property of list concatenation</h2>
 
+<hr />
+
 <h3 id="natural-vs-structural-induction">Natural vs Structural Induction</h3>
+
+<hr />
 
 <p>Natural induction is used to prove properties on the naturals or integers while structural induction is used to prove a property of some structure, ie a data structure such as a list.  They both require a base case and an induction step.</p>
 
@@ -154,6 +159,8 @@
 </ul>
 
 <h3 id="the-proof">The Proof</h3>
+
+<hr />
 
 <p>Let’s show that for lists <strong class="highlighted">xs</strong>, <strong class="highlighted">ys</strong>, <strong class="highlighted">zs</strong> the induction hypothesis below is true:</p>
 
@@ -217,6 +224,8 @@
 
 <h2 id="proving-concatenation-of-nil-is-commutative">Proving Concatenation of Nil is commutative</h2>
 
+<hr />
+
 <p>We will show by induction on <strong class="highlighted">xs</strong> that <em class="yhighlighted">xs ++ Nil = xs</em>.</p>
 
 <p>Base case, where <strong class="highlighted">xs</strong> is equal to <strong class="highlighted">Nil</strong>:</p>
@@ -240,6 +249,8 @@
 <p>Since both the left and right sides equate to the same expression, the hypothesis is proven. <strong class="highlighted">∎</strong></p>
 
 <h2 id="proving-reverse-of-a-list-is-oscillatingly-idempotent">Proving Reverse of a list is oscillatingly idempotent</h2>
+
+<hr />
 
 <p>Consider this relatively inefficient (easier to work with in proof) implementation of reverse:</p>
 
@@ -285,6 +296,76 @@
 <p>And thus the hypothesis is proven for all lists. <strong class="highlighted">∎</strong></p>
 
 <h3 id="lemma-1-proof">Lemma 1 Proof</h3>
+
+<hr />
+
+<p>Consider the following statement/hypothesis:</p>
+
+<blockquote>
+  <p>(ys ++ List(x)).reverse = x :: ys.reverse</p>
+</blockquote>
+
+<p>We shall prove it on <strong class="highlighted">ys</strong> by induction.  First the base case, where <strong class="highlighted">ys</strong> is <strong class="highlighted">Nil</strong>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    (Nil ++ List(x)).reverse = 
+                             = List(x).reverse        // by 1st clause of list concatenation
+                             = (x :: Nil).reverse     // by definition of List()
+                             = Nil.reverse ++ List(x) // by 2nd clause of list reversal
+                             = Nil ++ List(x)         // by 1st clause of list reversal
+                             = List(x)                // by 1st clause of list concatenation
+                             = x :: Nil               // by definition of List()
+                             = x :: Nil.reverse       // by 1st clause of list reversal
+</code></pre></div></div>
+
+<p>Now the induction step.  We assume the hypothesis is true for all lists from <strong class="highlighted">Nil</strong> to <strong class="highlighted">ys</strong>.  We will now show that this implies that the hypothesis is also true for a list one larger than <strong class="highlighted">ys</strong>, eg <strong class="highlighted">y :: ys</strong>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>((y :: ys) ++ List(x)).reverse =
+                               = (y :: (ys ++ List(x))).reverse        // by 2nd clause of list concatentation
+                               = (ys ++ List(x)).reverse ++ List(y)    // by 2nd clause of list reversal
+                               = (x :: ys.reverse) ++ List(y)          // by induction hypothesis (**)
+                               = x :: (ys.reverse ++ List(y))          // by 2nd clause of list concatenation
+                               = x :: (y :: ys).reverse                // by 2nd clause of list reversal
+</code></pre></div></div>
+
+<p>Thus the hypothesis and therefore Lemma 1 is true for all lists. <strong class="highlighted">∎</strong></p>
+
+<h2 id="proving-distributive-property-of-map-across-concatenation">Proving Distributive property of map across concatenation</h2>
+
+<hr />
+
+<p>Consider these clauses of the map function:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      Nil map f = Nil                // 1st Clause
+(x :: xs) map f = f(x) :: (xs map f) // 2nd Clause
+</code></pre></div></div>
+
+<p>We wish to prove the following hypothesis:</p>
+
+<p>For any lists <strong class="highlighted">xs</strong>, <strong class="highlighted">ys</strong>, function <strong class="highlighted">f</strong>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    (xs ++ ys) map f = (xs map f) ++ (ys map f)   (***)
+</code></pre></div></div>
+
+<p>We will do so by proof by induction on <strong class="highlighted">xs</strong> .</p>
+
+<p>First the base case, where <strong class="highlighted">xs</strong> is <strong class="highlighted">Nil</strong>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Nil ++ ys) map f = 
+                  = ys map f                  // by the 1st clause of concatenation
+                  = Nil ++ (ys map f)         // by the 1st clause of concatenation
+                  = (Nil map f) ++ (ys map f) // by the 1st clause of map
+</code></pre></div></div>
+
+<p>Induction step, we now assume that the hypothesis holds for all lists from <strong class="highlighted">Nil</strong> to <strong class="highlighted">xs</strong> and we will now show that this implies that the hypothesis holds for a list one larger than <strong class="highlighted">xs</strong>, ie <strong class="highlighted">x :: xs</strong>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>((x :: xs) ++ ys) map f =
+                        = (x :: (xs ++ ys)) map f            // by 2nd clause of concatenation
+                        = f(x) :: ((xs ++ ys) map f)         // by 2nd clause of map
+                        = f(x) :: ((xs map f) ++ (ys map f)) // by induction hypothesis (***)
+                        = (f(x) :: (xs map f)) ++ (ys map f) // by 2nd clause of concatenation
+                        = ( (x :: xs) map f) ++ (ys map f)   // by 2nd clause of map
+</code></pre></div></div>
+<p>A similar argument can be made for the <strong class="highlighted">ys</strong> list and thus the hypothesis is true for any lists or function. <strong class="highlighted">∎</strong></p>
 
 
                     

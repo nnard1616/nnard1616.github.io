@@ -25,6 +25,7 @@
           &lt;li&gt;&lt;a href=&quot;#lemma-1-proof&quot;&gt;Lemma 1 Proof&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#proving-distributive-property-of-map-across-concatenation&quot;&gt;Proving Distributive property of map across concatenation&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
@@ -37,7 +38,11 @@
 
 &lt;h2 id=&quot;proving-associative-property-of-list-concatenation&quot;&gt;Proving Associative property of list concatenation&lt;/h2&gt;
 
+&lt;hr /&gt;
+
 &lt;h3 id=&quot;natural-vs-structural-induction&quot;&gt;Natural vs Structural Induction&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;Natural induction is used to prove properties on the naturals or integers while structural induction is used to prove a property of some structure, ie a data structure such as a list.  They both require a base case and an induction step.&lt;/p&gt;
 
@@ -48,6 +53,8 @@
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;the-proof&quot;&gt;The Proof&lt;/h3&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;Let’s show that for lists &lt;strong class=&quot;highlighted&quot;&gt;xs&lt;/strong&gt;, &lt;strong class=&quot;highlighted&quot;&gt;ys&lt;/strong&gt;, &lt;strong class=&quot;highlighted&quot;&gt;zs&lt;/strong&gt; the induction hypothesis below is true:&lt;/p&gt;
 
@@ -111,6 +118,8 @@
 
 &lt;h2 id=&quot;proving-concatenation-of-nil-is-commutative&quot;&gt;Proving Concatenation of Nil is commutative&lt;/h2&gt;
 
+&lt;hr /&gt;
+
 &lt;p&gt;We will show by induction on &lt;strong class=&quot;highlighted&quot;&gt;xs&lt;/strong&gt; that &lt;em class=&quot;yhighlighted&quot;&gt;xs ++ Nil = xs&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Base case, where &lt;strong class=&quot;highlighted&quot;&gt;xs&lt;/strong&gt; is equal to &lt;strong class=&quot;highlighted&quot;&gt;Nil&lt;/strong&gt;:&lt;/p&gt;
@@ -134,6 +143,8 @@
 &lt;p&gt;Since both the left and right sides equate to the same expression, the hypothesis is proven. &lt;strong class=&quot;highlighted&quot;&gt;∎&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;proving-reverse-of-a-list-is-oscillatingly-idempotent&quot;&gt;Proving Reverse of a list is oscillatingly idempotent&lt;/h2&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;Consider this relatively inefficient (easier to work with in proof) implementation of reverse:&lt;/p&gt;
 
@@ -179,6 +190,76 @@
 &lt;p&gt;And thus the hypothesis is proven for all lists. &lt;strong class=&quot;highlighted&quot;&gt;∎&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;lemma-1-proof&quot;&gt;Lemma 1 Proof&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Consider the following statement/hypothesis:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;(ys ++ List(x)).reverse = x :: ys.reverse&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We shall prove it on &lt;strong class=&quot;highlighted&quot;&gt;ys&lt;/strong&gt; by induction.  First the base case, where &lt;strong class=&quot;highlighted&quot;&gt;ys&lt;/strong&gt; is &lt;strong class=&quot;highlighted&quot;&gt;Nil&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    (Nil ++ List(x)).reverse = 
+                             = List(x).reverse        // by 1st clause of list concatenation
+                             = (x :: Nil).reverse     // by definition of List()
+                             = Nil.reverse ++ List(x) // by 2nd clause of list reversal
+                             = Nil ++ List(x)         // by 1st clause of list reversal
+                             = List(x)                // by 1st clause of list concatenation
+                             = x :: Nil               // by definition of List()
+                             = x :: Nil.reverse       // by 1st clause of list reversal
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now the induction step.  We assume the hypothesis is true for all lists from &lt;strong class=&quot;highlighted&quot;&gt;Nil&lt;/strong&gt; to &lt;strong class=&quot;highlighted&quot;&gt;ys&lt;/strong&gt;.  We will now show that this implies that the hypothesis is also true for a list one larger than &lt;strong class=&quot;highlighted&quot;&gt;ys&lt;/strong&gt;, eg &lt;strong class=&quot;highlighted&quot;&gt;y :: ys&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;((y :: ys) ++ List(x)).reverse =
+                               = (y :: (ys ++ List(x))).reverse        // by 2nd clause of list concatentation
+                               = (ys ++ List(x)).reverse ++ List(y)    // by 2nd clause of list reversal
+                               = (x :: ys.reverse) ++ List(y)          // by induction hypothesis (**)
+                               = x :: (ys.reverse ++ List(y))          // by 2nd clause of list concatenation
+                               = x :: (y :: ys).reverse                // by 2nd clause of list reversal
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Thus the hypothesis and therefore Lemma 1 is true for all lists. &lt;strong class=&quot;highlighted&quot;&gt;∎&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;proving-distributive-property-of-map-across-concatenation&quot;&gt;Proving Distributive property of map across concatenation&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Consider these clauses of the map function:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      Nil map f = Nil                // 1st Clause
+(x :: xs) map f = f(x) :: (xs map f) // 2nd Clause
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We wish to prove the following hypothesis:&lt;/p&gt;
+
+&lt;p&gt;For any lists &lt;strong class=&quot;highlighted&quot;&gt;xs&lt;/strong&gt;, &lt;strong class=&quot;highlighted&quot;&gt;ys&lt;/strong&gt;, function &lt;strong class=&quot;highlighted&quot;&gt;f&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    (xs ++ ys) map f = (xs map f) ++ (ys map f)   (***)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We will do so by proof by induction on &lt;strong class=&quot;highlighted&quot;&gt;xs&lt;/strong&gt; .&lt;/p&gt;
+
+&lt;p&gt;First the base case, where &lt;strong class=&quot;highlighted&quot;&gt;xs&lt;/strong&gt; is &lt;strong class=&quot;highlighted&quot;&gt;Nil&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Nil ++ ys) map f = 
+                  = ys map f                  // by the 1st clause of concatenation
+                  = Nil ++ (ys map f)         // by the 1st clause of concatenation
+                  = (Nil map f) ++ (ys map f) // by the 1st clause of map
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Induction step, we now assume that the hypothesis holds for all lists from &lt;strong class=&quot;highlighted&quot;&gt;Nil&lt;/strong&gt; to &lt;strong class=&quot;highlighted&quot;&gt;xs&lt;/strong&gt; and we will now show that this implies that the hypothesis holds for a list one larger than &lt;strong class=&quot;highlighted&quot;&gt;xs&lt;/strong&gt;, ie &lt;strong class=&quot;highlighted&quot;&gt;x :: xs&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;((x :: xs) ++ ys) map f =
+                        = (x :: (xs ++ ys)) map f            // by 2nd clause of concatenation
+                        = f(x) :: ((xs ++ ys) map f)         // by 2nd clause of map
+                        = f(x) :: ((xs map f) ++ (ys map f)) // by induction hypothesis (***)
+                        = (f(x) :: (xs map f)) ++ (ys map f) // by 2nd clause of concatenation
+                        = ( (x :: xs) map f) ++ (ys map f)   // by 2nd clause of map
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;A similar argument can be made for the &lt;strong class=&quot;highlighted&quot;&gt;ys&lt;/strong&gt; list and thus the hypothesis is true for any lists or function. &lt;strong class=&quot;highlighted&quot;&gt;∎&lt;/strong&gt;&lt;/p&gt;
 
 </description>
 				<pubDate>Fri, 04 Jan 2019 00:00:00 -0600</pubDate>

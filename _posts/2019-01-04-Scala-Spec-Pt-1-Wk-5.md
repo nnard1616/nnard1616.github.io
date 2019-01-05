@@ -19,6 +19,7 @@ tags:
     * [Proving Concatenation of Nil is commutative](#proving-concatenation-of-nil-is-commutative)
     * [Proving Reverse of a list is oscillatingly idempotent](#proving-reverse-of-a-list-is-oscillatingly-idempotent)
         * [Lemma 1 Proof](#lemma-1-proof)
+    * [Proving Distributive property of map across concatenation](#proving-distributive-property-of-map-across-concatenation)
 
 <!-- vim-markdown-toc -->
 
@@ -28,7 +29,11 @@ This week there are no programming assignments, but there are a few optional pro
 
 ## Proving Associative property of list concatenation
 
+---
+
 ### Natural vs Structural Induction
+
+---
 
 Natural induction is used to prove properties on the naturals or integers while structural induction is used to prove a property of some structure, ie a data structure such as a list.  They both require a base case and an induction step.  
 
@@ -37,6 +42,8 @@ For proving some property **P(xs)**{:.highlighted} for all lists **xs**{:.highli
 * for a list **xs**{:.highlighted} and some element **x**{:.highlighted}, that *if **P(xs)**{:.highlighted} holds, then **P(x::xs)**{:.highlighted} also holds.*{:.yhighlighted}
 
 ### The Proof
+
+--- 
 
 Let's show that for lists **xs**{:.highlighted}, **ys**{:.highlighted}, **zs**{:.highlighted} the induction hypothesis below is true:
 
@@ -104,6 +111,8 @@ As you can see, both sides were shown to be equivalent to the same expression an
 
 ## Proving Concatenation of Nil is commutative
 
+---
+
 We will show by induction on **xs**{:.highlighted} that *xs ++ Nil = xs*{:.yhighlighted}.
 
 Base case, where **xs**{:.highlighted} is equal to **Nil**{:.highlighted}:
@@ -127,10 +136,12 @@ Now for the right side:
 x :: xs = x :: xs //No steps necessary, already at target expression
 ```
 
-Since both the left and right sides equate to the same expression, the hypothesis is proven. **&#8718;**{: .highlighted}
+Since both the left and right sides equate to the same expression, the hypothesis is proven. **&#8718;**{:.highlighted}
 
 
 ## Proving Reverse of a list is oscillatingly idempotent
+
+--- 
 
 Consider this relatively inefficient (easier to work with in proof) implementation of reverse:
 
@@ -175,9 +186,82 @@ Induction step, we assume the hypothesis holds for all lists from **Nil**{:.high
                           = x :: xs                           // by induction hypothesis
 ```
 
-And thus the hypothesis is proven for all lists. **&#8718;**{: .highlighted}
+And thus the hypothesis is proven for all lists. **&#8718;**{:.highlighted}
 
 ### Lemma 1 Proof
 
+---
 
+Consider the following statement/hypothesis:
+
+> (ys ++ List(x)).reverse = x :: ys.reverse
+
+We shall prove it on **ys**{:.highlighted} by induction.  First the base case, where **ys**{:.highlighted} is **Nil**{:.highlighted}.
+
+```
+    (Nil ++ List(x)).reverse = 
+                             = List(x).reverse        // by 1st clause of list concatenation
+                             = (x :: Nil).reverse     // by definition of List()
+                             = Nil.reverse ++ List(x) // by 2nd clause of list reversal
+                             = Nil ++ List(x)         // by 1st clause of list reversal
+                             = List(x)                // by 1st clause of list concatenation
+                             = x :: Nil               // by definition of List()
+                             = x :: Nil.reverse       // by 1st clause of list reversal
+```
+
+Now the induction step.  We assume the hypothesis is true for all lists from **Nil**{:.highlighted} to **ys**{:.highlighted}.  We will now show that this implies that the hypothesis is also true for a list one larger than **ys**{:.highlighted}, eg **y :: ys**{:.highlighted}:
+
+```
+((y :: ys) ++ List(x)).reverse =
+                               = (y :: (ys ++ List(x))).reverse        // by 2nd clause of list concatentation
+                               = (ys ++ List(x)).reverse ++ List(y)    // by 2nd clause of list reversal
+                               = (x :: ys.reverse) ++ List(y)          // by induction hypothesis (**)
+                               = x :: (ys.reverse ++ List(y))          // by 2nd clause of list concatenation
+                               = x :: (y :: ys).reverse                // by 2nd clause of list reversal
+```
+
+Thus the hypothesis and therefore Lemma 1 is true for all lists. **&#8718;**{:.highlighted}
+
+
+## Proving Distributive property of map across concatenation
+
+---
+
+Consider these clauses of the map function:
+
+```
+      Nil map f = Nil                // 1st Clause
+(x :: xs) map f = f(x) :: (xs map f) // 2nd Clause
+```
+
+We wish to prove the following hypothesis:
+
+For any lists **xs**{:.highlighted}, **ys**{:.highlighted}, function **f**{:.highlighted}:
+
+```
+    (xs ++ ys) map f = (xs map f) ++ (ys map f)   (***)
+```
+
+We will do so by proof by induction on **xs**{:.highlighted} .
+
+First the base case, where **xs**{:.highlighted} is **Nil**{:.highlighted}:
+
+```
+(Nil ++ ys) map f = 
+                  = ys map f                  // by the 1st clause of concatenation
+                  = Nil ++ (ys map f)         // by the 1st clause of concatenation
+                  = (Nil map f) ++ (ys map f) // by the 1st clause of map
+```
+
+Induction step, we now assume that the hypothesis holds for all lists from **Nil**{:.highlighted} to **xs**{:.highlighted} and we will now show that this implies that the hypothesis holds for a list one larger than **xs**{:.highlighted}, ie **x :: xs**{:.highlighted}:
+
+```
+((x :: xs) ++ ys) map f =
+                        = (x :: (xs ++ ys)) map f            // by 2nd clause of concatenation
+                        = f(x) :: ((xs ++ ys) map f)         // by 2nd clause of map
+                        = f(x) :: ((xs map f) ++ (ys map f)) // by induction hypothesis (***)
+                        = (f(x) :: (xs map f)) ++ (ys map f) // by 2nd clause of concatenation
+                        = ( (x :: xs) map f) ++ (ys map f)   // by 2nd clause of map
+```
+A similar argument can be made for the **ys**{:.highlighted} list and thus the hypothesis is true for any lists or function. **&#8718;**{:.highlighted}
 
