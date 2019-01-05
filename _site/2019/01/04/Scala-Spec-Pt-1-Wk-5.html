@@ -1,0 +1,452 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Scala Specialization Part 1 Week 5 </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2019/01/04/Scala-Spec-Pt-1-Wk-5">Scala Specialization Part 1 Week 5</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>04 Jan 2019</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/coursera">coursera</a></li>
+                      
+                        <li><a href="/tag/scala">scala</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/12/05/Teach-Yourself-TCPIP" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Sams Teach Yourself TCP/IP in 24 Hours" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <!-- vim-markdown-toc Redcarpet -->
+
+<ul>
+  <li><a href="#instructions">Instructions</a>
+    <ul>
+      <li><a href="#proving-associative-property-of-list-concatenation">Proving Associative property of list concatenation</a>
+        <ul>
+          <li><a href="#natural-vs-structural-induction">Natural vs Structural Induction</a></li>
+          <li><a href="#the-proof">The Proof</a></li>
+        </ul>
+      </li>
+      <li><a href="#proving-concatenation-of-nil-is-commutative">Proving Concatenation of Nil is commutative</a></li>
+      <li><a href="#proving-reverse-of-a-list-is-oscillatingly-idempotent">Proving Reverse of a list is oscillatingly idempotent</a>
+        <ul>
+          <li><a href="#lemma-1-proof">Lemma 1 Proof</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<!-- vim-markdown-toc -->
+
+<h1 id="instructions">Instructions</h1>
+
+<p>This week there are no programming assignments, but there are a few optional proofs presented in last few video lectures of this week.  I will do my best to solve these proofs by induction. (structural and natural induction)</p>
+
+<h2 id="proving-associative-property-of-list-concatenation">Proving Associative property of list concatenation</h2>
+
+<h3 id="natural-vs-structural-induction">Natural vs Structural Induction</h3>
+
+<p>Natural induction is used to prove properties on the naturals or integers while structural induction is used to prove a property of some structure, ie a data structure such as a list.  They both require a base case and an induction step.</p>
+
+<p>For proving some property <strong class="highlighted">P(xs)</strong> for all lists <strong class="highlighted">xs</strong>, we must show:</p>
+<ul>
+  <li>that <strong class="highlighted">P(Nil)</strong> is true (base case)</li>
+  <li>for a list <strong class="highlighted">xs</strong> and some element <strong class="highlighted">x</strong>, that <em class="yhighlighted">if <strong class="highlighted">P(xs)</strong> holds, then <strong class="highlighted">P(x::xs)</strong> also holds.</em></li>
+</ul>
+
+<h3 id="the-proof">The Proof</h3>
+
+<p>Let’s show that for lists <strong class="highlighted">xs</strong>, <strong class="highlighted">ys</strong>, <strong class="highlighted">zs</strong> the induction hypothesis below is true:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(xs ++ ys) ++ zs = xs ++ (ys ++ zs)  (*)
+</code></pre></div></div>
+
+<p>Consider this implementation of concat, which has the same behavior as “++” in the concatenation of two lists:</p>
+
+<blockquote class="filename">
+  <p>Scala</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-scala" data-lang="scala"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="k">def</span> <span class="n">concat</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">T</span><span class="o">],</span> <span class="n">ys</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">T</span><span class="o">])</span> <span class="k">=</span> <span class="n">xs</span> <span class="k">match</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="nc">Nil</span> <span class="k">=&gt;</span> <span class="n">ys</span>                         
+    <span class="k">case</span> <span class="n">x</span> <span class="o">::</span> <span class="n">xs1</span> <span class="k">=&gt;</span> <span class="n">x</span> <span class="o">::</span> <span class="n">concat</span><span class="o">(</span><span class="n">xs1</span><span class="o">,</span> <span class="n">ys</span><span class="o">)</span> 
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This yields two clauses for list concatentation:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       Nil ++ ys = ys                 // 1st clause 
+(x :: xs1) ++ ys = x :: (xs1 ++ ys)   // 2nd clause
+</code></pre></div></div>
+
+<p>First we start with the base case, where xs = Nil.  For the left side of (*) we have:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Nil ++ ys) ++ zs = 
+                  = ys ++ zs  // by 1st clause
+</code></pre></div></div>
+
+<p>For the right side of (*) we have:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Nil ++ (ys ++ zs) = 
+                  = ys ++ zs  // by 1st clause
+</code></pre></div></div>
+
+<p>Thus the base case is established.</p>
+
+<p>Now for the induction step:</p>
+
+<p>Since the base case holds, we assume that (*) holds for all lists from <strong class="highlighted">Nil</strong> to <strong class="highlighted">xs</strong> and we will now show that this implies that concatentation is also associative for a list of size one more than <strong class="highlighted">xs</strong> and thereby finishing the proof for concatenation associativity.</p>
+
+<p>We replace <strong class="highlighted">xs</strong> with <strong class="highlighted">x :: xs</strong> in (*), and prove both left and right sides equate to the same expression.  First the left side:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>((x :: xs) ++ ys) ++ zs = 
+                        = (x :: (xs ++ ys)) ++ zs // by 2nd clause
+                        = x :: ((xs ++ ys) ++ zs) // by 2nd clause
+                        = x :: (xs ++ (ys ++ zs)) // by induction hypothesis (*)
+</code></pre></div></div>
+
+<p>And now the right side:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(x :: xs) ++ (ys ++ zs) = 
+                        = x :: (xs ++ (ys ++ zs)) // by 2nd clause
+</code></pre></div></div>
+
+<p>As you can see, both sides were shown to be equivalent to the same expression and thus the proof is complete.<strong class="highlighted">∎</strong></p>
+
+<h2 id="proving-concatenation-of-nil-is-commutative">Proving Concatenation of Nil is commutative</h2>
+
+<p>We will show by induction on <strong class="highlighted">xs</strong> that <em class="yhighlighted">xs ++ Nil = xs</em>.</p>
+
+<p>Base case, where <strong class="highlighted">xs</strong> is equal to <strong class="highlighted">Nil</strong>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Nil ++ Nil =
+           = Nil // by 1st clause
+</code></pre></div></div>
+
+<p>Induction step, where <strong class="highlighted">x :: xs</strong> is plugged in for <strong class="highlighted">xs</strong>.  First left side:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(x :: xs) ++ Nil = 
+                 = x :: (xs ++ Nil) // by 2nd clause
+                 = x :: xs          // by induction hypothesis
+</code></pre></div></div>
+
+<p>Now for the right side:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x :: xs = x :: xs //No steps necessary, already at target expression
+</code></pre></div></div>
+
+<p>Since both the left and right sides equate to the same expression, the hypothesis is proven. <strong class="highlighted">∎</strong></p>
+
+<h2 id="proving-reverse-of-a-list-is-oscillatingly-idempotent">Proving Reverse of a list is oscillatingly idempotent</h2>
+
+<p>Consider this relatively inefficient (easier to work with in proof) implementation of reverse:</p>
+
+<blockquote class="filename">
+  <p>Scala</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-scala" data-lang="scala"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="k">def</span> <span class="n">reverse</span><span class="o">[</span><span class="kt">T</span><span class="o">](</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">T</span><span class="o">])</span> <span class="k">=</span> <span class="n">xs</span> <span class="k">match</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="nc">Nil</span>      <span class="k">=&gt;</span> <span class="n">xs</span>                         
+    <span class="k">case</span> <span class="n">x</span> <span class="o">::</span> <span class="n">xs1</span> <span class="k">=&gt;</span> <span class="n">reverse</span><span class="o">(</span><span class="n">xs1</span><span class="o">)</span> <span class="o">++</span> <span class="nc">List</span><span class="o">(</span><span class="n">x</span><span class="o">)</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>From this implementation we can make out the following clauses for list reversal:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      Nil.reverse = Nil                    // 1st clause
+(x :: xs).reverse = xs.reverse ++ List(x)  // 2nd clause
+</code></pre></div></div>
+
+<p>We’d like to prove that list reversal is “osciallatingly idempotent”, ie:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xs.reverse.reverse = xs  (**)
+</code></pre></div></div>
+
+<p>Base case, let  <strong class="highlighted">xs</strong> be <strong class="highlighted">Nil</strong>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Nil.reverse.reverse = 
+                    = Nil.reverse // by 1st clause
+                    = Nil         // by 1st clause
+</code></pre></div></div>
+
+<p>Induction step, we assume the hypothesis holds for all lists from <strong class="highlighted">Nil</strong> to <strong class="highlighted">xs</strong>.  We now show that this implies that the hypothesis also holds for a list one more larger than <strong class="highlighted">xs</strong>, ie <strong class="highlighted">x :: xs</strong>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(x :: xs).reverse.reverse = 
+                          = (xs.reverse ++ List(x)).reverse   // by 2nd clause
+                          = x :: xs.reverse.reverse           // by Lemma 1  
+                          = x :: xs                           // by induction hypothesis
+</code></pre></div></div>
+
+<p>And thus the hypothesis is proven for all lists. <strong class="highlighted">∎</strong></p>
+
+<h3 id="lemma-1-proof">Lemma 1 Proof</h3>
+
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2018/12/05/Teach-Yourself-TCPIP" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Sams Teach Yourself TCP/IP in 24 Hours" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2019/01/04/Scala-Spec-Pt-1-Wk-5">Scala Specialization Part 1 Week 5</a></li>
+    
+    <li><a href="/2018/12/05/Teach-Yourself-TCPIP">Sams Teach Yourself TCP/IP in 24 Hours</a></li>
+    
+    <li><a href="/2018/12/05/MCS-Notes-Week-14">MCS 1st Semester Week 14 Notes</a></li>
+    
+    <li><a href="/2018/11/22/MCS-Notes-Week-12">MCS 1st Semester Week 12 Notes</a></li>
+    
+    <li><a href="/2018/11/21/MCS-Notes-Week-11">MCS 1st Semester Week 11 Notes</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="13">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/books" data-toggle="tooltip" data-placement="right" title="1">
+        <span>books</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="19">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/networking" data-toggle="tooltip" data-placement="right" title="1">
+        <span>networking</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="5">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2019/01/04/Scala-Spec-Pt-1-Wk-5";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

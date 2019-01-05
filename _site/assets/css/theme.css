@@ -176,6 +176,9 @@ div.post-meta {
 .highlighted {
   color: #C38FD6; }
 
+.yhighlighted {
+  color: #D2E354; }
+
 .warning:before {
   content: "\f071";
   color: #ffff00; }

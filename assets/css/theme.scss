@@ -22,7 +22,8 @@ $accent-color: #3CA2A2;    // original =)
 //$accent-color: #35B4DE;  // bluish
 //$accent-color: #52B54B;  // green
 
-$highlighted-color: #C38FD6;  // velvet
+$velvet-highlighted-color: #C38FD6;  // velvet
+$yellow-highlighted-color: #D2E354;
 $blockquote-color: #D2E354;  // yellowish
 $font-color: #dddddd;
 $background-color: #292929;
@@ -227,7 +228,10 @@ div.post-meta {
   color: $note-color;
 }
 .highlighted {
-  color: $highlighted-color;
+  color: $velvet-highlighted-color;
+}
+.yhighlighted{
+  color: $yellow-highlighted-color;   
 }
 .warning:before {
   content: "\f071";
