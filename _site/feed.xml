@@ -7,6 +7,1282 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Scala Specialization Part 2 Week 8</title>
+				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#bloxorz&quot;&gt;Bloxorz&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#instructions&quot;&gt;Instructions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#my-solution&quot;&gt;My Solution&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- vim-markdown-toc --&gt;
+
+&lt;h1 id=&quot;bloxorz&quot;&gt;Bloxorz&lt;/h1&gt;
+
+&lt;p&gt;This week’s assignment involves computing solutions for a puzzle game, &lt;a href=&quot;https://www.coolmathgames.com/0-bloxorz&quot;&gt;Bloxorz&lt;/a&gt;. We had to provide implementations for three files, listed below.&lt;/p&gt;
+
+&lt;h2 id=&quot;instructions&quot;&gt;Instructions&lt;/h2&gt;
+
+&lt;embed src=&quot;/assets/docs/scala_specialization/Part2/Week8/Bloxorz_Coursera.pdf&quot; style=&quot;width:100%&quot; height=&quot;500ex&quot; /&gt;
+
+&lt;h2 id=&quot;my-solution&quot;&gt;My Solution&lt;/h2&gt;
+
+&lt;div class=&quot;panel-group&quot; style=&quot;border-color:#292929; color:#444444;&quot;&gt;
+  &lt;div class=&quot;panel panel-default&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
+        &lt;button class=&quot;btn&quot; data-toggle=&quot;collapse&quot; style=&quot;background-color:#35B4DE; color:#444444;&quot; data-target=&quot;#toggle-GameDef&quot;&gt;
+           GameDef 
+        &lt;/button&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;toggle-GameDef&quot; class=&quot;panel-collapse collapse&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+&lt;blockquote class=&quot;filename&quot;&gt;
+  &lt;p&gt;Scala&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-scala&quot; data-lang=&quot;scala&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;streams&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;common._&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/**
+ * This trait represents the layout and building blocks of the game
+ */&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GameDef&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * The case class `Pos` encodes positions in the terrain.
+   *
+   * IMPORTANT NOTE
+   *  - The `row` coordinate denotes the position on the vertical axis
+   *  - The `col` coordinate is used for the horizontal axis
+   *  - The coordinates increase when moving down and right
+   *
+   * Illustration:
+   *
+   *     0 1 2 3   &amp;lt;- col axis
+   *   0 o o o o
+   *   1 o o o o
+   *   2 o # o o    # is at position Pos(2, 1)
+   *   3 o o o o
+   *
+   *   ^
+   *   |
+   *
+   *   row axis
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Pos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;cm&quot;&gt;/** The position obtained by changing the `row` coordinate by `d` */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deltaRow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Pos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/** The position obtained by changing the `col` coordinate by `d` */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deltaCol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Pos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * The position where the block is located initially.
+   *
+   * This value is left abstract, it will be defined in concrete
+   * instances of the game.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;startPos&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Pos&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * The target position where the block has to go.
+   * This value is left abstract.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;goal&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Pos&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * The terrain is represented as a function from positions to
+   * booleans. The function returns `true` for every position that
+   * is inside the terrain.
+   *
+   * As explained in the documentation of class `Pos`, the `row` axis
+   * is the vertical one and increases from top to bottom.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Terrain&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Pos&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Boolean&lt;/span&gt;
+
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * The terrain of this game. This value is left abstract.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;terrain&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Terrain&lt;/span&gt;
+
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * In Bloxorz, we can move left, right, Up or down.
+   * These moves are encoded as case objects.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;sealed&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Move&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Left&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Move&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Right&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Move&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Up&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Move&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Down&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Move&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * This function returns the block at the start position of
+   * the game.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;startBlock&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;startPos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;startPos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * A block is represented by the position of the two cubes that
+   * it consists of. We make sure that `b1` is lexicographically
+   * smaller than `b2`.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Pos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Pos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// checks the requirement mentioned above
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Invalid block position: b1=&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, b2=&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+     * Returns a block where the `row` coordinates of `b1` and `b2` are
+     * changed by `d1` and `d2`, respectively.
+     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deltaRow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d1&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d2&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deltaRow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deltaRow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+     * Returns a block where the `col` coordinates of `b1` and `b2` are
+     * changed by `d1` and `d2`, respectively.
+     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deltaCol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d1&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d2&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deltaCol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deltaCol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+
+
+    &lt;span class=&quot;cm&quot;&gt;/** The block obtained by moving left */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isStanding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;             &lt;span class=&quot;n&quot;&gt;deltaCol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+               &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;deltaCol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+               &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;                        &lt;span class=&quot;n&quot;&gt;deltaCol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/** The block obtained by moving right */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isStanding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;deltaCol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deltaCol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;                       &lt;span class=&quot;n&quot;&gt;deltaCol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/** The block obtained by moving up */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;up&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isStanding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;               &lt;span class=&quot;n&quot;&gt;deltaRow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+             &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;deltaRow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+             &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;                          &lt;span class=&quot;n&quot;&gt;deltaRow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/** The block obtained by moving down */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;down&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isStanding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;             &lt;span class=&quot;n&quot;&gt;deltaRow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+               &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;deltaRow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+               &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;                        &lt;span class=&quot;n&quot;&gt;deltaRow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+     * Returns the list of blocks that can be obtained by moving
+     * the current block, together with the corresponding move.
+     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;neighbors&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;, &lt;span class=&quot;kt&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;up&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Up&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;
+                                         &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;down&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Down&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;
+                                         &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;
+                                         &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+     * Returns the list of positions reachable from the current block
+     * which are inside the terrain.
+     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;legalNeighbors&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;, &lt;span class=&quot;kt&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;neighbors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isLegal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+     * Returns `true` if the block is standing.
+     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isStanding&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Boolean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+     * Returns `true` if the block is entirely inside the terrain.
+     */&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isLegal&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Boolean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;terrain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;terrain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+      &lt;div class=&quot;panel-footer&quot; style=&quot;background-color:#292929; color:#dddddd;&quot;&gt;End of GameDef&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;panel-group&quot; style=&quot;border-color:#292929; color:#444444;&quot;&gt;
+  &lt;div class=&quot;panel panel-default&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
+        &lt;button class=&quot;btn&quot; data-toggle=&quot;collapse&quot; style=&quot;background-color:#35B4DE; color:#444444;&quot; data-target=&quot;#toggle-Solver&quot;&gt;
+           Solver 
+        &lt;/button&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;toggle-Solver&quot; class=&quot;panel-collapse collapse&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+&lt;blockquote class=&quot;filename&quot;&gt;
+  &lt;p&gt;Scala&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-scala&quot; data-lang=&quot;scala&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;streams&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;common._&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/**
+ * This component implements the solver for the Bloxorz game
+ */&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solver&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GameDef&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * Returns `true` if the block `b` is at the final position
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Boolean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isStanding&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;goal&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * This function takes two arguments: the current block `b` and
+   * a list of moves `history` that was required to reach the
+   * position of `b`.
+   *
+   * The `head` element of the `history` list is the latest move
+   * that was executed, i.e. the last move that was performed for
+   * the block to end up at position `b`.
+   *
+   * The function returns a stream of pairs: the first element of
+   * the each pair is a neighboring block, and the second element
+   * is the augmented history of moves required to reach this block.
+   *
+   * It should only return valid neighbors, i.e. block positions
+   * that are inside the terrain.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;neighborsWithHistory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;history&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Stream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;, &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legalNeighbors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toStream&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;history&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * This function returns the list of neighbors without the block
+   * positions that have already been explored. We will use it to
+   * make sure that we don't explore circular paths.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newNeighborsOnly&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;neighbors&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Stream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;, &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])],&lt;/span&gt;
+                       &lt;span class=&quot;n&quot;&gt;explored&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Stream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;, &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isNotExplored&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]))&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Boolean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;explored&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contains&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;neighbors&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isNotExplored&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * The function `from` returns the stream of all possible paths
+   * that can be followed, starting at the `head` of the `initial`
+   * stream.
+   *
+   * The blocks in the stream `initial` are sorted by ascending path
+   * length: the block positions with the shortest paths (length of
+   * move list) are at the head of the stream.
+   *
+   * The parameter `explored` is a set of block positions that have
+   * been visited before, on the path to any of the blocks in the
+   * stream `initial`. When search reaches a block that has already
+   * been explored before, that position should not be included a
+   * second time to avoid cycles.
+   *
+   * The resulting stream should be sorted by ascending path length,
+   * i.e. the block positions that can be reached with the fewest
+   * amount of moves should appear first in the stream.
+   *
+   * Note: the solution should not look at or compare the lengths
+   * of different paths - the implementation should naturally
+   * construct the correctly sorted stream.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initial&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Stream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;, &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])],&lt;/span&gt;
+           &lt;span class=&quot;n&quot;&gt;explored&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Stream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;, &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newBlocks&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Stream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;, &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initial&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newNeighborsOnly&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;neighborsWithHistory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;explored&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newExplored&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newBlocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toSet&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newExplored&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initial&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;#:::&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Stream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initial&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;#:::&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newBlocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;explored&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;union&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newExplored&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * The stream of all paths that begin at the starting block.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;lazy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pathsFromStart&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Stream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;, &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Stream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;startBlock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())),&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;startBlock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * Returns a stream of all possible pairs of the goal block along
+   * with the history how it was reached.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;lazy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pathsToGoal&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Stream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Block&lt;/span&gt;, &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pathsFromStart&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Block&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;goal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;goal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * The (or one of the) shortest sequence(s) of moves to reach the
+   * goal. If the goal cannot be reached, the empty list is returned.
+   *
+   * Note: the `head` element of the returned list should represent
+   * the first move that the player should perform from the starting
+   * position.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;lazy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Move&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pathsToGoal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shortestPathReversed&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pathsToGoal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_2&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;shortestPathReversed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+      &lt;div class=&quot;panel-footer&quot; style=&quot;background-color:#292929; color:#dddddd;&quot;&gt;End of Solver&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;panel-group&quot; style=&quot;border-color:#292929; color:#444444;&quot;&gt;
+  &lt;div class=&quot;panel panel-default&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
+        &lt;button class=&quot;btn&quot; data-toggle=&quot;collapse&quot; style=&quot;background-color:#35B4DE; color:#444444;&quot; data-target=&quot;#toggle-StringParserTerrain&quot;&gt;
+           StringParserTerrain 
+        &lt;/button&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;toggle-StringParserTerrain&quot; class=&quot;panel-collapse collapse&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+&lt;blockquote class=&quot;filename&quot;&gt;
+  &lt;p&gt;Scala&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-scala&quot; data-lang=&quot;scala&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;streams&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;common._&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/**
+ * This component implements a parser to define terrains from a
+ * graphical ASCII representation.
+ *
+ * When mixing in that component, a level can be defined by
+ * defining the field `level` in the following form:
+ *
+ *   val level =
+ *     &quot;&quot;&quot;------
+ *       |--ST--
+ *       |--oo--
+ *       |--oo--
+ *       |------&quot;&quot;&quot;.stripMargin
+ *
+ * - The `-` character denotes parts which are outside the terrain
+ * - `o` denotes fields which are part of the terrain
+ * - `S` denotes the start position of the block (which is also considered
+     inside the terrain)
+ * - `T` denotes the final position of the block (which is also considered
+     inside the terrain)
+ *
+ * In this example, the first and last lines could be omitted, and
+ * also the columns that consist of `-` characters only.
+ */&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringParserTerrain&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GameDef&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * A ASCII representation of the terrain. This field should remain
+   * abstract here.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * This method returns terrain function that represents the terrain
+   * in `levelVector`. The vector contains parsed version of the `level`
+   * string. For example, the following level
+   *
+   *   val level =
+   *     &quot;&quot;&quot;ST
+   *       |oo
+   *       |oo&quot;&quot;&quot;.stripMargin
+   *
+   * is represented as
+   *
+   *   Vector(Vector('S', 'T'), Vector('o', 'o'), Vector('o', 'o'))
+   *
+   * The resulting function should return `true` if the position `pos` is
+   * a valid position (not a '-' character) inside the terrain described
+   * by `levelVector`.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;terrainFunction&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;levelVector&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]])&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Pos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Boolean&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Pos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levelVector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levelVector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;levelVector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'-'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/**
+   * This function should return the position of character `c` in the
+   * terrain described by `levelVector`. You can assume that the `c`
+   * appears exactly once in the terrain.
+   *
+   * Hint: you can use the functions `indexWhere` and / or `indexOf` of the
+   * `Vector` class
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findChar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levelVector&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]])&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Pos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levelVector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indexWhere&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levelVector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;nc&quot;&gt;Pos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lazy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;\n&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;lazy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;terrain&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Terrain&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;terrainFunction&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;lazy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;startPos&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Pos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findChar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;'S'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;lazy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;goal&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Pos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findChar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;'T'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+      &lt;div class=&quot;panel-footer&quot; style=&quot;background-color:#292929; color:#dddddd;&quot;&gt;End of StringParserTerrain&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</description>
+				<pubDate>Fri, 11 Jan 2019 00:00:00 -0600</pubDate>
+				<link>/2019/01/11/Scala-Spec-Pt-2-Wk-8</link>
+				<guid isPermaLink="true">/2019/01/11/Scala-Spec-Pt-2-Wk-8</guid>
+			</item>
+		
+			<item>
+				<title>Scala Specialization Part 1 Week 6</title>
+				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#anagrams&quot;&gt;Anagrams&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#instructions&quot;&gt;Instructions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#my-solution&quot;&gt;My Solution&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- vim-markdown-toc --&gt;
+
+&lt;h1 id=&quot;anagrams&quot;&gt;Anagrams&lt;/h1&gt;
+
+&lt;p&gt;This week’s assignment involves computing sentence anagrams (ignoring spaces and punctuation).&lt;/p&gt;
+
+&lt;h2 id=&quot;instructions&quot;&gt;Instructions&lt;/h2&gt;
+
+&lt;embed src=&quot;/assets/docs/scala_specialization/Part1/Week6/Anagrams_Scala.pdf&quot; style=&quot;width:100%&quot; height=&quot;500ex&quot; /&gt;
+
+&lt;h2 id=&quot;my-solution&quot;&gt;My Solution&lt;/h2&gt;
+
+&lt;div class=&quot;panel-group&quot; style=&quot;border-color:#292929; color:#444444;&quot;&gt;
+  &lt;div class=&quot;panel panel-default&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444;&quot;&gt;
+        &lt;button class=&quot;btn&quot; data-toggle=&quot;collapse&quot; style=&quot;background-color:#35B4DE; color:#444444;&quot; data-target=&quot;#toggle-Anagrams&quot;&gt;
+           Anagrams 
+        &lt;/button&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;toggle-Anagrams&quot; class=&quot;panel-collapse collapse&quot; style=&quot;border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+&lt;blockquote class=&quot;filename&quot;&gt;
+  &lt;p&gt;Scala&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-scala&quot; data-lang=&quot;scala&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;ipackage&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;forcomp&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Anagrams&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/** A word is simply a `String`. */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Word&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/** A sentence is a `List` of words. */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Sentence&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/** `Occurrences` is a `List` of pairs of characters and positive integers saying
+   *  how often the character appears.
+   *  This list is sorted alphabetically w.r.t. to the character in each pair.
+   *  All characters in the occurrence list are lowercase.
+   *
+   *  Any list of pairs of lowercase characters and their frequency which is not sorted
+   *  is **not** an occurrence list.
+   *
+   *  Note: If the frequency of some character is zero, then that character should not be
+   *  in the list.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Occurrences&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Char&lt;/span&gt;, &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)]&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/** The dictionary is simply a sequence of words.
+   *  It is predefined and obtained as a sequence using the utility method `loadDictionary`.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dictionary&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loadDictionary&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/** Converts the word into its character occurrence list.
+   *
+   *  Note: the uppercase and lowercase version of the character are treated as the
+   *  same character, and are represented as a lowercase character in the occurrence list.
+   *
+   *  Note: you must use `groupBy` to implement this method!
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wordOccurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Occurrences&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;groupMap&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;groupBy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toLower&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;groupMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sorted&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/** Converts a sentence into its character occurrence list. */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sentenceOccurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Sentence&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Occurrences&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wordOccurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reduce&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/** The `dictionaryByOccurrences` is a `Map` from different occurrences to a sequence of all
+   *  the words that have that occurrence count.
+   *  This map serves as an easy way to obtain all the anagrams of a word given its occurrence list.
+   *
+   *  For example, the word &quot;eat&quot; has the following character occurrence list:
+   *
+   *     `List(('a', 1), ('e', 1), ('t', 1))`
+   *
+   *  Incidentally, so do the words &quot;ate&quot; and &quot;tea&quot;.
+   *
+   *  This means that the `dictionaryByOccurrences` map will contain an entry:
+   *
+   *    List(('a', 1), ('e', 1), ('t', 1)) -&amp;gt; Seq(&quot;ate&quot;, &quot;eat&quot;, &quot;tea&quot;)
+   *
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;lazy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dictionaryByOccurrences&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Occurrences&lt;/span&gt;, &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dictionary&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;groupBy&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wordOccurrences&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/** Returns all the anagrams of a given word. */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wordAnagrams&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wordAnagrams&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wordOccurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wordAnagrams&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wordOcc&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Occurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dictionaryByOccurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wordOcc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Some&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;None&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;cm&quot;&gt;/** Returns the list of all subsets of the occurrence list.
+   *  This includes the occurrence itself, i.e. `List(('k', 1), ('o', 1))`
+   *  is a subset of `List(('k', 1), ('o', 1))`.
+   *  It also include the empty subset `List()`.
+   *
+   *  Example: the subsets of the occurrence list `List(('a', 2), ('b', 2))` are:
+   *
+   *    List(
+   *      List(),
+   *      List(('a', 1)),
+   *      List(('a', 2)),
+   *      List(('b', 1)),
+   *      List(('a', 1), ('b', 1)),
+   *      List(('a', 2), ('b', 1)),
+   *      List(('b', 2)),
+   *      List(('a', 1), ('b', 2)),
+   *      List(('a', 2), ('b', 2))
+   *    )
+   *
+   *  Note that the order of the occurrence list subsets does not matter -- the subsets
+   *  in the example above could have been displayed in some other order.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;occurrences&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Occurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Occurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Occurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xs&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;T&lt;/span&gt;,&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xs&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ys&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fst&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fst&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elelist&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;occurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elelist&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;combos&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elelist&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toList&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combos&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toList&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//type Occurrences = List[(Char, Int)]
+&lt;/span&gt;  &lt;span class=&quot;cm&quot;&gt;/** Subtracts occurrence list `y` from occurrence list `x`.
+   *
+   *  The precondition is that the occurrence list `y` is a subset of
+   *  the occurrence list `x` -- any character appearing in `y` must
+   *  appear in `x`, and its frequency in `y` must be smaller or equal
+   *  than its frequency in `x`.
+   *
+   *  Note: the resulting value is an occurrence - meaning it is sorted
+   *  and has no zero-entries.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subtract&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Occurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Occurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Occurrences&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Occurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xs&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;T&lt;/span&gt;,&lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xs&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ys&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fst&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fst&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;compress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;compress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)))&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+
+  &lt;span class=&quot;cm&quot;&gt;/** Returns a list of all anagram sentences of the given sentence.
+   *
+   *  An anagram of a sentence is formed by taking the occurrences of all the characters of
+   *  all the words in the sentence, and producing all possible combinations of words with those characters,
+   *  such that the words have to be from the dictionary.
+   *
+   *  The number of words in the sentence and its anagrams does not have to correspond.
+   *  For example, the sentence `List(&quot;I&quot;, &quot;love&quot;, &quot;you&quot;)` is an anagram of the sentence `List(&quot;You&quot;, &quot;olive&quot;)`.
+   *
+   *  Also, two sentences with the same words but in a different order are considered two different anagrams.
+   *  For example, sentences `List(&quot;You&quot;, &quot;olive&quot;)` and `List(&quot;olive&quot;, &quot;you&quot;)` are different anagrams of
+   *  `List(&quot;I&quot;, &quot;love&quot;, &quot;you&quot;)`.
+   *
+   *  Here is a full example of a sentence `List(&quot;Yes&quot;, &quot;man&quot;)` and its anagrams for our dictionary:
+   *
+   *    List(
+   *      List(en, as, my),
+   *      List(en, my, as),
+   *      List(man, yes),
+   *      List(men, say),
+   *      List(as, en, my),
+   *      List(as, my, en),
+   *      List(sane, my),
+   *      List(Sean, my),
+   *      List(my, en, as),
+   *      List(my, as, en),
+   *      List(my, sane),
+   *      List(my, Sean),
+   *      List(say, men),
+   *      List(yes, man)
+   *    )
+   *
+   *  The different sentences do not have to be output in the order shown above - any order is fine as long as
+   *  all the anagrams are there. Every returned word has to exist in the dictionary.
+   *
+   *  Note: in case that the words of the sentence are in the dictionary, then the sentence is the anagram of itself,
+   *  so it has to be returned in this list.
+   *
+   *  Note: There is only one anagram of an empty sentence.
+   */&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sentenceAnagrams&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sentence&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Sentence&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Sentence&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;letters&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Occurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;letters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;thecombo&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;letters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wordAnagrams&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thecombo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// only continue with combos that appear in dictionary
+&lt;/span&gt;          &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wordAnagrams&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thecombo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;anagrams&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subtract&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;letters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thecombo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;anagrams&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nonEmpty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// avoid trivial empty anagrams
+&lt;/span&gt;          &lt;span class=&quot;n&quot;&gt;anagram&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anagrams&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anagram&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sentence&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nonEmpty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sentenceOccurrences&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sentence&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Nil&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+      &lt;div class=&quot;panel-footer&quot; style=&quot;background-color:#292929; color:#dddddd;&quot;&gt;End of Anagrams&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</description>
+				<pubDate>Mon, 07 Jan 2019 00:00:00 -0600</pubDate>
+				<link>/2019/01/07/Scala-Spec-Pt-1-Wk-6</link>
+				<guid isPermaLink="true">/2019/01/07/Scala-Spec-Pt-1-Wk-6</guid>
+			</item>
+		
+			<item>
 				<title>Scala Specialization Part 1 Week 5</title>
 				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
 
@@ -20,7 +1296,7 @@
         &lt;/ul&gt;
       &lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#proving-concatenation-of-nil-is-commutative&quot;&gt;Proving Concatenation of Nil is commutative&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#proving-reverse-of-a-list-is-oscillatingly-idempotent&quot;&gt;Proving Reverse of a list is oscillatingly idempotent&lt;/a&gt;
+      &lt;li&gt;&lt;a href=&quot;#proving-reverse-of-a-list-is-discretely-periodic-with-order-2&quot;&gt;Proving Reverse of a list is Discretely Periodic with Order 2.&lt;/a&gt;
         &lt;ul&gt;
           &lt;li&gt;&lt;a href=&quot;#lemma-1-proof&quot;&gt;Lemma 1 Proof&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
@@ -142,7 +1418,7 @@
 
 &lt;p&gt;Since both the left and right sides equate to the same expression, the hypothesis is proven. &lt;strong class=&quot;highlighted&quot;&gt;∎&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;proving-reverse-of-a-list-is-oscillatingly-idempotent&quot;&gt;Proving Reverse of a list is oscillatingly idempotent&lt;/h2&gt;
+&lt;h2 id=&quot;proving-reverse-of-a-list-is-discretely-periodic-with-order-2&quot;&gt;Proving Reverse of a list is Discretely Periodic with Order 2.&lt;/h2&gt;
 
 &lt;hr /&gt;
 
@@ -167,7 +1443,7 @@
 (x :: xs).reverse = xs.reverse ++ List(x)  // 2nd clause
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;We’d like to prove that list reversal is “osciallatingly idempotent”, ie:&lt;/p&gt;
+&lt;p&gt;We’d like to prove that list reversal is Discretely Periodic of Order 2, ie:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xs.reverse.reverse = xs  (**)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -2529,1174 +3805,6 @@ Latent Dirichlet Allocation (LDA)&lt;/p&gt;
 				<pubDate>Wed, 17 Oct 2018 00:00:00 -0500</pubDate>
 				<link>/2018/10/17/MCS-Notes-Week-8</link>
 				<guid isPermaLink="true">/2018/10/17/MCS-Notes-Week-8</guid>
-			</item>
-		
-			<item>
-				<title>MCS 1st Semester Week 7 Notes</title>
-				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#7-1-overview-text-mining-and-analytics-part-1&quot;&gt;7-1 Overview Text Mining and Analytics Part 1&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#7-2-overview-text-mining-and-analytics-part-2&quot;&gt;7-2 Overview Text Mining and Analytics Part 2&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#7-3-natural-language-content-analysis-part-1&quot;&gt;7-3 Natural Language Content Analysis Part 1&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#7-4-natural-language-content-analysis-part-2&quot;&gt;7-4 Natural Language Content Analysis Part 2&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#7-5-text-representation-part-1&quot;&gt;7-5 Text Representation Part 1&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#7-6-text-representation-part-2&quot;&gt;7-6 Text Representation Part 2&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#7-7-word-association-mining-and-analysis&quot;&gt;7-7 Word Association Mining and Analysis&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#7-8-paradigmatic-relation-discovery-part-1&quot;&gt;7-8 Paradigmatic Relation Discovery Part 1&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#7-9-paradigmatic-relation-discvery-part-2&quot;&gt;7-9 Paradigmatic Relation Discvery Part 2&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!-- vim-markdown-toc --&gt;
-
-&lt;h1 id=&quot;cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/h1&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
-&lt;p&gt;Explain some basic concepts in natural language processing.&lt;br /&gt;
-Explain different ways to represent text data.&lt;br /&gt;
-Explain the two basic types of word associations and how to mine paradigmatic relations from text data.&lt;/p&gt;
-
-&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
-&lt;p&gt;What does a computer have to do in order to understand a natural language sentence?&lt;br /&gt;
-What is ambiguity?&lt;br /&gt;
-Why is natural language processing (NLP) difficult for computers?&lt;br /&gt;
-What is bag-of-words representation?&lt;br /&gt;
-Why is this word-based representation more robust than representations derived from syntactic and semantic analysis of text?&lt;br /&gt;
-What is a paradigmatic relation?&lt;br /&gt;
-What is a syntagmatic relation?&lt;br /&gt;
-What is the general idea for discovering paradigmatic relations from text?&lt;br /&gt;
-What is the general idea for discovering syntagmatic relations from text?&lt;br /&gt;
-Why do we want to do Term Frequency Transformation when computing similarity of context?&lt;br /&gt;
-How does BM25 Term Frequency transformation work?&lt;br /&gt;
-Why do we want to do Inverse Document Frequency (IDF) weighting when computing similarity of context?&lt;/p&gt;
-
-&lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
-&lt;p&gt;C. Zhai and S. Massung, Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining. ACM and Morgan &amp;amp; Claypool Publishers, 2016. Chapters 1-4, Chapter 13.&lt;br /&gt;
-Chris Manning and Hinrich Schütze, Foundations of Statistical Natural Language Processing. MIT Press. Cambridge, MA: May 1999. Chapter 5 on collocations.&lt;br /&gt;
-Chengxiang Zhai, Exploiting context to identify lexical atoms: A statistical view of linguistic context. Proceedings of the International and Interdisciplinary Conference on Modelling and Using Context (CONTEXT-97), Rio de Janeiro, Brazil, Feb. 4-6, 1997, pp. 119-129.&lt;br /&gt;
-Shan Jiang and ChengXiang Zhai, Random walks on adjacency graphs for mining lexical relations from big text data. Proceedings of IEEE BigData Conference 2014, pp. 549-554.&lt;/p&gt;
-
-&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
-&lt;p&gt;Part of speech tagging&lt;br /&gt;
-Syntactic analysis&lt;br /&gt;
-Semantic analysis&lt;br /&gt;
-Ambiguity&lt;br /&gt;
-Text representation, especially bag-of-words representation&lt;br /&gt;
-Context of a word; context similarity&lt;br /&gt;
-Paradigmatic relation&lt;br /&gt;
-Syntagmatic relation&lt;/p&gt;
-
-&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;7-1-overview-text-mining-and-analytics-part-1&quot;&gt;7-1 Overview Text Mining and Analytics Part 1&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-001.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-002.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-003.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;7-2-overview-text-mining-and-analytics-part-2&quot;&gt;7-2 Overview Text Mining and Analytics Part 2&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-004.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-005.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;7-3-natural-language-content-analysis-part-1&quot;&gt;7-3 Natural Language Content Analysis Part 1&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-006.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-007.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-008.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-009.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;7-4-natural-language-content-analysis-part-2&quot;&gt;7-4 Natural Language Content Analysis Part 2&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-010.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-011.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;7-5-text-representation-part-1&quot;&gt;7-5 Text Representation Part 1&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-012.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;7-6-text-representation-part-2&quot;&gt;7-6 Text Representation Part 2&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-013.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-014.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;7-7-word-association-mining-and-analysis&quot;&gt;7-7 Word Association Mining and Analysis&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-015.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-016.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-017.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-018.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-019.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-020.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-021.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-022.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-023.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;7-8-paradigmatic-relation-discovery-part-1&quot;&gt;7-8 Paradigmatic Relation Discovery Part 1&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-024.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-025.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-026.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-027.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-028.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-029.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;7-9-paradigmatic-relation-discvery-part-2&quot;&gt;7-9 Paradigmatic Relation Discvery Part 2&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-030.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-031.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-032.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-033.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-034.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk7-img-035.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;No content this week, midterm.&lt;/p&gt;
-
-&lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;No content this week, work on mp1.&lt;/p&gt;
-
-</description>
-				<pubDate>Wed, 17 Oct 2018 00:00:00 -0500</pubDate>
-				<link>/2018/10/17/MCS-Notes-Week-7</link>
-				<guid isPermaLink="true">/2018/10/17/MCS-Notes-Week-7</guid>
-			</item>
-		
-			<item>
-				<title>MCS 1st Semester Week 6 Notes</title>
-				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-1-learning-to-rank-part-1&quot;&gt;6-1 Learning to Rank Part 1&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-2-learning-to-rank-part-2&quot;&gt;6-2 Learning to Rank Part 2&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-3-learning-to-rank-part-3&quot;&gt;6-3 Learning to Rank Part 3&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-4-future-of-web-search&quot;&gt;6-4 Future of Web Search&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-5-recommender-systems-content-based-filtering-part-1&quot;&gt;6-5 Recommender Systems-Content-Based Filtering Part 1&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-6-recommender-systems-content-based-filtering-part-2&quot;&gt;6-6 Recommender Systems-Content-Based Filtering Part 2&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-7-recommender-systems-collaborative-filtering-part-1&quot;&gt;6-7 Recommender Systems-Collaborative Filtering Part 1&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-8-recommender-systems-collaborative-filtering-part-2&quot;&gt;6-8 Recommender Systems-Collaborative Filtering Part 2&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-9-recommender-systems-collaborative-filtering-part-3&quot;&gt;6-9 Recommender Systems-Collaborative Filtering Part 3&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#goals&quot;&gt;Goals&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#key-concepts&quot;&gt;Key Concepts&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#readings-and-resources&quot;&gt;Readings and Resources&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-1-1-what-is-global-snapshot&quot;&gt;6-1-1 What is Global Snapshot&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-1-2-glboal-snapshot-algorithm&quot;&gt;6-1-2 Glboal snapshot algorithm&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-1-3-consistent-cuts&quot;&gt;6-1-3 Consistent cuts&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-1-4-safety-and-liveness&quot;&gt;6-1-4 Safety and liveness&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-2-1-multicast-ordering&quot;&gt;6-2-1 Multicast ordering&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-2-2-implementing-multicast-ordering-1&quot;&gt;6-2-2 Implementing Multicast Ordering 1&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-2-3-implementing-multicast-ordering-2&quot;&gt;6-2-3 Implementing Multicast Ordering 2&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-2-4-reliable-multicast&quot;&gt;6-2-4 Reliable Multicast&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-2-5-virtual-synchrony&quot;&gt;6-2-5 Virtual Synchrony&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-3-1-the-consensus-problem&quot;&gt;6-3-1 The Consensus Problem&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-3-2-consensus-in-synchronous-systems&quot;&gt;6-3-2 Consensus in Synchronous Systems&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-3-3-paxos-put-simply&quot;&gt;6-3-3 Paxos put Simply&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#6-3-4-the-flp-proof&quot;&gt;6-3-4 The FLP Proof&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#5-1-object-oriented-modeling&quot;&gt;5-1 Object-Oriented Modeling&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#5-2-class-diagram-overview&quot;&gt;5-2 Class Diagram-Overview&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#5-3-class-diagram-relationships&quot;&gt;5-3 Class Diagram-Relationships&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#5-4-class-diagram-miscellaneous&quot;&gt;5-4 Class Diagram-Miscellaneous&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#5-5-requirements-to-class-diagram&quot;&gt;5-5 Requirements to Class Diagram&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#5-6-sequence-diagram&quot;&gt;5-6 Sequence Diagram&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!-- vim-markdown-toc --&gt;
-&lt;h1 id=&quot;cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Explain how we can extend a retrieval system to perform content-based information filtering (recommendation).&lt;/li&gt;
-  &lt;li&gt;Explain how we can use a linear utility function to evaluate an information filtering system.&lt;/li&gt;
-  &lt;li&gt;Explain the basic idea of collaborative filtering.&lt;/li&gt;
-  &lt;li&gt;Explain how the memory-based collaborative filtering algorithm works.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;What is content-based information filtering?&lt;/li&gt;
-  &lt;li&gt;How can we use a linear utility function to evaluate a filtering system? How should we set the coefficients in such a linear utility function?&lt;/li&gt;
-  &lt;li&gt;How can we extend a retrieval system to perform content-based information filtering?&lt;/li&gt;
-  &lt;li&gt;What is the exploration-exploitation tradeoff?&lt;/li&gt;
-  &lt;li&gt;How does the beta-gamma threshold learning algorithm work?&lt;/li&gt;
-  &lt;li&gt;What is the basic idea of collaborative filtering?&lt;/li&gt;
-  &lt;li&gt;How does the memory-based collaborative filtering algorithm work?&lt;/li&gt;
-  &lt;li&gt;What is the “cold start” problem in collaborative filtering?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;C. Zhai and S. Massung. Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining, ACM Book Series, Morgan &amp;amp; Claypool Publishers, 2016. Chapters 10 - Section 10.4,Chapters 11&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Content-based filtering&lt;/li&gt;
-  &lt;li&gt;Collaborative filtering&lt;/li&gt;
-  &lt;li&gt;Beta-gamma threshold learning&lt;/li&gt;
-  &lt;li&gt;Linear utility&lt;/li&gt;
-  &lt;li&gt;User profile&lt;/li&gt;
-  &lt;li&gt;Exploration-exploitation tradeoff&lt;/li&gt;
-  &lt;li&gt;Memory-based collaborative filtering&lt;/li&gt;
-  &lt;li&gt;Cold start&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;6-1-learning-to-rank-part-1&quot;&gt;6-1 Learning to Rank Part 1&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;How can we combine many features?  (learning to rank)
-    &lt;ul&gt;
-      &lt;li&gt;General Idea:
-        &lt;ul&gt;
-          &lt;li&gt;Given a query-doc pair (Q,D), define various kinds of features Xi(Q,D)&lt;/li&gt;
-          &lt;li&gt;Examples of feature: the number of overlapping terms, BM25 score of Q and D, p(Q|D), PageRank of D, p(Q|Di), where Di may be anchor text or big font text, “does the URL contain ‘~’?”…&lt;/li&gt;
-          &lt;li&gt;Hypothesize p(R=1|Q,D)=s(X1(Q,D)),…,Xn(Q,D),λ) where λ is a set of parameters&lt;/li&gt;
-          &lt;li&gt;Learn λ by fitting functions with training data, ie, 3-tuples like (D,Q,1)(Dis relevant to Q) or (D,Q,0)(D is non-relevant to Q)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;6-2-learning-to-rank-part-2&quot;&gt;6-2 Learning to Rank Part 2&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-3-learning-to-rank-part-3&quot;&gt;6-3 Learning to Rank Part 3&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;More Advanced Learning Algorithms
-    &lt;ul&gt;
-      &lt;li&gt;Attempt to directly optimize a retrieval measure (eg MAP, nDCG)
-        &lt;ul&gt;
-          &lt;li&gt;More difficult as an optimization problem&lt;/li&gt;
-          &lt;li&gt;Many solutions were proposed&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Can be applied to many other ranking problems beyond search
-        &lt;ul&gt;
-          &lt;li&gt;Recommender systems&lt;/li&gt;
-          &lt;li&gt;Computational advertising&lt;/li&gt;
-          &lt;li&gt;Summarization&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Summary
-    &lt;ul&gt;
-      &lt;li&gt;Machine Learning has been applied to text retrieval since many decades ago (eg, Rocchio feedback)&lt;/li&gt;
-      &lt;li&gt;Recent use of machine learning is driven by
-        &lt;ul&gt;
-          &lt;li&gt;large-scale training data available&lt;/li&gt;
-          &lt;li&gt;need for combining many features&lt;/li&gt;
-          &lt;li&gt;need for robust ranking (again spams)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Modern Web search engines all use some kind of ML technique to combine many features to optimize ranking&lt;/li&gt;
-      &lt;li&gt;Learning to ranki is still an active research topic&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;6-4-future-of-web-search&quot;&gt;6-4 Future of Web Search&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Next generation search engines
-    &lt;ul&gt;
-      &lt;li&gt;more specialized/customized (vertical search engines)
-        &lt;ul&gt;
-          &lt;li&gt;special group of users (community engines, eg, Citeseer)&lt;/li&gt;
-          &lt;li&gt;Personalized (better understanding of users)&lt;/li&gt;
-          &lt;li&gt;Special genre/domain (better understanding of documents)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Learning over time (evolving)&lt;/li&gt;
-      &lt;li&gt;Integration of search, navigation, and recommendation/filtering (full-fledged information management)&lt;/li&gt;
-      &lt;li&gt;Beyond search to support tasks (eg shopping)&lt;/li&gt;
-      &lt;li&gt;Many opportunities for innovations!&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Above image shows what current search engines do (search, keyword queries, bag of words), and what people are working to expand it to do.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-5-recommender-systems-content-based-filtering-part-1&quot;&gt;6-5 Recommender Systems-Content-Based Filtering Part 1&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Two modes of text access: Pull vs Push
-    &lt;ul&gt;
-      &lt;li&gt;Pull mode (search engines)
-        &lt;ul&gt;
-          &lt;li&gt;users take initiative&lt;/li&gt;
-          &lt;li&gt;Ad hoc information need&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Push mode (recommender systems)
-        &lt;ul&gt;
-          &lt;li&gt;systems take initiative&lt;/li&gt;
-          &lt;li&gt;stable information need or system has good knowledge about a user’s need&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Recommender ≈ Filtering system
-    &lt;ul&gt;
-      &lt;li&gt;Stable &amp;amp; long term interest, dynamic info source&lt;/li&gt;
-      &lt;li&gt;System must make a delivery decision immediately as a document “arrives”&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Basic Filtering Question: Will User U Like Item X?
-    &lt;ul&gt;
-      &lt;li&gt;Two different ways of answering it
-        &lt;ul&gt;
-          &lt;li&gt;look at what items U likes, and then check if X is similar
-            &lt;ul&gt;
-              &lt;li&gt;Item similarity =&amp;gt; content-based filtering&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-          &lt;li&gt;Look at who likes X, and then check if U is similar
-            &lt;ul&gt;
-              &lt;li&gt;User similarity =&amp;gt; collaborative filtering&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Can be combined&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Three Basic Problems in content-based filtering
-    &lt;ul&gt;
-      &lt;li&gt;making &lt;strong class=&quot;highlighted&quot;&gt;filtering decision&lt;/strong&gt; (binary classifier)
-        &lt;ul&gt;
-          &lt;li&gt;Doc text, profile text –&amp;gt; yes/no&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Initialization&lt;/strong&gt;
-        &lt;ul&gt;
-          &lt;li&gt;initialize the filter based on only the profile text or very few examples&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Learning&lt;/strong&gt; from
-        &lt;ul&gt;
-          &lt;li&gt;Limited relevance judegements (only on “yes” docs)&lt;/li&gt;
-          &lt;li&gt;Accumulated documents&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;All trying to maximize the utility&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Extend a retrieval system for information filtering
-    &lt;ul&gt;
-      &lt;li&gt;“Reuse” retrieval techniques to score documents&lt;/li&gt;
-      &lt;li&gt;use a score threshold for filtering decision&lt;/li&gt;
-      &lt;li&gt;learn to improve scoring with traditional feedback&lt;/li&gt;
-      &lt;li&gt;new approaches to threshold setting and learning&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-6-recommender-systems-content-based-filtering-part-2&quot;&gt;6-6 Recommender Systems-Content-Based Filtering Part 2&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Empirical utility optimization
-    &lt;ul&gt;
-      &lt;li&gt;Basic idea
-        &lt;ul&gt;
-          &lt;li&gt;compute the utility on the training data for each candidate score threshold&lt;/li&gt;
-          &lt;li&gt;choose the threshold that gives the maximum utility on the training data set&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;difficulty: biased training sample!
-        &lt;ul&gt;
-          &lt;li&gt;we can only get an upper bound for the true optimal threshold&lt;/li&gt;
-          &lt;li&gt;could a discarded item be possibly interesing to the user?&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;solution:
-        &lt;ul&gt;
-          &lt;li&gt;heuristic adjustment (lowering) of threshold&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-9.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Beta-Gamma thereshold learning
-    &lt;ul&gt;
-      &lt;li&gt;Pros
-        &lt;ul&gt;
-          &lt;li&gt;explicitly addresses exploration-exploitation tradeoff (“safe” exploration)&lt;/li&gt;
-          &lt;li&gt;Arbitrary utility (with appropriate lower bound)&lt;/li&gt;
-          &lt;li&gt;empirically effective&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Cons
-        &lt;ul&gt;
-          &lt;li&gt;Purely heuristic&lt;/li&gt;
-          &lt;li&gt;Zero utility lower bound often too conservative&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Summary
-    &lt;ul&gt;
-      &lt;li&gt;Two strategies for recommendation/filtering
-        &lt;ul&gt;
-          &lt;li&gt;content-based (item similarity)&lt;/li&gt;
-          &lt;li&gt;collaborative filtering (user similarity)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Content-based recommender system can be built based on a search engine system by
-        &lt;ul&gt;
-          &lt;li&gt;adding threshold mechanism&lt;/li&gt;
-          &lt;li&gt;adding adaptive learning algorithms&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;6-7-recommender-systems-collaborative-filtering-part-1&quot;&gt;6-7 Recommender Systems-Collaborative Filtering Part 1&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;What is Collaborative filtering (CF) ?
-    &lt;ul&gt;
-      &lt;li&gt;Making filtering decisions for an individual user based on the judgements of other users&lt;/li&gt;
-      &lt;li&gt;Inferring individual’s interest/preferences from that of other similar users&lt;/li&gt;
-      &lt;li&gt;General idea
-        &lt;ul&gt;
-          &lt;li&gt;Given a user u, find similar users {u1, …, um}&lt;/li&gt;
-          &lt;li&gt;Predict u’s preferences based on the preferences of u1, …, um&lt;/li&gt;
-          &lt;li&gt;User similarity can be judged based on their similarity in preferences on a common set of items.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;CF: Assumptions
-    &lt;ul&gt;
-      &lt;li&gt;Users with the same interest will have similar preferences&lt;/li&gt;
-      &lt;li&gt;Users with similar preferences probably share the same interest&lt;/li&gt;
-      &lt;li&gt;Examples
-        &lt;ul&gt;
-          &lt;li&gt;“interest is infomration retrieval” =&amp;gt; “favor SIGIR papers”&lt;/li&gt;
-          &lt;li&gt;“favor SIGIR papers” =&amp;gt; “interest is information retrieval”&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Sufficiently large number of user preferences are avaialable (if not, there will be a “cold start” problem)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-8-recommender-systems-collaborative-filtering-part-2&quot;&gt;6-8 Recommender Systems-Collaborative Filtering Part 2&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-11.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS410-wk6-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Improving User similarity meeasures
-    &lt;ul&gt;
-      &lt;li&gt;Dealing with missing values: set to default ratings (eg, average ratings)&lt;/li&gt;
-      &lt;li&gt;Inverse user frequency (IUF): similar to IDF&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;6-9-recommender-systems-collaborative-filtering-part-3&quot;&gt;6-9 Recommender Systems-Collaborative Filtering Part 3&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Summary of Recommender Systems
-    &lt;ul&gt;
-      &lt;li&gt;Filtering/Recommendations is “easy”
-        &lt;ul&gt;
-          &lt;li&gt;The user’s expectation is low&lt;/li&gt;
-          &lt;li&gt;Any recommendation is better than none&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Filtering is “hard”
-        &lt;ul&gt;
-          &lt;li&gt;Must make a binary decision, though ranking is also possible&lt;/li&gt;
-          &lt;li&gt;Data sparseness (limited feedback information)&lt;/li&gt;
-          &lt;li&gt;“cold start” (little information about users at the beginning)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Content-based vs Collaborative filtering vs Hybrid&lt;/li&gt;
-      &lt;li&gt;Recommendation can be combined with search –&amp;gt; Push+Pull&lt;/li&gt;
-      &lt;li&gt;Many advanced algorithms have been proposed to use more context information and advanced machine learning.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Design an algorithm to calculate a distributed snapshot.&lt;/li&gt;
-  &lt;li&gt;Assign FIFO/Causal/Total ordering to multicast messages.&lt;/li&gt;
-  &lt;li&gt;Design a reliable multicast protocol.&lt;/li&gt;
-  &lt;li&gt;Know the working of the industry-standard protocol called Paxos.&lt;/li&gt;
-  &lt;li&gt;Know why consensus is hard to solve.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Global Snapshots&lt;/li&gt;
-  &lt;li&gt;Multicast Ordering&lt;/li&gt;
-  &lt;li&gt;Multicast Reliability&lt;/li&gt;
-  &lt;li&gt;Paxos&lt;/li&gt;
-  &lt;li&gt;Impossibility of Consensus&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;guiding-questions-1&quot;&gt;Guiding Questions&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;What is the difference between a safety property and a liveness property?&lt;/li&gt;
-  &lt;li&gt;How does the Chandy-Lamport algorithm work?&lt;/li&gt;
-  &lt;li&gt;How do you assign FIFO/Causal timestamps to multicasts in a distributed system?&lt;/li&gt;
-  &lt;li&gt;How does Paxos use quorums to ensure safety?&lt;/li&gt;
-  &lt;li&gt;Why is consensus impossible to solve in asynchronous systems?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;readings-and-resources&quot;&gt;Readings and Resources&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://research.google.com/archive/chubby.html&quot;&gt;Google Chubby&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://zookeeper.apache.org/&quot;&gt;Apache Zookeeper&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;6-1-1-what-is-global-snapshot&quot;&gt;6-1-1 What is Global Snapshot&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Distributed Snapshot
-    &lt;ul&gt;
-      &lt;li&gt;More often, each country’s representative is sitting in their respective capital, and sending messages to each other (say emails)&lt;/li&gt;
-      &lt;li&gt;How do you calculate a “global snapshot” in that DS ?&lt;/li&gt;
-      &lt;li&gt;what does a “global snapshot” even mean?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;In the Cloud
-    &lt;ul&gt;
-      &lt;li&gt;each application or service is running on multiple servers&lt;/li&gt;
-      &lt;li&gt;servers handling concurrent events and interacting with each other&lt;/li&gt;
-      &lt;li&gt;the ability to obtain a “global photograph” of the system is important&lt;/li&gt;
-      &lt;li&gt;some uses of having a global picture of the system
-        &lt;ul&gt;
-          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;checkpointing&lt;/strong&gt;: can restart distributed application on failure&lt;/li&gt;
-          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Garbage collection&lt;/strong&gt; of objects: objecst at servers that don’t have any other objects (at any servers) with pointers to them&lt;/li&gt;
-          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Deadlock detection&lt;/strong&gt;: useful in database transaction systems&lt;/li&gt;
-          &lt;li&gt;&lt;strong class=&quot;highlighted&quot;&gt;Termination of computation&lt;/strong&gt;: useful in batch computing systems like Folding@Home, SETI@Home&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What’s a global snapshot?
-    &lt;ul&gt;
-      &lt;li&gt;Global snapshot = global state = individual state of each process in the DS + Individual state of each communication channel in the DS&lt;/li&gt;
-      &lt;li&gt;Capture the instantaneous state of each process&lt;/li&gt;
-      &lt;li&gt;And the instantaneous state of each communication channel, ie messages in transit on the channels&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Obvious first solution
-    &lt;ul&gt;
-      &lt;li&gt;Synchronize clocks of all processes&lt;/li&gt;
-      &lt;li&gt;ask all processes to record their states at known time t&lt;/li&gt;
-      &lt;li&gt;Problems?
-        &lt;ul&gt;
-          &lt;li&gt;time synchronization always has error
-            &lt;ul&gt;
-              &lt;li&gt;your bank might inform you, “we lost the state of our distritbuted cluster due to a 1 ms clock skew in our snapshot algorithm”&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-          &lt;li&gt;also, does not record the state of messages in the channels&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;again: synchronization not reuired – causality is enough!&lt;/li&gt;
-      &lt;li&gt;Why does time synchronization not work as a way to calculate a global snapshot in a distributed system? (select all correct answers)
-        &lt;ul&gt;
-          &lt;li&gt;time sync is inaccurate&lt;/li&gt;
-          &lt;li&gt;it may not capture channel states&lt;/li&gt;
-          &lt;li&gt;
-            &lt;s&gt;it may not capture process states&lt;/s&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Moving from state to state
-    &lt;ul&gt;
-      &lt;li&gt;whenever an event happens anywhere in the system, the global state changes
-        &lt;ul&gt;
-          &lt;li&gt;process receives message&lt;/li&gt;
-          &lt;li&gt;process sends message&lt;/li&gt;
-          &lt;li&gt;process takes a step&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;state to state movement obeys causality
-        &lt;ul&gt;
-          &lt;li&gt;next: causal algorithm for global snapshot&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;6-1-2-glboal-snapshot-algorithm&quot;&gt;6-1-2 Glboal snapshot algorithm&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;System model
-    &lt;ul&gt;
-      &lt;li&gt;Problem: record a global snapshot (state for each process, and state for each channel)&lt;/li&gt;
-      &lt;li&gt;System model:
-        &lt;ul&gt;
-          &lt;li&gt;N processes in the system&lt;/li&gt;
-          &lt;li&gt;there are two uni-directional communication channels between each ordered process pair: Pj –&amp;gt; Pi and Pi –&amp;gt; Pj&lt;/li&gt;
-          &lt;li&gt;Communication channels are FIFO-ordered&lt;/li&gt;
-          &lt;li&gt;No failure&lt;/li&gt;
-          &lt;li&gt;All messages arrive intact, and are not duplicated
-            &lt;ul&gt;
-              &lt;li&gt;other papers later relaxed some of these assumptions&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Requirements
-    &lt;ul&gt;
-      &lt;li&gt;snapshot should not interfere with normal application actions, and it should not require application to stop sending messages&lt;/li&gt;
-      &lt;li&gt;Each process is able to record its own state
-        &lt;ul&gt;
-          &lt;li&gt;process state: applicaiton-defined state or, in the worst case:&lt;/li&gt;
-          &lt;li&gt;its heap, registers, program counter, code, etc (essentially the coredump)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Global state is collected in a distributed manner&lt;/li&gt;
-      &lt;li&gt;Any process may initiate the snapshot
-        &lt;ul&gt;
-          &lt;li&gt;We’ll assume just one snapshot run for now&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Chandy-Lamport global snapshot algorithm
-    &lt;ul&gt;
-      &lt;li&gt;first, initiator Pi records its own state&lt;/li&gt;
-      &lt;li&gt;initiator process creates special messages called “Marker” messages
-        &lt;ul&gt;
-          &lt;li&gt;not an application message, does not interfere with application messages&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;for j=1 to N except i
-        &lt;ul&gt;
-          &lt;li&gt;Pi sends out a Marker message on outgoing channel Cij&lt;/li&gt;
-          &lt;li&gt;N-1 channels&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Starts recording the incoming messages on each of the incoming channels at Pi: Cji (for j= 1 to N except i)&lt;/li&gt;
-      &lt;li&gt;Whenever a process Pi receives a Marker message on an incoming channel Cki
-        &lt;ul&gt;
-          &lt;li&gt;if (this is the first Marker Pi is seeing)
-            &lt;ul&gt;
-              &lt;li&gt;Pi records its own state first&lt;/li&gt;
-              &lt;li&gt;Marks the state of channel Cki as “empty”&lt;/li&gt;
-              &lt;li&gt;for j = 1 to N except i
-                &lt;ul&gt;
-                  &lt;li&gt;Pi sends out a Marker message on outgoing channel Cij&lt;/li&gt;
-                &lt;/ul&gt;
-              &lt;/li&gt;
-              &lt;li&gt;Starts recording the incoming messages on each of the incoming channels at Pi: Cji (for j = 1 to N except i and k)&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-          &lt;li&gt;else // already seen a Marker message
-            &lt;ul&gt;
-              &lt;li&gt;Mark the state of channel Cki as all the messages that have arrived on it since recording was turned on for Cki&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;The algorithm terminates when
-        &lt;ul&gt;
-          &lt;li&gt;All processes have received a Marker
-            &lt;ul&gt;
-              &lt;li&gt;to record their own state&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-          &lt;li&gt;all processes have received a Marker on all the (N-1) incoming channels at each
-            &lt;ul&gt;
-              &lt;li&gt;to record the state of all channels&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Then, if needed, a central server collects all these partial state pieces to obtain the full global snapshot.&lt;/li&gt;
-      &lt;li&gt;Which of the following does a process NOT do when it receives its first marker message?
-        &lt;ul&gt;
-          &lt;li&gt;
-            &lt;s&gt;Starts recording the state of some incoming channels&lt;/s&gt;
-          &lt;/li&gt;
-          &lt;li&gt;Starts recording the state of some outgoing channels&lt;/li&gt;
-          &lt;li&gt;
-            &lt;s&gt;Records its own state&lt;/s&gt;
-          &lt;/li&gt;
-          &lt;li&gt;
-            &lt;s&gt;Marks the state of the incoming channel as empty&lt;/s&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;6-1-3-consistent-cuts&quot;&gt;6-1-3 Consistent cuts&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Cuts
-    &lt;ul&gt;
-      &lt;li&gt;cut = time frontier at each process and at each channel&lt;/li&gt;
-      &lt;li&gt;events at the process/channel that happen before the cut are “in the cut”
-        &lt;ul&gt;
-          &lt;li&gt;and happening after the cut are “out of the cut”&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Consistent cuts
-    &lt;ul&gt;
-      &lt;li&gt;a cut that obeys causality&lt;/li&gt;
-      &lt;li&gt;a cut C is a consistent cut iff for (each pair of events e, f in the system)&lt;/li&gt;
-      &lt;li&gt;such that event e is in the cut C, and if f –&amp;gt; e (f happens-before e)
-        &lt;ul&gt;
-          &lt;li&gt;then: event f is also in the cut C&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Any run of the Chandy-Lamport Global snapshot algorithm creates a consistent cut&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-1-4-safety-and-liveness&quot;&gt;6-1-4 Safety and liveness&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Correctness in DS
-    &lt;ul&gt;
-      &lt;li&gt;can be seen in two ways&lt;/li&gt;
-      &lt;li&gt;liveness and safety&lt;/li&gt;
-      &lt;li&gt;often confused – it’s important to distinguish from each other.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;liveness
-    &lt;ul&gt;
-      &lt;li&gt;guarantee that something good will happen, eventually, meaning if you let the system run long enough, then&lt;/li&gt;
-      &lt;li&gt;Examples in real world
-        &lt;ul&gt;
-          &lt;li&gt;guarantee that “at least one of the atheletes in the 100m final will win gold” is liveness&lt;/li&gt;
-          &lt;li&gt;a criminal will eventually be jailed&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Examples in a DS
-        &lt;ul&gt;
-          &lt;li&gt;distributed computation: Guarantee that it will terminate&lt;/li&gt;
-          &lt;li&gt;“Completeness” in failure detectors: every failure is eventually detected by some non-faulty process&lt;/li&gt;
-          &lt;li&gt;In consensus: all processes eventually decide on a value&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Safety
-    &lt;ul&gt;
-      &lt;li&gt;guarantee that something bad will never happen&lt;/li&gt;
-      &lt;li&gt;examples in real world
-        &lt;ul&gt;
-          &lt;li&gt;a peace treaty between two nations provides safety
-            &lt;ul&gt;
-              &lt;li&gt;war will never happen&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-          &lt;li&gt;an innocent person will never be jailed&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;examples in DS:
-        &lt;ul&gt;
-          &lt;li&gt;There is no deadlock in a distributed transaction system&lt;/li&gt;
-          &lt;li&gt;No object is orphaned in a distributed object system&lt;/li&gt;
-          &lt;li&gt;“Accuracy” in failure detectors&lt;/li&gt;
-          &lt;li&gt;in consensus: no two processes decide on different values&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Can we guarantee both?
-    &lt;ul&gt;
-      &lt;li&gt;Can be difficult to satisfy both liveness and safety in an asynchronous DS!
-        &lt;ul&gt;
-          &lt;li&gt;failure detector: completeness (liveness) and accuracy (safety) cannot both be guaranteed by a failure detector in an asynchronous DS&lt;/li&gt;
-          &lt;li&gt;Consensus: Decisions (liveness) and correct decisions (Safety) cannot both be guaranteed by any consensus protocol in an asynchronous DS&lt;/li&gt;
-          &lt;li&gt;Very difficult for legal systems (anywhere in the world) to guaranteed that all criminals are jailed (liveness) and no innocents are jailed (safety)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;In the language of global states:
-    &lt;ul&gt;
-      &lt;li&gt;recall that a DS moves from one global state to another global state, via causal steps&lt;/li&gt;
-      &lt;li&gt;liveness with respect to a property Pr in a given state S means
-        &lt;ul&gt;
-          &lt;li&gt;S satisfies Pr, or there is some causal path of global states from S to S’ where S’ satisfies Pr&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Safety with respect to a property Pr in a given state S means
-        &lt;ul&gt;
-          &lt;li&gt;S satisfies Pr, and all global states S’ reachable from S also satisfy Pr&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;using global snapshot algorithm
-    &lt;ul&gt;
-      &lt;li&gt;chandy-lamport algorithm can be used to detect global properties that are stable
-        &lt;ul&gt;
-          &lt;li&gt;stable = once true, stays true forever afterwards&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;stable liveness examples
-        &lt;ul&gt;
-          &lt;li&gt;computation has terminated&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;stable non-safety examples
-        &lt;ul&gt;
-          &lt;li&gt;there is a deadlock&lt;/li&gt;
-          &lt;li&gt;an object is orphaned (no pointers point to it)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;all stable global properties can be detected using the Chandy-Lamport algorithm
-        &lt;ul&gt;
-          &lt;li&gt;due to its causal correctness&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Summary
-    &lt;ul&gt;
-      &lt;li&gt;the ability to calculate global snapshots in a DS is very important&lt;/li&gt;
-      &lt;li&gt;but don’t want to interrupt running DS application&lt;/li&gt;
-      &lt;li&gt;chandy-lamport algorithm calculates global snapshot&lt;/li&gt;
-      &lt;li&gt;obeys causality (creates a consistent cut)&lt;/li&gt;
-      &lt;li&gt;can be used to detect stable global properties&lt;/li&gt;
-      &lt;li&gt;safety vs liveness&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;6-2-1-multicast-ordering&quot;&gt;6-2-1 Multicast ordering&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-9.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-11.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-13.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-14.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-15.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-2-2-implementing-multicast-ordering-1&quot;&gt;6-2-2 Implementing Multicast Ordering 1&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-16.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-17.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-18.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-19.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-20.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-21.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-2-3-implementing-multicast-ordering-2&quot;&gt;6-2-3 Implementing Multicast Ordering 2&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-22.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-23.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-24.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-25.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-26.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-2-4-reliable-multicast&quot;&gt;6-2-4 Reliable Multicast&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-27.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-28.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-29.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-30.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-31.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-2-5-virtual-synchrony&quot;&gt;6-2-5 Virtual Synchrony&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-32.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-33.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-34.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-35.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-36.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-37.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-38.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-39.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-40.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-41.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-42.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-43.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-44.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-45.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-46.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-3-1-the-consensus-problem&quot;&gt;6-3-1 The Consensus Problem&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-47.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-48.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-49.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-50.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-51.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-52.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-53.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-54.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-55.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-56.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-3-2-consensus-in-synchronous-systems&quot;&gt;6-3-2 Consensus in Synchronous Systems&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-57.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-58.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-59.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-60.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-3-3-paxos-put-simply&quot;&gt;6-3-3 Paxos put Simply&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-61.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-62.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-63.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-64.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-65.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-66.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-67.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-68.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-69.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-70.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-71.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-72.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-73.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-3-4-the-flp-proof&quot;&gt;6-3-4 The FLP Proof&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-74.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-75.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-76.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-77.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-78.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-79.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-80.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-81.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-82.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-83.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-84.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-85.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-86.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-87.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-88.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-89.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-90.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-91.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-92.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS425-wk6-img-93.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;video-lecture-notes-2&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;5-1-object-oriented-modeling&quot;&gt;5-1 Object-Oriented Modeling&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Abstractions: Software under development
-    &lt;ul&gt;
-      &lt;li&gt;Architecture&lt;/li&gt;
-      &lt;li&gt;OO Design&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Benefits of Modeling Notations
-    &lt;ul&gt;
-      &lt;li&gt;Communication&lt;/li&gt;
-      &lt;li&gt;Documentation&lt;/li&gt;
-      &lt;li&gt;Quality Assurance&lt;/li&gt;
-      &lt;li&gt;Code Generation&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Unified Modeling Language (UML)
-    &lt;ul&gt;
-      &lt;li&gt;Class Diagram&lt;/li&gt;
-      &lt;li&gt;Sequence Diagram&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;5-2-class-diagram-overview&quot;&gt;5-2 Class Diagram-Overview&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Purposes of class diagram
-    &lt;ul&gt;
-      &lt;li&gt;Analysis - conceptual
-        &lt;ul&gt;
-          &lt;li&gt;model problem, not software solution&lt;/li&gt;
-          &lt;li&gt;can include actors outside system&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Design - specification
-        &lt;ul&gt;
-          &lt;li&gt;the structure of how a software system will be written&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Design - implementation
-        &lt;ul&gt;
-          &lt;li&gt;Actual classes of implementation&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;It &lt;strong class=&quot;highlighted&quot;&gt;DOES NOT&lt;/strong&gt; capture how:
-        &lt;ul&gt;
-          &lt;li&gt;classes interact with each other&lt;/li&gt;
-          &lt;li&gt;algorithm or behavior detail&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-3.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-4.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;5-3-class-diagram-relationships&quot;&gt;5-3 Class Diagram-Relationships&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-5.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-6.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-7.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-8.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-9.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-10.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;5-4-class-diagram-miscellaneous&quot;&gt;5-4 Class Diagram-Miscellaneous&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-11.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-12.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;5-5-requirements-to-class-diagram&quot;&gt;5-5 Requirements to Class Diagram&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Nouns are good candidates for classes/attributes&lt;/li&gt;
-  &lt;li&gt;Adjectives are good candidates for interfaces&lt;/li&gt;
-  &lt;li&gt;Verbs are good candidates for methods or relationships between classes&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;5-6-sequence-diagram&quot;&gt;5-6 Sequence Diagram&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Purposes of UML Sequence Diagram
-    &lt;ul&gt;
-      &lt;li&gt;Used during requirements analysis
-        &lt;ul&gt;
-          &lt;li&gt;to refine use case descriptions&lt;/li&gt;
-          &lt;li&gt;to find additional objects (“participating objects”)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Used during system design
-        &lt;ul&gt;
-          &lt;li&gt;to refine subsystem interfaces&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-13.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181007/CS427-wk6-img-14.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-</description>
-				<pubDate>Sun, 07 Oct 2018 00:00:00 -0500</pubDate>
-				<link>/2018/10/07/MCS-Notes-Week-6</link>
-				<guid isPermaLink="true">/2018/10/07/MCS-Notes-Week-6</guid>
 			</item>
 		
 	</channel>

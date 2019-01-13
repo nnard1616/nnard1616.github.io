@@ -1,0 +1,1079 @@
+
+  
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Blog | Scala Specialization Part 2 Week 8 </title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/toc.js"></script>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/theme.css" rel="stylesheet">
+  <link href="/assets/css/syntax.css" rel="stylesheet">
+  <link href="/assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-120646415-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Progress Blog</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">/home</a></li>
+          <li><a href="/archive.html">/archive</a></li>
+          <li><a href="/tags.html">/tags</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="wrapper">
+      <div class="content">
+        <div class="container container-center">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="article">
+                <div class="well">
+                  <h1><a href="/2019/01/11/Scala-Spec-Pt-2-Wk-8">Scala Specialization Part 2 Week 8</a></h1>
+                  <div class="post-meta">
+                    <div class="post-time">
+                      <i class="fa fa-calendar"></i>
+                      <time>11 Jan 2019</time>
+                    </div>
+                    <ul>
+                      
+                        <li><a href="/tag/coursera">coursera</a></li>
+                      
+                        <li><a href="/tag/scala">scala</a></li>
+                      
+                    </ul>
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2019/01/07/Scala-Spec-Pt-1-Wk-6" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Scala Specialization Part 1 Week 6" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+                  <br>
+                  <div class="post-content">
+                    <div id="toc" class="toc"></div>
+                    <!-- vim-markdown-toc Redcarpet -->
+
+<ul>
+  <li><a href="#bloxorz">Bloxorz</a>
+    <ul>
+      <li><a href="#instructions">Instructions</a></li>
+      <li><a href="#my-solution">My Solution</a></li>
+    </ul>
+  </li>
+</ul>
+
+<!-- vim-markdown-toc -->
+
+<h1 id="bloxorz">Bloxorz</h1>
+
+<p>This week’s assignment involves computing solutions for a puzzle game, <a href="https://www.coolmathgames.com/0-bloxorz">Bloxorz</a>. We had to provide implementations for three files, listed below.</p>
+
+<h2 id="instructions">Instructions</h2>
+
+<embed src="/assets/docs/scala_specialization/Part2/Week8/Bloxorz_Coursera.pdf" style="width:100%" height="500ex" />
+
+<h2 id="my-solution">My Solution</h2>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-GameDef">
+           GameDef 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-GameDef" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>Scala</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-scala" data-lang="scala"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+</pre></td><td class="code"><pre><span class="k">package</span> <span class="nn">streams</span>
+
+<span class="k">import</span> <span class="nn">common._</span>
+
+<span class="cm">/**
+ * This trait represents the layout and building blocks of the game
+ */</span>
+<span class="k">trait</span> <span class="nc">GameDef</span> <span class="o">{</span>
+
+  <span class="cm">/**
+   * The case class `Pos` encodes positions in the terrain.
+   *
+   * IMPORTANT NOTE
+   *  - The `row` coordinate denotes the position on the vertical axis
+   *  - The `col` coordinate is used for the horizontal axis
+   *  - The coordinates increase when moving down and right
+   *
+   * Illustration:
+   *
+   *     0 1 2 3   &lt;- col axis
+   *   0 o o o o
+   *   1 o o o o
+   *   2 o # o o    # is at position Pos(2, 1)
+   *   3 o o o o
+   *
+   *   ^
+   *   |
+   *
+   *   row axis
+   */</span>
+  <span class="k">case</span> <span class="k">class</span> <span class="nc">Pos</span><span class="o">(</span><span class="n">row</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">col</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="o">{</span>
+    <span class="cm">/** The position obtained by changing the `row` coordinate by `d` */</span>
+    <span class="k">def</span> <span class="n">deltaRow</span><span class="o">(</span><span class="n">d</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Pos</span> <span class="o">=</span> <span class="n">copy</span><span class="o">(</span><span class="n">row</span> <span class="k">=</span> <span class="n">row</span> <span class="o">+</span> <span class="n">d</span><span class="o">)</span>
+
+    <span class="cm">/** The position obtained by changing the `col` coordinate by `d` */</span>
+    <span class="k">def</span> <span class="n">deltaCol</span><span class="o">(</span><span class="n">d</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Pos</span> <span class="o">=</span> <span class="n">copy</span><span class="o">(</span><span class="n">col</span> <span class="k">=</span> <span class="n">col</span> <span class="o">+</span> <span class="n">d</span><span class="o">)</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * The position where the block is located initially.
+   *
+   * This value is left abstract, it will be defined in concrete
+   * instances of the game.
+   */</span>
+  <span class="k">val</span> <span class="n">startPos</span><span class="k">:</span> <span class="kt">Pos</span>
+
+  <span class="cm">/**
+   * The target position where the block has to go.
+   * This value is left abstract.
+   */</span>
+  <span class="k">val</span> <span class="n">goal</span><span class="k">:</span> <span class="kt">Pos</span>
+
+  <span class="cm">/**
+   * The terrain is represented as a function from positions to
+   * booleans. The function returns `true` for every position that
+   * is inside the terrain.
+   *
+   * As explained in the documentation of class `Pos`, the `row` axis
+   * is the vertical one and increases from top to bottom.
+   */</span>
+  <span class="k">type</span> <span class="kt">Terrain</span> <span class="o">=</span> <span class="nc">Pos</span> <span class="k">=&gt;</span> <span class="nc">Boolean</span>
+
+
+  <span class="cm">/**
+   * The terrain of this game. This value is left abstract.
+   */</span>
+  <span class="k">val</span> <span class="n">terrain</span><span class="k">:</span> <span class="kt">Terrain</span>
+
+
+  <span class="cm">/**
+   * In Bloxorz, we can move left, right, Up or down.
+   * These moves are encoded as case objects.
+   */</span>
+  <span class="k">sealed</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Move</span>
+  <span class="k">case</span> <span class="k">object</span> <span class="nc">Left</span>  <span class="k">extends</span> <span class="nc">Move</span>
+  <span class="k">case</span> <span class="k">object</span> <span class="nc">Right</span> <span class="k">extends</span> <span class="nc">Move</span>
+  <span class="k">case</span> <span class="k">object</span> <span class="nc">Up</span>    <span class="k">extends</span> <span class="nc">Move</span>
+  <span class="k">case</span> <span class="k">object</span> <span class="nc">Down</span>  <span class="k">extends</span> <span class="nc">Move</span>
+
+  <span class="cm">/**
+   * This function returns the block at the start position of
+   * the game.
+   */</span>
+  <span class="k">def</span> <span class="n">startBlock</span><span class="k">:</span> <span class="kt">Block</span> <span class="o">=</span> <span class="nc">Block</span><span class="o">(</span><span class="n">startPos</span><span class="o">,</span> <span class="n">startPos</span><span class="o">)</span>
+
+
+  <span class="cm">/**
+   * A block is represented by the position of the two cubes that
+   * it consists of. We make sure that `b1` is lexicographically
+   * smaller than `b2`.
+   */</span>
+  <span class="k">case</span> <span class="k">class</span> <span class="nc">Block</span><span class="o">(</span><span class="n">b1</span><span class="k">:</span> <span class="kt">Pos</span><span class="o">,</span> <span class="n">b2</span><span class="k">:</span> <span class="kt">Pos</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="c1">// checks the requirement mentioned above
+</span>    <span class="n">require</span><span class="o">(</span><span class="n">b1</span><span class="o">.</span><span class="n">row</span> <span class="o">&lt;=</span> <span class="n">b2</span><span class="o">.</span><span class="n">row</span> <span class="o">&amp;&amp;</span> <span class="n">b1</span><span class="o">.</span><span class="n">col</span> <span class="o">&lt;=</span> <span class="n">b2</span><span class="o">.</span><span class="n">col</span><span class="o">,</span> <span class="s">"Invalid block position: b1="</span> <span class="o">+</span> <span class="n">b1</span> <span class="o">+</span> <span class="s">", b2="</span> <span class="o">+</span> <span class="n">b2</span><span class="o">)</span>
+
+    <span class="cm">/**
+     * Returns a block where the `row` coordinates of `b1` and `b2` are
+     * changed by `d1` and `d2`, respectively.
+     */</span>
+    <span class="k">def</span> <span class="n">deltaRow</span><span class="o">(</span><span class="n">d1</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">d2</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Block</span> <span class="o">=</span> <span class="nc">Block</span><span class="o">(</span><span class="n">b1</span><span class="o">.</span><span class="n">deltaRow</span><span class="o">(</span><span class="n">d1</span><span class="o">),</span> <span class="n">b2</span><span class="o">.</span><span class="n">deltaRow</span><span class="o">(</span><span class="n">d2</span><span class="o">))</span>
+
+    <span class="cm">/**
+     * Returns a block where the `col` coordinates of `b1` and `b2` are
+     * changed by `d1` and `d2`, respectively.
+     */</span>
+    <span class="k">def</span> <span class="n">deltaCol</span><span class="o">(</span><span class="n">d1</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">d2</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">Block</span> <span class="o">=</span> <span class="nc">Block</span><span class="o">(</span><span class="n">b1</span><span class="o">.</span><span class="n">deltaCol</span><span class="o">(</span><span class="n">d1</span><span class="o">),</span> <span class="n">b2</span><span class="o">.</span><span class="n">deltaCol</span><span class="o">(</span><span class="n">d2</span><span class="o">))</span>
+
+
+    <span class="cm">/** The block obtained by moving left */</span>
+    <span class="k">def</span> <span class="n">left</span> <span class="k">=</span> <span class="k">if</span> <span class="o">(</span><span class="n">isStanding</span><span class="o">)</span>             <span class="n">deltaCol</span><span class="o">(-</span><span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span>
+               <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">b1</span><span class="o">.</span><span class="n">row</span> <span class="o">==</span> <span class="n">b2</span><span class="o">.</span><span class="n">row</span><span class="o">)</span>  <span class="n">deltaCol</span><span class="o">(-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">)</span>
+               <span class="k">else</span>                        <span class="n">deltaCol</span><span class="o">(-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span>
+
+    <span class="cm">/** The block obtained by moving right */</span>
+    <span class="k">def</span> <span class="n">right</span> <span class="k">=</span> <span class="k">if</span> <span class="o">(</span><span class="n">isStanding</span><span class="o">)</span>            <span class="n">deltaCol</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+                <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">b1</span><span class="o">.</span><span class="n">row</span> <span class="o">==</span> <span class="n">b2</span><span class="o">.</span><span class="n">row</span><span class="o">)</span> <span class="n">deltaCol</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span>
+                <span class="k">else</span>                       <span class="n">deltaCol</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span>
+
+    <span class="cm">/** The block obtained by moving up */</span>
+    <span class="k">def</span> <span class="n">up</span> <span class="k">=</span> <span class="k">if</span> <span class="o">(</span><span class="n">isStanding</span><span class="o">)</span>               <span class="n">deltaRow</span><span class="o">(-</span><span class="mi">2</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span>
+             <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">b1</span><span class="o">.</span><span class="n">row</span> <span class="o">==</span> <span class="n">b2</span><span class="o">.</span><span class="n">row</span><span class="o">)</span>    <span class="n">deltaRow</span><span class="o">(-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span>
+             <span class="k">else</span>                          <span class="n">deltaRow</span><span class="o">(-</span><span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">)</span>
+
+    <span class="cm">/** The block obtained by moving down */</span>
+    <span class="k">def</span> <span class="n">down</span> <span class="k">=</span> <span class="k">if</span> <span class="o">(</span><span class="n">isStanding</span><span class="o">)</span>             <span class="n">deltaRow</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+               <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">b1</span><span class="o">.</span><span class="n">row</span> <span class="o">==</span> <span class="n">b2</span><span class="o">.</span><span class="n">row</span><span class="o">)</span>  <span class="n">deltaRow</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span>
+               <span class="k">else</span>                        <span class="n">deltaRow</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span>
+
+
+    <span class="cm">/**
+     * Returns the list of blocks that can be obtained by moving
+     * the current block, together with the corresponding move.
+     */</span>
+    <span class="k">def</span> <span class="n">neighbors</span><span class="k">:</span> <span class="kt">List</span><span class="o">[(</span><span class="kt">Block</span>, <span class="kt">Move</span><span class="o">)]</span> <span class="k">=</span> <span class="o">(</span><span class="n">up</span><span class="o">,</span> <span class="nc">Up</span><span class="o">)</span>       <span class="o">::</span>
+                                         <span class="o">(</span><span class="n">down</span><span class="o">,</span> <span class="nc">Down</span><span class="o">)</span>   <span class="o">::</span>
+                                         <span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="nc">Left</span><span class="o">)</span>   <span class="o">::</span>
+                                         <span class="o">(</span><span class="n">right</span><span class="o">,</span> <span class="nc">Right</span><span class="o">)</span> <span class="o">::</span> <span class="nc">Nil</span>
+
+    <span class="cm">/**
+     * Returns the list of positions reachable from the current block
+     * which are inside the terrain.
+     */</span>
+    <span class="k">def</span> <span class="n">legalNeighbors</span><span class="k">:</span> <span class="kt">List</span><span class="o">[(</span><span class="kt">Block</span>, <span class="kt">Move</span><span class="o">)]</span> <span class="k">=</span> <span class="n">neighbors</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="n">t</span> <span class="k">=&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">_1</span><span class="o">.</span><span class="n">isLegal</span><span class="o">)</span>
+
+    <span class="cm">/**
+     * Returns `true` if the block is standing.
+     */</span>
+    <span class="k">def</span> <span class="n">isStanding</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">==</span> <span class="n">b2</span>
+
+    <span class="cm">/**
+     * Returns `true` if the block is entirely inside the terrain.
+     */</span>
+    <span class="k">def</span> <span class="n">isLegal</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="n">terrain</span><span class="o">(</span><span class="n">b1</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">terrain</span><span class="o">(</span><span class="n">b2</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of GameDef</div>
+    </div>
+  </div>
+</div>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-Solver">
+           Solver 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-Solver" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>Scala</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-scala" data-lang="scala"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+</pre></td><td class="code"><pre><span class="k">package</span> <span class="nn">streams</span>
+
+<span class="k">import</span> <span class="nn">common._</span>
+
+<span class="cm">/**
+ * This component implements the solver for the Bloxorz game
+ */</span>
+<span class="k">trait</span> <span class="nc">Solver</span> <span class="k">extends</span> <span class="nc">GameDef</span> <span class="o">{</span>
+
+  <span class="cm">/**
+   * Returns `true` if the block `b` is at the final position
+   */</span>
+  <span class="k">def</span> <span class="n">done</span><span class="o">(</span><span class="n">b</span><span class="k">:</span> <span class="kt">Block</span><span class="o">)</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">isStanding</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="o">.</span><span class="n">b1</span> <span class="o">==</span> <span class="n">goal</span>
+
+  <span class="cm">/**
+   * This function takes two arguments: the current block `b` and
+   * a list of moves `history` that was required to reach the
+   * position of `b`.
+   *
+   * The `head` element of the `history` list is the latest move
+   * that was executed, i.e. the last move that was performed for
+   * the block to end up at position `b`.
+   *
+   * The function returns a stream of pairs: the first element of
+   * the each pair is a neighboring block, and the second element
+   * is the augmented history of moves required to reach this block.
+   *
+   * It should only return valid neighbors, i.e. block positions
+   * that are inside the terrain.
+   */</span>
+  <span class="k">def</span> <span class="n">neighborsWithHistory</span><span class="o">(</span><span class="n">b</span><span class="k">:</span> <span class="kt">Block</span><span class="o">,</span> <span class="n">history</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Move</span><span class="o">])</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[(</span><span class="kt">Block</span>, <span class="kt">List</span><span class="o">[</span><span class="kt">Move</span><span class="o">])]</span> <span class="k">=</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">{</span>
+      <span class="o">(</span><span class="n">b</span><span class="o">,</span> <span class="n">m</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">b</span><span class="o">.</span><span class="n">legalNeighbors</span><span class="o">.</span><span class="n">toStream</span>
+    <span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">b</span><span class="o">,</span> <span class="n">m</span><span class="o">::</span><span class="n">history</span><span class="o">)</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * This function returns the list of neighbors without the block
+   * positions that have already been explored. We will use it to
+   * make sure that we don't explore circular paths.
+   */</span>
+  <span class="k">def</span> <span class="n">newNeighborsOnly</span><span class="o">(</span><span class="n">neighbors</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[(</span><span class="kt">Block</span>, <span class="kt">List</span><span class="o">[</span><span class="kt">Move</span><span class="o">])],</span>
+                       <span class="n">explored</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">Block</span><span class="o">])</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[(</span><span class="kt">Block</span>, <span class="kt">List</span><span class="o">[</span><span class="kt">Move</span><span class="o">])]</span> <span class="k">=</span> <span class="o">{</span>
+
+    <span class="k">def</span> <span class="n">isNotExplored</span><span class="o">(</span><span class="n">b</span><span class="k">:</span> <span class="o">(</span><span class="kt">Block</span><span class="o">,</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Move</span><span class="o">]))</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="o">!(</span><span class="n">explored</span> <span class="n">contains</span> <span class="n">b</span><span class="o">.</span><span class="n">_1</span><span class="o">)</span>
+
+    <span class="n">neighbors</span> <span class="n">filter</span> <span class="n">isNotExplored</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * The function `from` returns the stream of all possible paths
+   * that can be followed, starting at the `head` of the `initial`
+   * stream.
+   *
+   * The blocks in the stream `initial` are sorted by ascending path
+   * length: the block positions with the shortest paths (length of
+   * move list) are at the head of the stream.
+   *
+   * The parameter `explored` is a set of block positions that have
+   * been visited before, on the path to any of the blocks in the
+   * stream `initial`. When search reaches a block that has already
+   * been explored before, that position should not be included a
+   * second time to avoid cycles.
+   *
+   * The resulting stream should be sorted by ascending path length,
+   * i.e. the block positions that can be reached with the fewest
+   * amount of moves should appear first in the stream.
+   *
+   * Note: the solution should not look at or compare the lengths
+   * of different paths - the implementation should naturally
+   * construct the correctly sorted stream.
+   */</span>
+  <span class="k">def</span> <span class="n">from</span><span class="o">(</span><span class="n">initial</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[(</span><span class="kt">Block</span>, <span class="kt">List</span><span class="o">[</span><span class="kt">Move</span><span class="o">])],</span>
+           <span class="n">explored</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">Block</span><span class="o">])</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[(</span><span class="kt">Block</span>, <span class="kt">List</span><span class="o">[</span><span class="kt">Move</span><span class="o">])]</span> <span class="k">=</span> <span class="o">{</span>
+
+    <span class="k">val</span> <span class="n">newBlocks</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[(</span><span class="kt">Block</span>, <span class="kt">List</span><span class="o">[</span><span class="kt">Move</span><span class="o">])]</span> <span class="k">=</span>
+      <span class="k">for</span> <span class="o">{</span>
+        <span class="o">(</span><span class="n">b0</span><span class="o">,</span> <span class="n">m0</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">initial</span>
+        <span class="o">(</span><span class="n">b1</span><span class="o">,</span> <span class="n">m1</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">newNeighborsOnly</span><span class="o">(</span><span class="n">neighborsWithHistory</span><span class="o">(</span><span class="n">b0</span><span class="o">,</span><span class="n">m0</span><span class="o">),</span> <span class="n">explored</span><span class="o">)</span>
+      <span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">b1</span><span class="o">,</span> <span class="n">m1</span><span class="o">)</span>
+
+    <span class="k">val</span> <span class="n">newExplored</span><span class="k">:</span> <span class="kt">Set</span><span class="o">[</span><span class="kt">Block</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+      <span class="k">for</span> <span class="o">{</span>
+        <span class="o">(</span><span class="n">b</span><span class="o">,</span> <span class="n">m</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">newBlocks</span><span class="o">.</span><span class="n">toSet</span>
+      <span class="o">}</span> <span class="k">yield</span> <span class="n">b</span>
+    <span class="o">}</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">newExplored</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span> <span class="n">initial</span> <span class="o">#:::</span> <span class="nc">Stream</span><span class="o">.</span><span class="n">empty</span>
+    <span class="k">else</span> <span class="n">initial</span> <span class="o">#:::</span> <span class="n">from</span><span class="o">(</span><span class="n">newBlocks</span><span class="o">,</span> <span class="n">explored</span> <span class="n">union</span> <span class="n">newExplored</span><span class="o">)</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * The stream of all paths that begin at the starting block.
+   */</span>
+  <span class="k">lazy</span> <span class="k">val</span> <span class="n">pathsFromStart</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[(</span><span class="kt">Block</span>, <span class="kt">List</span><span class="o">[</span><span class="kt">Move</span><span class="o">])]</span> <span class="k">=</span> <span class="n">from</span><span class="o">(</span><span class="nc">Stream</span><span class="o">((</span><span class="n">startBlock</span><span class="o">,</span> <span class="nc">List</span><span class="o">())),</span> <span class="nc">Set</span><span class="o">(</span><span class="n">startBlock</span><span class="o">))</span>
+
+  <span class="cm">/**
+   * Returns a stream of all possible pairs of the goal block along
+   * with the history how it was reached.
+   */</span>
+  <span class="k">lazy</span> <span class="k">val</span> <span class="n">pathsToGoal</span><span class="k">:</span> <span class="kt">Stream</span><span class="o">[(</span><span class="kt">Block</span>, <span class="kt">List</span><span class="o">[</span><span class="kt">Move</span><span class="o">])]</span> <span class="k">=</span> <span class="n">pathsFromStart</span> <span class="n">filter</span> <span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">_1</span> <span class="o">==</span> <span class="nc">Block</span><span class="o">(</span><span class="n">goal</span><span class="o">,</span><span class="n">goal</span><span class="o">))</span>
+
+  <span class="cm">/**
+   * The (or one of the) shortest sequence(s) of moves to reach the
+   * goal. If the goal cannot be reached, the empty list is returned.
+   *
+   * Note: the `head` element of the returned list should represent
+   * the first move that the player should perform from the starting
+   * position.
+   */</span>
+  <span class="k">lazy</span> <span class="k">val</span> <span class="n">solution</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Move</span><span class="o">]</span> <span class="k">=</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">pathsToGoal</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span> <span class="nc">Nil</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="k">val</span> <span class="n">shortestPathReversed</span> <span class="k">=</span> <span class="n">pathsToGoal</span><span class="o">.</span><span class="n">head</span><span class="o">.</span><span class="n">_2</span>
+      <span class="n">shortestPathReversed</span><span class="o">.</span><span class="n">reverse</span>
+    <span class="o">}</span>
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of Solver</div>
+    </div>
+  </div>
+</div>
+
+<div class="panel-group" style="border-color:#292929; color:#444444;">
+  <div class="panel panel-default" style="border-color:#292929; background-color:#292929; color:#444444;">
+    <div class="panel-heading" style="border-color:#292929; background-color:#292929; color:#444444;">
+      <h4 class="panel-title" style="border-color:#292929; background-color:#292929; color:#444444;">
+        <button class="btn" data-toggle="collapse" style="background-color:#35B4DE; color:#444444;" data-target="#toggle-StringParserTerrain">
+           StringParserTerrain 
+        </button>
+      </h4>
+    </div>
+    <div id="toggle-StringParserTerrain" class="panel-collapse collapse" style="border-color:#292929; background-color:#292929; color:#444444; outline-color:#ff0000;">
+      <div class="panel-body">
+<blockquote class="filename">
+  <p>Scala</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-scala" data-lang="scala"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+</pre></td><td class="code"><pre><span class="k">package</span> <span class="nn">streams</span>
+
+<span class="k">import</span> <span class="nn">common._</span>
+
+<span class="cm">/**
+ * This component implements a parser to define terrains from a
+ * graphical ASCII representation.
+ *
+ * When mixing in that component, a level can be defined by
+ * defining the field `level` in the following form:
+ *
+ *   val level =
+ *     """------
+ *       |--ST--
+ *       |--oo--
+ *       |--oo--
+ *       |------""".stripMargin
+ *
+ * - The `-` character denotes parts which are outside the terrain
+ * - `o` denotes fields which are part of the terrain
+ * - `S` denotes the start position of the block (which is also considered
+     inside the terrain)
+ * - `T` denotes the final position of the block (which is also considered
+     inside the terrain)
+ *
+ * In this example, the first and last lines could be omitted, and
+ * also the columns that consist of `-` characters only.
+ */</span>
+<span class="k">trait</span> <span class="nc">StringParserTerrain</span> <span class="k">extends</span> <span class="nc">GameDef</span> <span class="o">{</span>
+
+  <span class="cm">/**
+   * A ASCII representation of the terrain. This field should remain
+   * abstract here.
+   */</span>
+  <span class="k">val</span> <span class="n">level</span><span class="k">:</span> <span class="kt">String</span>
+
+  <span class="cm">/**
+   * This method returns terrain function that represents the terrain
+   * in `levelVector`. The vector contains parsed version of the `level`
+   * string. For example, the following level
+   *
+   *   val level =
+   *     """ST
+   *       |oo
+   *       |oo""".stripMargin
+   *
+   * is represented as
+   *
+   *   Vector(Vector('S', 'T'), Vector('o', 'o'), Vector('o', 'o'))
+   *
+   * The resulting function should return `true` if the position `pos` is
+   * a valid position (not a '-' character) inside the terrain described
+   * by `levelVector`.
+   */</span>
+  <span class="k">def</span> <span class="n">terrainFunction</span><span class="o">(</span><span class="n">levelVector</span><span class="k">:</span> <span class="kt">Vector</span><span class="o">[</span><span class="kt">Vector</span><span class="o">[</span><span class="kt">Char</span><span class="o">]])</span><span class="k">:</span> <span class="kt">Pos</span> <span class="o">=&gt;</span> <span class="nc">Boolean</span> <span class="k">=</span>
+    <span class="o">(</span><span class="n">p</span><span class="k">:</span> <span class="kt">Pos</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="k">if</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">row</span> <span class="o">&lt;</span> <span class="n">levelVector</span><span class="o">.</span><span class="n">length</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="o">.</span><span class="n">row</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span>
+                    <span class="n">p</span><span class="o">.</span><span class="n">col</span> <span class="o">&lt;</span> <span class="n">levelVector</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">row</span><span class="o">).</span><span class="n">length</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="o">.</span><span class="n">col</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span>
+                  <span class="o">(</span><span class="n">levelVector</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">row</span><span class="o">)(</span><span class="n">p</span><span class="o">.</span><span class="n">col</span><span class="o">)</span> <span class="o">!=</span> <span class="sc">'-'</span><span class="o">)</span>
+                <span class="k">else</span> <span class="kc">false</span>
+
+  <span class="cm">/**
+   * This function should return the position of character `c` in the
+   * terrain described by `levelVector`. You can assume that the `c`
+   * appears exactly once in the terrain.
+   *
+   * Hint: you can use the functions `indexWhere` and / or `indexOf` of the
+   * `Vector` class
+   */</span>
+  <span class="k">def</span> <span class="n">findChar</span><span class="o">(</span><span class="n">c</span><span class="k">:</span> <span class="kt">Char</span><span class="o">,</span> <span class="n">levelVector</span><span class="k">:</span> <span class="kt">Vector</span><span class="o">[</span><span class="kt">Vector</span><span class="o">[</span><span class="kt">Char</span><span class="o">]])</span><span class="k">:</span> <span class="kt">Pos</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="k">val</span> <span class="n">row</span> <span class="k">=</span> <span class="n">levelVector</span><span class="o">.</span><span class="n">indexWhere</span><span class="o">(</span><span class="n">v</span> <span class="k">=&gt;</span> <span class="n">v</span><span class="o">.</span><span class="n">indexOf</span><span class="o">(</span><span class="n">c</span><span class="o">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span>
+    <span class="k">val</span> <span class="n">col</span> <span class="k">=</span> <span class="n">levelVector</span><span class="o">(</span><span class="n">row</span><span class="o">).</span><span class="n">indexOf</span><span class="o">(</span><span class="n">c</span><span class="o">)</span>
+
+    <span class="nc">Pos</span><span class="o">(</span><span class="n">row</span><span class="o">,</span><span class="n">col</span><span class="o">)</span>
+  <span class="o">}</span>
+
+  <span class="k">private</span> <span class="k">lazy</span> <span class="k">val</span> <span class="n">vector</span><span class="k">:</span> <span class="kt">Vector</span><span class="o">[</span><span class="kt">Vector</span><span class="o">[</span><span class="kt">Char</span><span class="o">]]</span> <span class="k">=</span>
+    <span class="nc">Vector</span><span class="o">(</span><span class="n">level</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">"\n"</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="n">str</span> <span class="k">=&gt;</span> <span class="nc">Vector</span><span class="o">(</span><span class="n">str</span><span class="k">:</span> <span class="k">_</span><span class="kt">*</span><span class="o">))</span><span class="k">:</span> <span class="k">_</span><span class="kt">*</span><span class="o">)</span>
+
+  <span class="k">lazy</span> <span class="k">val</span> <span class="n">terrain</span><span class="k">:</span> <span class="kt">Terrain</span> <span class="o">=</span> <span class="n">terrainFunction</span><span class="o">(</span><span class="n">vector</span><span class="o">)</span>
+  <span class="k">lazy</span> <span class="k">val</span> <span class="n">startPos</span><span class="k">:</span> <span class="kt">Pos</span> <span class="o">=</span> <span class="n">findChar</span><span class="o">(</span><span class="sc">'S'</span><span class="o">,</span> <span class="n">vector</span><span class="o">)</span>
+  <span class="k">lazy</span> <span class="k">val</span> <span class="n">goal</span><span class="k">:</span> <span class="kt">Pos</span> <span class="o">=</span> <span class="n">findChar</span><span class="o">(</span><span class="sc">'T'</span><span class="o">,</span> <span class="n">vector</span><span class="o">)</span>
+
+<span class="o">}</span></pre></td></tr></tbody></table></code></pre></figure>
+
+</div>
+      <div class="panel-footer" style="background-color:#292929; color:#dddddd;">End of StringParserTerrain</div>
+    </div>
+  </div>
+</div>
+
+
+                    
+
+                  </div>
+                  
+                  <div class="PageNavigation">
+                    
+                        <a href="/2019/01/07/Scala-Spec-Pt-1-Wk-6" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Scala Specialization Part 1 Week 6" style="background-color:#c66331; color: #ececec;" >&laquo; Last Post</a>
+                    
+                    
+                  </div>
+
+                  <br>
+                  
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+              <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/2019/01/11/Scala-Spec-Pt-2-Wk-8">Scala Specialization Part 2 Week 8</a></li>
+    
+    <li><a href="/2019/01/07/Scala-Spec-Pt-1-Wk-6">Scala Specialization Part 1 Week 6</a></li>
+    
+    <li><a href="/2019/01/04/Scala-Spec-Pt-1-Wk-5">Scala Specialization Part 1 Week 5</a></li>
+    
+    <li><a href="/2018/12/05/Teach-Yourself-TCPIP">Sams Teach Yourself TCP/IP in 24 Hours</a></li>
+    
+    <li><a href="/2018/12/05/MCS-Notes-Week-14">MCS 1st Semester Week 14 Notes</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul class="sideBarTags">
+    
+    
+    <li>
+      <a href="/tag/UIUC-MCS" data-toggle="tooltip" data-placement="right" title="13">
+        <span>UIUC-MCS</span></a></li>
+    
+    <li>
+      <a href="/tag/adcssra" data-toggle="tooltip" data-placement="right" title="1">
+        <span>adcssra</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithms" data-toggle="tooltip" data-placement="right" title="13">
+        <span>algorithms</span></a></li>
+    
+    <li>
+      <a href="/tag/algorithmsilluminated" data-toggle="tooltip" data-placement="right" title="7">
+        <span>algorithmsilluminated</span></a></li>
+    
+    <li>
+      <a href="/tag/bookexercises" data-toggle="tooltip" data-placement="right" title="6">
+        <span>bookexercises</span></a></li>
+    
+    <li>
+      <a href="/tag/books" data-toggle="tooltip" data-placement="right" title="1">
+        <span>books</span></a></li>
+    
+    <li>
+      <a href="/tag/c++" data-toggle="tooltip" data-placement="right" title="12">
+        <span>c++</span></a></li>
+    
+    <li>
+      <a href="/tag/coursera" data-toggle="tooltip" data-placement="right" title="21">
+        <span>coursera</span></a></li>
+    
+    <li>
+      <a href="/tag/helloworld" data-toggle="tooltip" data-placement="right" title="2">
+        <span>helloworld</span></a></li>
+    
+    <li>
+      <a href="/tag/java" data-toggle="tooltip" data-placement="right" title="6">
+        <span>java</span></a></li>
+    
+    <li>
+      <a href="/tag/netbeans" data-toggle="tooltip" data-placement="right" title="1">
+        <span>netbeans</span></a></li>
+    
+    <li>
+      <a href="/tag/networking" data-toggle="tooltip" data-placement="right" title="1">
+        <span>networking</span></a></li>
+    
+    <li>
+      <a href="/tag/roughgarden" data-toggle="tooltip" data-placement="right" title="20">
+        <span>roughgarden</span></a></li>
+    
+    <li>
+      <a href="/tag/scala" data-toggle="tooltip" data-placement="right" title="7">
+        <span>scala</span></a></li>
+    
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </div>
+        
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'nnard1616-github-io'; // required: replace example with your forum shortname
+  var disqus_identifier = "/2019/01/11/Scala-Spec-Pt-2-Wk-8";
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+          <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Improvidus, Apto, quod Victum</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="nnard1616 on Github" href="https://github.com/nnard1616" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title="nathan-nard-103278bb on LinkedIn" href="https://www.linkedin.com/in/nathan-nard-103278bb" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  </body>
+</html>

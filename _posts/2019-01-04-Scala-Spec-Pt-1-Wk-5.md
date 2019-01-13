@@ -17,7 +17,7 @@ tags:
         * [Natural vs Structural Induction](#natural-vs-structural-induction)
         * [The Proof](#the-proof)
     * [Proving Concatenation of Nil is commutative](#proving-concatenation-of-nil-is-commutative)
-    * [Proving Reverse of a list is oscillatingly idempotent](#proving-reverse-of-a-list-is-oscillatingly-idempotent)
+    * [Proving Reverse of a list is Discretely Periodic with Order 2.](#proving-reverse-of-a-list-is-discretely-periodic-with-order-2)
         * [Lemma 1 Proof](#lemma-1-proof)
     * [Proving Distributive property of map across concatenation](#proving-distributive-property-of-map-across-concatenation)
 
@@ -139,7 +139,7 @@ x :: xs = x :: xs //No steps necessary, already at target expression
 Since both the left and right sides equate to the same expression, the hypothesis is proven. **&#8718;**{:.highlighted}
 
 
-## Proving Reverse of a list is oscillatingly idempotent
+## Proving Reverse of a list is Discretely Periodic with Order 2.
 
 --- 
 
@@ -163,7 +163,7 @@ From this implementation we can make out the following clauses for list reversal
 (x :: xs).reverse = xs.reverse ++ List(x)  // 2nd clause
 ```
 
-We'd like to prove that list reversal is "osciallatingly idempotent", ie:
+We'd like to prove that list reversal is Discretely Periodic of Order 2, ie:
 
 ```
 xs.reverse.reverse = xs  (**)
