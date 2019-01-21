@@ -7,6 +7,139 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>MCS 2nd Semester Week 1 Notes</title>
+				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-484-parallel-programming&quot;&gt;CS 484 Parallel Programming&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#lesson-1-1&quot;&gt;Lesson 1-1&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#components-of-a-processor&quot;&gt;Components of a Processor&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#early-history-of-computers&quot;&gt;Early History of Computers&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#moores-law&quot;&gt;Moores Law&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#end-of-moores-law-and-parallelism&quot;&gt;End of Moores Law and Parallelism&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#peek-into-the-future&quot;&gt;Peek into the Future&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#lesson-1-2&quot;&gt;Lesson 1-2&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#performance-via-complexity&quot;&gt;Performance Via Complexity&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#memory-access-challenges&quot;&gt;Memory Access Challenges&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cs-498-cloud-computing-applications&quot;&gt;CS 498 Cloud Computing Applications&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#goals&quot;&gt;Goals&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#key-concepts&quot;&gt;Key Concepts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#readings-and-resources&quot;&gt;Readings and Resources&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- vim-markdown-toc --&gt;
+
+&lt;h1 id=&quot;cs-484-parallel-programming&quot;&gt;CS 484 Parallel Programming&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;lesson-1-1&quot;&gt;Lesson 1-1&lt;/h2&gt;
+
+&lt;h3 id=&quot;components-of-a-processor&quot;&gt;Components of a Processor&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;To be able to effectively program a modern multiprocessor, we have to understand what it is made up of and how it came to be the way it is today.&lt;/li&gt;
+  &lt;li&gt;Must have optimal sequential programs before we can use parallel programming&lt;/li&gt;
+  &lt;li&gt;Need switches that turn on off automatically via voltage application&lt;/li&gt;
+  &lt;li&gt;Computers are made from some very simple components by putting a large number of them together &lt;em class=&quot;yhighlighted&quot;&gt;in interesting ways&lt;/em&gt;, and &lt;em class=&quot;yhighlighted&quot;&gt;running them really fast&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;early-history-of-computers&quot;&gt;Early History of Computers&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;History be dank yo.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;moores-law&quot;&gt;Moores Law&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;In one clock cycle: instruction is fetched from memory, operands fetched, arithmetic performed, results stored back.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;end-of-moores-law-and-parallelism&quot;&gt;End of Moores Law and Parallelism&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Power limit due to temperature, and transistor limit due to close to atomic sizes&lt;/li&gt;
+  &lt;li&gt;We are in the early days of the Era of Parallel Computing!
+    &lt;h3 id=&quot;peek-into-the-future&quot;&gt;Peek into the Future&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The future is promising for parallel programmers&lt;/li&gt;
+  &lt;li&gt;Times are changing, ie innovation is becoming stagnant in terms of processors&lt;/li&gt;
+  &lt;li&gt;Those who can “get” parallel will have an advantage&lt;/li&gt;
+  &lt;li&gt;If killer parallel app doesn’t arrive, progress on single multiprocessor chips will stall&lt;/li&gt;
+  &lt;li&gt;Complete “stasis” after 7-10-ish years, but then such things have been predicted before.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;lesson-1-2&quot;&gt;Lesson 1-2&lt;/h2&gt;
+
+&lt;h3 id=&quot;performance-via-complexity&quot;&gt;Performance Via Complexity&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;obstacles to speed:
+    &lt;ul&gt;
+      &lt;li&gt;long chain of gate delays&lt;/li&gt;
+      &lt;li&gt;floating point computations&lt;/li&gt;
+      &lt;li&gt;slow memory&lt;/li&gt;
+      &lt;li&gt;virtual memory and paging&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Overcoming these obstacles can lead to significant increase in complexity, and can make performance difficult to predict and control.&lt;/li&gt;
+  &lt;li&gt;latency vs throughput and bandwidth&lt;/li&gt;
+  &lt;li&gt;Programming to avoid branch misprediction
+    &lt;ul&gt;
+      &lt;li&gt;when you have data dependent branches that are hard to predict:
+        &lt;ul&gt;
+          &lt;li&gt;see if you can convert them into non-branching code!&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Conditional move instructions help, and normally compilers should do the right thing, but sometimes compilers aren’t able to&lt;/li&gt;
+      &lt;li&gt;For example:
+        &lt;ul&gt;
+          &lt;li&gt;Sum += expression that evaluates to data[c] if &amp;gt;128 or 0 otherwise;&lt;/li&gt;
+          &lt;li&gt;Or, since there are only 255 possible values, pre-create a lookup table&lt;/li&gt;
+          &lt;li&gt;Sum += table[data[c]];&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;memory-access-challenges&quot;&gt;Memory Access Challenges&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Memory is slow, one way to help alleviate this bottleneck is to have intermediary memory devices in between the processor and storage memory (chaches)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;cs-498-cloud-computing-applications&quot;&gt;CS 498 Cloud Computing Applications&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
+
+&lt;h2 id=&quot;key-concepts&quot;&gt;Key Concepts&lt;/h2&gt;
+
+&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
+
+&lt;h2 id=&quot;readings-and-resources&quot;&gt;Readings and Resources&lt;/h2&gt;
+
+&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
+
+</description>
+				<pubDate>Wed, 16 Jan 2019 00:00:00 -0600</pubDate>
+				<link>/2019/01/16/MCS-Notes-Week-1</link>
+				<guid isPermaLink="true">/2019/01/16/MCS-Notes-Week-1</guid>
+			</item>
+		
+			<item>
 				<title>Scala Specialization Part 2 Week 8</title>
 				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
 
@@ -3460,351 +3593,6 @@ Latent Dirichlet Allocation (LDA)&lt;/p&gt;
 				<pubDate>Mon, 05 Nov 2018 00:00:00 -0600</pubDate>
 				<link>/2018/11/05/MCS-Notes-Week-9</link>
 				<guid isPermaLink="true">/2018/11/05/MCS-Notes-Week-9</guid>
-			</item>
-		
-			<item>
-				<title>MCS 1st Semester Week 8 Notes</title>
-				<description>&lt;!-- vim-markdown-toc Redcarpet --&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#guiding-questions&quot;&gt;Guiding Questions&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#8-1-syntagmatic-relation-discovery&quot;&gt;8-1 Syntagmatic Relation Discovery&lt;/a&gt;
-            &lt;ul&gt;
-              &lt;li&gt;&lt;a href=&quot;#8-1-1-entropy&quot;&gt;8-1-1 Entropy&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#8-1-2-conditional-entropy&quot;&gt;8-1-2 Conditional Entropy&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#8-1-3-mutual-information-part-1&quot;&gt;8-1-3 Mutual Information Part 1&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#8-1-4-mutual-information-part-2&quot;&gt;8-1-4 Mutual Information Part 2&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#8-2-topic-mining-and-analysis&quot;&gt;8-2 Topic Mining and Analysis&lt;/a&gt;
-            &lt;ul&gt;
-              &lt;li&gt;&lt;a href=&quot;#8-2-1-motivation-and-task-definition&quot;&gt;8-2-1 Motivation and Task Definition&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#8-2-2-term-as-topic&quot;&gt;8-2-2 Term as Topic&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&quot;#8-2-3-probabalistic-topic-models&quot;&gt;8-2-3 Probabalistic Topic Models&lt;/a&gt;
-                &lt;ul&gt;
-                  &lt;li&gt;&lt;a href=&quot;#8-2-3-1-overview-of-statistical-language-models-part-1&quot;&gt;8-2-3-1 Overview of Statistical Language Models Part 1&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href=&quot;#8-2-3-2-overview-of-statistical-language-models-part-2&quot;&gt;8-2-3-2 Overview of Statistical Language Models Part 2&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href=&quot;#8-2-3-3-mining-one-topic&quot;&gt;8-2-3-3 Mining One Topic&lt;/a&gt;&lt;/li&gt;
-                &lt;/ul&gt;
-              &lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#goals-and-objectives&quot;&gt;Goals and Objectives&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#5-7-design-pattern&quot;&gt;5-7 Design Pattern&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#5-8-observer-pattern&quot;&gt;5-8 Observer Pattern&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#5-9-composite-pattern&quot;&gt;5-9 Composite Pattern&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!-- vim-markdown-toc --&gt;
-
-&lt;h1 id=&quot;cs-410-text-information-systems&quot;&gt;CS 410 Text Information Systems&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(under constructior construction)&lt;/p&gt;
-
-&lt;h2 id=&quot;goals-and-objectives&quot;&gt;Goals and Objectives&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Explain some basic concepts in natural language processing and text information access.&lt;/li&gt;
-  &lt;li&gt;Explain why text retrieval is often defined as a ranking problem.&lt;/li&gt;
-  &lt;li&gt;Explain the basic idea of the vector space retrieval model and how to instantiate it with the simplest bit-vector representation.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;guiding-questions&quot;&gt;Guiding Questions&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;What is entropy? For what kind of random variables does the entropy function reach its minimum and maximum, respectively?&lt;/li&gt;
-  &lt;li&gt;What is conditional entropy?&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;What is the relation between conditional entropy H(X&lt;/td&gt;
-          &lt;td&gt;Y) and entropy H(X)? Which is larger?&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;How can conditional entropy be used for discovering syntagmatic relations?&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;What is mutual information I(X;Y)? How is it related to entropy H(X) and conditional entropy H(X&lt;/td&gt;
-          &lt;td&gt;Y)?&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;What’s the minimum value of I(X;Y)? Is it symmetric?&lt;/li&gt;
-  &lt;li&gt;For what kind of X and Y, does mutual information I(X;Y) reach its minimum? For a given X, for what Y does I(X;Y) reach its maximum?&lt;/li&gt;
-  &lt;li&gt;Why is mutual information sometimes more useful for discovering syntagmatic relations than conditional entropy?&lt;/li&gt;
-  &lt;li&gt;What is a topic?&lt;/li&gt;
-  &lt;li&gt;How can we define the task of topic mining and analysis computationally? What’s the input? What’s the output?&lt;/li&gt;
-  &lt;li&gt;How can we heuristically solve the problem of topic mining and analysis by treating a term as a topic? What are the main problems of such an approach?&lt;/li&gt;
-  &lt;li&gt;What are the benefits of representing a topic by a word distribution?&lt;/li&gt;
-  &lt;li&gt;What is a statistical language model? What is a unigram language model? How can we compute the probability of a sequence of words given a unigram language model?&lt;/li&gt;
-  &lt;li&gt;What is Maximum Likelihood estimate of a unigram language model given a text article?&lt;/li&gt;
-  &lt;li&gt;What is the basic idea of Bayesian estimation? What is a prior distribution? What is a posterior distribution? How are they related with each other? What is Bayes rule?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;additional-readings-and-resources&quot;&gt;Additional Readings and Resources&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;C. Zhai and S. Massung. Text Data Management and Analysis: A Practical Introduction to Information Retrieval and Text Mining, ACM and Morgan &amp;amp; Claypool Publishers, 2016. Chapters 13, 17.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;key-phrases-and-concepts&quot;&gt;Key Phrases and Concepts&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Entropy&lt;/li&gt;
-  &lt;li&gt;Conditional entropy&lt;/li&gt;
-  &lt;li&gt;Mutual information&lt;/li&gt;
-  &lt;li&gt;Topic and coverage of topic&lt;/li&gt;
-  &lt;li&gt;Language model&lt;/li&gt;
-  &lt;li&gt;Generative model&lt;/li&gt;
-  &lt;li&gt;Unigram language model&lt;/li&gt;
-  &lt;li&gt;Word distribution&lt;/li&gt;
-  &lt;li&gt;Background language model&lt;/li&gt;
-  &lt;li&gt;Parameters of a probabilistic model&lt;/li&gt;
-  &lt;li&gt;Likelihood&lt;/li&gt;
-  &lt;li&gt;Bayes rule&lt;/li&gt;
-  &lt;li&gt;Maximum likelihood estimation&lt;/li&gt;
-  &lt;li&gt;Prior and posterior distributions&lt;/li&gt;
-  &lt;li&gt;Bayesian estimation &amp;amp; inference&lt;/li&gt;
-  &lt;li&gt;Maximum a posteriori (MAP) estimate&lt;/li&gt;
-  &lt;li&gt;Prior model&lt;/li&gt;
-  &lt;li&gt;Posterior mode&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;video-lecture-notes&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-000.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;8-1-syntagmatic-relation-discovery&quot;&gt;8-1 Syntagmatic Relation Discovery&lt;/h3&gt;
-
-&lt;h4 id=&quot;8-1-1-entropy&quot;&gt;8-1-1 Entropy&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-001.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-002.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-003.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-004.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-005.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-006.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;8-1-2-conditional-entropy&quot;&gt;8-1-2 Conditional Entropy&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Entropy of a word being present is minimum when given exact word is present (ie 0)&lt;/li&gt;
-  &lt;li&gt;Entropy of a word being present is maximum when given unrelated word is present (ie, H(Xword))&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-007.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-008.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-009.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-010.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-011.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;8-1-3-mutual-information-part-1&quot;&gt;8-1-3 Mutual Information Part 1&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-012.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-013.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-014.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-015.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-016.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-017.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-018.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;8-1-4-mutual-information-part-2&quot;&gt;8-1-4 Mutual Information Part 2&lt;/h4&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-019.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-020.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-021.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-022.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-023.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;8-2-topic-mining-and-analysis&quot;&gt;8-2 Topic Mining and Analysis&lt;/h3&gt;
-
-&lt;h4 id=&quot;8-2-1-motivation-and-task-definition&quot;&gt;8-2-1 Motivation and Task Definition&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-024.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-025.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-026.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-027.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;8-2-2-term-as-topic&quot;&gt;8-2-2 Term as Topic&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-028.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-029.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-030.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-031.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-032.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-033.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;8-2-3-probabalistic-topic-models&quot;&gt;8-2-3 Probabalistic Topic Models&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-034.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-035.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-036.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-037.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-038.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-039.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-040.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-041.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-042.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-043.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h5 id=&quot;8-2-3-1-overview-of-statistical-language-models-part-1&quot;&gt;8-2-3-1 Overview of Statistical Language Models Part 1&lt;/h5&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-044.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-045.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-046.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-047.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h5 id=&quot;8-2-3-2-overview-of-statistical-language-models-part-2&quot;&gt;8-2-3-2 Overview of Statistical Language Models Part 2&lt;/h5&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-048.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-049.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-050.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-051.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h5 id=&quot;8-2-3-3-mining-one-topic&quot;&gt;8-2-3-3 Mining One Topic&lt;/h5&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-052.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-053.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-054.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/images/20181017/CS410-wk8-img-055.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;cs-425-distributed-systems&quot;&gt;CS 425 Distributed Systems&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;No new content this week, midterm.&lt;/p&gt;
-
-&lt;h1 id=&quot;cs-427-software-engineering&quot;&gt;CS 427 Software Engineering&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;goals-and-objectives-1&quot;&gt;Goals and Objectives&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Design pattern&lt;/li&gt;
-  &lt;li&gt;Observer pattern&lt;/li&gt;
-  &lt;li&gt;Composite pattern&lt;/li&gt;
-  &lt;li&gt;Interpreter Pattern&lt;/li&gt;
-  &lt;li&gt;Visitor Pattern&lt;/li&gt;
-  &lt;li&gt;Template Method Pattern&lt;/li&gt;
-  &lt;li&gt;Iterator Pattern&lt;/li&gt;
-  &lt;li&gt;Strategy Pattern&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;video-lecture-notes-1&quot;&gt;Video Lecture Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;5-7-design-pattern&quot;&gt;5-7 Design Pattern&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;A design pattern is the description of &lt;strong class=&quot;highlighted&quot;&gt;communicating objects and classes&lt;/strong&gt; that are customized to solve a general design problem in a particular context, identifying:
-    &lt;ul&gt;
-      &lt;li&gt;The participating classes and objects&lt;/li&gt;
-      &lt;li&gt;Their roles and collaborations&lt;/li&gt;
-      &lt;li&gt;The distribution of responsibilities&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Gang of Four Book: Design Patterns, elements of reusable object-oriented software
-    &lt;ul&gt;
-      &lt;li&gt;presents 23 object-oriented patterns:
-        &lt;ul&gt;
-          &lt;li&gt;creational patterns (5)&lt;/li&gt;
-          &lt;li&gt;structural patterns (7)&lt;/li&gt;
-          &lt;li&gt;behavioral patterns (11)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;5-8-observer-pattern&quot;&gt;5-8 Observer Pattern&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Using an observer pattern can reduce cycles of dependency (one to many dependency)
-    &lt;ul&gt;
-      &lt;li&gt;Cycles of dependence
-        &lt;ul&gt;
-          &lt;li&gt;If package A depends on package B, then you cannot run the tests for A unless you also have B
-            &lt;ul&gt;
-              &lt;li&gt;“A depends on B” means you cannot use A unless you have B&lt;/li&gt;
-              &lt;li&gt;“Package A depends on packageB” means that something in A deponds on something in B&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-          &lt;li&gt;IF package A depends on package B, then package B should &lt;strong class=&quot;highlighted&quot;&gt;NOT&lt;/strong&gt; depend on package A
-            &lt;ul&gt;
-              &lt;li&gt;If classes C and D both depend on each other, put them in the same package&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;5-9-composite-pattern&quot;&gt;5-9 Composite Pattern&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Composite
-    &lt;ul&gt;
-      &lt;li&gt;problem:
-        &lt;ul&gt;
-          &lt;li&gt;Complex part-whole hierarchy has lots of similar classes
-            &lt;ul&gt;
-              &lt;li&gt;Example: book, chaptter, section, paragraph&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Objectives
-        &lt;ul&gt;
-          &lt;li&gt;Simplicity - treat composite (ie, composition of parts) like a part&lt;/li&gt;
-          &lt;li&gt;Power - create new kind of part by composing existing ones&lt;/li&gt;
-          &lt;li&gt;Safety - treat parts and composites uniformly (no special cases)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS427-wk8-img-1.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Behavioral Patterns:
-    &lt;ul&gt;
-      &lt;li&gt;Observer: Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.&lt;/li&gt;
-      &lt;li&gt;Visitor: Represent an operation to be performed on the elements of an object structure.  Visitor lets you define a new operation without changing the classes of the elements on which it operates.&lt;/li&gt;
-      &lt;li&gt;Interpreter: Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.&lt;/li&gt;
-      &lt;li&gt;Template Method: Define the skeleton of an algorithm in an operation, deferring some steps to subclasses.  Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm’s structure.&lt;/li&gt;
-      &lt;li&gt;Iterator: Provide a way to access the elemetns of an aggregate object sequentially without exposing its underlying representation.&lt;/li&gt;
-      &lt;li&gt;Strategy: Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Structural Patterns
-    &lt;ul&gt;
-      &lt;li&gt;Composite: Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20181017/CS427-wk8-img-2.png&quot; alt=&quot;img&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-</description>
-				<pubDate>Wed, 17 Oct 2018 00:00:00 -0500</pubDate>
-				<link>/2018/10/17/MCS-Notes-Week-8</link>
-				<guid isPermaLink="true">/2018/10/17/MCS-Notes-Week-8</guid>
 			</item>
 		
 	</channel>
